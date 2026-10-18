@@ -6,3 +6,4 @@ Plataforma white-label e multi-segmento para vender e ministrar mentorias, trein
 - **Fase 2 — Biblioteca de Materiais (pipeline, schema de blocos, modelo de dados):** [`docs/FASE-2-BIBLIOTECA.md`](docs/FASE-2-BIBLIOTECA.md) — aguardando aprovação.
 - **Fase 3 — Questões, avaliações, fórum e desempenho (modelo de dados, regras de aprovação, fluxo de correção):** [`docs/FASE-3-AVALIACOES-FORUM.md`](docs/FASE-3-AVALIACOES-FORUM.md) — aguardando aprovação.
 - **Fase 4 — Certificação (modelo de dados, fluxo de assinatura, página de validação):** [`docs/FASE-4-CERTIFICACAO.md`](docs/FASE-4-CERTIFICACAO.md) — aguardando aprovação.
+- **Fase 5 — Camada comercial e painel de gestão (modelo financeiro, pagamento/webhook, régua de inadimplência, checklist de go-live):** [`docs/FASE-5-COMERCIAL.md`](docs/FASE-5-COMERCIAL.md) — aguardando aprovação.
