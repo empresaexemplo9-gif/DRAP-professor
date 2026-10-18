@@ -15,7 +15,7 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-dvh flex-col">
       <header className="no-print sticky top-0 z-30 border-b border-border bg-bg/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+        <div className="flex w-full items-center justify-between gap-4 px-4 sm:px-8 lg:px-12 2xl:px-16 py-3">
           <Brand name={tenant.name} logoUrl={logoUrl} />
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">
@@ -37,7 +37,7 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
             )}
           </div>
         </div>
-        <nav aria-label="Níveis" className="mx-auto max-w-7xl overflow-x-auto px-4">
+        <nav aria-label="Níveis" className="w-full overflow-x-auto px-4 sm:px-8 lg:px-12 2xl:px-16">
           <ul className="flex min-w-max gap-1">
             {levels.map((l) => (
               <li key={l.slug}>
@@ -49,11 +49,11 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
           </ul>
         </nav>
       </header>
-      <main id="conteudo" className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:py-12">
+      <main id="conteudo" className="w-full flex-1 px-4 sm:px-8 lg:px-12 2xl:px-16 py-8 sm:py-12">
         {children}
       </main>
       <footer className="no-print border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-sm text-text-muted sm:flex-row sm:justify-between">
+        <div className="flex w-full flex-col gap-3 px-4 sm:px-8 lg:px-12 2xl:px-16 py-6 text-sm text-text-muted sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} {tenant.name}</p>
           <nav aria-label="Documentos legais" className="flex gap-4">
             <Link href="/termos" className="text-text-muted">Termos de uso</Link>

@@ -70,7 +70,7 @@ export default async function PainelHome({ searchParams }: { searchParams: Promi
             action={<ButtonLink href="/painel/catalogo">Abrir o catálogo</ButtonLink>}
           />
         ) : (
-          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {data.enrollments.map((e) => {
               const total = e.module._count.topics;
               const pct = total ? (e.progress.length / total) * 100 : 0;

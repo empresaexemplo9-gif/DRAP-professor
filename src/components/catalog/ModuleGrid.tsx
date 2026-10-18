@@ -14,7 +14,7 @@ export function ModuleGrid({
   modules: { id: string; slug: string; title: string; summary: string | null; workloadMinutes: number; _count: { topics: number } }[];
 }) {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {modules.map((m) => (
         <li key={m.id}>
           <Link href={levelPath(levelSlug, segmentSlug, m.slug)} className="block h-full no-underline">
