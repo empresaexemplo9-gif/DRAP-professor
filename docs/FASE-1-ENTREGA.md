@@ -50,7 +50,7 @@ Roteiro manual:
 | `npm run lint` | ESLint + regra "nenhuma cor literal fora do arquivo de tema" |
 | `npm run typecheck` | TypeScript estrito |
 | `npm test` | 26 testes: contraste WCAG, saneamento do tema, matriz de permissões, blocos (rejeita HTML/estilo), marcação inline (sem `javascript:`), CPF, configuração por nível e **isolamento RLS entre tenants** |
-| `npm run test:e2e` | Desktop e celular: navegação pública nos dois temas, 5 níveis, permissões por perfil, leitura e conclusão de assunto, criação → publicação de conteúdo, troca de tema refletindo no conteúdo publicado, recusa de contraste ruim, sem rolagem horizontal; **axe-core (WCAG 2.1 AA)** em cada tela |
+| `npm run test:e2e` | Desktop e celular: navegação pública nos dois temas, 5 níveis, permissões por perfil, leitura e conclusão de assunto, troca de senha, criação → publicação de conteúdo, troca de tema refletindo no conteúdo publicado, recusa de contraste ruim, sem rolagem horizontal; **axe-core (WCAG 2.1 AA)** em cada tela |
 
 A CI (`.github/workflows/ci.yml`) roda tudo isso a cada PR.
 

@@ -34,12 +34,13 @@ test("admin cria segmento, módulo e assunto e publica — página no tema, sem 
   await page.getByLabel(/Tabela:/).blur();
 
   page.once("dialog", (d) => d.accept("primeira versão"));
-  await page.getByRole("button", { name: "Publicar" }).click();
+  await page.getByRole("button", { name: "Publicar", exact: true }).click();
   await expect(page.getByText("Versão 1 publicada.")).toBeVisible();
 
   await page.getByRole("link", { name: `Módulo E2E ${stamp}` }).click();
-  await page.locator("form").filter({ has: page.getByRole("button", { name: "Publicar" }) }).getByRole("button", { name: "Publicar" }).click();
-  await expect(page.getByText("Publicado").first()).toBeVisible();
+  await page.waitForURL(/\/painel\/conteudo\/modulos\//);
+  await page.getByRole("button", { name: "Publicar", exact: true }).click();
+  await expect(page.getByRole("link", { name: "Ver página" })).toBeVisible();
 
   await page.goto(`/treinamentos/segmento-${stamp}/modulo-e2e-${stamp}/assunto-de-teste`);
   const article = page.locator("article");

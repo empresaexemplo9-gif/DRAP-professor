@@ -43,3 +43,17 @@ test("admin acessa todas as abas", async ({ page, isMobile }) => {
     await expect(nav.getByRole("link", { name: tab })).toBeVisible();
   }
 });
+
+test("usuário troca a própria senha e volta à original", async ({ page, isMobile }) => {
+  test.skip(isMobile);
+  const temp = "Temp@987654321";
+  await login(page, "instrutor@exemplo.com.br", DEMO_PASSWORD);
+  for (const [from, to] of [[DEMO_PASSWORD, temp], [temp, DEMO_PASSWORD]]) {
+    await page.goto("/painel/conta");
+    await page.getByLabel("Senha atual").fill(from!);
+    await page.getByLabel("Nova senha", { exact: true }).fill(to!);
+    await page.getByLabel("Confirme a nova senha").fill(to!);
+    await page.getByRole("button", { name: "Alterar senha" }).click();
+    await expect(page.getByText("Senha alterada.")).toBeVisible();
+  }
+});

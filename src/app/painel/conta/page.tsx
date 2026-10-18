@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/ui/misc";
 import { Card } from "@/components/ui/Card";
 import { TwoFactorPanel } from "./TwoFactorPanel";
 import { SessionsPanel } from "./SessionsPanel";
+import { ChangePasswordPanel } from "./ChangePasswordPanel";
 
 export const metadata: Metadata = { title: "Minha conta" };
 
@@ -18,6 +19,10 @@ export default async function AccountPage() {
         <Card>
           <h2 className="mb-3 font-display text-xl text-text">Verificação em duas etapas</h2>
           <TwoFactorPanel enabled={Boolean(viewer.user.twoFactorEnabled)} />
+        </Card>
+        <Card>
+          <h2 className="mb-3 font-display text-xl text-text">Senha</h2>
+          <ChangePasswordPanel />
         </Card>
         <Card>
           <h2 className="mb-3 font-display text-xl text-text">Sessões ativas</h2>
