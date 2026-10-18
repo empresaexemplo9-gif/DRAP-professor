@@ -1,0 +1,451 @@
+// Modelo de dados — Fase 1 (ver docs/ARQUITETURA.md, seção 7).
+// Tabelas com "tenantId" são protegidas por Row-Level Security (migração 0002_rls).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ───────────────────────────── Tenant ─────────────────────────────
+
+model Tenant {
+  id          String       @id @default(uuid(7)) @db.Uuid
+  name        String
+  slug        String       @unique
+  domains     String[]     @default([])
+  legalName   String?
+  cnpj        String?
+  status      TenantStatus @default(ACTIVE)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  theme       ThemeSettings?
+  memberships Membership[]
+  levels      Level[]
+  segments    Segment[]
+  modules     Module[]
+  topics      Topic[]
+
+  @@map("tenants")
+}
+
+enum TenantStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+model ThemeSettings {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @unique @db.Uuid
+  defaultMode ThemeMode @default(DARK)
+  // Sobrescritas de tokens validadas (ver src/theme/tokens.ts): { dark: {...}, light: {...}, fonts: {...} }
+  overrides   Json      @default("{}")
+  logoUrl     String?
+  updatedAt   DateTime  @updatedAt
+  updatedById String?
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@map("theme_settings")
+}
+
+enum ThemeMode {
+  DARK
+  LIGHT
+  SYSTEM
+}
+
+// ───────────────────────── Autenticação (Better Auth) ─────────────────────────
+
+model User {
+  id               String    @id
+  name             String
+  email            String    @unique
+  emailVerified    Boolean   @default(false)
+  image            String?
+  twoFactorEnabled Boolean?  @default(false)
+  // CPF cifrado (AES-256-GCM) e hash para busca; preenchido só quando necessário (certificado/nota fiscal)
+  cpfEncrypted     String?
+  cpfHash          String?   @unique
+  phone            String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  sessions    Session[]
+  accounts    Account[]
+  twoFactors  TwoFactor[]
+  memberships Membership[]
+  consents    Consent[]
+  enrollments Enrollment[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verifications")
+}
+
+model TwoFactor {
+  id          String @id
+  secret      String
+  backupCodes String
+  userId      String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("two_factors")
+}
+
+// ───────────────────────────── Perfis ─────────────────────────────
+
+enum Role {
+  ADMIN
+  PEDAGOGICO
+  INSTRUTOR
+  ALUNO
+}
+
+enum MembershipStatus {
+  ACTIVE
+  DISABLED
+}
+
+model Membership {
+  id        String           @id @default(uuid(7)) @db.Uuid
+  tenantId  String           @db.Uuid
+  userId    String
+  roles     Role[]
+  status    MembershipStatus @default(ACTIVE)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, userId])
+  @@map("memberships")
+}
+
+model Invitation {
+  id         String    @id @default(uuid(7)) @db.Uuid
+  tenantId   String    @db.Uuid
+  email      String
+  roles      Role[]
+  tokenHash  String    @unique
+  invitedBy  String
+  expiresAt  DateTime
+  acceptedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([tenantId, email])
+  @@map("invitations")
+}
+
+model Consent {
+  id              String      @id @default(uuid(7)) @db.Uuid
+  tenantId        String      @db.Uuid
+  userId          String
+  type            ConsentType
+  documentVersion String
+  acceptedAt      DateTime    @default(now())
+  ip              String?
+  revokedAt       DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@map("consents")
+}
+
+enum ConsentType {
+  TERMOS
+  PRIVACIDADE
+  MARKETING
+}
+
+// ───────────────────── Hierarquia: Nível › Segmento › Módulo › Assunto ─────────────────────
+
+enum LevelKind {
+  MENTORIA
+  TREINAMENTO
+  CURSO
+  AULA
+  CAPACITACAO
+}
+
+enum ContentStatus {
+  RASCUNHO
+  REVISAO
+  PUBLICADO
+  ARQUIVADO
+}
+
+enum CertificateType {
+  LIVRE
+  EXTENSAO
+  CAPACITACAO
+}
+
+model Level {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  kind        LevelKind
+  label       String
+  slug        String
+  description String?
+  order       Int
+  active      Boolean   @default(true)
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  modules Module[]
+
+  @@unique([tenantId, kind])
+  @@unique([tenantId, slug])
+  @@map("levels")
+}
+
+model Segment {
+  id          String   @id @default(uuid(7)) @db.Uuid
+  tenantId    String   @db.Uuid
+  name        String
+  slug        String
+  description String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  modules Module[]
+
+  @@unique([tenantId, slug])
+  @@map("segments")
+}
+
+model Module {
+  id              String          @id @default(uuid(7)) @db.Uuid
+  tenantId        String          @db.Uuid
+  levelId         String          @db.Uuid
+  segmentId       String          @db.Uuid
+  title           String
+  slug            String
+  summary         String?
+  coverUrl        String?
+  workloadMinutes Int             @default(0)
+  status          ContentStatus   @default(RASCUNHO)
+  certificateType CertificateType @default(LIVRE)
+  // Configuração específica do nível (validada por src/lib/levels.ts)
+  levelConfig     Json            @default("{}")
+  order           Int             @default(0)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  tenant      Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  level       Level         @relation(fields: [levelId], references: [id])
+  segment     Segment       @relation(fields: [segmentId], references: [id])
+  topics      Topic[]
+  staff       ModuleStaff[]
+  enrollments Enrollment[]
+
+  @@unique([levelId, segmentId, slug])
+  @@index([tenantId, status])
+  @@map("modules")
+}
+
+enum StaffRole {
+  AUTOR
+  INSTRUTOR
+  MENTOR
+}
+
+model ModuleStaff {
+  id       String    @id @default(uuid(7)) @db.Uuid
+  tenantId String    @db.Uuid
+  moduleId String    @db.Uuid
+  userId   String
+  role     StaffRole
+
+  module Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@unique([moduleId, userId, role])
+  @@map("module_staff")
+}
+
+model Topic {
+  id                 String        @id @default(uuid(7)) @db.Uuid
+  tenantId           String        @db.Uuid
+  moduleId           String        @db.Uuid
+  title              String
+  slug               String
+  order              Int           @default(0)
+  durationMinutes    Int           @default(0)
+  status             ContentStatus @default(RASCUNHO)
+  // Rascunho editável do documento em blocos (src/content-blocks/schema.ts)
+  draft              Json          @default("{}")
+  publishedVersionId String?       @unique @db.Uuid
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  tenant           Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  module           Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  versions         TopicVersion[]  @relation("TopicVersions")
+  publishedVersion TopicVersion?   @relation("PublishedVersion", fields: [publishedVersionId], references: [id])
+  progress         TopicProgress[]
+
+  @@unique([moduleId, slug])
+  @@map("topics")
+}
+
+model TopicVersion {
+  id         String   @id @default(uuid(7)) @db.Uuid
+  tenantId   String   @db.Uuid
+  topicId    String   @db.Uuid
+  number     Int
+  document   Json
+  authorId   String
+  changeNote String?
+  createdAt  DateTime @default(now())
+
+  topic       Topic  @relation("TopicVersions", fields: [topicId], references: [id], onDelete: Cascade)
+  publishedIn Topic? @relation("PublishedVersion")
+
+  @@unique([topicId, number])
+  @@map("topic_versions")
+}
+
+model SlugRedirect {
+  id        String   @id @default(uuid(7)) @db.Uuid
+  tenantId  String   @db.Uuid
+  fromPath  String
+  toPath    String
+  createdAt DateTime @default(now())
+
+  @@unique([tenantId, fromPath])
+  @@map("slug_redirects")
+}
+
+// ───────────────────────────── Matrículas e progresso ─────────────────────────────
+
+enum EnrollmentOrigin {
+  COMPRA
+  ASSINATURA
+  ATRIBUICAO
+  CORTESIA
+}
+
+enum EnrollmentStatus {
+  ATIVA
+  CONCLUIDA
+  CANCELADA
+  EXPIRADA
+}
+
+model Enrollment {
+  id        String           @id @default(uuid(7)) @db.Uuid
+  tenantId  String           @db.Uuid
+  userId    String
+  moduleId  String           @db.Uuid
+  origin    EnrollmentOrigin @default(ATRIBUICAO)
+  status    EnrollmentStatus @default(ATIVA)
+  startsAt  DateTime         @default(now())
+  endsAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module   Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress TopicProgress[]
+
+  @@unique([userId, moduleId])
+  @@map("enrollments")
+}
+
+enum ProgressStatus {
+  NAO_INICIADO
+  EM_ANDAMENTO
+  CONCLUIDO
+}
+
+model TopicProgress {
+  id             String         @id @default(uuid(7)) @db.Uuid
+  tenantId       String         @db.Uuid
+  enrollmentId   String         @db.Uuid
+  topicId        String         @db.Uuid
+  status         ProgressStatus @default(EM_ANDAMENTO)
+  percent        Int            @default(0)
+  lastSectionId  String?
+  completedAt    DateTime?
+  updatedAt      DateTime       @updatedAt
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, topicId])
+  @@map("topic_progress")
+}
+
+// ───────────────────────────── Auditoria e documentos legais ─────────────────────────────
+
+model AuditLog {
+  id         String   @id @default(uuid(7)) @db.Uuid
+  tenantId   String   @db.Uuid
+  actorId    String?
+  action     String
+  entity     String
+  entityId   String?
+  data       Json?
+  ip         String?
+  createdAt  DateTime @default(now())
+
+  @@index([tenantId, createdAt])
+  @@map("audit_logs")
+}

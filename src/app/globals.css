@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/*
+ * Mapeia os design tokens (variáveis --drap-*, emitidas pelo layout raiz a partir de
+ * src/theme/tokens.ts) para utilitários do Tailwind. A paleta padrão do Tailwind é
+ * desligada: só existem as cores do tema.
+ */
+@theme inline {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-bg: var(--drap-bg);
+  --color-surface: var(--drap-surface);
+  --color-surface-raised: var(--drap-surface-raised);
+  --color-border: var(--drap-border);
+  --color-border-strong: var(--drap-border-strong);
+  --color-text: var(--drap-text);
+  --color-text-muted: var(--drap-text-muted);
+  --color-text-on-primary: var(--drap-text-on-primary);
+  --color-text-on-accent: var(--drap-text-on-accent);
+  --color-primary: var(--drap-primary);
+  --color-primary-strong: var(--drap-primary-strong);
+  --color-primary-text: var(--drap-primary-text);
+  --color-accent: var(--drap-accent);
+  --color-accent-text: var(--drap-accent-text);
+  --color-success: var(--drap-success);
+  --color-warning: var(--drap-warning);
+  --color-danger: var(--drap-danger);
+  --color-focus-ring: var(--drap-focus-ring);
+
+  --font-*: initial;
+  --font-display: var(--drap-font-display);
+  --font-body: var(--drap-font-body);
+  --font-mono: var(--drap-font-mono);
+
+  --text-xs: var(--drap-text-xs);
+  --text-sm: var(--drap-text-sm);
+  --text-base: var(--drap-text-base);
+  --text-lg: var(--drap-text-lg);
+  --text-xl: var(--drap-text-xl);
+  --text-2xl: var(--drap-text-2xl);
+  --text-3xl: var(--drap-text-3xl);
+  --text-4xl: var(--drap-text-4xl);
+
+  --radius-*: initial;
+  --radius-sm: var(--drap-radius-sm);
+  --radius-md: var(--drap-radius-md);
+  --radius-lg: var(--drap-radius-lg);
+  --radius-xl: var(--drap-radius-xl);
+  --radius-full: var(--drap-radius-full);
+
+  --shadow-*: initial;
+  --shadow-sm: var(--drap-shadow-sm);
+  --shadow-md: var(--drap-shadow-md);
+  --shadow-glow: var(--drap-shadow-glow);
+
+  --ease-out: var(--drap-ease-out);
+}
+
+@layer base {
+  html {
+    font-size: calc(100% * var(--drap-reader-scale, 1));
+  }
+  body {
+    background: var(--drap-bg);
+    color: var(--drap-text);
+    font-family: var(--drap-font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--drap-font-display);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  a {
+    color: var(--drap-primary-text);
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--drap-primary) 35%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--drap-focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--drap-radius-sm);
+  }
+  * {
+    transition-timing-function: var(--drap-ease-out);
+  }
+}
+
+@layer components {
+  /* Conteúdo em blocos: largura de leitura e ritmo vertical definidos só por tokens. */
+  .drap-content {
+    max-width: 72ch;
+    font-size: var(--drap-text-base);
+  }
+  .drap-content > * + * {
+    margin-top: 1.1em;
+  }
+  .drap-content h2 {
+    font-size: var(--drap-text-2xl);
+    margin-top: 1.8em;
+  }
+  .drap-content h3 {
+    font-size: var(--drap-text-xl);
+    margin-top: 1.5em;
+  }
+  .drap-content h4 {
+    font-size: var(--drap-text-lg);
+    margin-top: 1.3em;
+  }
+  .drap-content ul {
+    list-style: disc;
+    padding-left: 1.4em;
+  }
+  .drap-content ol {
+    list-style: decimal;
+    padding-left: 1.4em;
+  }
+  .drap-content li + li {
+    margin-top: 0.35em;
+  }
+  .drap-content code {
+    font-family: var(--drap-font-mono);
+    font-size: 0.9em;
+    background: var(--drap-surface-raised);
+    border-radius: var(--drap-radius-sm);
+    padding: 0.1em 0.35em;
+  }
+  .drap-content pre code {
+    background: transparent;
+    padding: 0;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: var(--drap-surface);
+  }
+}
