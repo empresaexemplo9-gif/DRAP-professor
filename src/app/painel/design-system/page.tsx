@@ -15,7 +15,7 @@ const TEXT: Record<keyof typeof typeScale, string> = { xs: "text-xs", sm: "text-
 
 const SWATCH: Record<string, string> = {
   bg: "bg-bg", surface: "bg-surface", "surface-raised": "bg-surface-raised", border: "bg-border", text: "bg-text", "text-muted": "bg-text-muted",
-  primary: "bg-primary", "primary-strong": "bg-primary-strong", "primary-text": "bg-primary-text", accent: "bg-accent", "accent-text": "bg-accent-text",
+  primary: "bg-primary", "primary-strong": "bg-primary-strong", "primary-text": "bg-primary-text", accent: "bg-accent", "accent-text": "bg-accent-text", "brand-mark": "bg-brand-mark",
 };
 
 export default async function DesignSystemPage() {

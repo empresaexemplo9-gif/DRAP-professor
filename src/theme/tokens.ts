@@ -28,6 +28,7 @@ export type ColorTokens = {
   warning: string;
   danger: string;
   "focus-ring": string;
+  "brand-mark": string;
 };
 
 export const darkColors: ColorTokens = {
@@ -49,6 +50,7 @@ export const darkColors: ColorTokens = {
   warning: "#FBBF24",
   danger: "#F87171",
   "focus-ring": "#8A93FF",
+  "brand-mark": "#3A9DB0",
 };
 
 export const lightColors: ColorTokens = {
@@ -70,6 +72,7 @@ export const lightColors: ColorTokens = {
   warning: "#B45309",
   danger: "#B91C1C",
   "focus-ring": "#4453E6",
+  "brand-mark": "#024C5C",
 };
 
 /** Cores que o administrador pode alterar em Configurações e Tema. */
@@ -85,6 +88,7 @@ export const OVERRIDABLE_COLORS = [
   "primary-text",
   "accent",
   "accent-text",
+  "brand-mark",
 ] as const satisfies readonly (keyof ColorTokens)[];
 
 export type OverridableColor = (typeof OVERRIDABLE_COLORS)[number];
@@ -101,6 +105,7 @@ export const COLOR_LABELS: Record<OverridableColor, string> = {
   "primary-text": "Links e texto em destaque",
   accent: "Destaque secundário (dourado)",
   "accent-text": "Texto em dourado",
+  "brand-mark": "Cor do logotipo",
 };
 
 /** Famílias tipográficas disponíveis (todas servidas pelo próprio app, sem requisição a terceiros). */

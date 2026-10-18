@@ -27,6 +27,7 @@
   --color-warning: var(--drap-warning);
   --color-danger: var(--drap-danger);
   --color-focus-ring: var(--drap-focus-ring);
+  --color-brand-mark: var(--drap-brand-mark);
 
   --font-*: initial;
   --font-display: var(--drap-font-display);

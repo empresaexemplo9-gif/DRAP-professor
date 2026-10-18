@@ -32,6 +32,7 @@ export const REQUIRED_PAIRS: Pair[] = [
   { fg: "text-on-primary", bg: "primary-strong", min: 4.5, label: "Texto dos botões primários" },
   { fg: "accent-text", bg: "bg", min: 4.5, label: "Texto dourado sobre o fundo" },
   { fg: "focus-ring", bg: "bg", min: 3, label: "Anel de foco sobre o fundo" },
+  { fg: "brand-mark", bg: "bg", min: 3, label: "Logotipo sobre o fundo" },
 ];
 
 export type ContrastIssue = { mode: "dark" | "light"; label: string; ratio: number; min: number };
