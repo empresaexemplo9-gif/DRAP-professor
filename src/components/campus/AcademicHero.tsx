@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { BrandMark } from "@/components/shell/Brand";
 
 export function AcademicHero({ firstName }: { firstName?: string }) {
   return (
@@ -9,14 +10,18 @@ export function AcademicHero({ firstName }: { firstName?: string }) {
       aria-labelledby="campus-title"
     >
       <Image
-        src="/images/campus-students.jpg"
-        alt="Estudantes compartilhando ideias e estudando juntos em uma biblioteca"
+        src="/images/library.jpg"
+        alt="Livros em uma biblioteca acadêmica"
         fill
         priority
         sizes="(min-width: 1024px) 75vw, 100vw"
         className="hero-photograph object-cover object-[center_58%]"
       />
       <div className="hero-wash absolute inset-0" />
+      <div className="hero-navy-wash absolute inset-0" />
+      <div className="hero-brand absolute inset-y-0 right-[8%] z-10 hidden items-center lg:flex">
+        <BrandMark className="hero-brand-mark size-44 xl:size-52" />
+      </div>
       <div className="relative z-10 max-w-[620px] px-5 py-12 sm:px-8 lg:py-14">
         <p className="eyebrow mb-5 flex items-center gap-2.5">
           <span className="h-px w-6 bg-accent" />

@@ -1,24 +1,14 @@
 import Link from "next/link";
 
-/** Marca original da DRAP. Preserve o arquivo, a geometria e o teal da identidade. */
+/** Mantém a geometria original da marca DRAP; a cor vem da identidade do campus. */
 export function BrandMark({ className = "size-9" }: { className?: string }) {
-  return (
-    <span aria-hidden className={`block shrink-0 rounded-sm bg-campus-cream p-1 ${className}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/brand/logo-mark.png" width={512} height={512} alt="" className="block size-full object-contain" />
-    </span>
-  );
+  return <span aria-hidden className={`brand-mark block shrink-0 ${className}`} />;
 }
 
-export function Brand({ name, logoUrl }: { name: string; logoUrl?: string | null }) {
+export function Brand({ name }: { name: string; logoUrl?: string | null }) {
   return (
     <Link href="/" className="flex items-center gap-2.5 no-underline">
-      {logoUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={logoUrl} alt="" className="h-8 w-auto" />
-      ) : (
-        <BrandMark />
-      )}
+      <BrandMark />
       <span className="flex min-w-0 flex-col leading-none">
         <span className="text-xl font-medium tracking-[0.18em] text-text">
           {name === "DRAP Professor" ? "DRAP" : name}
