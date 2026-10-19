@@ -187,12 +187,19 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
                 ) : viewer ? (
                   <>
                     <ButtonLink href="/painel/aprendizado">Consultar minhas matrículas</ButtonLink>
-                    <ButtonLink
-                      href={`${levelPath(mod.level.slug, mod.segment.slug, mod.slug)}#acesso-financeiro`}
-                      variant="secondary"
-                    >
-                      Ver opções de acesso
-                    </ButtonLink>
+                    {isFinancial && (
+                      <>
+                        <ButtonLink
+                          href={`${levelPath(mod.level.slug, mod.segment.slug, mod.slug)}#acesso-financeiro`}
+                          variant="secondary"
+                        >
+                          Ver opções de acesso
+                        </ButtonLink>
+                        <ButtonLink href={levelPath(mod.level.slug, mod.segment.slug, mod.slug)} variant="ghost">
+                          Voltar ao programa
+                        </ButtonLink>
+                      </>
+                    )}
                   </>
                 ) : (
                   <>
@@ -201,11 +208,6 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
                       Criar minha conta
                     </ButtonLink>
                   </>
-                )}
-                {viewer && !viewer.needsConsent && isFinancial && (
-                  <ButtonLink href={levelPath(mod.level.slug, mod.segment.slug, mod.slug)} variant="ghost">
-                    Voltar ao programa
-                  </ButtonLink>
                 )}
               </div>
             </Card>
