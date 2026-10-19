@@ -173,16 +173,44 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
             </>
           ) : (
             <Card variant="featured">
-              <h2 className="font-display text-xl text-text">Conteúdo exclusivo para alunos matriculados</h2>
-              <p className="mt-2 text-sm text-text-muted">Este assunto faz parte de {mod.title}.</p>
+              <h2 className="font-display text-xl text-text">
+                {viewer?.needsConsent
+                  ? "Aceite os termos para continuar"
+                  : "Matrícula ativa necessária para acessar este conteúdo"}
+              </h2>
+              <p className="mt-2 text-sm text-text-muted">
+                {viewer?.needsConsent
+                  ? "Depois de revisar os termos, volte a este assunto para iniciar seus estudos."
+                  : viewer
+                    ? `Sua conta está conectada, mas ainda não tem matrícula ativa em ${mod.title}. Consulte suas matrículas para ver o status e os próximos passos.`
+                    : `Entre na sua conta e confirme sua matrícula em ${mod.title} para acessar os módulos, exercícios e materiais.`}
+              </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <ButtonLink href={levelPath(mod.level.slug, mod.segment.slug, mod.slug)}>Ver o módulo</ButtonLink>
-                {!viewer && (
-                  <ButtonLink href="/entrar" variant="secondary">
-                    Entrar
+                {viewer?.needsConsent ? (
+                  <ButtonLink href="/aceite">Revisar os termos</ButtonLink>
+                ) : viewer ? (
+                  <>
+                    <ButtonLink href="/painel/aprendizado">Consultar minhas matrículas</ButtonLink>
+                    <ButtonLink
+                      href={`${levelPath(mod.level.slug, mod.segment.slug, mod.slug)}#acesso-financeiro`}
+                      variant="secondary"
+                    >
+                      Ver opções de acesso
+                    </ButtonLink>
+                  </>
+                ) : (
+                  <>
+                    <ButtonLink href="/entrar">Entrar</ButtonLink>
+                    <ButtonLink href="/cadastro" variant="secondary">
+                      Criar minha conta
+                    </ButtonLink>
+                  </>
+                )}
+                {viewer && !viewer.needsConsent && isFinancial && (
+                  <ButtonLink href={levelPath(mod.level.slug, mod.segment.slug, mod.slug)} variant="ghost">
+                    Voltar ao programa
                   </ButtonLink>
                 )}
-                {viewer?.needsConsent && <ButtonLink href="/aceite">Revisar os termos</ButtonLink>}
               </div>
             </Card>
           )}
