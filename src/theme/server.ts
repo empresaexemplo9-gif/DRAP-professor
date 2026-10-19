@@ -13,7 +13,7 @@ export const getTenantTheme = cache(async () => {
   const settings = await withTenant(tenant.id, (tx) => tx.themeSettings.findUnique({ where: { tenantId: tenant.id } }));
   const overrides: ThemeOverrides = sanitizeOverrides(settings?.overrides);
   const defaultMode: ThemeChoice =
-    settings?.defaultMode === "LIGHT" ? "light" : settings?.defaultMode === "SYSTEM" ? "system" : "dark";
+    settings?.defaultMode === "DARK" ? "dark" : settings?.defaultMode === "SYSTEM" ? "system" : "light";
   return { tenant, overrides, defaultMode, logoUrl: settings?.logoUrl ?? null, css: buildThemeCss(overrides) };
 });
 

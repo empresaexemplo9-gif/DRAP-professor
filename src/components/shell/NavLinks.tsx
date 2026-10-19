@@ -11,7 +11,11 @@ export function NavLinks({ items, onNavigate }: { items: NavLinkItem[]; onNaviga
   return (
     <ul className="space-y-0.5">
       {items.map((item) => {
-        const active = item.href === "/painel" ? pathname === "/painel" : pathname.startsWith(item.href);
+        const active = item.href.includes("#")
+          ? false
+          : item.href === "/painel" || item.href === "/"
+            ? pathname === item.href
+            : pathname === item.href || pathname.startsWith(`${item.href}/`);
         return (
           <li key={item.href}>
             <Link
@@ -20,7 +24,9 @@ export function NavLinks({ items, onNavigate }: { items: NavLinkItem[]; onNaviga
               aria-current={active ? "page" : undefined}
               className={clsx(
                 "flex min-h-11 items-center gap-3 rounded-md px-3 text-sm font-medium no-underline transition-colors duration-[var(--drap-duration-fast)]",
-                active ? "bg-surface-raised text-text shadow-sm" : "text-text-muted hover:bg-surface-raised hover:text-text",
+                active
+                  ? "nav-active bg-surface-raised text-text shadow-sm"
+                  : "text-text-muted hover:bg-surface-raised hover:text-text",
               )}
             >
               <span className={active ? "text-accent" : ""}>

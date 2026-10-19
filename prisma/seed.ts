@@ -193,7 +193,12 @@ async function main() {
   for (const d of demo) demoUsers.push({ ...d, user: (await upsertUser(d.email, d.name, demoPassword)).user });
 
   await inTenant(tenant.id, async (tx) => {
-    await tx.themeSettings.upsert({ where: { tenantId: tenant.id }, create: { tenantId: tenant.id }, update: {} });
+    await tx.themeSettings.upsert({ where: { tenantId: tenant.id }, create: { tenantId: tenant.id, defaultMode: "LIGHT" }, update: {} });
+    // Atualiza apenas o preset antigo, ainda não personalizado, para a nova identidade clara.
+    await tx.themeSettings.updateMany({
+      where: { tenantId: tenant.id, defaultMode: "DARK", updatedById: null, logoUrl: null, overrides: { equals: {} } },
+      data: { defaultMode: "LIGHT" },
+    });
     const levelIds = new Map<LevelKind, string>();
     for (const [kind, meta] of Object.entries(LEVELS) as [LevelKind, (typeof LEVELS)[LevelKind]][]) {
       const level = await tx.level.upsert({

@@ -32,48 +32,59 @@ export type ColorTokens = {
 };
 
 export const darkColors: ColorTokens = {
-  bg: "#0B1220",
-  surface: "#121A2B",
-  "surface-raised": "#1A2438",
-  border: "#26314A",
-  "border-strong": "#34405C",
-  text: "#F3F5FA",
-  "text-muted": "#9AA4B8",
-  "text-on-primary": "#FFFFFF",
-  "text-on-accent": "#0B1220",
-  primary: "#5B6CFF",
-  "primary-strong": "#4453E6",
-  "primary-text": "#8A93FF",
+  bg: "#0D1C27",
+  surface: "#142632",
+  "surface-raised": "#1D3341",
+  border: "#2A404D",
+  "border-strong": "#526570",
+  text: "#F5F2EA",
+  "text-muted": "#B1BEC5",
+  "text-on-primary": "#0B1C29",
+  "text-on-accent": "#0B1C29",
+  primary: "#D2B27B",
+  "primary-strong": "#C5A16A",
+  "primary-text": "#DDC398",
   accent: "#C9A86A",
   "accent-text": "#C9A86A",
   success: "#34D399",
   warning: "#FBBF24",
   danger: "#F87171",
-  "focus-ring": "#8A93FF",
-  "brand-mark": "#3A9DB0",
+  "focus-ring": "#DDC398",
+  "brand-mark": "#C9A86A",
 };
 
 export const lightColors: ColorTokens = {
-  bg: "#F7F8FB",
+  bg: "#FAF9F6",
   surface: "#FFFFFF",
-  "surface-raised": "#F0F2F7",
-  border: "#E1E5EE",
-  "border-strong": "#C9CFDC",
-  text: "#0F172A",
-  "text-muted": "#4A5468",
+  "surface-raised": "#F0EDE7",
+  border: "#E4E2DC",
+  "border-strong": "#B8B9B5",
+  text: "#102A3C",
+  "text-muted": "#55636E",
   "text-on-primary": "#FFFFFF",
   "text-on-accent": "#0B1220",
-  primary: "#5B6CFF",
-  "primary-strong": "#4453E6",
-  "primary-text": "#3D4BD9",
+  primary: "#25465A",
+  "primary-strong": "#102A3C",
+  "primary-text": "#25465A",
   accent: "#C9A86A",
-  "accent-text": "#8A6A2F",
+  "accent-text": "#85612E",
   success: "#047857",
   warning: "#B45309",
   danger: "#B91C1C",
-  "focus-ring": "#4453E6",
-  "brand-mark": "#024C5C",
+  "focus-ring": "#85612E",
+  "brand-mark": "#85612E",
 };
+
+/** Cores institucionais fixas para a navegação e as imagens editoriais. */
+export const campusColors = {
+  navy: "#091D2B",
+  "navy-raised": "#163143",
+  cream: "#F7F3E9",
+  gold: "#C9A66B",
+  "on-navy": "#F5F3EE",
+  muted: "#B6C4CD",
+  line: "#304655",
+} as const;
 
 /** Cores que o administrador pode alterar em Configurações e Tema. */
 export const OVERRIDABLE_COLORS = [
@@ -142,17 +153,17 @@ export const typeScale = {
 } as const;
 
 export const radii = {
-  sm: "6px",
-  md: "10px",
-  lg: "16px",
-  xl: "24px",
+  sm: "4px",
+  md: "6px",
+  lg: "10px",
+  xl: "16px",
   full: "9999px",
 } as const;
 
 export const shadows = {
-  sm: "0 1px 2px color-mix(in srgb, black 25%, transparent)",
-  md: "0 8px 24px color-mix(in srgb, black 28%, transparent)",
-  glow: "0 0 0 1px color-mix(in srgb, var(--drap-primary) 14%, transparent), 0 8px 32px color-mix(in srgb, var(--drap-primary) 18%, transparent)",
+  sm: "0 2px 6px color-mix(in srgb, black 4%, transparent)",
+  md: "0 8px 24px color-mix(in srgb, black 9%, transparent)",
+  glow: "0 0 0 1px color-mix(in srgb, var(--drap-accent) 30%, transparent), 0 8px 24px color-mix(in srgb, black 8%, transparent)",
 } as const;
 
 export const motion = {
@@ -209,6 +220,7 @@ function colorBlock(colors: ColorTokens): string {
 export function buildThemeCss(overrides: ThemeOverrides): string {
   const fonts = { ...DEFAULT_FONTS, ...(overrides.fonts ?? {}) };
   const statics = [
+    ...Object.entries(campusColors).map(([k, v]) => `--drap-campus-${k}:${v};`),
     `--drap-font-display:${DISPLAY_FONTS[fonts.display].stack};`,
     `--drap-font-body:${BODY_FONTS[fonts.body].stack};`,
     `--drap-font-mono:${MONO_FONT};`,

@@ -12,9 +12,11 @@ describe("contraste WCAG", () => {
     expect(checkContrast({})).toEqual([]);
   });
 
-  it("a cor de marca #5B6CFF não serve para texto de botão branco (motivo do token primary-strong)", () => {
-    expect(contrastRatio(darkColors["text-on-primary"], darkColors.primary)).toBeLessThan(4.5);
-    expect(contrastRatio(darkColors["text-on-primary"], darkColors["primary-strong"])).toBeGreaterThanOrEqual(4.5);
+  it("botões primários mantêm contraste AA no repouso e no hover dos dois temas", () => {
+    for (const colors of [darkColors, lightColors]) {
+      expect(contrastRatio(colors["text-on-primary"], colors.primary)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(colors["text-on-primary"], colors["primary-strong"])).toBeGreaterThanOrEqual(4.5);
+    }
   });
 
   it("recusa sobrescritas que reprovam o contraste", () => {
