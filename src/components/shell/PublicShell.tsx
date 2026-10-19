@@ -2,13 +2,14 @@ import { getTenantTheme } from "@/theme/server";
 import { getViewer } from "@/lib/session";
 import { withTenant } from "@/lib/db";
 import { ROLE_LABELS } from "@/lib/rbac";
+import { FINANCIAL_COURSE, FINANCIAL_COURSE_PATH } from "@/lib/courses/financial-consulting";
 import { BUSINESS_COURSE, BUSINESS_COURSE_PATH } from "@/lib/courses/business-management";
 import { CampusFooter, CampusSidebar, CampusTopbar } from "./CampusChrome";
 
 export async function PublicShell({ children }: { children: React.ReactNode }) {
   const { tenant, logoUrl } = await getTenantTheme();
   const viewer = await getViewer();
-  const { levels, hasBusinessCourse } = await withTenant(tenant.id, async (tx) => {
+  const { levels, hasBusinessCourse, hasFinancialCourse } = await withTenant(tenant.id, async (tx) => {
     const levels = await tx.level.findMany({
       where: { tenantId: tenant.id, active: true },
       orderBy: { order: "asc" },
@@ -26,12 +27,25 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
         select: { id: true },
       }),
     );
-    return { levels, hasBusinessCourse };
+    const hasFinancialCourse = Boolean(
+      await tx.module.findFirst({
+        where: {
+          tenantId: tenant.id,
+          slug: FINANCIAL_COURSE.slug,
+          status: "PUBLICADO",
+          level: { slug: "cursos", active: true },
+          segment: { slug: FINANCIAL_COURSE.segment.slug },
+        },
+        select: { id: true },
+      }),
+    );
+    return { levels, hasBusinessCourse, hasFinancialCourse };
   });
   const items = [
     { href: "/", label: "Início", icon: "home" },
     { href: "/#formacoes", label: "Nossas formações", icon: "graduation" },
     ...(hasBusinessCourse ? [{ href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" }] : []),
+    ...(hasFinancialCourse ? [{ href: FINANCIAL_COURSE_PATH, label: "Consultoria Financeira", icon: "book" }] : []),
     { href: "/#biblioteca", label: "Biblioteca de saberes", icon: "openbook" },
     { href: "/#metodologia", label: "Proposta pedagógica", icon: "layers" },
     { href: "/#comunidade", label: "Nossa comunidade", icon: "users" },

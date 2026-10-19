@@ -10,6 +10,7 @@ import { PrismaClient, type LevelKind, type Prisma, type Role } from "@prisma/cl
 import { hash } from "@node-rs/argon2";
 import { randomBytes } from "node:crypto";
 import { LEVELS } from "../src/lib/levels";
+import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
 import type { ContentDocument } from "../src/content-blocks/schema";
 
@@ -259,10 +260,16 @@ async function main() {
       if (student) await tx.enrollment.create({ data: { tenantId: tenant.id, userId: student.user.id, moduleId: mod.id, origin: "CORTESIA" } });
     }
     const businessCourse = await seedBusinessCourse(tx, tenant.id, admin.user.id);
+    const financialCourse = await seedFinancialCourse(tx, tenant.id, admin.user.id);
     const demoStudent = demoUsers.find((user) => user.roles.includes("ALUNO"));
     if (demoStudent) await tx.enrollment.upsert({
       where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: businessCourse.id } },
       create: { tenantId: tenant.id, userId: demoStudent.user.id, moduleId: businessCourse.id, origin: "CORTESIA" },
+      update: {},
+    });
+    if (demoStudent) await tx.enrollment.upsert({
+      where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: financialCourse.id } },
+      create: { tenantId: tenant.id, userId: demoStudent.user.id, moduleId: financialCourse.id, origin: "CORTESIA" },
       update: {},
     });
   });

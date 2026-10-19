@@ -341,6 +341,7 @@ model Topic {
   versions         TopicVersion[]  @relation("TopicVersions")
   publishedVersion TopicVersion?   @relation("PublishedVersion", fields: [publishedVersionId], references: [id])
   progress         TopicProgress[]
+  notebooks        StudyNotebook[]
 
   @@unique([moduleId, slug])
   @@map("topics")
@@ -404,6 +405,7 @@ model Enrollment {
   user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   module   Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   progress TopicProgress[]
+  notebooks StudyNotebook[]
 
   @@unique([userId, moduleId])
   @@map("enrollments")
@@ -448,4 +450,21 @@ model AuditLog {
 
   @@index([tenantId, createdAt])
   @@map("audit_logs")
+}
+
+// Respostas de estudo: rascunhos pessoais, sem nota ou aprovação automática.
+model StudyNotebook {
+  id           String   @id @default(uuid(7)) @db.Uuid
+  tenantId     String   @db.Uuid
+  enrollmentId String   @db.Uuid
+  topicId      String   @db.Uuid
+  answers      Json     @default("{}")
+  updatedAt    DateTime @updatedAt
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, topicId])
+  @@index([tenantId])
+  @@map("study_notebooks")
 }

@@ -50,7 +50,7 @@ test("painel do estudante oferece retomada de conteúdo e recursos acadêmicos",
       .getByRole("link", { name: /Biblioteca de saberes/ }),
   ).toBeVisible();
   const courses = page.getByRole("region", { name: "Seu próximo aprendizado." });
-  await expect(courses.getByRole("heading", { name: "Gestão de Safra" })).toBeVisible();
+  await expect(courses.getByRole("heading", { level: 3 }).first()).toBeVisible();
   const resume = courses.getByRole("link", { name: "Continuar aprendendo" }).first();
   await expect(resume).toHaveAttribute(
     "href",
@@ -59,4 +59,7 @@ test("painel do estudante oferece retomada de conteúdo e recursos acadêmicos",
   await resume.click();
   await expect(page.locator("article")).toBeVisible();
   await expectNoHorizontalScroll(page);
+  // O painel resume as matrículas recentes; a lista completa conserva as anteriores.
+  await page.goto("/painel/aprendizado");
+  await expect(page.locator("main").getByRole("link", { name: "Gestão de Safra", exact: true })).toBeVisible();
 });

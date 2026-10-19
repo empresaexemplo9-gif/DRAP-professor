@@ -1,0 +1,1064 @@
+[
+  {
+    "moduleNumber": 1,
+    "questions": [
+      {
+        "id": "cf-01-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual é o primeiro passo diante de um pedido vago de consultoria?",
+        "guidance": "Definir a decisão a ser tomada, o objetivo, o escopo e os critérios de sucesso antes de escolher ferramentas."
+      },
+      {
+        "id": "cf-01-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Cite quatro riscos que podem afetar uma instituição financeira ou seu cliente.",
+        "guidance": "Crédito, mercado, liquidez, operacional, legal/compliance, reputacional (quaisquer quatro)."
+      },
+      {
+        "id": "cf-01-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Por que o escopo deve registrar exclusões e premissas?",
+        "guidance": "Para reduzir ambiguidades, alinhar expectativas, documentar limites e evitar conclusões além dos dados ou da competência profissional."
+      },
+      {
+        "id": "cf-01-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Diferencie educação financeira de consultoria regulada de investimentos.",
+        "guidance": "Educação transmite conceitos gerais; consultoria regulada pode envolver orientação profissional, independente e individualizada sobre valores mobiliários, sujeita à regulamentação aplicável."
+      },
+      {
+        "id": "cf-01-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Monte um entregável mínimo para um diagnóstico inicial.",
+        "guidance": "Carta de contratação, lista de dados, diagnóstico, hipóteses, análise, recomendações, plano de ação, riscos e critérios de acompanhamento."
+      },
+      {
+        "id": "cf-01-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-01-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-01-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-01-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 2,
+    "questions": [
+      {
+        "id": "cf-02-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "R$ 10.000 investidos a 1% efetivo ao mês por 12 meses resultam em aproximadamente quanto?",
+        "guidance": "VF=10.000×1,01^12 ≈ R$ 11.268,25."
+      },
+      {
+        "id": "cf-02-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Qual é a taxa efetiva anual equivalente a 1% ao mês?",
+        "guidance": "(1,01)^12−1 ≈ 12,6825%."
+      },
+      {
+        "id": "cf-02-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "O que significa um VPL positivo?",
+        "guidance": "Sob os fluxos e a taxa de desconto adotados, o projeto cria valor presente acima do retorno exigido."
+      },
+      {
+        "id": "cf-02-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Por que a TIR pode ser inadequada para comparar projetos de tamanhos diferentes?",
+        "guidance": "Pode gerar ranking conflitante com VPL e depende de hipóteses sobre reinvestimento e padrão dos fluxos."
+      },
+      {
+        "id": "cf-02-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Liste cinco itens que devem entrar na comparação de financiamentos.",
+        "guidance": "CET, taxa e indexador, tarifas/seguros, prazo, cronograma, amortização, garantias, multas e condições de liquidação (quaisquer cinco)."
+      },
+      {
+        "id": "cf-02-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-02-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-02-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-02-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 3,
+    "questions": [
+      {
+        "id": "cf-03-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual a diferença entre média e mediana?",
+        "guidance": "A média usa todos os valores e é sensível a extremos; a mediana é o percentil 50 e costuma ser mais robusta a assimetria."
+      },
+      {
+        "id": "cf-03-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Uma correlação de 0,8 prova causalidade?",
+        "guidance": "Não. Pode haver confundimento, causalidade reversa, tendência comum ou seleção."
+      },
+      {
+        "id": "cf-03-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "O que é sobreajuste?",
+        "guidance": "Quando o modelo captura ruído dos dados de treino e generaliza mal para dados novos."
+      },
+      {
+        "id": "cf-03-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Por que avaliar previsão fora da amostra?",
+        "guidance": "Para estimar melhor o desempenho em dados não usados na construção do modelo."
+      },
+      {
+        "id": "cf-03-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Cite três ameaças à validade causal.",
+        "guidance": "Variáveis omitidas, seleção, simultaneidade/causalidade reversa, erro de medição, mudanças concomitantes."
+      },
+      {
+        "id": "cf-03-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-03-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-03-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-03-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 4,
+    "questions": [
+      {
+        "id": "cf-04-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual é a taxa real exata se a taxa nominal é 10% e a inflação 4%?",
+        "guidance": "(1,10/1,04)−1 ≈ 5,77%."
+      },
+      {
+        "id": "cf-04-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Por que a taxa longa pode subir mesmo se a taxa básica cair?",
+        "guidance": "Expectativas de inflação, prêmio de prazo, risco fiscal/soberano e condições de oferta/demanda podem elevar taxas longas."
+      },
+      {
+        "id": "cf-04-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Como a desvalorização cambial afeta uma importadora sem hedge?",
+        "guidance": "Pode elevar custos e dívida em moeda estrangeira, pressionando margem, capital de giro e solvência."
+      },
+      {
+        "id": "cf-04-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "O que torna um cenário macroeconômico útil?",
+        "guidance": "Premissas explícitas, mecanismos de transmissão, consistência interna, indicadores de acompanhamento e decisões condicionais."
+      },
+      {
+        "id": "cf-04-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Por que não se deve tratar uma previsão pontual como certeza?",
+        "guidance": "Modelos têm incerteza, dados são revisados e choques podem alterar relações históricas."
+      },
+      {
+        "id": "cf-04-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-04-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-04-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-04-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 5,
+    "questions": [
+      {
+        "id": "cf-05-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Por que lucro não é igual a caixa?",
+        "guidance": "Competência, contas a receber/pagar, estoques, itens não caixa, investimentos e financiamentos geram diferenças."
+      },
+      {
+        "id": "cf-05-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "EBITDA é fluxo de caixa livre?",
+        "guidance": "Não. Não incorpora integralmente impostos, investimentos, variações de capital de giro e outros fluxos."
+      },
+      {
+        "id": "cf-05-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Cite três sinais que merecem investigação de qualidade de lucro.",
+        "guidance": "Recebíveis crescendo mais que vendas, políticas contábeis alteradas, capitalização agressiva, itens não recorrentes frequentes, diferença lucro-caixa persistente."
+      },
+      {
+        "id": "cf-05-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Qual demonstração apresenta a posição patrimonial numa data?",
+        "guidance": "Balanço patrimonial."
+      },
+      {
+        "id": "cf-05-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "O que deve ser feito antes de ajustar um item como não recorrente?",
+        "guidance": "Verificar natureza, evidência, frequência, materialidade, tratamento contábil e consistência histórica; documentar o ajuste."
+      },
+      {
+        "id": "cf-05-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-05-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-05-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-05-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 6,
+    "questions": [
+      {
+        "id": "cf-06-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual a fórmula comum do ciclo de conversão de caixa?",
+        "guidance": "Dias de estoque + dias de recebimento − dias de pagamento."
+      },
+      {
+        "id": "cf-06-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Por que ROE alto pode ser enganoso?",
+        "guidance": "Pode refletir alavancagem elevada, patrimônio reduzido ou itens extraordinários, não apenas eficiência operacional."
+      },
+      {
+        "id": "cf-06-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "O que o diagnóstico deve separar?",
+        "guidance": "Sintomas, causas prováveis, evidências, impactos quantificados e ações possíveis."
+      },
+      {
+        "id": "cf-06-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Uma empresa pode crescer e destruir valor? Explique.",
+        "guidance": "Sim, se o retorno incremental sobre capital for inferior ao custo de capital ou se o crescimento consumir caixa sem retorno adequado."
+      },
+      {
+        "id": "cf-06-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Como priorizar ações de recuperação?",
+        "guidance": "Pelo impacto esperado, urgência, risco, custo, tempo de execução, viabilidade e reversibilidade."
+      },
+      {
+        "id": "cf-06-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-06-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-06-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-06-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 7,
+    "questions": [
+      {
+        "id": "cf-07-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "O que são fluxos incrementais?",
+        "guidance": "Fluxos que diferem entre aceitar e rejeitar a decisão, incluindo custos de oportunidade e efeitos colaterais relevantes."
+      },
+      {
+        "id": "cf-07-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Por que custo afundado é irrelevante para a decisão futura?",
+        "guidance": "Já ocorreu e não muda conforme a escolha atual, embora possa importar para avaliação histórica."
+      },
+      {
+        "id": "cf-07-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Quais premissas devem ser coerentes no WACC?",
+        "guidance": "Moeda, inflação, risco, tratamento tributário, pesos e definição do fluxo de caixa."
+      },
+      {
+        "id": "cf-07-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Quais são dois custos da alavancagem excessiva?",
+        "guidance": "Maior risco de insolvência, custos de dificuldades financeiras, restrições de covenants e menor flexibilidade."
+      },
+      {
+        "id": "cf-07-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Quando opções reais podem ser relevantes?",
+        "guidance": "Quando há incerteza e flexibilidade gerencial valiosa para adiar, expandir, reduzir ou abandonar o projeto."
+      },
+      {
+        "id": "cf-07-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-07-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-07-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-07-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 8,
+    "questions": [
+      {
+        "id": "cf-08-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual taxa desconta FCFF e FCFE, respectivamente?",
+        "guidance": "FCFF: WACC; FCFE: custo do capital próprio, em estruturas e premissas consistentes."
+      },
+      {
+        "id": "cf-08-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Por que crescimento terminal deve ser coerente com reinvestimento?",
+        "guidance": "Crescimento sustentável exige reinvestimento e retorno sobre capital; ignorar isso superestima caixa distribuível."
+      },
+      {
+        "id": "cf-08-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Qual é um risco de usar múltiplos de comparáveis inadequados?",
+        "guidance": "Transferir diferenças de crescimento, risco, margem, contabilidade ou estrutura de capital para uma avaliação enviesada."
+      },
+      {
+        "id": "cf-08-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Por que apresentar um único valor de valuation é insuficiente?",
+        "guidance": "O valor depende de premissas incertas; intervalos e sensibilidades mostram a exposição às hipóteses."
+      },
+      {
+        "id": "cf-08-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "O que ocorre se crescimento terminal se aproxima excessivamente do WACC?",
+        "guidance": "O valor terminal pode aumentar de forma desproporcional e tornar-se extremamente sensível."
+      },
+      {
+        "id": "cf-08-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-08-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-08-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-08-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 9,
+    "questions": [
+      {
+        "id": "cf-09-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual a relação típica entre taxa de mercado e preço de título prefixado?",
+        "guidance": "Quando a taxa de desconto sobe, o preço tende a cair; quando cai, o preço tende a subir."
+      },
+      {
+        "id": "cf-09-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "O que a duration mede aproximadamente?",
+        "guidance": "Sensibilidade percentual do preço do título a uma pequena mudança na taxa de juros, conforme a definição usada."
+      },
+      {
+        "id": "cf-09-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Hedge elimina todo risco?",
+        "guidance": "Não. Pode permanecer risco de base, liquidez, contraparte, margem, modelo e custo."
+      },
+      {
+        "id": "cf-09-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Por que dividendos não são dinheiro gratuito?",
+        "guidance": "A distribuição transfere caixa da empresa ao acionista e normalmente reduz o valor dos ativos da empresa, tudo o mais constante."
+      },
+      {
+        "id": "cf-09-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Liste quatro critérios para comparar fundos.",
+        "guidance": "Objetivo/índice, custos, tracking error, liquidez, tributação, estrutura, risco e qualidade de replicação."
+      },
+      {
+        "id": "cf-09-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-09-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-09-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-09-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 10,
+    "questions": [
+      {
+        "id": "cf-10-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "A diversificação elimina todo risco?",
+        "guidance": "Não. Reduz riscos específicos, mas riscos sistêmicos e correlações elevadas em crises permanecem."
+      },
+      {
+        "id": "cf-10-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Qual limitação importante do VaR?",
+        "guidance": "Não informa a severidade média das perdas além do quantil e depende do horizonte, nível e método."
+      },
+      {
+        "id": "cf-10-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "O que é look-ahead bias?",
+        "guidance": "Usar informação que não estaria disponível no momento em que a decisão histórica teria sido tomada."
+      },
+      {
+        "id": "cf-10-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Por que benchmark importa?",
+        "guidance": "Permite avaliar desempenho relativo coerente com estratégia, risco, moeda e universo de investimento."
+      },
+      {
+        "id": "cf-10-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "O que mede aproximadamente o Sharpe?",
+        "guidance": "Excesso de retorno por unidade de volatilidade total, com limitações conforme distribuição e horizonte."
+      },
+      {
+        "id": "cf-10-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-10-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-10-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-10-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 11,
+    "questions": [
+      {
+        "id": "cf-11-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Quais fatores devem influenciar o tamanho da reserva?",
+        "guidance": "Despesas essenciais, estabilidade da renda, dependentes, riscos previsíveis, liquidez de ativos e acesso realista a crédito."
+      },
+      {
+        "id": "cf-11-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Por que risco de sequência importa na aposentadoria?",
+        "guidance": "Retornos negativos no início das retiradas podem causar redução duradoura do patrimônio mesmo com retorno médio de longo prazo semelhante."
+      },
+      {
+        "id": "cf-11-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Qual é a primeira etapa do plano patrimonial?",
+        "guidance": "Diagnóstico validado de ativos, passivos, fluxo de caixa, objetivos, restrições e riscos."
+      },
+      {
+        "id": "cf-11-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Como lidar com questões jurídicas ou tributárias especializadas?",
+        "guidance": "Identificar a questão e coordenar encaminhamento a profissional habilitado, sem ultrapassar o próprio escopo."
+      },
+      {
+        "id": "cf-11-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "O que torna um plano executável?",
+        "guidance": "Prioridades, ações, responsáveis, prazos, métricas e gatilhos de revisão."
+      },
+      {
+        "id": "cf-11-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-11-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-11-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-11-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 12,
+    "questions": [
+      {
+        "id": "cf-12-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Defina PD, LGD e EAD.",
+        "guidance": "PD: probabilidade de default; LGD: proporção de perda dado default; EAD: exposição no momento do default."
+      },
+      {
+        "id": "cf-12-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Por que patrimônio positivo não elimina risco de insolvência?",
+        "guidance": "Ativos podem ser ilíquidos ou não realizáveis a tempo para pagar obrigações vencidas."
+      },
+      {
+        "id": "cf-12-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Quais elementos comparar em um reperfilamento?",
+        "guidance": "Prazo, taxa, carência, garantias, covenants, custo total, valor presente e capacidade futura de pagamento."
+      },
+      {
+        "id": "cf-12-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Qual a utilidade de previsão de caixa semanal em crise?",
+        "guidance": "Identificar déficit e vencimentos próximos, priorizar pagamentos e apoiar negociação baseada em dados."
+      },
+      {
+        "id": "cf-12-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Quando a reestruturação exige assessoria especializada?",
+        "guidance": "Quando há insolvência, litígio, garantias complexas, processos formais ou questões jurídicas/tributárias relevantes."
+      },
+      {
+        "id": "cf-12-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-12-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-12-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-12-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 13,
+    "questions": [
+      {
+        "id": "cf-13-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Por que a legislação deve ser verificada na fonte oficial atualizada?",
+        "guidance": "Regras, interpretações e prazos mudam; resumos desatualizados podem levar a atuação irregular."
+      },
+      {
+        "id": "cf-13-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "A expressão 'educacional' no nome do serviço garante que não há atividade regulada?",
+        "guidance": "Não. Importam a atividade efetivamente exercida, o grau de individualização e as regras aplicáveis."
+      },
+      {
+        "id": "cf-13-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Cite três práticas de proteção de dados.",
+        "guidance": "Minimização, controle de acesso, segurança, finalidade definida, retenção adequada e registro de tratamento."
+      },
+      {
+        "id": "cf-13-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Quando encaminhar ao especialista?",
+        "guidance": "Quando a questão excede a qualificação/escopo ou exige habilitação específica, parecer jurídico ou atuação regulada."
+      },
+      {
+        "id": "cf-13-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Que documento deve apoiar uma recomendação profissional?",
+        "guidance": "Registro das informações, premissas, análise, alternativas, riscos, decisão, limitações e plano de acompanhamento."
+      },
+      {
+        "id": "cf-13-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-13-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-13-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-13-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 14,
+    "questions": [
+      {
+        "id": "cf-14-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual o objetivo da segregação de funções?",
+        "guidance": "Reduzir a possibilidade de uma pessoa iniciar, aprovar e ocultar transação indevida sem detecção."
+      },
+      {
+        "id": "cf-14-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "O que deve conter uma matriz de risco útil?",
+        "guidance": "Risco, causa, consequência, probabilidade/impacto, controles, risco residual, responsável e ação."
+      },
+      {
+        "id": "cf-14-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Por que controles devem ser proporcionais ao porte?",
+        "guidance": "Para controlar riscos relevantes sem criar custo e burocracia incompatíveis com a operação."
+      },
+      {
+        "id": "cf-14-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Diferencie risco inerente e residual.",
+        "guidance": "Inerente é antes dos controles; residual é o que permanece após considerar controles."
+      },
+      {
+        "id": "cf-14-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Como garantir que um indicador gere ação?",
+        "guidance": "Definir limite, responsável, frequência, resposta esperada e prazo de escalonamento."
+      },
+      {
+        "id": "cf-14-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-14-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-14-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-14-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 15,
+    "questions": [
+      {
+        "id": "cf-15-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "O que é ancoragem?",
+        "guidance": "Influência desproporcional de uma referência inicial sobre estimativas ou decisões subsequentes."
+      },
+      {
+        "id": "cf-15-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Como comunicar uma previsão incerta?",
+        "guidance": "Explicitar premissas, intervalo/cenários, principais riscos, dados ausentes e condições que alterariam a conclusão."
+      },
+      {
+        "id": "cf-15-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Por que remuneração e conflitos devem ser divulgados?",
+        "guidance": "Permitem ao cliente avaliar incentivos e a independência da recomendação."
+      },
+      {
+        "id": "cf-15-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "O que significa separar posição de interesse na negociação?",
+        "guidance": "Investigar a necessidade subjacente à exigência declarada e buscar opções que atendam interesses legítimos."
+      },
+      {
+        "id": "cf-15-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Como evitar uso manipulativo da psicologia econômica?",
+        "guidance": "Usar ferramentas para melhorar compreensão e qualidade da decisão, com transparência e respeito à autonomia."
+      },
+      {
+        "id": "cf-15-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-15-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-15-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-15-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 16,
+    "questions": [
+      {
+        "id": "cf-16-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Qual é a vantagem de separar entradas, cálculos e saídas?",
+        "guidance": "Melhora rastreabilidade, revisão, atualização e detecção de erros."
+      },
+      {
+        "id": "cf-16-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "O que fazer quando o balanço projetado não fecha?",
+        "guidance": "Investigar conexões, sinais, cronogramas e fórmulas; não inserir ajuste arbitrário sem explicação."
+      },
+      {
+        "id": "cf-16-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Por que automação exige testes?",
+        "guidance": "Erros de origem ou transformação podem se propagar em escala e parecer consistentes."
+      },
+      {
+        "id": "cf-16-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Diferencie sensibilidade e cenário.",
+        "guidance": "Sensibilidade varia uma ou poucas premissas para medir impacto; cenário altera conjunto coerente de premissas."
+      },
+      {
+        "id": "cf-16-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "Como usar IA em trabalho financeiro com segurança?",
+        "guidance": "Validar saídas independentemente, proteger dados, conferir fontes e manter revisão humana e trilha de auditoria."
+      },
+      {
+        "id": "cf-16-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-16-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-16-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-16-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 17,
+    "questions": [
+      {
+        "id": "cf-17-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Por que estabelecer linha de base antes da intervenção?",
+        "guidance": "Para comparar o estado inicial com resultados posteriores de modo consistente."
+      },
+      {
+        "id": "cf-17-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Resultado observado prova causalidade?",
+        "guidance": "Não. Pode haver fatores externos, sazonalidade ou mudanças simultâneas."
+      },
+      {
+        "id": "cf-17-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "Quais campos mínimos devem existir em plano de ação?",
+        "guidance": "Ação, responsável, prazo, recursos, dependências, indicador, critério de conclusão e escalonamento."
+      },
+      {
+        "id": "cf-17-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Como priorizar ações?",
+        "guidance": "Impacto, urgência, custo, risco, viabilidade, prazo e reversibilidade."
+      },
+      {
+        "id": "cf-17-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "O que fazer quando a intervenção falha?",
+        "guidance": "Investigar premissas e execução, documentar aprendizado, ajustar o plano e comunicar o resultado com transparência."
+      },
+      {
+        "id": "cf-17-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-17-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-17-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-17-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  },
+  {
+    "moduleNumber": 18,
+    "questions": [
+      {
+        "id": "cf-18-base-1",
+        "kind": "Questão de estudo",
+        "prompt": "Quais elementos não podem faltar no dossiê final?",
+        "guidance": "Diagnóstico, fontes, premissas, modelo, cenários, alternativas, recomendação, riscos, implementação e monitoramento."
+      },
+      {
+        "id": "cf-18-base-2",
+        "kind": "Questão de estudo",
+        "prompt": "Como lidar com dado material ausente?",
+        "guidance": "Declarar a lacuna, estimar apenas com premissas explícitas, testar sensibilidade e solicitar evidência quando necessário."
+      },
+      {
+        "id": "cf-18-base-3",
+        "kind": "Questão de estudo",
+        "prompt": "O que caracteriza uma recomendação defensável?",
+        "guidance": "Coerência com objetivos e restrições, evidência rastreável, alternativas comparadas, riscos e condições de revisão."
+      },
+      {
+        "id": "cf-18-base-4",
+        "kind": "Questão de estudo",
+        "prompt": "Por que a banca altera premissas?",
+        "guidance": "Para avaliar robustez, entendimento causal e capacidade de adaptar a decisão sem apego à conclusão inicial."
+      },
+      {
+        "id": "cf-18-base-5",
+        "kind": "Questão de estudo",
+        "prompt": "O que fazer se a análise não sustenta uma conclusão única?",
+        "guidance": "Apresentar intervalo de resultados, decisões condicionais, dados adicionais necessários e limites da conclusão."
+      },
+      {
+        "id": "cf-18-advanced-1",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+        "guidance": "Explicita premissa, impacto, método de teste e interpretação."
+      },
+      {
+        "id": "cf-18-advanced-2",
+        "kind": "Aprofundamento",
+        "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+        "guidance": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+      },
+      {
+        "id": "cf-18-advanced-3",
+        "kind": "Aprofundamento",
+        "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+        "guidance": "Distingue riscos e propõe controles proporcionais."
+      },
+      {
+        "id": "cf-18-advanced-4",
+        "kind": "Aprofundamento",
+        "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+        "guidance": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+      }
+    ]
+  }
+]

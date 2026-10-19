@@ -1,0 +1,548 @@
+{
+  "course": "Formação Avançada em Consultoria Financeira",
+  "version": "2.0",
+  "language": "pt-BR",
+  "status": "editorial_seed_not_calibrated",
+  "modules": [
+    {
+      "module_number": 1,
+      "module_title": "Fundamentos e mandato",
+      "worked_exercise": {
+        "prompt": "Uma consultoria vendeu um diagnóstico por R$ 18.000. O projeto exige 60 horas a R$ 150/h, 12 horas de analista a R$ 85/h e R$ 900 de despesas diretas. Calcule a margem de contribuição.",
+        "solution": "Custo direto = 60×150 + 12×85 + 900 = R$ 10.920. Margem de contribuição = 18.000 − 10.920 = R$ 7.080; percentual = 7.080/18.000 = 39,3%. Ainda faltam despesas gerais, tributos e custo comercial para estimar lucro líquido."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 2,
+      "module_title": "Matemática financeira",
+      "worked_exercise": {
+        "prompt": "Uma aplicação rende 0,9% efetivos ao mês. Calcule a taxa efetiva anual.",
+        "solution": "i anual = (1+0,009)^12−1 = 11,35% aproximadamente. Multiplicar 0,9% por 12 dá 10,8%, uma aproximação inadequada para taxa composta."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 3,
+      "module_title": "Estatística e inferência",
+      "worked_exercise": {
+        "prompt": "Uma amostra tem média 52, desvio-padrão 10 e n=100. Calcule um intervalo normal aproximado de 95% para a média.",
+        "solution": "Erro-padrão = 10/√100 = 1. Intervalo aproximado = 52 ± 1,96 = [50,04; 53,96]. Isso não corrige viés de seleção nem problemas de amostragem."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 4,
+      "module_title": "Macroeconomia",
+      "worked_exercise": {
+        "prompt": "Taxa nominal anual de 10% e inflação de 4%. Calcule a taxa real exata.",
+        "solution": "Taxa real = (1,10/1,04)−1 = 5,77% aproximadamente. Subtrair 4 de 10 dá 6 pontos percentuais e é apenas uma aproximação."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 5,
+      "module_title": "Contabilidade",
+      "worked_exercise": {
+        "prompt": "Lucro líquido R$ 500 mil; depreciação R$ 80 mil; contas a receber aumentam R$ 120 mil; estoque aumenta R$ 40 mil; fornecedores aumentam R$ 30 mil. Estime caixa operacional simplificado.",
+        "solution": "Caixa operacional = 500 + 80 − 120 − 40 + 30 = R$ 450 mil, antes de outros ajustes e classificações contábeis."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 6,
+      "module_title": "Diagnóstico empresarial",
+      "worked_exercise": {
+        "prompt": "Dias de estoque 52; dias de recebimento 41; dias de pagamento 35. Calcule o ciclo de conversão de caixa.",
+        "solution": "CCC = 52 + 41 − 35 = 58 dias. Reduzir esse prazo pode liberar caixa, mas deve ser equilibrado com disponibilidade de estoque, satisfação do cliente e relação com fornecedores."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 7,
+      "module_title": "Finanças corporativas",
+      "worked_exercise": {
+        "prompt": "Investimento inicial R$ 100.000 e entradas de R$ 45.000 ao fim de cada ano por 3 anos. Taxa de desconto 10%. Calcule o VPL.",
+        "solution": "VPL = −100.000 + 45.000/1,10 + 45.000/1,10² + 45.000/1,10³ ≈ R$ 11.907. Sob essas premissas, o projeto supera o retorno exigido."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 8,
+      "module_title": "Valuation",
+      "worked_exercise": {
+        "prompt": "FCFF do próximo ano R$ 10 milhões; WACC 12%; crescimento perpétuo 4%. Calcule o valor terminal pelo modelo de Gordon.",
+        "solution": "VT = 10/(0,12−0,04) = R$ 125 milhões no fim do período projetado. O valor é sensível ao diferencial WACC−g e exige reinvestimento coerente com o crescimento."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 9,
+      "module_title": "Instrumentos financeiros",
+      "worked_exercise": {
+        "prompt": "Um título tem duration modificada 4,2. O rendimento aumenta 0,50 ponto percentual. Estime a variação percentual do preço.",
+        "solution": "ΔP/P ≈ −4,2×0,005 = −2,1%, antes do efeito da convexidade e de outras mudanças."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 10,
+      "module_title": "Portfólios e risco",
+      "worked_exercise": {
+        "prompt": "Carteira: 60% no ativo A, retorno esperado 8%; 40% no ativo B, retorno esperado 4%. Calcule o retorno esperado.",
+        "solution": "E(Rp)=0,60×8%+0,40×4%=6,4%, antes de custos e impostos. A volatilidade não pode ser calculada sem variâncias e covariância."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 11,
+      "module_title": "Planejamento pessoal",
+      "worked_exercise": {
+        "prompt": "Despesas essenciais mensais R$ 7.500; reserva disponível R$ 45.000. Calcule a cobertura em meses.",
+        "solution": "45.000/7.500 = 6 meses. A suficiência depende da estabilidade da renda, dependentes, seguros, liquidez e acesso realista a crédito."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 12,
+      "module_title": "Crédito e reestruturação",
+      "worked_exercise": {
+        "prompt": "PD estimada 3%, LGD 45%, EAD R$ 2 milhões. Calcule a perda esperada simplificada.",
+        "solution": "Perda esperada = 0,03×0,45×2.000.000 = R$ 27.000, condicionada à validade das estimativas e ao horizonte definido."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 13,
+      "module_title": "Regulação e conformidade",
+      "worked_exercise": {
+        "prompt": "Um serviço oferece conteúdo geral e também recomenda operações específicas em valores mobiliários após entrevista individual. O nome comercial é 'educacional'. Qual é a análise correta?",
+        "solution": "O rótulo comercial não determina a classificação. Deve-se analisar a atividade efetiva, grau de individualização, instrumentos e regras vigentes. Consultar a CVM e assessoria jurídica/regulatória quando necessário."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 14,
+      "module_title": "Governança e controles",
+      "worked_exercise": {
+        "prompt": "Uma empresa processa 1.200 faturas mensais; 2% têm divergências documentais e o valor médio é R$ 1.800. Estime a exposição bruta potencial.",
+        "solution": "1.200×2%×1.800 = R$ 43.200/mês. Isso não é necessariamente perda: é uma estimativa inicial que exige validar natureza, recuperação e severidade."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 15,
+      "module_title": "Psicologia e negociação",
+      "worked_exercise": {
+        "prompt": "Um fornecedor pede R$ 120 mil; uma análise independente estima faixa de R$ 88 mil a R$ 96 mil. Como reduzir ancoragem?",
+        "solution": "Registrar a avaliação independente antes da negociação, obter alternativas, separar escopo de condições de pagamento e negociar com critérios verificáveis. A faixa é hipótese de trabalho, não prova de preço justo."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 16,
+      "module_title": "Modelagem financeira",
+      "worked_exercise": {
+        "prompt": "Ativos projetados R$ 1,25 milhão; passivos R$ 780 mil; patrimônio líquido R$ 430 mil. Verifique o balanço.",
+        "solution": "Passivos + patrimônio = R$ 1,21 milhão. Há diferença de R$ 40 mil a investigar. Não inserir ajuste arbitrário sem rastrear a causa."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 17,
+      "module_title": "Implementação e mensuração",
+      "worked_exercise": {
+        "prompt": "Projeto custa R$ 50 mil e estima economia anual recorrente de R$ 80 mil após estabilização. Calcule payback simples.",
+        "solution": "Payback = 50/80 = 0,625 ano, ou 7,5 meses, se a economia for uniforme. Não considera desconto, impostos, risco de execução nem manutenção."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    },
+    {
+      "module_number": 18,
+      "module_title": "Capstone integrado",
+      "worked_exercise": {
+        "prompt": "VPL: cenário-base R$ 200 mil (probabilidade 30%); adverso R$ 20 mil (50%); favorável R$ 330 mil (20%). Calcule VPL esperado.",
+        "solution": "0,30×200 + 0,50×20 + 0,20×330 = R$ 136 mil. A média esperada não substitui análise de liquidez, risco, dependências e qualidade das probabilidades."
+      },
+      "question_bank_seed": [
+        {
+          "type": "constructed_response",
+          "prompt": "Identifique uma premissa crítica e proponha um teste de sensibilidade.",
+          "rubric": "Explicita premissa, impacto, método de teste e interpretação."
+        },
+        {
+          "type": "case_analysis",
+          "prompt": "Quais dados adicionais são necessários antes de recomendar uma ação real?",
+          "rubric": "Prioriza dados materiais, fonte, período, qualidade e consequência da ausência."
+        },
+        {
+          "type": "risk_analysis",
+          "prompt": "Identifique um risco de modelo, um operacional e um regulatório/ético.",
+          "rubric": "Distingue riscos e propõe controles proporcionais."
+        },
+        {
+          "type": "decision_memo",
+          "prompt": "Redija recomendação executiva com alternativas, evidências e limitações.",
+          "rubric": "Clareza, rastreabilidade, alternativas e ausência de falsa certeza."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1178 @@
+{
+  "course": {
+    "slug": "formacao-avancada-consultoria-financeira",
+    "title": "Formação Avançada em Consultoria Financeira",
+    "language": "pt-BR",
+    "total_hours": 400,
+    "version": "1.0",
+    "credential_type": "private_completion_certificate",
+    "modules": [
+      {
+        "number": 1,
+        "title": "Fundamentos do sistema financeiro e da consultoria",
+        "hours": 16,
+        "objective": "Compreender o sistema financeiro, delimitar o mandato profissional e transformar pedidos vagos em problemas de decisão verificáveis.",
+        "lessons": [
+          {
+            "title": "Arquitetura financeira",
+            "body": "O sistema conecta poupadores, tomadores, intermediários, mercados e mecanismos de pagamento. Bancos transformam prazos e riscos; mercados de capitais conectam emissores e investidores; seguradoras transferem riscos específicos. A análise deve distinguir risco de crédito, mercado, liquidez, operacional e legal."
+          },
+          {
+            "title": "Mandato e escopo",
+            "body": "Toda consultoria começa por uma pergunta de decisão, usuário da análise, prazo, dados necessários, restrições e critérios de sucesso. Registre o que está incluído e excluído, premissas, conflitos de interesse, remuneração, confidencialidade e entregáveis."
+          },
+          {
+            "title": "Fronteiras profissionais",
+            "body": "Educação financeira, planejamento financeiro, consultoria empresarial, análise de investimentos e consultoria regulada de valores mobiliários não são sinônimos. A atividade concreta, a forma de remuneração e o grau de recomendação individualizada podem alterar obrigações legais. Verifique normas atuais antes de atuar."
+          },
+          {
+            "title": "Processo profissional",
+            "body": "Definir problema → coletar e validar dados → formular hipóteses → analisar → comparar opções → recomendar → implementar → monitorar. Uma recomendação sem responsável, prazo e indicador é incompleta."
+          }
+        ],
+        "case": "Uma empresa pede 'melhorar as finanças'. Redija perguntas de descoberta, delimite escopo e proponha entregáveis para um diagnóstico de 30 dias.",
+        "assessment": {
+          "title": "Prova do Módulo 01",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual é o primeiro passo diante de um pedido vago de consultoria?",
+              "answer_explanation": "Definir a decisão a ser tomada, o objetivo, o escopo e os critérios de sucesso antes de escolher ferramentas.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Cite quatro riscos que podem afetar uma instituição financeira ou seu cliente.",
+              "answer_explanation": "Crédito, mercado, liquidez, operacional, legal/compliance, reputacional (quaisquer quatro).",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que o escopo deve registrar exclusões e premissas?",
+              "answer_explanation": "Para reduzir ambiguidades, alinhar expectativas, documentar limites e evitar conclusões além dos dados ou da competência profissional.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Diferencie educação financeira de consultoria regulada de investimentos.",
+              "answer_explanation": "Educação transmite conceitos gerais; consultoria regulada pode envolver orientação profissional, independente e individualizada sobre valores mobiliários, sujeita à regulamentação aplicável.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Monte um entregável mínimo para um diagnóstico inicial.",
+              "answer_explanation": "Carta de contratação, lista de dados, diagnóstico, hipóteses, análise, recomendações, plano de ação, riscos e critérios de acompanhamento.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 2,
+        "title": "Matemática financeira e engenharia de fluxos de caixa",
+        "hours": 24,
+        "objective": "Calcular valor temporal do dinheiro, comparar financiamentos e avaliar projetos com fluxos consistentes.",
+        "lessons": [
+          {
+            "title": "Valor do dinheiro no tempo",
+            "body": "Um real hoje e um real no futuro não são equivalentes quando há taxa de desconto, inflação, risco e oportunidade alternativa. Para capitalização composta: VF = VP(1+i)^n; VP = VF/(1+i)^n."
+          },
+          {
+            "title": "Equivalência de taxas",
+            "body": "Para taxa efetiva anual equivalente a uma taxa efetiva mensal i_m: i_a=(1+i_m)^12−1. Não multiplique uma taxa mensal por 12 quando a convenção é composta. Diferencie taxa nominal, efetiva e real."
+          },
+          {
+            "title": "Anuidades e amortização",
+            "body": "Pagamentos periódicos devem ser descontados segundo a data e a convenção correta. SAC amortiza principal constante; Price mantém prestação nominal constante sob hipóteses usuais. Compare CET, indexadores, tarifas, seguros e condições de liquidação antecipada."
+          },
+          {
+            "title": "Critérios de investimento",
+            "body": "VPL soma fluxos descontados; TIR é a taxa que zera o VPL; payback mede tempo de recuperação, mas ignora parte do valor temporal e/ou fluxos posteriores. TIR pode gerar múltiplas soluções ou ranking inadequado para projetos mutuamente excludentes."
+          },
+          {
+            "title": "Qualidade do modelo",
+            "body": "Documente datas, sinais, impostos, inflação, taxa, periodicidade e cenários. Confira com cálculo independente e teste casos extremos."
+          }
+        ],
+        "case": "Compare uma proposta à vista de R$ 48.000 com 12 parcelas de R$ 4.400. Calcule o custo efetivo implícito por período e explicite as premissas; não conclua apenas pelo valor da prestação.",
+        "assessment": {
+          "title": "Prova do Módulo 02",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "R$ 10.000 investidos a 1% efetivo ao mês por 12 meses resultam em aproximadamente quanto?",
+              "answer_explanation": "VF=10.000×1,01^12 ≈ R$ 11.268,25.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Qual é a taxa efetiva anual equivalente a 1% ao mês?",
+              "answer_explanation": "(1,01)^12−1 ≈ 12,6825%.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que significa um VPL positivo?",
+              "answer_explanation": "Sob os fluxos e a taxa de desconto adotados, o projeto cria valor presente acima do retorno exigido.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que a TIR pode ser inadequada para comparar projetos de tamanhos diferentes?",
+              "answer_explanation": "Pode gerar ranking conflitante com VPL e depende de hipóteses sobre reinvestimento e padrão dos fluxos.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Liste cinco itens que devem entrar na comparação de financiamentos.",
+              "answer_explanation": "CET, taxa e indexador, tarifas/seguros, prazo, cronograma, amortização, garantias, multas e condições de liquidação (quaisquer cinco).",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 3,
+        "title": "Estatística, econometria e inferência aplicada",
+        "hours": 20,
+        "objective": "Interpretar dados, quantificar incerteza e evitar inferências causais inválidas.",
+        "lessons": [
+          {
+            "title": "Descrição dos dados",
+            "body": "Média, mediana, quantis, variância e assimetria descrevem dimensões distintas. Em dados assimétricos, a média pode não representar o caso típico. Investigue dados ausentes, outliers e mudanças de definição."
+          },
+          {
+            "title": "Probabilidade e inferência",
+            "body": "Probabilidade condicional atualiza crenças com evidência. Intervalos de confiança descrevem propriedades de um procedimento de estimação; não são garantia de que um parâmetro fixo tenha determinada probabilidade no intervalo observado."
+          },
+          {
+            "title": "Regressão e causalidade",
+            "body": "Regressão estima associação condicional, mas não prova causalidade por si só. Variáveis omitidas, seleção, simultaneidade, erro de medição e causalidade reversa podem enviesar estimativas."
+          },
+          {
+            "title": "Séries temporais e previsão",
+            "body": "Tendência, sazonalidade, autocorrelação e quebras estruturais afetam previsões. Compare modelos simples com modelos complexos e avalie fora da amostra."
+          },
+          {
+            "title": "Simulação e robustez",
+            "body": "Monte Carlo propaga distribuições assumidas; não corrige premissas ruins. Teste cenários, sensibilidades, correlações e resultados extremos."
+          }
+        ],
+        "case": "Uma campanha coincide com aumento de vendas. Planeje uma análise para investigar se a campanha causou o aumento, listando dados e riscos de viés.",
+        "assessment": {
+          "title": "Prova do Módulo 03",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual a diferença entre média e mediana?",
+              "answer_explanation": "A média usa todos os valores e é sensível a extremos; a mediana é o percentil 50 e costuma ser mais robusta a assimetria.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Uma correlação de 0,8 prova causalidade?",
+              "answer_explanation": "Não. Pode haver confundimento, causalidade reversa, tendência comum ou seleção.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que é sobreajuste?",
+              "answer_explanation": "Quando o modelo captura ruído dos dados de treino e generaliza mal para dados novos.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que avaliar previsão fora da amostra?",
+              "answer_explanation": "Para estimar melhor o desempenho em dados não usados na construção do modelo.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Cite três ameaças à validade causal.",
+              "answer_explanation": "Variáveis omitidas, seleção, simultaneidade/causalidade reversa, erro de medição, mudanças concomitantes.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 4,
+        "title": "Macroeconomia, inflação, juros e política monetária",
+        "hours": 20,
+        "objective": "Traduzir cenários macroeconômicos em efeitos sobre fluxo de caixa, custo de capital, crédito e ativos.",
+        "lessons": [
+          {
+            "title": "Atividade econômica",
+            "body": "PIB, consumo, investimento, produtividade e emprego ajudam a descrever o ciclo, mas indicadores são publicados com atraso e revisões. Separe dado observado, estimativa e previsão."
+          },
+          {
+            "title": "Inflação e juros reais",
+            "body": "A aproximação taxa real ≈ taxa nominal − inflação funciona para taxas pequenas; a relação exata é (1+i_nominal)/(1+inflação)−1. Expectativas de inflação influenciam taxas e decisões."
+          },
+          {
+            "title": "Política monetária e curva de juros",
+            "body": "A taxa básica influencia condições financeiras, mas a curva incorpora expectativas, prêmio de prazo, risco e oferta/demanda. Mudanças de juros afetam dívida, consumo, valuation e câmbio de forma heterogênea."
+          },
+          {
+            "title": "Câmbio e risco soberano",
+            "body": "Exportadores, importadores e empresas com dívida em moeda estrangeira têm exposições diferentes. A análise deve mapear moeda da receita, custos, dívida e hedge."
+          },
+          {
+            "title": "Cenários",
+            "body": "Use cenários coerentes, não previsões com falsa precisão. Defina variáveis, mecanismos de transmissão, gatilhos de revisão e decisões condicionais."
+          }
+        ],
+        "case": "Crie cenários de juros, inflação e câmbio para uma importadora com dívida em dólar. Mostre canais de impacto e possíveis mitigadores.",
+        "assessment": {
+          "title": "Prova do Módulo 04",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual é a taxa real exata se a taxa nominal é 10% e a inflação 4%?",
+              "answer_explanation": "(1,10/1,04)−1 ≈ 5,77%.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que a taxa longa pode subir mesmo se a taxa básica cair?",
+              "answer_explanation": "Expectativas de inflação, prêmio de prazo, risco fiscal/soberano e condições de oferta/demanda podem elevar taxas longas.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como a desvalorização cambial afeta uma importadora sem hedge?",
+              "answer_explanation": "Pode elevar custos e dívida em moeda estrangeira, pressionando margem, capital de giro e solvência.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que torna um cenário macroeconômico útil?",
+              "answer_explanation": "Premissas explícitas, mecanismos de transmissão, consistência interna, indicadores de acompanhamento e decisões condicionais.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que não se deve tratar uma previsão pontual como certeza?",
+              "answer_explanation": "Modelos têm incerteza, dados são revisados e choques podem alterar relações históricas.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 5,
+        "title": "Contabilidade e qualidade dos resultados",
+        "hours": 20,
+        "objective": "Ler demonstrações financeiras, reconciliar lucro e caixa e identificar estimativas e riscos contábeis relevantes.",
+        "lessons": [
+          {
+            "title": "Demonstrações integradas",
+            "body": "Balanço mostra posição em uma data; DRE mede desempenho por período; DFC explica entradas e saídas de caixa. Notas explicativas esclarecem políticas, julgamentos, riscos e compromissos."
+          },
+          {
+            "title": "Competência versus caixa",
+            "body": "Receita pode ser reconhecida antes do recebimento; despesa pode ser reconhecida antes do pagamento. Lucro e caixa divergem por capital de giro, itens não caixa, investimentos e financiamento."
+          },
+          {
+            "title": "Estimativas e julgamentos",
+            "body": "Provisões, impairment, vida útil, perdas de crédito, reconhecimento de receita e capitalização de custos exigem análise crítica. Mudança de estimativa não é automaticamente fraude, mas precisa de explicação."
+          },
+          {
+            "title": "Indicadores e reconciliação",
+            "body": "EBITDA não é fluxo de caixa livre. Parta do resultado operacional e considere impostos, investimentos e variações de capital de giro, respeitando a definição escolhida."
+          },
+          {
+            "title": "Qualidade dos lucros",
+            "body": "Observe crescimento de contas a receber acima das vendas, mudanças em políticas, itens recorrentes chamados de não recorrentes, capitalização agressiva e diferenças persistentes entre lucro e caixa."
+          }
+        ],
+        "case": "Uma companhia apresenta lucro crescente, mas fluxo de caixa operacional negativo por dois anos. Construa a lista de verificações antes de emitir conclusão.",
+        "assessment": {
+          "title": "Prova do Módulo 05",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Por que lucro não é igual a caixa?",
+              "answer_explanation": "Competência, contas a receber/pagar, estoques, itens não caixa, investimentos e financiamentos geram diferenças.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "EBITDA é fluxo de caixa livre?",
+              "answer_explanation": "Não. Não incorpora integralmente impostos, investimentos, variações de capital de giro e outros fluxos.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Cite três sinais que merecem investigação de qualidade de lucro.",
+              "answer_explanation": "Recebíveis crescendo mais que vendas, políticas contábeis alteradas, capitalização agressiva, itens não recorrentes frequentes, diferença lucro-caixa persistente.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Qual demonstração apresenta a posição patrimonial numa data?",
+              "answer_explanation": "Balanço patrimonial.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que deve ser feito antes de ajustar um item como não recorrente?",
+              "answer_explanation": "Verificar natureza, evidência, frequência, materialidade, tratamento contábil e consistência histórica; documentar o ajuste.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 6,
+        "title": "Diagnóstico financeiro e desempenho empresarial",
+        "hours": 24,
+        "objective": "Identificar causas de pressão de caixa, baixa rentabilidade e uso ineficiente do capital.",
+        "lessons": [
+          {
+            "title": "Análise comparativa",
+            "body": "Use análise horizontal e vertical, tendências e pares comparáveis. Ajuste diferenças de porte, mix, ciclo, política contábil e modelo de negócio."
+          },
+          {
+            "title": "Capital de giro",
+            "body": "Necessidade de capital de giro depende de recebíveis, estoques e fornecedores. O ciclo de conversão de caixa combina dias de estoque e recebimento menos dias de pagamento."
+          },
+          {
+            "title": "Rentabilidade",
+            "body": "ROIC mede retorno sobre capital investido operacional; ROE depende também da alavancagem. Decomposição DuPont separa margem, giro e alavancagem."
+          },
+          {
+            "title": "Diagnóstico causal",
+            "body": "Indicadores sinalizam sintomas, não necessariamente causas. Investigue por cliente, produto, canal, região, prazo, desconto e custo unitário."
+          },
+          {
+            "title": "Priorizar intervenções",
+            "body": "Quantifique benefício, custo, risco, tempo, dependências e reversibilidade. Separe medidas de caixa imediatas de mudanças estruturais."
+          }
+        ],
+        "case": "Receita cresce 30%, EBITDA cresce 4%, margem cai de 15% para 12% e necessidade de capital de giro aumenta R$ 450 mil. Formule hipóteses e plano de investigação.",
+        "assessment": {
+          "title": "Prova do Módulo 06",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual a fórmula comum do ciclo de conversão de caixa?",
+              "answer_explanation": "Dias de estoque + dias de recebimento − dias de pagamento.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que ROE alto pode ser enganoso?",
+              "answer_explanation": "Pode refletir alavancagem elevada, patrimônio reduzido ou itens extraordinários, não apenas eficiência operacional.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que o diagnóstico deve separar?",
+              "answer_explanation": "Sintomas, causas prováveis, evidências, impactos quantificados e ações possíveis.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Uma empresa pode crescer e destruir valor? Explique.",
+              "answer_explanation": "Sim, se o retorno incremental sobre capital for inferior ao custo de capital ou se o crescimento consumir caixa sem retorno adequado.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como priorizar ações de recuperação?",
+              "answer_explanation": "Pelo impacto esperado, urgência, risco, custo, tempo de execução, viabilidade e reversibilidade.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 7,
+        "title": "Finanças corporativas e alocação de capital",
+        "hours": 24,
+        "objective": "Selecionar investimentos e estruturas de financiamento com base em valor econômico, risco e restrições.",
+        "lessons": [
+          {
+            "title": "VPL incremental",
+            "body": "Compare fluxos que mudam por causa da decisão. Custos afundados não devem determinar a escolha futura; custos de oportunidade e efeitos colaterais devem ser incluídos."
+          },
+          {
+            "title": "Custo de capital",
+            "body": "WACC pondera custo de capital próprio e dívida após imposto, com pesos de mercado quando apropriado. Use taxas coerentes com moeda, inflação, risco e fluxo projetado."
+          },
+          {
+            "title": "Estrutura de capital",
+            "body": "Dívida pode oferecer benefício fiscal, mas eleva risco de dificuldades financeiras e reduz flexibilidade. Não há razão universal de dívida ótima para todas as empresas."
+          },
+          {
+            "title": "Distribuição e reinvestimento",
+            "body": "Dividendos e recompras devem ser comparados com oportunidades de reinvestimento, liquidez, covenants, impostos e sinalização."
+          },
+          {
+            "title": "Opções reais e revisão",
+            "body": "Em cenários incertos, adiar, expandir, reduzir ou abandonar pode ter valor. A flexibilidade não justifica qualquer projeto; deve ser analisada com premissas explícitas."
+          }
+        ],
+        "case": "Compare dois projetos mutuamente excludentes: projeto A tem VPL de R$ 500 mil e vida de 3 anos; projeto B tem VPL de R$ 650 mil e vida de 8 anos. Explique quais informações adicionais podem ser necessárias.",
+        "assessment": {
+          "title": "Prova do Módulo 07",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "O que são fluxos incrementais?",
+              "answer_explanation": "Fluxos que diferem entre aceitar e rejeitar a decisão, incluindo custos de oportunidade e efeitos colaterais relevantes.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que custo afundado é irrelevante para a decisão futura?",
+              "answer_explanation": "Já ocorreu e não muda conforme a escolha atual, embora possa importar para avaliação histórica.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quais premissas devem ser coerentes no WACC?",
+              "answer_explanation": "Moeda, inflação, risco, tratamento tributário, pesos e definição do fluxo de caixa.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quais são dois custos da alavancagem excessiva?",
+              "answer_explanation": "Maior risco de insolvência, custos de dificuldades financeiras, restrições de covenants e menor flexibilidade.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quando opções reais podem ser relevantes?",
+              "answer_explanation": "Quando há incerteza e flexibilidade gerencial valiosa para adiar, expandir, reduzir ou abandonar o projeto.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 8,
+        "title": "Valuation e avaliação de negócios",
+        "hours": 24,
+        "objective": "Estimar intervalos de valor e explicar quais premissas determinam o resultado.",
+        "lessons": [
+          {
+            "title": "Fluxos de caixa",
+            "body": "FCFF pertence a todos os financiadores e é descontado pelo WACC; FCFE é fluxo para acionistas e deve ser descontado pelo custo do capital próprio. Não misture fluxo e taxa."
+          },
+          {
+            "title": "Projeção operacional",
+            "body": "Projete receita por fatores operacionais, margem, impostos, reinvestimento e capital de giro. Crescimento exige reinvestimento; crescimento sem capacidade de reinvestir de modo eficiente é inconsistente."
+          },
+          {
+            "title": "Valor terminal",
+            "body": "Modelos de crescimento perpétuo exigem crescimento inferior à taxa de desconto e estabilidade operacional. Pequenas mudanças em WACC e crescimento terminal podem dominar o valor."
+          },
+          {
+            "title": "Múltiplos",
+            "body": "Escolha comparáveis por modelo econômico, crescimento, margens, risco e contabilidade. Múltiplos de empresas não comparáveis não se tornam comparáveis só por pertencerem ao mesmo setor."
+          },
+          {
+            "title": "Incerteza e comunicação",
+            "body": "Apresente intervalo, cenários, sensibilidade e premissas-chave. Valuation é estimativa condicionada, não preço verdadeiro exato."
+          }
+        ],
+        "case": "Avalie uma empresa com três cenários de crescimento e margem. Faça sensibilidade de WACC e crescimento terminal e identifique as duas premissas de maior impacto.",
+        "assessment": {
+          "title": "Prova do Módulo 08",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual taxa desconta FCFF e FCFE, respectivamente?",
+              "answer_explanation": "FCFF: WACC; FCFE: custo do capital próprio, em estruturas e premissas consistentes.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que crescimento terminal deve ser coerente com reinvestimento?",
+              "answer_explanation": "Crescimento sustentável exige reinvestimento e retorno sobre capital; ignorar isso superestima caixa distribuível.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Qual é um risco de usar múltiplos de comparáveis inadequados?",
+              "answer_explanation": "Transferir diferenças de crescimento, risco, margem, contabilidade ou estrutura de capital para uma avaliação enviesada.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que apresentar um único valor de valuation é insuficiente?",
+              "answer_explanation": "O valor depende de premissas incertas; intervalos e sensibilidades mostram a exposição às hipóteses.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que ocorre se crescimento terminal se aproxima excessivamente do WACC?",
+              "answer_explanation": "O valor terminal pode aumentar de forma desproporcional e tornar-se extremamente sensível.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 9,
+        "title": "Mercados e instrumentos financeiros",
+        "hours": 24,
+        "objective": "Analisar os fluxos, riscos, custos e funções de instrumentos financeiros.",
+        "lessons": [
+          {
+            "title": "Renda fixa",
+            "body": "Preço de título é o valor presente dos fluxos. Preços geralmente caem quando taxas de desconto sobem. Duration aproxima sensibilidade; convexidade melhora aproximação para mudanças maiores."
+          },
+          {
+            "title": "Ações",
+            "body": "Valor depende de fluxos, crescimento, risco, governança e preço pago. Dividendos não são retorno gratuito; a distribuição reduz recursos dentro da empresa, mantidas as demais condições."
+          },
+          {
+            "title": "Fundos e ETFs",
+            "body": "Avalie índice, custos, tracking error, liquidez, tributação, estrutura, risco de contraparte e metodologia de replicação."
+          },
+          {
+            "title": "Derivativos e hedge",
+            "body": "Derivativos podem reduzir exposição ou criar alavancagem. Hedge reduz determinados riscos, mas pode criar custo, base risk, margem e risco de contraparte."
+          },
+          {
+            "title": "Liquidez e estrutura",
+            "body": "Investimentos alternativos e ativos pouco líquidos exigem prêmio, horizonte e capacidade de suportar saída difícil. Criptoativos têm riscos específicos de custódia, mercado e regulação."
+          }
+        ],
+        "case": "Compare um título prefixado, um título indexado à inflação, uma ação e um fundo de índice para objetivos distintos. Evite declarar um instrumento universalmente superior.",
+        "assessment": {
+          "title": "Prova do Módulo 09",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual a relação típica entre taxa de mercado e preço de título prefixado?",
+              "answer_explanation": "Quando a taxa de desconto sobe, o preço tende a cair; quando cai, o preço tende a subir.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que a duration mede aproximadamente?",
+              "answer_explanation": "Sensibilidade percentual do preço do título a uma pequena mudança na taxa de juros, conforme a definição usada.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Hedge elimina todo risco?",
+              "answer_explanation": "Não. Pode permanecer risco de base, liquidez, contraparte, margem, modelo e custo.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que dividendos não são dinheiro gratuito?",
+              "answer_explanation": "A distribuição transfere caixa da empresa ao acionista e normalmente reduz o valor dos ativos da empresa, tudo o mais constante.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Liste quatro critérios para comparar fundos.",
+              "answer_explanation": "Objetivo/índice, custos, tracking error, liquidez, tributação, estrutura, risco e qualidade de replicação.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 10,
+        "title": "Portfólios, risco e avaliação de desempenho",
+        "hours": 24,
+        "objective": "Construir políticas de investimento coerentes com objetivos, restrições e tolerância a perdas.",
+        "lessons": [
+          {
+            "title": "Retorno e diversificação",
+            "body": "Retorno esperado não é garantia. A variância de uma carteira depende de pesos, variâncias e covariâncias; diversificação reduz riscos específicos, mas não elimina risco sistêmico."
+          },
+          {
+            "title": "Modelos de risco",
+            "body": "CAPM e modelos multifatoriais são estruturas úteis, mas betas e prêmios são estimados com erro e podem variar ao longo do tempo."
+          },
+          {
+            "title": "Métricas de risco",
+            "body": "VaR estima um quantil de perda em horizonte e nível definidos; não descreve a severidade além do quantil. Expected shortfall estima a perda média na cauda, conforme método."
+          },
+          {
+            "title": "Desempenho",
+            "body": "Sharpe relaciona excesso de retorno e volatilidade; Sortino foca uma medida de risco de queda. Compare com benchmark apropriado, horizonte, moeda, custos e risco assumido."
+          },
+          {
+            "title": "Backtesting",
+            "body": "Evite look-ahead bias, sobrevivência, seleção de parâmetros e custos omitidos. Reserve dados fora da amostra e teste robustez em regimes diferentes."
+          }
+        ],
+        "case": "Duas carteiras têm retorno médio parecido, mas uma concentra perdas em eventos extremos. Compare métricas, liquidez e adequação aos passivos do investidor.",
+        "assessment": {
+          "title": "Prova do Módulo 10",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "A diversificação elimina todo risco?",
+              "answer_explanation": "Não. Reduz riscos específicos, mas riscos sistêmicos e correlações elevadas em crises permanecem.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Qual limitação importante do VaR?",
+              "answer_explanation": "Não informa a severidade média das perdas além do quantil e depende do horizonte, nível e método.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que é look-ahead bias?",
+              "answer_explanation": "Usar informação que não estaria disponível no momento em que a decisão histórica teria sido tomada.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que benchmark importa?",
+              "answer_explanation": "Permite avaliar desempenho relativo coerente com estratégia, risco, moeda e universo de investimento.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que mede aproximadamente o Sharpe?",
+              "answer_explanation": "Excesso de retorno por unidade de volatilidade total, com limitações conforme distribuição e horizonte.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 11,
+        "title": "Planejamento financeiro pessoal e patrimonial",
+        "hours": 24,
+        "objective": "Integrar orçamento, dívida, proteção, objetivos e patrimônio em um plano individualizado e revisável.",
+        "lessons": [
+          {
+            "title": "Diagnóstico integrado",
+            "body": "Mapeie ativos, passivos, renda, despesas, obrigações, dependentes, seguros, objetivos, prazos e tolerância a perdas. Valide consistência e não presuma que os dados declarados estão completos."
+          },
+          {
+            "title": "Dívidas e liquidez",
+            "body": "Compare taxas efetivas, garantias, penalidades e riscos. A reserva de liquidez deve refletir estabilidade da renda, despesas essenciais, dependentes e acesso a crédito confiável."
+          },
+          {
+            "title": "Objetivos e aposentadoria",
+            "body": "Modele inflação, longevidade, retornos incertos, impostos, contribuições e retiradas. Teste sequência desfavorável de retornos perto do início das retiradas."
+          },
+          {
+            "title": "Proteção e sucessão",
+            "body": "Avalie exposição a eventos extremos e a necessidade de seguros. Questões jurídicas, sucessórias e tributárias devem ser coordenadas com profissionais habilitados."
+          },
+          {
+            "title": "Plano vivo",
+            "body": "Defina ações, responsáveis, datas, indicadores e gatilhos de revisão. Um plano precisa adaptar-se a mudanças de renda, família, saúde, objetivos e legislação."
+          }
+        ],
+        "case": "Uma família tem renda variável, dívida cara, dependentes e meta de aposentadoria em 20 anos. Crie prioridades e cenários sem presumir retorno garantido.",
+        "assessment": {
+          "title": "Prova do Módulo 11",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Quais fatores devem influenciar o tamanho da reserva?",
+              "answer_explanation": "Despesas essenciais, estabilidade da renda, dependentes, riscos previsíveis, liquidez de ativos e acesso realista a crédito.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que risco de sequência importa na aposentadoria?",
+              "answer_explanation": "Retornos negativos no início das retiradas podem causar redução duradoura do patrimônio mesmo com retorno médio de longo prazo semelhante.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Qual é a primeira etapa do plano patrimonial?",
+              "answer_explanation": "Diagnóstico validado de ativos, passivos, fluxo de caixa, objetivos, restrições e riscos.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como lidar com questões jurídicas ou tributárias especializadas?",
+              "answer_explanation": "Identificar a questão e coordenar encaminhamento a profissional habilitado, sem ultrapassar o próprio escopo.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que torna um plano executável?",
+              "answer_explanation": "Prioridades, ações, responsáveis, prazos, métricas e gatilhos de revisão.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 12,
+        "title": "Crédito, endividamento e reestruturação",
+        "hours": 24,
+        "objective": "Avaliar capacidade de pagamento e desenhar alternativas realistas de financiamento e recuperação.",
+        "lessons": [
+          {
+            "title": "Análise de crédito",
+            "body": "A capacidade de pagar depende de fluxo de caixa futuro, volatilidade, vencimentos, garantias, prioridade de credores e acesso a liquidez."
+          },
+          {
+            "title": "PD, LGD e EAD",
+            "body": "Probabilidade de default, perda dado default e exposição no default são conceitos usados em modelos de risco; estimativas dependem de dados, definição de default e ciclo."
+          },
+          {
+            "title": "Estrutura e covenants",
+            "body": "Leia vencimentos, garantias, senioridade, cláusulas de aceleração e covenants. Uma empresa pode ter patrimônio positivo e enfrentar crise de liquidez."
+          },
+          {
+            "title": "Reperfilamento",
+            "body": "Compare extensão de prazo, carência, taxa, garantias, amortização, custos e valor presente. Uma prestação menor pode aumentar o custo total."
+          },
+          {
+            "title": "Recuperação e contingência",
+            "body": "Monte previsão de caixa de curto prazo, prioridades operacionais, cenários de continuidade e pontos de decisão para negociar cedo."
+          }
+        ],
+        "case": "Uma empresa não cobre amortizações dos próximos seis meses. Prepare mapa de caixa semanal, alternativas de negociação e critérios de viabilidade.",
+        "assessment": {
+          "title": "Prova do Módulo 12",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Defina PD, LGD e EAD.",
+              "answer_explanation": "PD: probabilidade de default; LGD: proporção de perda dado default; EAD: exposição no momento do default.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que patrimônio positivo não elimina risco de insolvência?",
+              "answer_explanation": "Ativos podem ser ilíquidos ou não realizáveis a tempo para pagar obrigações vencidas.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quais elementos comparar em um reperfilamento?",
+              "answer_explanation": "Prazo, taxa, carência, garantias, covenants, custo total, valor presente e capacidade futura de pagamento.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Qual a utilidade de previsão de caixa semanal em crise?",
+              "answer_explanation": "Identificar déficit e vencimentos próximos, priorizar pagamentos e apoiar negociação baseada em dados.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quando a reestruturação exige assessoria especializada?",
+              "answer_explanation": "Quando há insolvência, litígio, garantias complexas, processos formais ou questões jurídicas/tributárias relevantes.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 13,
+        "title": "Tributação, regulação e conformidade no Brasil",
+        "hours": 20,
+        "objective": "Reconhecer obrigações legais, incorporar efeitos tributários e encaminhar temas fora do escopo.",
+        "lessons": [
+          {
+            "title": "Tributação na modelagem",
+            "body": "Impostos alteram fluxo de caixa, retorno líquido e estrutura de financiamento. A regra depende de pessoa, operação, período e legislação vigente."
+          },
+          {
+            "title": "Regulação financeira",
+            "body": "Verifique normas atuais da CVM, Banco Central e demais autoridades conforme a atividade. A descrição comercial do serviço não determina sozinha sua classificação regulatória."
+          },
+          {
+            "title": "Consultoria de valores mobiliários",
+            "body": "A orientação profissional, independente e individualizada sobre valores mobiliários pode configurar atividade regulada. A Resolução CVM 19 e alterações devem ser consultadas na fonte oficial."
+          },
+          {
+            "title": "Dados e confidencialidade",
+            "body": "Colete apenas dados necessários, defina base legal e controles apropriados, limite acessos, proteja documentos e estabeleça retenção e descarte."
+          },
+          {
+            "title": "Registro e encaminhamento",
+            "body": "Mantenha documentação das premissas e decisões. Encaminhe matéria jurídica, contábil, tributária ou regulada a profissional habilitado quando necessário."
+          }
+        ],
+        "case": "Analise três serviços hipotéticos de educação, planejamento e recomendação individualizada de investimentos. Identifique perguntas de conformidade e fontes oficiais a consultar.",
+        "assessment": {
+          "title": "Prova do Módulo 13",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Por que a legislação deve ser verificada na fonte oficial atualizada?",
+              "answer_explanation": "Regras, interpretações e prazos mudam; resumos desatualizados podem levar a atuação irregular.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "A expressão 'educacional' no nome do serviço garante que não há atividade regulada?",
+              "answer_explanation": "Não. Importam a atividade efetivamente exercida, o grau de individualização e as regras aplicáveis.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Cite três práticas de proteção de dados.",
+              "answer_explanation": "Minimização, controle de acesso, segurança, finalidade definida, retenção adequada e registro de tratamento.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quando encaminhar ao especialista?",
+              "answer_explanation": "Quando a questão excede a qualificação/escopo ou exige habilitação específica, parecer jurídico ou atuação regulada.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Que documento deve apoiar uma recomendação profissional?",
+              "answer_explanation": "Registro das informações, premissas, análise, alternativas, riscos, decisão, limitações e plano de acompanhamento.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 14,
+        "title": "Governança, controles internos e riscos empresariais",
+        "hours": 20,
+        "objective": "Desenhar controles, responsabilidades e indicadores para reduzir falhas e conflitos de interesse.",
+        "lessons": [
+          {
+            "title": "Governança e incentivos",
+            "body": "Estruturas de governança definem direitos decisórios, supervisão, prestação de contas e tratamento de conflitos entre sócios, gestores e credores."
+          },
+          {
+            "title": "Controles financeiros",
+            "body": "Segregação de funções, alçadas, reconciliações, trilhas de auditoria, revisão de fornecedores e confirmação independente reduzem oportunidades e detectam erros."
+          },
+          {
+            "title": "Gestão integrada de riscos",
+            "body": "Identifique risco, causa, evento, consequência, controle existente, risco residual, responsável e resposta. Evite matrizes sem prioridade ou evidência."
+          },
+          {
+            "title": "Continuidade e terceiros",
+            "body": "Mapeie dependências críticas, fornecedores concentrados, ciber-risco, planos de contingência e recuperação de operações."
+          },
+          {
+            "title": "Monitoramento",
+            "body": "Indicadores antecedentes e limites de tolerância devem gerar decisões, não apenas relatórios. Registre exceções, responsáveis e prazo de correção."
+          }
+        ],
+        "case": "Uma empresa permite que a mesma pessoa cadastre fornecedor, aprove fatura e execute pagamento. Desenhe controles proporcionais ao porte.",
+        "assessment": {
+          "title": "Prova do Módulo 14",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual o objetivo da segregação de funções?",
+              "answer_explanation": "Reduzir a possibilidade de uma pessoa iniciar, aprovar e ocultar transação indevida sem detecção.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que deve conter uma matriz de risco útil?",
+              "answer_explanation": "Risco, causa, consequência, probabilidade/impacto, controles, risco residual, responsável e ação.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que controles devem ser proporcionais ao porte?",
+              "answer_explanation": "Para controlar riscos relevantes sem criar custo e burocracia incompatíveis com a operação.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Diferencie risco inerente e residual.",
+              "answer_explanation": "Inerente é antes dos controles; residual é o que permanece após considerar controles.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como garantir que um indicador gere ação?",
+              "answer_explanation": "Definir limite, responsável, frequência, resposta esperada e prazo de escalonamento.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 15,
+        "title": "Psicologia econômica, negociação e relacionamento",
+        "hours": 20,
+        "objective": "Reconhecer vieses, alinhar incentivos e comunicar decisões complexas sem falsa certeza.",
+        "lessons": [
+          {
+            "title": "Vieses e decisão",
+            "body": "Aversão à perda, ancoragem, excesso de confiança e enquadramento podem afetar escolhas. Não diagnostique clientes por rótulos; use processos de decisão estruturados."
+          },
+          {
+            "title": "Contabilidade mental",
+            "body": "Pessoas podem tratar recursos fungíveis como compartimentos separados. Isso ajuda a entender escolhas, mas não deve ser usado para manipular o cliente."
+          },
+          {
+            "title": "Comunicação de incerteza",
+            "body": "Use intervalos, cenários, probabilidade quando fundamentada e linguagem clara sobre o que se sabe e o que não se sabe."
+          },
+          {
+            "title": "Negociação",
+            "body": "Separe posições de interesses, identifique alternativas, prepare limites e documente concessões. Em negociação de dívida, use fluxo de caixa e cenários verificáveis."
+          },
+          {
+            "title": "Ética e incentivos",
+            "body": "Divulgue remuneração, comissões, conflitos e limitações. A recomendação deve priorizar o mandato legítimo e o interesse do cliente dentro das obrigações aplicáveis."
+          }
+        ],
+        "case": "Um cliente insiste em manter um investimento concentrado porque não quer realizar prejuízo. Prepare uma conversa baseada em objetivos, risco atual e alternativas, sem pressionar ou prometer retorno.",
+        "assessment": {
+          "title": "Prova do Módulo 15",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "O que é ancoragem?",
+              "answer_explanation": "Influência desproporcional de uma referência inicial sobre estimativas ou decisões subsequentes.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como comunicar uma previsão incerta?",
+              "answer_explanation": "Explicitar premissas, intervalo/cenários, principais riscos, dados ausentes e condições que alterariam a conclusão.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que remuneração e conflitos devem ser divulgados?",
+              "answer_explanation": "Permitem ao cliente avaliar incentivos e a independência da recomendação.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que significa separar posição de interesse na negociação?",
+              "answer_explanation": "Investigar a necessidade subjacente à exigência declarada e buscar opções que atendam interesses legítimos.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como evitar uso manipulativo da psicologia econômica?",
+              "answer_explanation": "Usar ferramentas para melhorar compreensão e qualidade da decisão, com transparência e respeito à autonomia.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 16,
+        "title": "Modelagem financeira avançada e ferramentas",
+        "hours": 20,
+        "objective": "Criar modelos reproduzíveis, auditáveis e úteis à decisão, com automação controlada.",
+        "lessons": [
+          {
+            "title": "Modelo de três demonstrações",
+            "body": "Receitas e custos alimentam a DRE; balanço e fluxo de caixa se conectam por capital de giro, investimento, dívida e lucro retido. Toda diferença precisa de reconciliação."
+          },
+          {
+            "title": "Estrutura e controles",
+            "body": "Separe entradas, cálculos e saídas; identifique unidades, datas, fontes e versões. Evite hardcodes escondidos e fórmulas duplicadas."
+          },
+          {
+            "title": "Cenários e sensibilidades",
+            "body": "Diferencie análise de sensibilidade de cenário conjunto. Teste consistência entre volume, preço, margem, capital de giro, investimento e financiamento."
+          },
+          {
+            "title": "Dados e automação",
+            "body": "SQL e Python podem limpar, validar e transformar dados, mas devem preservar origem, regras de transformação e testes. Automatizar um erro amplia o erro."
+          },
+          {
+            "title": "IA e segurança",
+            "body": "Use IA como assistente, não fonte final. Valide fórmulas e citações, não exponha dados confidenciais sem autorização e mantenha revisão humana em decisões materiais."
+          }
+        ],
+        "case": "Crie especificação de um modelo que projete três demonstrações, caixa semanal, covenants e alertas de desvios. Liste testes de qualidade.",
+        "assessment": {
+          "title": "Prova do Módulo 16",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Qual é a vantagem de separar entradas, cálculos e saídas?",
+              "answer_explanation": "Melhora rastreabilidade, revisão, atualização e detecção de erros.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que fazer quando o balanço projetado não fecha?",
+              "answer_explanation": "Investigar conexões, sinais, cronogramas e fórmulas; não inserir ajuste arbitrário sem explicação.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que automação exige testes?",
+              "answer_explanation": "Erros de origem ou transformação podem se propagar em escala e parecer consistentes.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Diferencie sensibilidade e cenário.",
+              "answer_explanation": "Sensibilidade varia uma ou poucas premissas para medir impacto; cenário altera conjunto coerente de premissas.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como usar IA em trabalho financeiro com segurança?",
+              "answer_explanation": "Validar saídas independentemente, proteger dados, conferir fontes e manter revisão humana e trilha de auditoria.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 17,
+        "title": "Método de consultoria, implementação e mensuração",
+        "hours": 20,
+        "objective": "Converter análise em plano executável e medir benefícios sem atribuir causalidade indevida.",
+        "lessons": [
+          {
+            "title": "Linha de base",
+            "body": "Defina métrica, período, fonte, método e fatores externos antes da intervenção. Sem linha de base, alegações de melhoria são frágeis."
+          },
+          {
+            "title": "Causa-raiz e priorização",
+            "body": "Use árvore de problemas, decomposição, entrevistas e testes de hipótese. Priorize ações pelo impacto, custo, risco, tempo e capacidade de execução."
+          },
+          {
+            "title": "Plano de implementação",
+            "body": "Cada ação deve ter responsável, prazo, recursos, dependências, indicador e critério de conclusão. Defina governança e escalonamento."
+          },
+          {
+            "title": "Atribuição de resultados",
+            "body": "Resultado observado não é necessariamente causado pela intervenção. Considere sazonalidade, mercado, mudanças concomitantes e comparação apropriada."
+          },
+          {
+            "title": "Revisão pós-implementação",
+            "body": "Compare realizado com previsão, registre desvios, explique erros e atualize modelo. Não esconda falhas; transforme-as em aprendizagem."
+          }
+        ],
+        "case": "Prepare plano de recuperação de margem e caixa com responsáveis, indicadores semanais, metas, riscos de execução e revisão pós-implementação.",
+        "assessment": {
+          "title": "Prova do Módulo 17",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Por que estabelecer linha de base antes da intervenção?",
+              "answer_explanation": "Para comparar o estado inicial com resultados posteriores de modo consistente.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Resultado observado prova causalidade?",
+              "answer_explanation": "Não. Pode haver fatores externos, sazonalidade ou mudanças simultâneas.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Quais campos mínimos devem existir em plano de ação?",
+              "answer_explanation": "Ação, responsável, prazo, recursos, dependências, indicador, critério de conclusão e escalonamento.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como priorizar ações?",
+              "answer_explanation": "Impacto, urgência, custo, risco, viabilidade, prazo e reversibilidade.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que fazer quando a intervenção falha?",
+              "answer_explanation": "Investigar premissas e execução, documentar aprendizado, ajustar o plano e comunicar o resultado com transparência.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      },
+      {
+        "number": 18,
+        "title": "Capstone: laboratório integrado e projeto final",
+        "hours": 20,
+        "objective": "Demonstrar domínio integrado em um caso novo, com dados imperfeitos, incerteza e defesa técnica.",
+        "lessons": [
+          {
+            "title": "Caso empresarial",
+            "body": "Diagnosticar margem, capital de giro, dívida, investimentos e qualidade de resultados; separar problemas urgentes de estruturais."
+          },
+          {
+            "title": "Caso patrimonial",
+            "body": "Integrar renda, passivos, objetivos, risco, liquidez e planejamento de longo prazo, respeitando escopo profissional."
+          },
+          {
+            "title": "Caso de investimento",
+            "body": "Comparar instrumentos e portfólios por retorno, risco, custo, tributação, liquidez e adequação."
+          },
+          {
+            "title": "Caso de crise",
+            "body": "Construir cenários, identificar gatilhos de decisão, comunicar incerteza e documentar plano de contingência."
+          },
+          {
+            "title": "Defesa e integridade",
+            "body": "Apresentar fontes, modelo reproduzível, limitações, alternativas rejeitadas e condições de revisão. Não inventar dados ausentes."
+          }
+        ],
+        "case": "Entregue um dossiê com diagnóstico, modelo, cenários, recomendações, plano de execução, métricas, riscos e defesa oral. O avaliador introduzirá mudanças de premissas.",
+        "assessment": {
+          "title": "Prova do Módulo 18",
+          "suggested_pass_score": 80,
+          "questions": [
+            {
+              "prompt": "Quais elementos não podem faltar no dossiê final?",
+              "answer_explanation": "Diagnóstico, fontes, premissas, modelo, cenários, alternativas, recomendação, riscos, implementação e monitoramento.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Como lidar com dado material ausente?",
+              "answer_explanation": "Declarar a lacuna, estimar apenas com premissas explícitas, testar sensibilidade e solicitar evidência quando necessário.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que caracteriza uma recomendação defensável?",
+              "answer_explanation": "Coerência com objetivos e restrições, evidência rastreável, alternativas comparadas, riscos e condições de revisão.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "Por que a banca altera premissas?",
+              "answer_explanation": "Para avaliar robustez, entendimento causal e capacidade de adaptar a decisão sem apego à conclusão inicial.",
+              "type": "short_answer",
+              "points": 20
+            },
+            {
+              "prompt": "O que fazer se a análise não sustenta uma conclusão única?",
+              "answer_explanation": "Apresentar intervalo de resultados, decisões condicionais, dados adicionais necessários e limites da conclusão.",
+              "type": "short_answer",
+              "points": 20
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

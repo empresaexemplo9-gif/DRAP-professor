@@ -1,0 +1,173 @@
+{
+  "title": "Formação Avançada em Consultoria Financeira",
+  "slug": "formacao-avancada-consultoria-financeira",
+  "hours": 400,
+  "segment": {
+    "name": "Finanças",
+    "slug": "financas"
+  },
+  "topics": [
+    {
+      "title": "Apresentação e orientações de estudo",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Módulo 01 — Fundamentos do sistema financeiro e da consultoria",
+      "slug": "modulo-01-fundamentos-do-sistema-financeiro-e-da-consultoria",
+      "kind": "module",
+      "durationMinutes": 960,
+      "moduleNumber": 1,
+      "objective": "Compreender o sistema financeiro, delimitar o mandato profissional e transformar pedidos vagos em problemas de decisão verificáveis."
+    },
+    {
+      "title": "Módulo 02 — Matemática financeira e engenharia de fluxos de caixa",
+      "slug": "modulo-02-matematica-financeira-e-engenharia-de-fluxos-de-caixa",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 2,
+      "objective": "Calcular valor temporal do dinheiro, comparar financiamentos e avaliar projetos com fluxos consistentes."
+    },
+    {
+      "title": "Módulo 03 — Estatística, econometria e inferência aplicada",
+      "slug": "modulo-03-estatistica-econometria-e-inferencia-aplicada",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 3,
+      "objective": "Interpretar dados, quantificar incerteza e evitar inferências causais inválidas."
+    },
+    {
+      "title": "Módulo 04 — Macroeconomia, inflação, juros e política monetária",
+      "slug": "modulo-04-macroeconomia-inflacao-juros-e-politica-monetaria",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 4,
+      "objective": "Traduzir cenários macroeconômicos em efeitos sobre fluxo de caixa, custo de capital, crédito e ativos."
+    },
+    {
+      "title": "Módulo 05 — Contabilidade e qualidade dos resultados",
+      "slug": "modulo-05-contabilidade-e-qualidade-dos-resultados",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 5,
+      "objective": "Ler demonstrações financeiras, reconciliar lucro e caixa e identificar estimativas e riscos contábeis relevantes."
+    },
+    {
+      "title": "Módulo 06 — Diagnóstico financeiro e desempenho empresarial",
+      "slug": "modulo-06-diagnostico-financeiro-e-desempenho-empresarial",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 6,
+      "objective": "Identificar causas de pressão de caixa, baixa rentabilidade e uso ineficiente do capital."
+    },
+    {
+      "title": "Módulo 07 — Finanças corporativas e alocação de capital",
+      "slug": "modulo-07-financas-corporativas-e-alocacao-de-capital",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 7,
+      "objective": "Selecionar investimentos e estruturas de financiamento com base em valor econômico, risco e restrições."
+    },
+    {
+      "title": "Módulo 08 — Valuation e avaliação de negócios",
+      "slug": "modulo-08-valuation-e-avaliacao-de-negocios",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 8,
+      "objective": "Estimar intervalos de valor e explicar quais premissas determinam o resultado."
+    },
+    {
+      "title": "Módulo 09 — Mercados e instrumentos financeiros",
+      "slug": "modulo-09-mercados-e-instrumentos-financeiros",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 9,
+      "objective": "Analisar os fluxos, riscos, custos e funções de instrumentos financeiros."
+    },
+    {
+      "title": "Módulo 10 — Portfólios, risco e avaliação de desempenho",
+      "slug": "modulo-10-portfolios-risco-e-avaliacao-de-desempenho",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 10,
+      "objective": "Construir políticas de investimento coerentes com objetivos, restrições e tolerância a perdas."
+    },
+    {
+      "title": "Módulo 11 — Planejamento financeiro pessoal e patrimonial",
+      "slug": "modulo-11-planejamento-financeiro-pessoal-e-patrimonial",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 11,
+      "objective": "Integrar orçamento, dívida, proteção, objetivos e patrimônio em um plano individualizado e revisável."
+    },
+    {
+      "title": "Módulo 12 — Crédito, endividamento e reestruturação",
+      "slug": "modulo-12-credito-endividamento-e-reestruturacao",
+      "kind": "module",
+      "durationMinutes": 1440,
+      "moduleNumber": 12,
+      "objective": "Avaliar capacidade de pagamento e desenhar alternativas realistas de financiamento e recuperação."
+    },
+    {
+      "title": "Módulo 13 — Tributação, regulação e conformidade no Brasil",
+      "slug": "modulo-13-tributacao-regulacao-e-conformidade-no-brasil",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 13,
+      "objective": "Reconhecer obrigações legais, incorporar efeitos tributários e encaminhar temas fora do escopo."
+    },
+    {
+      "title": "Módulo 14 — Governança, controles internos e riscos empresariais",
+      "slug": "modulo-14-governanca-controles-internos-e-riscos-empresariais",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 14,
+      "objective": "Desenhar controles, responsabilidades e indicadores para reduzir falhas e conflitos de interesse."
+    },
+    {
+      "title": "Módulo 15 — Psicologia econômica, negociação e relacionamento",
+      "slug": "modulo-15-psicologia-economica-negociacao-e-relacionamento",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 15,
+      "objective": "Reconhecer vieses, alinhar incentivos e comunicar decisões complexas sem falsa certeza."
+    },
+    {
+      "title": "Módulo 16 — Modelagem financeira avançada e ferramentas",
+      "slug": "modulo-16-modelagem-financeira-avancada-e-ferramentas",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 16,
+      "objective": "Criar modelos reproduzíveis, auditáveis e úteis à decisão, com automação controlada."
+    },
+    {
+      "title": "Módulo 17 — Método de consultoria, implementação e mensuração",
+      "slug": "modulo-17-metodo-de-consultoria-implementacao-e-mensuracao",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 17,
+      "objective": "Converter análise em plano executável e medir benefícios sem atribuir causalidade indevida."
+    },
+    {
+      "title": "Módulo 18 — Capstone: laboratório integrado e projeto final",
+      "slug": "modulo-18-capstone-laboratorio-integrado-e-projeto-final",
+      "kind": "module",
+      "durationMinutes": 1200,
+      "moduleNumber": 18,
+      "objective": "Demonstrar domínio integrado em um caso novo, com dados imperfeitos, incerteza e defesa técnica."
+    },
+    {
+      "title": "Avaliação de certificação interna e projeto final",
+      "slug": "projeto-final",
+      "kind": "project",
+      "durationMinutes": 720
+    },
+    {
+      "title": "Referências e fontes de consulta",
+      "slug": "referencias",
+      "kind": "resource",
+      "durationMinutes": 0
+    }
+  ]
+}

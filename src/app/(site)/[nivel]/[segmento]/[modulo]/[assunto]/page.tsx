@@ -9,6 +9,8 @@ import { getViewer } from "@/lib/session";
 import { can } from "@/lib/rbac";
 import { isBusinessCourse } from "@/lib/courses/business-management";
 import { businessQuestions } from "@/lib/courses/business-management-content";
+import { isFinancialCourse } from "@/lib/courses/financial-consulting";
+import { FinancialLesson } from "@/components/courses/FinancialLesson";
 import { KnowledgeCheck } from "@/components/courses/KnowledgeCheck";
 import { formatWorkload } from "@/lib/levels";
 import { parseDocument } from "@/content-blocks/schema";
@@ -52,6 +54,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
     viewer && !viewer.disabled && !viewer.needsConsent && ((enrollment && enrollment.status === "ATIVA") || isStaff),
   );
   const isBusiness = isBusinessCourse(mod);
+  const isFinancial = isFinancialCourse(mod);
   const questions = canRead && isBusiness ? businessQuestions(topic.slug) : [];
   const completed = new Set(enrollment?.progress.filter((x) => x.status === "CONCLUIDO").map((x) => x.topicId) ?? []);
   const idx = mod.topics.findIndex((t) => t.id === topic.id);
@@ -101,7 +104,14 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
 
           {canRead ? (
             <>
-              {isBusiness && topic.slug === "banco-de-questoes" ? (
+              {isFinancial ? (
+                <FinancialLesson
+                  doc={doc}
+                  topic={topic}
+                  tenantId={tenant.id}
+                  studentId={enrollment?.status === "ATIVA" ? viewer!.user.id : null}
+                />
+              ) : isBusiness && topic.slug === "banco-de-questoes" ? (
                 <>
                   <KnowledgeCheck key={topic.id} questions={questions} />
                   <details className="rounded-md border border-border bg-surface p-5">
@@ -119,7 +129,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
                   {questions.length > 0 && <KnowledgeCheck key={topic.id} questions={questions} />}
                 </>
               )}
-              {!isBusiness && (
+              {!isBusiness && !isFinancial && (
                 <div className="mt-12 space-y-6">
                   <SlotPlaceholder
                     title="Questões do assunto"

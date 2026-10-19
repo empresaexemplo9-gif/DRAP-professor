@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Viewer } from "@/lib/session";
 import { navFor, ROLE_LABELS } from "@/lib/rbac";
+import { FINANCIAL_COURSE_PATH } from "@/lib/courses/financial-consulting";
 import { BUSINESS_COURSE_PATH } from "@/lib/courses/business-management";
 import { SignOutButton } from "./SignOutButton";
 import { CampusFooter, CampusSidebar, CampusTopbar } from "./CampusChrome";
@@ -10,15 +11,23 @@ export function AppShell({
   logoUrl,
   children,
   hasBusinessCourse = false,
+  hasFinancialCourse = false,
 }: {
   viewer: Viewer;
   logoUrl: string | null;
   children: React.ReactNode;
   hasBusinessCourse?: boolean;
+  hasFinancialCourse?: boolean;
 }) {
   const items = navFor(viewer.roles).map(({ href, label, icon }) => ({ href, label, icon }));
   if (hasBusinessCourse)
     items.splice(3, 0, { href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" });
+  if (hasFinancialCourse)
+    items.splice(hasBusinessCourse ? 4 : 3, 0, {
+      href: FINANCIAL_COURSE_PATH,
+      label: "Consultoria Financeira",
+      icon: "book",
+    });
   const account = (
     <div className="mb-4 flex items-center justify-between gap-3 text-xs">
       <Link href="/painel/conta" className="text-text-muted">

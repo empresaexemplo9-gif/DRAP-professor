@@ -7,6 +7,8 @@ import { levelPath } from "@/lib/catalog-paths";
 import { getViewer } from "@/lib/session";
 import { can } from "@/lib/rbac";
 import { isBusinessCourse } from "@/lib/courses/business-management";
+import { isFinancialCourse } from "@/lib/courses/financial-consulting";
+import { FinancialConsultingCourse } from "@/components/courses/FinancialConsultingCourse";
 import { BusinessManagementCourse } from "@/components/courses/BusinessManagementCourse";
 import { formatWorkload, LEVELS, parseLevelConfig } from "@/lib/levels";
 import { Breadcrumb, PageHeader, ProgressBar } from "@/components/ui/misc";
@@ -82,12 +84,13 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
   const pct = mod.topics.length ? (completed.size / mod.topics.length) * 100 : 0;
   const first = mod.topics.find((t) => !completed.has(t.id)) ?? mod.topics[0];
 
-  if (isBusinessCourse(mod)) {
+  if (isBusinessCourse(mod) || isFinancialCourse(mod)) {
+    const CoursePage = isFinancialCourse(mod) ? FinancialConsultingCourse : BusinessManagementCourse;
     const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));
     const enrolled = enrollment?.status === "ATIVA";
     const canRead = Boolean(viewer && !viewer.disabled && !viewer.needsConsent && (enrolled || isStaff));
     return (
-      <BusinessManagementCourse
+      <CoursePage
         course={mod}
         completed={completed}
         enrolled={enrolled}

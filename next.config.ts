@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   serverExternalPackages: ["@node-rs/argon2"],
   outputFileTracingIncludes: {
+    "/api/courses/consultoria-financeira/materiais/*": ["./content/courses/consultoria-financeira/originals/*.docx"],
     "/api/courses/gestao-de-empresas/apostila": ["./content/courses/gestao-de-empresas/source.docx"],
   },
   async headers() {
