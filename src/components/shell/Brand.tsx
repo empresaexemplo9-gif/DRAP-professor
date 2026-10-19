@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-/** Monograma vetorial: a cor acompanha o tema, sem fundo rasterizado. */
+/** Marca original da DRAP. Preserve o arquivo, a geometria e o teal da identidade. */
 export function BrandMark({ className = "size-9" }: { className?: string }) {
   return (
-    <svg aria-hidden viewBox="0 0 44 44" fill="currentColor" className={`block shrink-0 text-brand-mark ${className}`}>
-      <path d="M12 3h12c12 0 19 7 19 18s-8 20-21 20H8l4-9h10c8 0 12-4 12-11s-4-10-11-10H8l4-8Z" />
-      <path d="M9 15h10L10 36H0l9-21Z" />
-    </svg>
+    <span aria-hidden className={`block shrink-0 rounded-sm bg-campus-cream p-1 ${className}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/brand/logo-mark.png" width={512} height={512} alt="" className="block size-full object-contain" />
+    </span>
   );
 }
 
