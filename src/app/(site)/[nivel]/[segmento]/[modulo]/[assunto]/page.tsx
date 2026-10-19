@@ -173,11 +173,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
             </>
           ) : (
             <Card variant="featured">
-              <h2 className="font-display text-xl text-text">
-                {viewer?.needsConsent
-                  ? "Aceite os termos para continuar"
-                  : "Matrícula ativa necessária para acessar este conteúdo"}
-              </h2>
+              <h2 className="font-display text-xl text-text">Conteúdo exclusivo para alunos matriculados</h2>
               <p className="mt-2 text-sm text-text-muted">
                 {viewer?.needsConsent
                   ? "Depois de revisar os termos, volte a este assunto para iniciar seus estudos."
