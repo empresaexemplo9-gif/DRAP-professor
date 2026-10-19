@@ -5,6 +5,9 @@ import { getTenant } from "@/lib/tenant";
 import { getEnrollment, getModuleBySlugs } from "@/lib/catalog";
 import { levelPath } from "@/lib/catalog-paths";
 import { getViewer } from "@/lib/session";
+import { can } from "@/lib/rbac";
+import { isBusinessCourse } from "@/lib/courses/business-management";
+import { BusinessManagementCourse } from "@/components/courses/BusinessManagementCourse";
 import { formatWorkload, LEVELS, parseLevelConfig } from "@/lib/levels";
 import { Breadcrumb, PageHeader, ProgressBar } from "@/components/ui/misc";
 import { Badge } from "@/components/ui/Badge";
@@ -28,17 +31,30 @@ function LevelFacts({ kind, config }: { kind: keyof typeof LEVELS; config: unkno
   const facts: [string, string][] = [];
   if (kind === "MENTORIA") {
     const c = parseLevelConfig("MENTORIA", config);
-    facts.push(["Formato", c.sessionFormat === "GRUPO" ? "Em grupo" : "Individual"], ["Encontros previstos", String(c.plannedSessions)], ["Duração do encontro", `${c.sessionMinutes} min`]);
+    facts.push(
+      ["Formato", c.sessionFormat === "GRUPO" ? "Em grupo" : "Individual"],
+      ["Encontros previstos", String(c.plannedSessions)],
+      ["Duração do encontro", `${c.sessionMinutes} min`],
+    );
   } else if (kind === "TREINAMENTO") {
     const c = parseLevelConfig("TREINAMENTO", config);
-    facts.push(["Público", c.targetAudience || "Equipes e empresas"], ["Prazo de conclusão", `${c.deadlineDays} dias`], ["Meta da equipe", `${c.teamGoalPercent}% aprovados`]);
+    facts.push(
+      ["Público", c.targetAudience || "Equipes e empresas"],
+      ["Prazo de conclusão", `${c.deadlineDays} dias`],
+      ["Meta da equipe", `${c.teamGoalPercent}% aprovados`],
+    );
   } else if (kind === "CURSO") {
     const c = parseLevelConfig("CURSO", config);
-    facts.push(["Sequência", c.sequential ? "Módulos sequenciais" : "Livre"], ["Avaliação final", c.finalExam ? "Sim" : "Não"], ["Nota mínima", `${c.minScore}%`]);
+    facts.push(
+      ["Sequência", c.sequential ? "Módulos sequenciais" : "Livre"],
+      ["Avaliação final", c.finalExam ? "Sim" : "Não"],
+      ["Nota mínima", `${c.minScore}%`],
+    );
   } else if (kind === "AULA") {
     const c = parseLevelConfig("AULA", config);
     facts.push(["Formato", c.format === "AO_VIVO" ? "Ao vivo" : "Gravada"]);
-    if (c.format === "AO_VIVO" && c.liveAt) facts.push(["Data", new Date(c.liveAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })]);
+    if (c.format === "AO_VIVO" && c.liveAt)
+      facts.push(["Data", new Date(c.liveAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })]);
   } else {
     const c = parseLevelConfig("CAPACITACAO", config);
     facts.push(["Frequência mínima", `${c.minAttendancePercent}%`], ["Nota mínima", `${c.minScore}%`]);
@@ -66,6 +82,23 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
   const pct = mod.topics.length ? (completed.size / mod.topics.length) * 100 : 0;
   const first = mod.topics.find((t) => !completed.has(t.id)) ?? mod.topics[0];
 
+  if (isBusinessCourse(mod)) {
+    const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));
+    const enrolled = enrollment?.status === "ATIVA";
+    const canRead = Boolean(viewer && !viewer.disabled && !viewer.needsConsent && (enrolled || isStaff));
+    return (
+      <BusinessManagementCourse
+        course={mod}
+        completed={completed}
+        enrolled={enrolled}
+        canRead={canRead}
+        isStaff={isStaff}
+        loggedIn={Boolean(viewer)}
+        needsConsent={Boolean(viewer?.needsConsent)}
+      />
+    );
+  }
+
   return (
     <>
       <Breadcrumb
@@ -88,7 +121,11 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
           />
         </aside>
         <div className="order-1 min-w-0 space-y-8 lg:order-2">
-          <PageHeader eyebrow={`${LEVELS[mod.level.kind].singular} · ${mod.segment.name}`} title={mod.title} description={mod.summary ?? undefined} />
+          <PageHeader
+            eyebrow={`${LEVELS[mod.level.kind].singular} · ${mod.segment.name}`}
+            title={mod.title}
+            description={mod.summary ?? undefined}
+          />
           <div className="flex flex-wrap gap-2">
             <Badge tone="gold">Carga horária: {formatWorkload(mod.workloadMinutes)}</Badge>
             <Badge>{mod.topics.length} assuntos</Badge>
@@ -109,23 +146,31 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
               <div className="space-y-3">
                 <h2 className="font-display text-xl text-text">Acesso ao conteúdo</h2>
                 <p className="text-sm text-text-muted">
-                  O conteúdo completo é liberado para alunos matriculados. As vendas on-line chegam na Fase 5; por enquanto, a matrícula é feita pela equipe.
+                  O conteúdo completo é liberado para alunos matriculados. As vendas on-line chegam na Fase 5; por
+                  enquanto, a matrícula é feita pela equipe.
                 </p>
                 {!viewer && (
                   <div className="flex flex-wrap gap-2">
                     <ButtonLink href="/cadastro">Criar conta</ButtonLink>
-                    <ButtonLink href="/entrar" variant="secondary">Entrar</ButtonLink>
+                    <ButtonLink href="/entrar" variant="secondary">
+                      Entrar
+                    </ButtonLink>
                   </div>
                 )}
               </div>
             )}
           </Card>
           <section aria-labelledby="programa">
-            <h2 id="programa" className="mb-3 font-display text-2xl text-text">Conteúdo programático</h2>
+            <h2 id="programa" className="mb-3 font-display text-2xl text-text">
+              Conteúdo programático
+            </h2>
             <ol className="divide-y divide-border rounded-lg border border-border bg-surface">
               {mod.topics.map((t, i) => (
                 <li key={t.id} className="flex items-center justify-between gap-4 p-4">
-                  <Link href={levelPath(mod.level.slug, mod.segment.slug, mod.slug, t.slug)} className="text-text no-underline hover:text-primary-text">
+                  <Link
+                    href={levelPath(mod.level.slug, mod.segment.slug, mod.slug, t.slug)}
+                    className="text-text no-underline hover:text-primary-text"
+                  >
                     <span className="mr-3 text-text-muted">{String(i + 1).padStart(2, "0")}</span>
                     {t.title}
                   </Link>
@@ -134,7 +179,10 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
               ))}
             </ol>
           </section>
-          <SlotPlaceholder title="Fórum geral do módulo" text="O fórum de discussão do módulo será ativado na Fase 3." />
+          <SlotPlaceholder
+            title="Fórum geral do módulo"
+            text="O fórum de discussão do módulo será ativado na Fase 3."
+          />
         </div>
       </div>
     </>

@@ -112,7 +112,7 @@ export function BlockView({ block }: { block: Block }) {
     }
     case "code":
       return (
-        <pre className="overflow-x-auto rounded-lg border border-border bg-surface-raised p-4 text-sm">
+        <pre tabIndex={0} className="overflow-x-auto rounded-lg border border-border bg-surface-raised p-4 text-sm">
           <code className="font-mono">{block.code}</code>
         </pre>
       );
@@ -123,7 +123,12 @@ export function BlockView({ block }: { block: Block }) {
       return (
         <figure>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={block.src} alt={block.alt} loading="lazy" className="h-auto max-w-full rounded-lg border border-border" />
+          <img
+            src={block.src}
+            alt={block.alt}
+            loading="lazy"
+            className="h-auto max-w-full rounded-lg border border-border"
+          />
           {block.caption?.length ? (
             <figcaption className="mt-2 text-sm text-text-muted">
               <InlineText text={block.caption} />
@@ -133,7 +138,11 @@ export function BlockView({ block }: { block: Block }) {
       );
     case "table":
       return (
-        <figure className="overflow-x-auto rounded-lg border border-border">
+        <figure
+          tabIndex={0}
+          aria-label="Tabela do conteúdo com rolagem horizontal"
+          className="overflow-x-auto rounded-lg border border-border"
+        >
           <table className="w-full border-collapse text-left text-sm">
             {block.caption?.length ? (
               <caption className="p-3 text-left text-text-muted">
@@ -155,7 +164,12 @@ export function BlockView({ block }: { block: Block }) {
               {block.rows.map((row, r) => (
                 <tr key={r} className="border-b border-border last:border-0">
                   {row.map((cell, c) => (
-                    <td key={c} colSpan={cell.colSpan} rowSpan={cell.rowSpan} className="p-3 tabular-nums">
+                    <td
+                      key={c}
+                      colSpan={cell.colSpan}
+                      rowSpan={cell.rowSpan}
+                      className="whitespace-pre-line p-3 tabular-nums"
+                    >
                       <InlineText text={cell.text} />
                     </td>
                   ))}
@@ -170,7 +184,9 @@ export function BlockView({ block }: { block: Block }) {
         <SlotPlaceholder title="Questões do assunto" text="O banco de questões deste assunto será ativado na Fase 3." />
       );
     case "forumSlot":
-      return <SlotPlaceholder title="Fórum do assunto" text="O fórum de discussão deste assunto será ativado na Fase 3." />;
+      return (
+        <SlotPlaceholder title="Fórum do assunto" text="O fórum de discussão deste assunto será ativado na Fase 3." />
+      );
   }
 }
 

@@ -11,6 +11,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   serverExternalPackages: ["@node-rs/argon2"],
+  outputFileTracingIncludes: {
+    "/api/courses/gestao-de-empresas/apostila": ["./content/courses/gestao-de-empresas/source.docx"],
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

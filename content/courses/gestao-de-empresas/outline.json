@@ -1,0 +1,179 @@
+{
+  "title": "Curso Livre de Gestão de Empresas",
+  "slug": "gestao-de-empresas",
+  "segment": {
+    "name": "Gestão e Negócios",
+    "slug": "gestao-e-negocios"
+  },
+  "hours": 200,
+  "topics": [
+    {
+      "title": "Apresentação do curso",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Módulo 1 — Fundamentos da Administração (8 h)",
+      "slug": "modulo-01-fundamentos-da-administracao",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 1
+    },
+    {
+      "title": "Módulo 2 — Ambiente e Análise Estratégica (10 h)",
+      "slug": "modulo-02-ambiente-e-analise-estrategica",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 2
+    },
+    {
+      "title": "Módulo 3 — Planejamento Estratégico (12 h)",
+      "slug": "modulo-03-planejamento-estrategico",
+      "kind": "module",
+      "durationMinutes": 720,
+      "moduleNumber": 3
+    },
+    {
+      "title": "Módulo 4 — Empreendedorismo e Modelos de Negócio (10 h)",
+      "slug": "modulo-04-empreendedorismo-e-modelos-de-negocio",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 4
+    },
+    {
+      "title": "Módulo 5 — Marketing (12 h)",
+      "slug": "modulo-05-marketing",
+      "kind": "module",
+      "durationMinutes": 720,
+      "moduleNumber": 5
+    },
+    {
+      "title": "Módulo 6 — Vendas e Gestão Comercial (10 h)",
+      "slug": "modulo-06-vendas-e-gestao-comercial",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 6
+    },
+    {
+      "title": "Módulo 7 — Gestão de Pessoas e Liderança (12 h)",
+      "slug": "modulo-07-gestao-de-pessoas-e-lideranca",
+      "kind": "module",
+      "durationMinutes": 720,
+      "moduleNumber": 7
+    },
+    {
+      "title": "Módulo 8 — Operações, Processos e Qualidade (12 h)",
+      "slug": "modulo-08-operacoes-processos-e-qualidade",
+      "kind": "module",
+      "durationMinutes": 720,
+      "moduleNumber": 8
+    },
+    {
+      "title": "Módulo 9 — Gestão de Projetos (10 h)",
+      "slug": "modulo-09-gestao-de-projetos",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 9
+    },
+    {
+      "title": "Módulo 10 — Finanças Empresariais (14 h)",
+      "slug": "modulo-10-financas-empresariais",
+      "kind": "module",
+      "durationMinutes": 840,
+      "moduleNumber": 10
+    },
+    {
+      "title": "Módulo 11 — Custos, Precificação e Controladoria (10 h)",
+      "slug": "modulo-11-custos-precificacao-e-controladoria",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 11
+    },
+    {
+      "title": "Módulo 12 — Indicadores e Gestão de Desempenho (8 h)",
+      "slug": "modulo-12-indicadores-e-gestao-de-desempenho",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 12
+    },
+    {
+      "title": "Módulo 13 — Inovação, Tecnologia e Transformação Digital (10 h)",
+      "slug": "modulo-13-inovacao-tecnologia-e-transformacao-digital",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 13
+    },
+    {
+      "title": "Módulo 14 — Aspectos Jurídicos, Tributários e Societários (10 h)",
+      "slug": "modulo-14-aspectos-juridicos-tributarios-e-societarios",
+      "kind": "module",
+      "durationMinutes": 600,
+      "moduleNumber": 14
+    },
+    {
+      "title": "Módulo 15 — Governança, Ética, Compliance e ESG (8 h)",
+      "slug": "modulo-15-governanca-etica-compliance-e-esg",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 15
+    },
+    {
+      "title": "Módulo 16 — Gestão de Riscos e de Crises (6 h)",
+      "slug": "modulo-16-gestao-de-riscos-e-de-crises",
+      "kind": "module",
+      "durationMinutes": 360,
+      "moduleNumber": 16
+    },
+    {
+      "title": "Módulo 17 — Comunicação, Negociação e Tomada de Decisão (8 h)",
+      "slug": "modulo-17-comunicacao-negociacao-e-tomada-de-decisao",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 17
+    },
+    {
+      "title": "Módulo 18 — Crescimento e Escala (8 h)",
+      "slug": "modulo-18-crescimento-e-escala",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 18
+    },
+    {
+      "title": "Projeto Integrador e Avaliação Final (22 h)",
+      "slug": "projeto-integrador",
+      "kind": "project",
+      "durationMinutes": 1320
+    },
+    {
+      "title": "Anexo A — Glossário",
+      "slug": "glossario",
+      "kind": "resource",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Anexo B — Banco de questões (36 questões, 2 por módulo)",
+      "slug": "banco-de-questoes",
+      "kind": "resource",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Anexo C — Respostas dos exercícios numéricos selecionados",
+      "slug": "respostas-dos-exercicios",
+      "kind": "resource",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Anexo D — Bibliografia-base do curso",
+      "slug": "bibliografia",
+      "kind": "resource",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Anexo F — Fontes consultadas e observações",
+      "slug": "fontes-e-observacoes",
+      "kind": "resource",
+      "durationMinutes": 0
+    }
+  ]
+}

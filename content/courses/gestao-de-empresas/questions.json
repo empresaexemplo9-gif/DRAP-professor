@@ -1,0 +1,866 @@
+[
+  {
+    "id": "ge-q01",
+    "moduleNumber": 1,
+    "prompt": "Qual autor é associado à Administração Científica?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fayol"
+      },
+      {
+        "id": "b",
+        "text": "Taylor"
+      },
+      {
+        "id": "c",
+        "text": "Weber"
+      },
+      {
+        "id": "d",
+        "text": "Mayo"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q02",
+    "moduleNumber": 1,
+    "prompt": "Qual função do gestor consiste em medir resultados, comparar com o planejado e corrigir desvios?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Planejar"
+      },
+      {
+        "id": "b",
+        "text": "Organizar"
+      },
+      {
+        "id": "c",
+        "text": "Dirigir"
+      },
+      {
+        "id": "d",
+        "text": "Controlar"
+      }
+    ],
+    "correctOption": "d"
+  },
+  {
+    "id": "ge-q03",
+    "moduleNumber": 2,
+    "prompt": "Qual item NÃO é uma das cinco forças de Porter?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rivalidade entre concorrentes"
+      },
+      {
+        "id": "b",
+        "text": "Poder de negociação dos fornecedores"
+      },
+      {
+        "id": "c",
+        "text": "Ameaça de produtos substitutos"
+      },
+      {
+        "id": "d",
+        "text": "Política cambial do governo"
+      }
+    ],
+    "correctOption": "d"
+  },
+  {
+    "id": "ge-q04",
+    "moduleNumber": 2,
+    "prompt": "No modelo VRIO, a letra \"I\" refere-se a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Inovador"
+      },
+      {
+        "id": "b",
+        "text": "Inimitável"
+      },
+      {
+        "id": "c",
+        "text": "Integrado"
+      },
+      {
+        "id": "d",
+        "text": "Internacional"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q05",
+    "moduleNumber": 3,
+    "prompt": "A estratégia genérica de ser o produtor de menor custo do setor é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Diferenciação"
+      },
+      {
+        "id": "b",
+        "text": "Foco"
+      },
+      {
+        "id": "c",
+        "text": "Liderança em custo"
+      },
+      {
+        "id": "d",
+        "text": "Diversificação"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q06",
+    "moduleNumber": 3,
+    "prompt": "Na matriz BCG, um produto em mercado de alto crescimento e baixa participação relativa é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Estrela"
+      },
+      {
+        "id": "b",
+        "text": "Vaca leiteira"
+      },
+      {
+        "id": "c",
+        "text": "Interrogação"
+      },
+      {
+        "id": "d",
+        "text": "Abacaxi"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q07",
+    "moduleNumber": 4,
+    "prompt": "No Business Model Canvas, o bloco que descreve por qual valor o cliente está disposto a pagar é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Segmentos de clientes"
+      },
+      {
+        "id": "b",
+        "text": "Fontes de receita"
+      },
+      {
+        "id": "c",
+        "text": "Atividades-chave"
+      },
+      {
+        "id": "d",
+        "text": "Parcerias-chave"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q08",
+    "moduleNumber": 4,
+    "prompt": "No Lean Startup, MVP significa:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Maior valor possível"
+      },
+      {
+        "id": "b",
+        "text": "Produto mínimo viável"
+      },
+      {
+        "id": "c",
+        "text": "Modelo de venda padrão"
+      },
+      {
+        "id": "d",
+        "text": "Meta de valor projetado"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q09",
+    "moduleNumber": 5,
+    "prompt": "Um referencial comum para uma relação LTV/CAC saudável é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Abaixo de 1"
+      },
+      {
+        "id": "b",
+        "text": "Igual a 1"
+      },
+      {
+        "id": "c",
+        "text": "Acima de 3"
+      },
+      {
+        "id": "d",
+        "text": "Exatamente 10"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q10",
+    "moduleNumber": 5,
+    "prompt": "STP em marketing significa:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Segmentação, público-alvo e posicionamento"
+      },
+      {
+        "id": "b",
+        "text": "Estratégia, tática e plano"
+      },
+      {
+        "id": "c",
+        "text": "Serviço, tempo e preço"
+      },
+      {
+        "id": "d",
+        "text": "Venda, tráfego e produto"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "ge-q11",
+    "moduleNumber": 6,
+    "prompt": "No método SPIN, a letra \"I\" corresponde às perguntas de:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Informação"
+      },
+      {
+        "id": "b",
+        "text": "Implicação"
+      },
+      {
+        "id": "c",
+        "text": "Indicador"
+      },
+      {
+        "id": "d",
+        "text": "Interesse"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q12",
+    "moduleNumber": 6,
+    "prompt": "Qual é a cobertura de pipeline frequentemente recomendada em relação à meta?",
+    "options": [
+      {
+        "id": "a",
+        "text": "0,5 vez"
+      },
+      {
+        "id": "b",
+        "text": "1 vez"
+      },
+      {
+        "id": "c",
+        "text": "3 a 4 vezes"
+      },
+      {
+        "id": "d",
+        "text": "10 vezes"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q13",
+    "moduleNumber": 7,
+    "prompt": "Segundo Herzberg, são fatores motivadores:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Salário e condições de trabalho"
+      },
+      {
+        "id": "b",
+        "text": "Reconhecimento e crescimento"
+      },
+      {
+        "id": "c",
+        "text": "Política da empresa"
+      },
+      {
+        "id": "d",
+        "text": "Relações com a supervisão"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q14",
+    "moduleNumber": 7,
+    "prompt": "No modelo de Hersey e Blanchard, o estilo indicado para um liderado com alta competência e alta disposição é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Direcionar"
+      },
+      {
+        "id": "b",
+        "text": "Orientar"
+      },
+      {
+        "id": "c",
+        "text": "Apoiar"
+      },
+      {
+        "id": "d",
+        "text": "Delegar"
+      }
+    ],
+    "correctOption": "d"
+  },
+  {
+    "id": "ge-q15",
+    "moduleNumber": 8,
+    "prompt": "A ferramenta que organiza as causas de um problema por categorias (método, máquina, material, mão de obra, medida e meio ambiente) é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pareto"
+      },
+      {
+        "id": "b",
+        "text": "Ishikawa"
+      },
+      {
+        "id": "c",
+        "text": "Histograma"
+      },
+      {
+        "id": "d",
+        "text": "Gantt"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q16",
+    "moduleNumber": 8,
+    "prompt": "No ciclo PDCA, a letra \"C\" significa:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Corrigir"
+      },
+      {
+        "id": "b",
+        "text": "Check, ou verificar"
+      },
+      {
+        "id": "c",
+        "text": "Controlar"
+      },
+      {
+        "id": "d",
+        "text": "Comunicar"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q17",
+    "moduleNumber": 9,
+    "prompt": "O caminho crítico de um projeto é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "A sequência de atividades mais curta"
+      },
+      {
+        "id": "b",
+        "text": "A sequência mais longa de atividades dependentes, que define o prazo mínimo"
+      },
+      {
+        "id": "c",
+        "text": "As atividades de maior custo"
+      },
+      {
+        "id": "d",
+        "text": "As atividades de maior risco"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q18",
+    "moduleNumber": 9,
+    "prompt": "Um IDC (CPI) menor que 1 indica:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Projeto dentro do custo"
+      },
+      {
+        "id": "b",
+        "text": "Projeto acima do custo"
+      },
+      {
+        "id": "c",
+        "text": "Projeto adiantado"
+      },
+      {
+        "id": "d",
+        "text": "Escopo concluído"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q19",
+    "moduleNumber": 10,
+    "prompt": "O ciclo financeiro é igual a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "PME + PMR"
+      },
+      {
+        "id": "b",
+        "text": "PME + PMR − PMP"
+      },
+      {
+        "id": "c",
+        "text": "PMR − PME"
+      },
+      {
+        "id": "d",
+        "text": "PMP + PME"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q20",
+    "moduleNumber": 10,
+    "prompt": "A liquidez corrente é calculada por:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Disponibilidades ÷ passivo circulante"
+      },
+      {
+        "id": "b",
+        "text": "Ativo circulante ÷ passivo circulante"
+      },
+      {
+        "id": "c",
+        "text": "Patrimônio líquido ÷ ativo total"
+      },
+      {
+        "id": "d",
+        "text": "Lucro líquido ÷ receita"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q21",
+    "moduleNumber": 11,
+    "prompt": "Preço unitário de R$ 80, custo variável unitário de R$ 50 e custos fixos de R$ 30.000 por mês. O ponto de equilíbrio em unidades é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "600"
+      },
+      {
+        "id": "b",
+        "text": "1.000"
+      },
+      {
+        "id": "c",
+        "text": "1.500"
+      },
+      {
+        "id": "d",
+        "text": "3.000"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q22",
+    "moduleNumber": 11,
+    "prompt": "Qual custo normalmente NÃO varia com o volume produzido no curto prazo?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Matéria-prima"
+      },
+      {
+        "id": "b",
+        "text": "Comissão de vendas"
+      },
+      {
+        "id": "c",
+        "text": "Aluguel do galpão"
+      },
+      {
+        "id": "d",
+        "text": "Frete"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q23",
+    "moduleNumber": 12,
+    "prompt": "Qual é um exemplo de indicador direcionador (leading)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Receita do mês"
+      },
+      {
+        "id": "b",
+        "text": "Churn do trimestre"
+      },
+      {
+        "id": "c",
+        "text": "Número de propostas enviadas na semana"
+      },
+      {
+        "id": "d",
+        "text": "Lucro líquido do ano"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q24",
+    "moduleNumber": 12,
+    "prompt": "Quantos indicadores principais por área costumam ser recomendados?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1"
+      },
+      {
+        "id": "b",
+        "text": "5 a 7"
+      },
+      {
+        "id": "c",
+        "text": "30"
+      },
+      {
+        "id": "d",
+        "text": "100"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q25",
+    "moduleNumber": 13,
+    "prompt": "Na abordagem de Design Thinking, a etapa em que se observa e entrevista usuários é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Prototipar"
+      },
+      {
+        "id": "b",
+        "text": "Empatizar"
+      },
+      {
+        "id": "c",
+        "text": "Testar"
+      },
+      {
+        "id": "d",
+        "text": "Definir"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q26",
+    "moduleNumber": 13,
+    "prompt": "A Lei 13.709/2018 (LGPD) regula:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tributos sobre o consumo"
+      },
+      {
+        "id": "b",
+        "text": "O tratamento de dados pessoais"
+      },
+      {
+        "id": "c",
+        "text": "A defesa da concorrência"
+      },
+      {
+        "id": "d",
+        "text": "Os contratos de trabalho"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q27",
+    "moduleNumber": 14,
+    "prompt": "Sobre a EIRELI, é correto afirmar que:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Foi criada em 2021"
+      },
+      {
+        "id": "b",
+        "text": "Foi extinta, e as existentes foram transformadas em SLU"
+      },
+      {
+        "id": "c",
+        "text": "É o tipo jurídico das S/A"
+      },
+      {
+        "id": "d",
+        "text": "É isenta de tributos"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q28",
+    "moduleNumber": 14,
+    "prompt": "Em compras fora do estabelecimento comercial, o direito de arrependimento do consumidor é de:",
+    "options": [
+      {
+        "id": "a",
+        "text": "24 horas"
+      },
+      {
+        "id": "b",
+        "text": "3 dias"
+      },
+      {
+        "id": "c",
+        "text": "7 dias"
+      },
+      {
+        "id": "d",
+        "text": "30 dias"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "ge-q29",
+    "moduleNumber": 15,
+    "prompt": "Qual é um dos princípios de governança corporativa do IBGC?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sigilo"
+      },
+      {
+        "id": "b",
+        "text": "Transparência"
+      },
+      {
+        "id": "c",
+        "text": "Hierarquia"
+      },
+      {
+        "id": "d",
+        "text": "Competitividade"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q30",
+    "moduleNumber": 15,
+    "prompt": "Os três elementos do triângulo da fraude são:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pressão, oportunidade e racionalização"
+      },
+      {
+        "id": "b",
+        "text": "Custo, prazo e escopo"
+      },
+      {
+        "id": "c",
+        "text": "Planejamento, execução e controle"
+      },
+      {
+        "id": "d",
+        "text": "Receita, custo e lucro"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "ge-q31",
+    "moduleNumber": 16,
+    "prompt": "Em uma matriz de riscos 5 × 5, um risco com probabilidade 5 e impacto 4 (criticidade 20) é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Baixo"
+      },
+      {
+        "id": "b",
+        "text": "Moderado"
+      },
+      {
+        "id": "c",
+        "text": "Alto"
+      },
+      {
+        "id": "d",
+        "text": "Crítico"
+      }
+    ],
+    "correctOption": "d"
+  },
+  {
+    "id": "ge-q32",
+    "moduleNumber": 16,
+    "prompt": "O RTO, em continuidade de negócios, representa:",
+    "options": [
+      {
+        "id": "a",
+        "text": "A perda máxima de dados aceitável"
+      },
+      {
+        "id": "b",
+        "text": "O tempo máximo tolerável de interrupção"
+      },
+      {
+        "id": "c",
+        "text": "O custo total do plano"
+      },
+      {
+        "id": "d",
+        "text": "O risco residual"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q33",
+    "moduleNumber": 17,
+    "prompt": "O conceito de MAPAN (BATNA) em negociação é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "A melhor alternativa à negociação de um acordo"
+      },
+      {
+        "id": "b",
+        "text": "O maior preço aceitável"
+      },
+      {
+        "id": "c",
+        "text": "O mínimo de concessões"
+      },
+      {
+        "id": "d",
+        "text": "A primeira oferta"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "ge-q34",
+    "moduleNumber": 17,
+    "prompt": "O viés de sobrevivência consiste em:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Estudar apenas os casos que tiveram sucesso e ignorar os que falharam"
+      },
+      {
+        "id": "b",
+        "text": "Evitar perdas mais do que buscar ganhos"
+      },
+      {
+        "id": "c",
+        "text": "Confiar no primeiro número visto"
+      },
+      {
+        "id": "d",
+        "text": "Generalizar uma característica positiva"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "ge-q35",
+    "moduleNumber": 18,
+    "prompt": "Escalar um negócio significa:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Aumentar receita e custos na mesma proporção"
+      },
+      {
+        "id": "b",
+        "text": "Aumentar receita mais rápido do que os custos"
+      },
+      {
+        "id": "c",
+        "text": "Abrir várias unidades"
+      },
+      {
+        "id": "d",
+        "text": "Captar investimento"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "ge-q36",
+    "moduleNumber": 18,
+    "prompt": "Pela Lei de Franquias, a Circular de Oferta de Franquia deve ser entregue ao candidato com antecedência mínima de:",
+    "options": [
+      {
+        "id": "a",
+        "text": "24 horas"
+      },
+      {
+        "id": "b",
+        "text": "5 dias"
+      },
+      {
+        "id": "c",
+        "text": "10 dias"
+      },
+      {
+        "id": "d",
+        "text": "30 dias"
+      }
+    ],
+    "correctOption": "c"
+  }
+]
