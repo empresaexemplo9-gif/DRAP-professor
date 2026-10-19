@@ -18,7 +18,9 @@ import { DocumentView, SlotPlaceholder, tableOfContents } from "@/content-blocks
 import { Breadcrumb, ProgressBar } from "@/components/ui/misc";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { readSheet } from "@/lib/course-progress";
 import { ModuleSideNav } from "../ModuleSideNav";
+import { StandardTopic } from "./StandardTopic";
 import { markTopicAction } from "../../../../actions";
 
 type Params = { nivel: string; segmento: string; modulo: string; assunto: string };
@@ -30,7 +32,7 @@ async function load(p: Params) {
   const topic = await withTenant(tenant.id, (tx) =>
     tx.topic.findFirst({
       where: { tenantId: tenant.id, moduleId: mod.id, slug: p.assunto, status: "PUBLICADO" },
-      include: { publishedVersion: true },
+      include: { publishedVersion: true, module: { select: { courseSheet: true, levelConfig: true } } },
     }),
   );
   if (!topic?.publishedVersion) return null;
@@ -42,11 +44,27 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return { title: data ? `${data.topic.title} · ${data.mod.title}` : "Não encontrado" };
 }
 
-export default async function TopicPage({ params }: { params: Promise<Params> }) {
+export default async function TopicPage({ params, searchParams }: { params: Promise<Params>; searchParams: Promise<{ prova?: string }> }) {
   const p = await params;
   const data = await load(p);
   if (!data) notFound();
   const { tenant, mod, topic, doc } = data;
+  // Cursos do catálogo oficial (content/cursos, padrão do arquivo 01): aulas, prova e gabarito comentado.
+  if (readSheet(topic.module.courseSheet).codigo) {
+    const { prova } = await searchParams;
+    return (
+      <StandardTopic
+        tenantId={tenant.id}
+        mod={mod}
+        topic={topic}
+        doc={doc}
+        courseSheet={topic.module.courseSheet}
+        levelConfig={topic.module.levelConfig}
+        document={topic.publishedVersion!.document}
+        quizError={prova}
+      />
+    );
+  }
   const viewer = await getViewer();
   const enrollment = viewer ? await getEnrollment(tenant.id, viewer.user.id, mod.id) : null;
   const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));

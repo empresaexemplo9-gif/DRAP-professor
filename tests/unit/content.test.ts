@@ -55,7 +55,7 @@ describe("schema de blocos", () => {
 
 describe("utilitários", () => {
   it("gera slugs sem acentos", () => {
-    expect(slugify("Gestão de Safra — Módulo 1")).toBe("gestao-de-safra-modulo-1");
+    expect(slugify("Gestão de Projetos — Módulo 1")).toBe("gestao-de-projetos-modulo-1");
   });
 
   it("valida e mascara CPF", () => {

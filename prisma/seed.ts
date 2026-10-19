@@ -13,6 +13,10 @@ import { LEVELS } from "../src/lib/levels";
 import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
 import type { ContentDocument } from "../src/content-blocks/schema";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { parseCourse } from "../src/content-import/course";
+import { syncCourse } from "../src/content-import/sync";
 
 try {
   process.loadEnvFile(".env");
@@ -59,39 +63,40 @@ type ModuleSeed = {
 };
 
 const SEGMENTS = [
-  { name: "Agronegócio", slug: "agronegocio", description: "Gestão rural, produção e comercialização." },
+  { name: "Gestão e Liderança", slug: "gestao-e-lideranca", description: "Liderança de equipes, comunicação e tomada de decisão." },
   { name: "Finanças", slug: "financas", description: "Finanças empresariais e pessoais." },
   { name: "Vendas", slug: "vendas", description: "Prospecção, negociação e relacionamento." },
   { name: "Arquitetura", slug: "arquitetura", description: "Projeto, gestão de obras e normas." },
+  { name: "Tecnologia", slug: "tecnologia", description: "Ferramentas digitais, dados e segurança da informação." },
 ];
 
 const MODULES: ModuleSeed[] = [
   {
     level: "CURSO",
-    segment: "agronegocio",
-    title: "Gestão de Safra",
-    slug: "gestao-de-safra",
-    summary: "Do planejamento do plantio à comercialização: decisões com dados em cada etapa da safra.",
+    segment: "gestao-e-lideranca",
+    title: "Fundamentos de Liderança",
+    slug: "fundamentos-de-lideranca",
+    summary: "Papéis do líder, comunicação, feedback e acompanhamento de resultados da equipe.",
     hours: 12,
     certificateType: "LIVRE",
     config: { sequential: true, finalExam: true, minScore: 70 },
     topics: [
       {
-        title: "Planejamento de plantio",
-        slug: "planejamento-de-plantio",
+        title: "Papéis do líder",
+        slug: "papeis-do-lider",
         minutes: 45,
-        doc: doc("Planejamento de plantio", [
-          { title: "Por onde começar", paragraphs: ["O planejamento de plantio começa pela análise de solo e pela janela climática da região.", "Com esses dados, definimos cultivar, densidade e calendário de operações."], list: ["Análise química e física do solo", "Zoneamento agrícola (ZARC)", "Histórico de produtividade por talhão"], tip: "Registre os dados por talhão: é a base de todas as decisões seguintes." },
-          { title: "Calendário de operações", paragraphs: ["Organize as operações por semana, considerando a disponibilidade de máquinas e de mão de obra."], table: [["Operação", "Período", "Responsável"], ["Dessecação", "Set", "Equipe A"], ["Plantio", "Out–Nov", "Equipe A e B"], ["Aplicações", "Nov–Jan", "Equipe B"]] },
+        doc: doc("Papéis do líder", [
+          { title: "O que muda ao liderar", paragraphs: ["Ao assumir a liderança, o foco deixa de ser apenas a própria entrega e passa a ser o resultado do time.", "O líder define direção, remove obstáculos e desenvolve as pessoas."], list: ["Dar direção e prioridades claras", "Acompanhar resultados com indicadores", "Desenvolver cada pessoa da equipe"], tip: "Reserve na agenda um horário fixo semanal para conversas individuais com o time." },
+          { title: "Rotina de acompanhamento", paragraphs: ["Uma rotina simples e previsível dá segurança à equipe e evita surpresas."], table: [["Ritual", "Frequência", "Objetivo"], ["Reunião de alinhamento", "Semanal", "Prioridades e bloqueios"], ["Conversa individual", "Quinzenal", "Desenvolvimento"], ["Revisão de resultados", "Mensal", "Indicadores e ajustes"]] },
         ]),
       },
       {
-        title: "Custos de produção",
-        slug: "custos-de-producao",
+        title: "Feedback eficaz",
+        slug: "feedback-eficaz",
         minutes: 50,
-        doc: doc("Custos de produção", [
-          { title: "Estrutura de custos", paragraphs: ["Separe custos fixos e variáveis para calcular o ponto de equilíbrio por hectare."], table: [["Item", "Tipo", "R$/ha"], ["Sementes", "Variável", "620,00"], ["Fertilizantes", "Variável", "1.450,00"], ["Arrendamento", "Fixo", "1.200,00"]] },
-          { title: "Ponto de equilíbrio", paragraphs: ["Ponto de equilíbrio (sc/ha) = custo total por hectare ÷ preço esperado da saca."], tip: "Refaça a conta a cada atualização de preço: ela orienta a estratégia de venda antecipada." },
+        doc: doc("Feedback eficaz", [
+          { title: "Estrutura do feedback", paragraphs: ["Um bom feedback descreve o comportamento observado, o impacto que ele gerou e o próximo passo esperado."], table: [["Etapa", "Pergunta-guia", "Exemplo"], ["Situação", "Quando e onde?", "Na reunião de terça"], ["Comportamento", "O que foi feito?", "Apresentou os dados com clareza"], ["Impacto", "Qual o efeito?", "O cliente aprovou a proposta"]] },
+          { title: "Frequência", paragraphs: ["Feedback funciona melhor quando é frequente, próximo do fato e equilibrado entre reconhecimento e ajuste."], tip: "Prefira conversas curtas e frequentes a uma avaliação longa no fim do ano." },
         ]),
       },
     ],
@@ -137,16 +142,16 @@ const MODULES: ModuleSeed[] = [
   },
   {
     level: "CAPACITACAO",
-    segment: "agronegocio",
-    title: "Capacitação em Boas Práticas no Manejo de Defensivos",
-    slug: "boas-praticas-defensivos",
-    summary: "Programa com carga horária, frequência mínima e avaliação sobre uso seguro de defensivos.",
+    segment: "tecnologia",
+    title: "Segurança da Informação no Trabalho",
+    slug: "seguranca-da-informacao",
+    summary: "Programa com carga horária, frequência mínima e avaliação sobre boas práticas de segurança digital.",
     hours: 16,
     certificateType: "CAPACITACAO",
     config: { minAttendancePercent: 75, minScore: 70 },
     topics: [
-      { title: "Equipamentos de proteção", slug: "equipamentos-de-protecao", minutes: 60, doc: doc("Equipamentos de proteção", [{ title: "EPI adequado", paragraphs: ["O equipamento de proteção individual deve ser escolhido conforme a bula e a ficha de segurança do produto."], list: ["Luvas", "Respirador", "Viseira", "Vestimenta hidrorrepelente"] }]) },
-      { title: "Tríplice lavagem", slug: "triplice-lavagem", minutes: 45, doc: doc("Tríplice lavagem", [{ title: "Procedimento", paragraphs: ["Após esvaziar a embalagem, enxágue três vezes e despeje a calda no tanque do pulverizador."], tip: "Inutilize a embalagem perfurando o fundo e devolva-a no ponto de recebimento indicado na nota fiscal." }]) },
+      { title: "Senhas e autenticação", slug: "senhas-e-autenticacao", minutes: 60, doc: doc("Senhas e autenticação", [{ title: "Boas práticas", paragraphs: ["Senhas longas, únicas para cada serviço e guardadas em um gerenciador reduzem drasticamente o risco de invasão."], list: ["Use frases-senha longas", "Nunca reutilize senhas", "Ative a verificação em duas etapas"], tip: "Ative a verificação em duas etapas no e-mail corporativo antes de qualquer outro serviço." }]) },
+      { title: "Phishing e engenharia social", slug: "phishing-e-engenharia-social", minutes: 45, doc: doc("Phishing e engenharia social", [{ title: "Como reconhecer", paragraphs: ["Mensagens com urgência, remetente desconhecido e links encurtados são os sinais mais comuns de tentativa de golpe."], tip: "Na dúvida, não clique: confirme o pedido por outro canal com a pessoa ou a área responsável." }]) },
     ],
   },
 ];
@@ -155,7 +160,7 @@ async function inTenant<T>(tenantId: string, fn: (tx: Prisma.TransactionClient) 
   return prisma.$transaction(async (tx) => {
     await tx.$executeRaw`SELECT set_config('app.tenant_id', ${tenantId}, true)`;
     return fn(tx);
-  }, { timeout: 60_000 });
+  }, { timeout: 300_000, maxWait: 30_000 });
 }
 
 async function upsertUser(email: string, name: string, password: string) {
@@ -168,6 +173,15 @@ async function upsertUser(email: string, name: string, password: string) {
   });
   return { user, created: true };
 }
+
+/** Conteúdo de demonstração (só para desenvolvimento e testes automatizados). */
+const DEMO_CONTENT = process.env.SEED_DEMO_CONTENT === "1";
+
+/** Conteúdo de exemplo de versões anteriores, removido da produção. */
+const OBSOLETE_MODULE_SLUGS = ["gestao-de-safra", "boas-praticas-defensivos", "financas-pequenas-empresas", "prospeccao-b2b", "introducao-nbr-9050", "fundamentos-de-lideranca", "seguranca-da-informacao"];
+const OBSOLETE_SEGMENT_SLUGS = ["agronegocio", "financas", "vendas", "arquitetura", "gestao-e-lideranca", "tecnologia"];
+
+const CATALOG_DIR = join(process.cwd(), "content", "cursos");
 
 async function main() {
   const slug = process.env.DEFAULT_TENANT_SLUG ?? "drap";
@@ -211,7 +225,7 @@ async function main() {
       levelIds.set(kind, level.id);
     }
     const segIds = new Map<string, string>();
-    for (const [i, s] of SEGMENTS.entries()) {
+    for (const [i, s] of (DEMO_CONTENT ? SEGMENTS : []).entries()) {
       const seg = await tx.segment.upsert({
         where: { tenantId_slug: { tenantId: tenant.id, slug: s.slug } },
         create: { tenantId: tenant.id, ...s, order: i },
@@ -235,7 +249,7 @@ async function main() {
       }
     }
 
-    for (const [mi, m] of MODULES.entries()) {
+    for (const [mi, m] of (DEMO_CONTENT ? MODULES : []).entries()) {
       const levelId = levelIds.get(m.level)!;
       const segmentId = segIds.get(m.segment)!;
       const existing = await tx.module.findUnique({ where: { levelId_segmentId_slug: { levelId, segmentId, slug: m.slug } } });
@@ -273,6 +287,34 @@ async function main() {
       update: {},
     });
   });
+
+  // Remove o conteúdo de exemplo antigo (inclusive o de agro) quando não estamos em modo demonstração.
+  if (!DEMO_CONTENT) {
+    await inTenant(tenant.id, async (tx) => {
+      const removed = await tx.module.deleteMany({ where: { tenantId: tenant.id, slug: { in: OBSOLETE_MODULE_SLUGS } } });
+      const segs = await tx.segment.findMany({ where: { tenantId: tenant.id, slug: { in: OBSOLETE_SEGMENT_SLUGS } }, include: { _count: { select: { modules: true } } } });
+      const empty = segs.filter((sg) => sg._count.modules === 0).map((sg) => sg.id);
+      if (empty.length) await tx.segment.deleteMany({ where: { id: { in: empty } } });
+      if (removed.count || empty.length) console.log(`Conteúdo de exemplo removido: ${removed.count} módulo(s), ${empty.length} segmento(s).`);
+    });
+  }
+
+  // Catálogo oficial de cursos (content/cursos/*.md), na ordem numérica dos arquivos.
+  const files = readdirSync(CATALOG_DIR).filter((f) => f.endsWith(".md")).sort();
+  const courseLevel = await inTenant(tenant.id, (tx) => tx.level.findUniqueOrThrow({ where: { tenantId_kind: { tenantId: tenant.id, kind: "CURSO" } } }));
+  for (const [i, file] of files.entries()) {
+    const spec = parseCourse(readFileSync(join(CATALOG_DIR, file), "utf8"), file);
+    const report = await inTenant(tenant.id, async (tx) => {
+      const r = await syncCourse(tx, { tenantId: tenant.id, levelId: courseLevel.id, authorId: admin.user.id, order: i, spec });
+      const student = demoUsers.find((d) => d.roles.includes("ALUNO"));
+      if (student) {
+        const mod = await tx.module.findFirstOrThrow({ where: { tenantId: tenant.id, levelId: courseLevel.id, slug: spec.slug } });
+        await tx.enrollment.upsert({ where: { userId_moduleId: { userId: student.user.id, moduleId: mod.id } }, create: { tenantId: tenant.id, userId: student.user.id, moduleId: mod.id, origin: "CORTESIA" }, update: {} });
+      }
+      return r;
+    });
+    console.log(`Curso ${report.course}: ${report.created ? "criado" : "atualizado"} · ${report.versionsPublished} versão(ões) publicada(s) · questões +${report.questionsCreated} ~${report.questionsUpdated} −${report.questionsRetired}`);
+  }
 
   console.log(`Tenant: ${tenant.name} (${tenant.slug})`);
   console.log(admin.created ? `Administrador criado: ${adminEmail}${process.env.SEED_ADMIN_PASSWORD ? "" : ` — senha gerada: ${adminPassword}`}` : `Administrador já existia: ${adminEmail}`);

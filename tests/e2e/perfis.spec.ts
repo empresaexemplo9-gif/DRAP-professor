@@ -17,8 +17,8 @@ test("aluno vê só as abas de estudo e não acessa áreas de admin", async ({ p
 
 test("aluno matriculado lê o assunto e marca como concluído", async ({ page }) => {
   await login(page, "aluno@exemplo.com.br", DEMO_PASSWORD);
-  await page.goto("/capacitacoes/agronegocio/boas-praticas-defensivos/triplice-lavagem");
-  await expect(page.getByRole("heading", { level: 1, name: "Tríplice lavagem" })).toBeVisible();
+  await page.goto("/capacitacoes/tecnologia/seguranca-da-informacao/senhas-e-autenticacao");
+  await expect(page.getByRole("heading", { level: 1, name: "Senhas e autenticação" })).toBeVisible();
   await expect(page.getByRole("note", { name: "Dica" })).toBeVisible();
   const button = page.getByRole("button", { name: /Marcar como concluído|Concluído — desmarcar/ });
   if ((await button.textContent())?.includes("desmarcar")) await button.click();

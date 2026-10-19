@@ -42,7 +42,7 @@ export async function getEnrollment(tenantId: string, userId: string, moduleId: 
   return withTenant(tenantId, (tx) =>
     tx.enrollment.findUnique({
       where: { userId_moduleId: { userId, moduleId } },
-      include: { progress: { select: { topicId: true, status: true } } },
+      include: { progress: { select: { topicId: true, status: true, quizPassed: true, bestScore: true, firstScore: true } } },
     }),
   );
 }

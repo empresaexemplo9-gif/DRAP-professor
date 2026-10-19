@@ -17,13 +17,13 @@ for (const theme of ["dark", "light"] as const) {
       await expect(page.getByRole("heading", { level: 1, name: "Cursos" })).toBeVisible();
       await expectAccessible(page);
 
-      await page.goto("/cursos/agronegocio");
-      await expect(page.getByRole("heading", { level: 1, name: "Agronegócio" })).toBeVisible();
+      await page.goto("/cursos/gestao-e-lideranca");
+      await expect(page.getByRole("heading", { level: 1, name: "Gestão e Liderança" })).toBeVisible();
 
-      await page.goto("/cursos/agronegocio/gestao-de-safra");
-      await expect(page.getByRole("heading", { level: 1, name: "Gestão de Safra" })).toBeVisible();
-      await expect(page.getByRole("navigation", { name: "Trilha de navegação" })).toContainText("Agronegócio");
-      await expect(page.getByRole("navigation", { name: /Assuntos de/ })).toContainText("Planejamento de plantio");
+      await page.goto("/cursos/gestao-e-lideranca/fundamentos-de-lideranca");
+      await expect(page.getByRole("heading", { level: 1, name: "Fundamentos de Liderança" })).toBeVisible();
+      await expect(page.getByRole("navigation", { name: "Trilha de navegação" })).toContainText("Gestão e Liderança");
+      await expect(page.getByRole("navigation", { name: /Assuntos de/ })).toContainText("Papéis do líder");
       await expectAccessible(page);
       await expectNoHorizontalScroll(page);
     });

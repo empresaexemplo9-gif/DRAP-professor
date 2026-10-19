@@ -56,7 +56,7 @@ test("admin cria segmento, módulo e assunto e publica — página no tema, sem 
 test("mudar o tema altera o conteúdo já publicado, sem editar o assunto", async ({ page, isMobile }) => {
   test.skip(isMobile, "configuração de tema validada no desktop");
   await login(page, ADMIN.email, ADMIN.password);
-  const url = "/cursos/agronegocio/gestao-de-safra/planejamento-de-plantio";
+  const url = "/cursos/gestao-e-lideranca/fundamentos-de-lideranca/papeis-do-lider";
   await page.goto(url);
   const before = await page.locator("body").evaluate((el) => getComputedStyle(el).backgroundColor);
 
@@ -85,7 +85,7 @@ test("tema com contraste insuficiente é recusado", async ({ page, isMobile }) =
 
 test("leitura no celular: tabela rola dentro do bloco, sem rolagem da página", async ({ page }) => {
   await login(page, ADMIN.email, ADMIN.password);
-  await page.goto("/cursos/agronegocio/gestao-de-safra/custos-de-producao");
+  await page.goto("/cursos/gestao-e-lideranca/fundamentos-de-lideranca/feedback-eficaz");
   await expect(page.getByRole("table").first()).toBeVisible();
   await expectNoHorizontalScroll(page);
 });

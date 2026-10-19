@@ -54,7 +54,7 @@ export default async function ContentPage({ searchParams }: { searchParams: Prom
           {modules.length === 0 ? (
             <EmptyState
               title="Nenhum módulo"
-              text={segments.length ? "Crie o primeiro módulo deste nível." : "Comece cadastrando um segmento (ex.: Agronegócio, Finanças)."}
+              text={segments.length ? "Crie o primeiro módulo deste nível." : "Comece cadastrando um segmento (ex.: Gestão e Liderança, Finanças)."}
               action={segments.length ? <ButtonLink href="/painel/conteudo/modulos/novo">Novo módulo</ButtonLink> : <ButtonLink href="/painel/conteudo?aba=segmentos">Cadastrar segmento</ButtonLink>}
             />
           ) : (

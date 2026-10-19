@@ -36,7 +36,7 @@ Design system e tema, autenticação, perfis, estrutura Nível › Segmento › 
 
 Roteiro manual:
 
-1. Abra `/` e navegue por **Cursos › Agronegócio › Gestão de Safra › Planejamento de plantio**: cada nível tem URL, breadcrumb e navegação lateral.
+1. Abra `/` e navegue por **Cursos › Gestão e Liderança › Fundamentos de Liderança › Papéis do líder**: cada nível tem URL, breadcrumb e navegação lateral.
 2. Entre como administrador → **Conteúdo** → crie um segmento, um módulo (escolha o nível e veja os campos próprios dele) e um assunto; adicione blocos, veja a prévia no celular e publique.
 3. Publique o módulo e abra a página pública: o conteúdo aparece 100% no tema.
 4. **Configurações e Tema**: mude o fundo e a cor de destaque e salve; volte ao assunto — ele já usa as novas cores, sem ser editado. Tente uma cor de texto ilegível: o salvamento é recusado com a explicação do contraste.

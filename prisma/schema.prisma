@@ -14,15 +14,15 @@ datasource db {
 // ───────────────────────────── Tenant ─────────────────────────────
 
 model Tenant {
-  id          String       @id @default(uuid(7)) @db.Uuid
-  name        String
-  slug        String       @unique
-  domains     String[]     @default([])
-  legalName   String?
-  cnpj        String?
-  status      TenantStatus @default(ACTIVE)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id        String       @id @default(uuid(7)) @db.Uuid
+  name      String
+  slug      String       @unique
+  domains   String[]     @default([])
+  legalName String?
+  cnpj      String?
+  status    TenantStatus @default(ACTIVE)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 
   theme       ThemeSettings?
   memberships Membership[]
@@ -63,18 +63,18 @@ enum ThemeMode {
 // ───────────────────────── Autenticação (Better Auth) ─────────────────────────
 
 model User {
-  id               String    @id
+  id               String   @id
   name             String
-  email            String    @unique
-  emailVerified    Boolean   @default(false)
+  email            String   @unique
+  emailVerified    Boolean  @default(false)
   image            String?
-  twoFactorEnabled Boolean?  @default(false)
+  twoFactorEnabled Boolean? @default(false)
   // CPF cifrado (AES-256-GCM) e hash para busca; preenchido só quando necessário (certificado/nota fiscal)
   cpfEncrypted     String?
-  cpfHash          String?   @unique
+  cpfHash          String?  @unique
   phone            String?
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   sessions    Session[]
   accounts    Account[]
@@ -286,6 +286,8 @@ model Module {
   certificateType CertificateType @default(LIVRE)
   // Configuração específica do nível (validada por src/lib/levels.ts)
   levelConfig     Json            @default("{}")
+  // Ficha do curso (código, instrutor, revisor, objetivos, bibliografia, versão…) — padrão do arquivo 01
+  courseSheet     Json            @default("{}")
   order           Int             @default(0)
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
@@ -342,6 +344,9 @@ model Topic {
   publishedVersion TopicVersion?   @relation("PublishedVersion", fields: [publishedVersionId], references: [id])
   progress         TopicProgress[]
   notebooks        StudyNotebook[]
+  questions        Question[]
+  attempts         QuizAttempt[]
+  feedback         TopicFeedback[]
 
   @@unique([moduleId, slug])
   @@map("topics")
@@ -402,10 +407,12 @@ model Enrollment {
   endsAt    DateTime?
   createdAt DateTime         @default(now())
 
-  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  module   Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  progress TopicProgress[]
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module    Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress  TopicProgress[]
   notebooks StudyNotebook[]
+  attempts  QuizAttempt[]
+  feedback  TopicFeedback[]
 
   @@unique([userId, moduleId])
   @@map("enrollments")
@@ -418,15 +425,21 @@ enum ProgressStatus {
 }
 
 model TopicProgress {
-  id             String         @id @default(uuid(7)) @db.Uuid
-  tenantId       String         @db.Uuid
-  enrollmentId   String         @db.Uuid
-  topicId        String         @db.Uuid
-  status         ProgressStatus @default(EM_ANDAMENTO)
-  percent        Int            @default(0)
-  lastSectionId  String?
-  completedAt    DateTime?
-  updatedAt      DateTime       @updatedAt
+  id                String         @id @default(uuid(7)) @db.Uuid
+  tenantId          String         @db.Uuid
+  enrollmentId      String         @db.Uuid
+  topicId           String         @db.Uuid
+  status            ProgressStatus @default(EM_ANDAMENTO)
+  percent           Int            @default(0)
+  lastSectionId     String?
+  // Aulas (seções) concluídas — base da presença mínima para liberar a prova
+  completedSections String[]       @default([])
+  quizCycle         Int            @default(1)
+  quizPassed        Boolean        @default(false)
+  firstScore        Float?
+  bestScore         Float?
+  completedAt       DateTime?
+  updatedAt         DateTime       @updatedAt
 
   enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
   topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
@@ -438,15 +451,15 @@ model TopicProgress {
 // ───────────────────────────── Auditoria e documentos legais ─────────────────────────────
 
 model AuditLog {
-  id         String   @id @default(uuid(7)) @db.Uuid
-  tenantId   String   @db.Uuid
-  actorId    String?
-  action     String
-  entity     String
-  entityId   String?
-  data       Json?
-  ip         String?
-  createdAt  DateTime @default(now())
+  id        String   @id @default(uuid(7)) @db.Uuid
+  tenantId  String   @db.Uuid
+  actorId   String?
+  action    String
+  entity    String
+  entityId  String?
+  data      Json?
+  ip        String?
+  createdAt DateTime @default(now())
 
   @@index([tenantId, createdAt])
   @@map("audit_logs")
@@ -467,4 +480,96 @@ model StudyNotebook {
   @@unique([enrollmentId, topicId])
   @@index([tenantId])
   @@map("study_notebooks")
+}
+
+// ───────────────────────────── Avaliações (padrão do arquivo 01) ─────────────────────────────
+
+enum QuestionKind {
+  MULTIPLA
+  VF
+  ASSOCIACAO
+}
+
+enum BloomLevel {
+  LEMBRAR
+  COMPREENDER
+  APLICAR
+  ANALISAR
+}
+
+model Question {
+  id         String       @id @default(uuid(7)) @db.Uuid
+  tenantId   String       @db.Uuid
+  topicId    String       @db.Uuid
+  code       String
+  objective  String
+  bloom      BloomLevel
+  kind       QuestionKind @default(MULTIPLA)
+  isCase     Boolean      @default(false)
+  stem       String
+  // [{ key: "A", text: "..." }, …]
+  options    Json
+  correct    String
+  commentary String
+  version    Int          @default(1)
+  active     Boolean      @default(true)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, code])
+  @@index([topicId])
+  @@map("questions")
+}
+
+enum AttemptStatus {
+  EM_ANDAMENTO
+  ENTREGUE
+  EXPIRADA
+}
+
+model QuizAttempt {
+  id           String        @id @default(uuid(7)) @db.Uuid
+  tenantId     String        @db.Uuid
+  enrollmentId String        @db.Uuid
+  topicId      String        @db.Uuid
+  cycle        Int
+  number       Int
+  // Snapshot imutável das questões sorteadas (enunciado, alternativas na ordem exibida, gabarito, comentário, versão)
+  items        Json
+  answers      Json          @default("{}")
+  score        Float?
+  passed       Boolean?
+  status       AttemptStatus @default(EM_ANDAMENTO)
+  startedAt    DateTime      @default(now())
+  deadlineAt   DateTime
+  submittedAt  DateTime?
+  ip           String?
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@index([enrollmentId, topicId])
+  @@index([topicId, status])
+  @@map("quiz_attempts")
+}
+
+/// Avaliação de reação do aluno (Kirkpatrick nível 1), por módulo.
+model TopicFeedback {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  tenantId      String   @db.Uuid
+  enrollmentId  String   @db.Uuid
+  topicId       String   @db.Uuid
+  clarity       Int
+  applicability Int
+  overall       Int
+  comment       String?
+  createdAt     DateTime @default(now())
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, topicId])
+  @@map("topic_feedback")
 }
