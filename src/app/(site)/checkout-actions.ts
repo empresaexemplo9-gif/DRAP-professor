@@ -39,7 +39,7 @@ export async function startPixCheckout(_: PixCheckoutActionState, formData: Form
   try {
     checkout = await withTenant(tenantId, async (tx) => {
       // Serializa dois cliques/dispositivos do mesmo aluno para evitar cobranças Pix duplicadas.
-      await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`${tenantId}:${viewer.user.id}:${course.id}`}, 0))`;
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`${tenantId}:${viewer.user.id}:${course.id}`}, 0))`;
       await tx.pixCheckout.updateMany({
         where: { tenantId, userId: viewer.user.id, moduleId: course.id, status: "PENDING", expiresAt: { lte: now } },
         data: { status: "EXPIRED" },

@@ -9,6 +9,7 @@ import { Alert } from "@/components/ui/misc";
 type ModuleOption = { id: string; title: string; group: string };
 
 const ORIGINS = Object.entries(ENROLLMENT_ORIGIN_LABEL);
+const CREATE_ORIGINS = ORIGINS.filter(([value]) => value !== "LICENCA");
 const STATUSES = Object.entries(ENROLLMENT_STATUS_LABEL);
 const small = "min-h-9 rounded-md border border-border-strong bg-bg px-2 text-xs text-text";
 
@@ -32,7 +33,7 @@ export function CreateEnrollmentForm({ modules, defaultEmail }: { modules: Modul
         ))}
       </SelectField>
       <SelectField label="Origem" name="origin" defaultValue="ATRIBUICAO">
-        {ORIGINS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+        {CREATE_ORIGINS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
       </SelectField>
       <TextField label="Acesso até" name="endsAt" type="date" hint="Deixe vazio para acesso sem prazo." />
       <div className="md:col-span-2 xl:col-span-3">

@@ -49,6 +49,7 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
     { href: "/#biblioteca", label: "Biblioteca de saberes", icon: "openbook" },
     { href: "/#metodologia", label: "Proposta pedagógica", icon: "layers" },
     { href: "/#comunidade", label: "Nossa comunidade", icon: "users" },
+    { href: "/empresas", label: "Para empresas", icon: "briefcase" },
     { href: viewer ? "/painel" : "/entrar", label: "Portal do aluno", icon: "book" },
   ];
   const props = { name: tenant.name, logoUrl, items };

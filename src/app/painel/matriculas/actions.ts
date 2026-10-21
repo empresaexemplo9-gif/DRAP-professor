@@ -10,6 +10,8 @@ export type EnrollmentState = { error?: string; ok?: boolean; message?: string }
 
 const statusEnum = z.enum(["ATIVA", "CONCLUIDA", "CANCELADA", "EXPIRADA"]);
 const originEnum = z.enum(["COMPRA", "ASSINATURA", "ATRIBUICAO", "CORTESIA"]);
+// Matrículas de licença nascem do contrato da empresa; aqui só podem ser mantidas.
+const editableOriginEnum = z.enum([...originEnum.options, "LICENCA"]);
 const noteField = z.string().trim().max(500).optional().transform((v) => v || null);
 
 export async function createEnrollmentAction(_: EnrollmentState, fd: FormData): Promise<EnrollmentState> {
@@ -64,7 +66,7 @@ export async function updateEnrollmentAction(_: EnrollmentState, fd: FormData): 
   const viewer = await assertPermission("enrollment:manage");
   const id = z.string().uuid().safeParse(fd.get("enrollmentId"));
   const status = statusEnum.safeParse(fd.get("status"));
-  const origin = originEnum.safeParse(fd.get("origin"));
+  const origin = editableOriginEnum.safeParse(fd.get("origin"));
   if (!id.success || !status.success || !origin.success) return { error: "Dados inválidos." };
   const endsAt = parseEndDate(fd.get("endsAt"));
   if (endsAt === undefined) return { error: "Data de término inválida." };

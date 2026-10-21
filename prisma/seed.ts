@@ -188,6 +188,7 @@ async function main() {
           { email: "pedagogico@exemplo.com.br", name: "Paula Pedagógica", roles: ["PEDAGOGICO"] },
           { email: "instrutor@exemplo.com.br", name: "Igor Instrutor", roles: ["INSTRUTOR"] },
           { email: "aluno@exemplo.com.br", name: "Ana Aluna", roles: ["ALUNO"] },
+          { email: "gestor@exemplo.com.br", name: "Gabriel Gestor", roles: ["ALUNO"] },
         ]
       : [];
   const demoPassword = process.env.SEED_DEMO_PASSWORD ?? "Demo@12345678";
@@ -272,6 +273,22 @@ async function main() {
       create: { tenantId: tenant.id, userId: demoStudent.user.id, moduleId: financialCourse.id, origin: "CORTESIA" },
       update: {},
     });
+
+    // Enterprise de demonstração: empresa cliente com gestor e um contrato de vagas.
+    const demoManager = demoUsers.find((user) => user.email === "gestor@exemplo.com.br");
+    const training = await tx.module.findFirst({ where: { tenantId: tenant.id, slug: "boas-praticas-defensivos" }, select: { id: true } });
+    if (demoManager && demoStudent && training && !(await tx.organization.findFirst({ where: { tenantId: tenant.id, cnpj: "11222333000181" } }))) {
+      const org = await tx.organization.create({
+        data: { tenantId: tenant.id, name: "Agro Exemplo", legalName: "Agro Exemplo Ltda.", cnpj: "11222333000181", contactName: demoManager.name, contactEmail: demoManager.email },
+      });
+      await tx.organizationMember.create({ data: { tenantId: tenant.id, organizationId: org.id, userId: demoManager.user.id, role: "GESTOR" } });
+      await tx.organizationMember.create({ data: { tenantId: tenant.id, organizationId: org.id, userId: demoStudent.user.id, role: "COLABORADOR", team: "Campo" } });
+      const pool = await tx.licensePool.create({
+        data: { tenantId: tenant.id, organizationId: org.id, moduleId: training.id, seats: 20, goalPercent: 90, dueAt: new Date(Date.now() + 60 * 864e5) },
+      });
+      await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: pool.id, email: demoStudent.email, userId: demoStudent.user.id, team: "Campo", status: "ATIVO", activatedAt: new Date() } });
+      await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: pool.id, email: "novo.colaborador@exemplo.com.br", team: "Campo" } });
+    }
   });
 
   console.log(`Tenant: ${tenant.name} (${tenant.slug})`);

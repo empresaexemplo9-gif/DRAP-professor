@@ -12,6 +12,7 @@ export const ENROLLMENT_ORIGIN_LABEL: Record<EnrollmentOrigin, string> = {
   ASSINATURA: "Assinatura",
   ATRIBUICAO: "Atribuição da equipe",
   CORTESIA: "Cortesia",
+  LICENCA: "Licença empresarial",
 };
 
 /** Data "AAAA-MM-DD" do formulário → fim do dia em Brasília; vazio = sem prazo. */

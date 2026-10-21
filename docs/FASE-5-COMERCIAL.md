@@ -1,6 +1,6 @@
 # Fase 5 — Camada comercial e painel de gestão: modelo financeiro, fluxo de pagamento/webhook e régua de inadimplência
 
-> **Status:** proposta comercial ampla; o primeiro escopo de matrícula avulsa por Pix/Asaas está implementado no app, com gestão de cobranças, baixa manual e preços em **Financeiro** e gestão de matrículas em **Matrículas** (ver [DEPLOY.md](DEPLOY.md)). Assinaturas, reembolsos, cupons, cartões, boletos e razão financeiro ainda não estão implementados.
+> **Status:** proposta comercial ampla; o primeiro escopo de matrícula avulsa por Pix/Asaas está implementado no app, com gestão de cobranças, baixa manual e preços em **Financeiro** e gestão de matrículas em **Matrículas**; o B2B da seção 7.1 (Organization, OrganizationMember, LicensePool, LicenseAssignment, painel do gestor e relatório por equipe) está implementado como **Enterprise**, ainda sem checkout B2B automático nem NFS-e (ver [DEPLOY.md](DEPLOY.md)). Assinaturas, reembolsos, cupons, cartões, boletos e razão financeiro ainda não estão implementados.
 > Complementa [`ARQUITETURA.md`](ARQUITETURA.md) e os documentos das Fases 2 a 4. As decisões que pedem aprovação estão na [seção 11](#11-decisões-para-aprovação).
 >
 > Tarifas, recursos e regras de gateways, de NFS-e e do WhatsApp mudam com frequência. Os itens marcados com 🔎 devem ser confirmados na documentação e no contrato vigentes durante a integração.
