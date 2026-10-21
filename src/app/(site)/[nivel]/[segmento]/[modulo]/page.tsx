@@ -11,6 +11,9 @@ import { isFinancialCourse } from "@/lib/courses/financial-consulting";
 import { isTeamCourse } from "@/lib/courses/team-schedules";
 import { TeamScheduleCourse } from "@/components/courses/TeamScheduleCourse";
 import { managesCompanyCourse } from "@/lib/catalog";
+import { findFinancialMentorship, FINANCIAL_MENTORSHIPS } from "@/lib/mentorships";
+import { MentorshipPage } from "@/components/courses/Mentorships";
+import { withTenant } from "@/lib/db";
 import { FinancialConsultingCourse } from "@/components/courses/FinancialConsultingCourse";
 import { BusinessManagementCourse } from "@/components/courses/BusinessManagementCourse";
 import { formatWorkload, LEVELS, parseLevelConfig } from "@/lib/levels";
@@ -87,6 +90,24 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
   const completed = new Set(enrollment?.progress.filter((x) => x.status === "CONCLUIDO").map((x) => x.topicId) ?? []);
   const pct = mod.topics.length ? (completed.size / mod.topics.length) * 100 : 0;
   const first = mod.topics.find((t) => !completed.has(t.id)) ?? mod.topics[0];
+
+  const mentorship = findFinancialMentorship(mod);
+  if (mentorship) {
+    const published = await withTenant(tenant.id, (tx) =>
+      tx.module.findMany({
+        where: { tenantId: tenant.id, status: "PUBLICADO", levelId: mod.levelId, segmentId: mod.segmentId, slug: { in: FINANCIAL_MENTORSHIPS.map((m) => m.slug) } },
+        select: { slug: true, title: true },
+      }),
+    );
+    return (
+      <MentorshipPage
+        m={mentorship}
+        published={published}
+        topics={mod.topics}
+        cta={<PixEnrollmentCta moduleId={mod.id} priceCents={mod.priceCents} loggedIn={Boolean(viewer)} needsConsent={Boolean(viewer?.needsConsent)} enabled={false} audience={mod.audience} courseSlug={mod.slug} />}
+      />
+    );
+  }
 
   if (isTeamCourse(mod)) {
     const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));

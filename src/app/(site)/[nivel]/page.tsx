@@ -6,6 +6,8 @@ import { getLevelBySlug, getLevelOverview, levelPath } from "@/lib/catalog";
 import { LEVELS } from "@/lib/levels";
 import { Breadcrumb, EmptyState, PageHeader } from "@/components/ui/misc";
 import { ModuleGrid } from "@/components/catalog/ModuleGrid";
+import { MentorshipsHub } from "@/components/courses/Mentorships";
+import { FINANCIAL_MENTORSHIPS, MENTORSHIP_SEGMENT } from "@/lib/mentorships";
 
 type Params = { nivel: string };
 
@@ -16,12 +18,18 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return { title: level?.label ?? "Não encontrado" };
 }
 
-export default async function LevelPage({ params }: { params: Promise<Params> }) {
+export default async function LevelPage({ params, searchParams }: { params: Promise<Params>; searchParams: Promise<{ tipo?: string }> }) {
   const { nivel } = await params;
   const tenant = await getTenant();
   const level = await getLevelBySlug(tenant.id, nivel);
   if (!level) notFound();
   const groups = await getLevelOverview(tenant.id, level.id);
+  if (level.kind === "MENTORIA") {
+    const all = groups.flatMap((g) => g.modules);
+    const published = all.filter((m) => FINANCIAL_MENTORSHIPS.some((f) => f.slug === m.slug && m.segment.slug === MENTORSHIP_SEGMENT.slug));
+    const others = all.filter((m) => !published.includes(m));
+    return <MentorshipsHub published={published} others={others} tipo={(await searchParams).tipo} />;
+  }
   return (
     <>
       <Breadcrumb items={[{ href: "/", label: "Início" }, { label: level.label }]} />

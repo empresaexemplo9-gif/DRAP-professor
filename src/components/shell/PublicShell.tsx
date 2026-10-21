@@ -44,6 +44,7 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
   const items = [
     { href: "/", label: "Início", icon: "home" },
     { href: "/#formacoes", label: "Nossas formações", icon: "graduation" },
+    { href: "/mentorias", label: "Mentorias", icon: "users" },
     ...(hasBusinessCourse ? [{ href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" }] : []),
     ...(hasFinancialCourse ? [{ href: FINANCIAL_COURSE_PATH, label: "Consultoria Financeira", icon: "book" }] : []),
     { href: "/#biblioteca", label: "Biblioteca de saberes", icon: "openbook" },

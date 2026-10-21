@@ -22,10 +22,12 @@ export function AppShell({
   isCompanyManager?: boolean;
 }) {
   const items = navFor(viewer.roles).map(({ href, label, icon }) => ({ href, label, icon }));
+  // Aba "Mentorias": mentorias por tipo (pequenas, médias e grandes empresas).
+  items.splice(3, 0, { href: "/mentorias", label: "Mentorias", icon: "users" });
   if (hasBusinessCourse)
-    items.splice(3, 0, { href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" });
+    items.splice(4, 0, { href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" });
   if (hasFinancialCourse)
-    items.splice(hasBusinessCourse ? 4 : 3, 0, {
+    items.splice(hasBusinessCourse ? 5 : 4, 0, {
       href: FINANCIAL_COURSE_PATH,
       label: "Consultoria Financeira",
       icon: "book",

@@ -13,6 +13,7 @@ import { LEVELS } from "../src/lib/levels";
 import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
 import { seedTeamCourse } from "./courses/team-schedules";
+import { seedFinancialMentorships } from "./courses/mentorships";
 import type { ContentDocument } from "../src/content-blocks/schema";
 
 try {
@@ -95,20 +96,6 @@ const MODULES: ModuleSeed[] = [
           { title: "Ponto de equilíbrio", paragraphs: ["Ponto de equilíbrio (sc/ha) = custo total por hectare ÷ preço esperado da saca."], tip: "Refaça a conta a cada atualização de preço: ela orienta a estratégia de venda antecipada." },
         ]),
       },
-    ],
-  },
-  {
-    level: "MENTORIA",
-    segment: "financas",
-    title: "Mentoria em Finanças para Pequenas Empresas",
-    slug: "financas-pequenas-empresas",
-    summary: "Encontros individuais para organizar o caixa, precificar e planejar o crescimento.",
-    hours: 6,
-    certificateType: "LIVRE",
-    config: { sessionFormat: "INDIVIDUAL", plannedSessions: 6, sessionMinutes: 60, videoCallUrl: "" },
-    topics: [
-      { title: "Diagnóstico financeiro", slug: "diagnostico-financeiro", minutes: 60, doc: doc("Diagnóstico financeiro", [{ title: "Antes do primeiro encontro", paragraphs: ["Reúna extratos dos últimos 6 meses, contas a pagar e a receber e a lista de produtos com preços."], list: ["Faturamento mensal", "Despesas fixas", "Margem por produto"] }]) },
-      { title: "Fluxo de caixa", slug: "fluxo-de-caixa", minutes: 60, doc: doc("Fluxo de caixa", [{ title: "Projeção de 13 semanas", paragraphs: ["Projete entradas e saídas semana a semana para antecipar faltas de caixa."], tip: "Atualize a projeção toda segunda-feira, comparando o previsto com o realizado." }]) },
     ],
   },
   {
@@ -265,6 +252,8 @@ async function main() {
     const financialCourse = await seedFinancialCourse(tx, tenant.id, admin.user.id);
     // Treinamento para empresas: entregue por contrato (Enterprise), sem matrícula avulsa.
     const teamCourse = await seedTeamCourse(tx, tenant.id, admin.user.id);
+    // Mentorias financeiras por porte (substituem a antiga mentoria de exemplo).
+    await seedFinancialMentorships(tx, tenant.id, admin.user.id);
     const demoStudent = demoUsers.find((user) => user.roles.includes("ALUNO"));
     if (demoStudent) await tx.enrollment.upsert({
       where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: businessCourse.id } },
