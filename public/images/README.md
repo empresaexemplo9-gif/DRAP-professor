@@ -9,3 +9,7 @@ Imagens ilustrativas do Unsplash, servidas localmente para não depender de terc
 - `architecture.jpg`: https://images.unsplash.com/photo-1503387762-592deb58ef4e
 
 Licença: https://unsplash.com/license
+
+## Banners de cursos
+
+- `courses/gestao-justa-de-equipes-banner.webp`: banner de apresentação do treinamento "Gestão justa de equipes e escalas", fornecido pelo cliente junto com a apostila (1600 × 600).

@@ -6,7 +6,10 @@ import { levelPath } from "@/lib/catalog-paths";
 import { formatWorkload } from "@/lib/levels";
 import { Icon } from "@/components/ui/Icon";
 import { Card } from "@/components/ui/Card";
+import Image from "next/image";
 import { LeadForm } from "./LeadForm";
+import { ButtonLink } from "@/components/ui/Button";
+import { TEAM_COURSE, TEAM_COURSE_BANNER } from "@/lib/courses/team-schedules";
 
 export const metadata: Metadata = {
   title: "Para empresas",
@@ -22,23 +25,32 @@ const FEATURES = [
   { icon: "shield", title: "Gestão de vagas", text: "Vaga de quem ainda não começou pode ser repassada para outra pessoa da equipe." },
 ];
 
-export default async function EnterpriseLandingPage() {
+export default async function EnterpriseLandingPage({ searchParams }: { searchParams: Promise<{ curso?: string }> }) {
+  const { curso } = await searchParams;
   const tenant = await getTenant();
-  const levels = await withTenant(tenant.id, (tx) =>
-    tx.level.findMany({
-      where: { tenantId: tenant.id, active: true, modules: { some: { status: "PUBLICADO" } } },
-      orderBy: { order: "asc" },
+  const modules = await withTenant(tenant.id, (tx) =>
+    tx.module.findMany({
+      where: { tenantId: tenant.id, status: "PUBLICADO", level: { active: true } },
+      orderBy: [{ level: { order: "asc" } }, { order: "asc" }, { title: "asc" }],
       select: {
-        id: true, label: true, slug: true, description: true,
-        modules: {
-          where: { status: "PUBLICADO" },
-          orderBy: [{ order: "asc" }, { title: "asc" }],
-          select: { id: true, title: true, slug: true, workloadMinutes: true, segment: { select: { name: true, slug: true } } },
-        },
+        id: true, title: true, slug: true, summary: true, workloadMinutes: true, audience: true,
+        level: { select: { id: true, label: true, slug: true } },
+        segment: { select: { name: true, slug: true } },
       },
     }),
   );
-  const themes = [...new Set(levels.flatMap((l) => l.modules.map((m) => m.segment.name)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const exclusive = modules.filter((m) => m.audience === "EMPRESA");
+  // Capacitações individuais também podem ser contratadas para equipes, agrupadas por nível.
+  const individual = modules.filter((m) => m.audience === "INDIVIDUAL");
+  const levels = [...new Map(individual.map((m) => [m.level.id, m.level])).values()].map((level) => ({
+    ...level,
+    modules: individual.filter((m) => m.level.id === level.id),
+  }));
+  const themes = [
+    ...exclusive.map((m) => m.title),
+    ...[...new Set(individual.map((m) => m.segment.name))].sort((a, b) => a.localeCompare(b, "pt-BR")),
+  ];
+  const preselected = exclusive.find((m) => m.slug === curso)?.title;
 
   return (
     <div className="space-y-12">
@@ -90,9 +102,36 @@ export default async function EnterpriseLandingPage() {
         </div>
       </section>
 
+      {exclusive.length > 0 && (
+        <section aria-labelledby="exclusivos">
+          <h2 id="exclusivos" className="font-display text-3xl text-text">Treinamentos exclusivos para empresas</h2>
+          <p className="mt-2 max-w-2xl text-text-muted">
+            Vendidos por contrato e entregues aos colaboradores pelas vagas da empresa, sem matrícula ou pagamento individual.
+          </p>
+          <ul className="mt-6 grid gap-4 lg:grid-cols-2">
+            {exclusive.map((m) => (
+              <li key={m.id} className="overflow-hidden rounded-md border border-border bg-surface">
+                {m.slug === TEAM_COURSE.slug && (
+                  <Image src={TEAM_COURSE_BANNER} alt="" width={1600} height={600} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
+                )}
+                <div className="p-5">
+                  <p className="text-xs text-text-muted">{m.level.label} · {m.segment.name} · {formatWorkload(m.workloadMinutes)}</p>
+                  <Link href={levelPath(m.level.slug, m.segment.slug, m.slug)} className="mt-1 block font-display text-xl">{m.title}</Link>
+                  {m.summary && <p className="mt-2 text-sm text-text-muted">{m.summary}</p>}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <ButtonLink href={levelPath(m.level.slug, m.segment.slug, m.slug)} variant="secondary" size="sm">Ver programa</ButtonLink>
+                    <ButtonLink href={`/empresas?curso=${encodeURIComponent(m.slug)}#proposta`} variant="gold" size="sm">Solicitar proposta</ButtonLink>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section aria-labelledby="temas">
-        <h2 id="temas" className="font-display text-3xl text-text">Todos os temas disponíveis para empresas</h2>
-        <p className="mt-2 max-w-2xl text-text-muted">Qualquer formação do catálogo pode ser contratada para a sua equipe.</p>
+        <h2 id="temas" className="font-display text-3xl text-text">Capacitações do catálogo também disponíveis para equipes</h2>
+        <p className="mt-2 max-w-2xl text-text-muted">As formações individuais do catálogo também podem ser contratadas em vagas para a sua equipe.</p>
         <div className="mt-6 space-y-8">
           {levels.map((level) => (
             <div key={level.id}>
@@ -115,7 +154,7 @@ export default async function EnterpriseLandingPage() {
         <Card>
           <h2 id="proposta-title" className="font-display text-3xl text-text">Solicite uma proposta</h2>
           <p className="mb-6 mt-2 text-text-muted">Conte quantas pessoas e quais temas; respondemos com valores por vaga e condições para a sua empresa.</p>
-          <LeadForm themes={themes} />
+          <LeadForm key={preselected ?? "todos"} themes={themes} preselected={preselected} />
         </Card>
       </section>
     </div>

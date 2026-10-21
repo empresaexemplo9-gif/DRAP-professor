@@ -57,3 +57,20 @@ export async function getEnrollment(tenantId: string, userId: string, moduleId: 
 export { levelPath } from "./catalog-paths";
 
 export type { LevelKind };
+
+/** Gestor de empresa ativa com contrato ativo deste módulo: lê o conteúdo para acompanhar a equipe, sem matrícula. */
+export async function managesCompanyCourse(tenantId: string, userId: string, moduleId: string) {
+  return withTenant(tenantId, async (tx) =>
+    Boolean(
+      await tx.licensePool.findFirst({
+        where: {
+          tenantId,
+          moduleId,
+          status: "ACTIVE",
+          organization: { status: "ACTIVE", members: { some: { userId, role: "GESTOR" } } },
+        },
+        select: { id: true },
+      }),
+    ),
+  );
+}

@@ -133,8 +133,9 @@ export async function updatePriceAction(_: FinanceState, fd: FormData): Promise<
   const tenantId = viewer.tenant.id;
   const ip = await clientIp();
   const result = await withTenant(tenantId, async (tx) => {
-    const mod = await tx.module.findFirst({ where: { id: id.data, tenantId }, select: { id: true, priceCents: true } });
+    const mod = await tx.module.findFirst({ where: { id: id.data, tenantId }, select: { id: true, priceCents: true, audience: true } });
     if (!mod) return { error: "Curso não encontrado." };
+    if (mod.audience === "EMPRESA") return { error: "Treinamentos para empresas são vendidos por contrato em Empresas." };
     if (mod.priceCents === price.data) return { ok: true, message: "Nenhuma alteração." };
     await tx.module.update({ where: { id: mod.id }, data: { priceCents: price.data } });
     await audit(tx, { tenantId, actorId: viewer.user.id, action: "curso.preco_alterado", entity: "Module", entityId: mod.id, data: { before: mod.priceCents, after: price.data }, ip });

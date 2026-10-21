@@ -4,7 +4,8 @@ import { ADMIN, DEMO_PASSWORD, expectAccessible, expectNoHorizontalScroll, login
 test("página pública Para empresas recebe pedido de proposta", async ({ page, isMobile }) => {
   await page.goto("/empresas");
   await expect(page.getByRole("heading", { level: 1, name: /Capacitação para equipes inteiras/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Todos os temas disponíveis para empresas" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Treinamentos exclusivos para empresas" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Capacitações do catálogo também disponíveis para equipes" })).toBeVisible();
   await expectNoHorizontalScroll(page);
   await expectAccessible(page);
   test.skip(isMobile);
@@ -54,8 +55,9 @@ test("gestor acompanha a equipe e exporta o relatório", async ({ page }) => {
   await login(page, "gestor@exemplo.com.br", DEMO_PASSWORD);
   await page.goto("/painel/empresa");
   await expect(page.getByRole("heading", { level: 1, name: "Agro Exemplo" })).toBeVisible();
-  await expect(page.getByText("Ana Aluna")).toBeVisible();
+  await expect(page.getByText("Ana Aluna").first()).toBeVisible();
   await expect(page.getByText("novo.colaborador@exemplo.com.br")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Gestão justa de equipes e escalas" })).toBeVisible();
   await expectNoHorizontalScroll(page);
   await expectAccessible(page);
   const csv = await page.request.get(await page.getByRole("link", { name: "Exportar relatório (CSV)" }).getAttribute("href") ?? "");

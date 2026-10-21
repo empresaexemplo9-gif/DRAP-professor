@@ -289,6 +289,8 @@ model Module {
   coverUrl        String?
   workloadMinutes Int             @default(0)
   priceCents      Int?
+  // INDIVIDUAL: capacitação vendida por pessoa (Pix). EMPRESA: treinamento vendido por contrato (Enterprise).
+  audience        ModuleAudience  @default(INDIVIDUAL)
   status          ContentStatus   @default(RASCUNHO)
   certificateType CertificateType @default(LIVRE)
   // Configuração específica do nível (validada por src/lib/levels.ts)
@@ -308,7 +310,13 @@ model Module {
 
   @@unique([levelId, segmentId, slug])
   @@index([tenantId, status])
+  @@index([tenantId, audience, status])
   @@map("modules")
+}
+
+enum ModuleAudience {
+  INDIVIDUAL
+  EMPRESA
 }
 
 enum StaffRole {

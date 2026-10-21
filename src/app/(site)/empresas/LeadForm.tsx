@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { TextAreaField, TextField } from "@/components/ui/Field";
 import { Alert } from "@/components/ui/misc";
 
-export function LeadForm({ themes }: { themes: string[] }) {
+export function LeadForm({ themes, preselected }: { themes: string[]; preselected?: string }) {
   const [state, action, pending] = useActionState<LeadState, FormData>(requestProposalAction, {});
   if (state.ok) {
     return <Alert tone="success">Recebemos seu pedido. Nossa equipe entrará em contato em até 1 dia útil com uma proposta para a sua empresa.</Alert>;
@@ -23,11 +23,11 @@ export function LeadForm({ themes }: { themes: string[] }) {
       </div>
       {themes.length > 0 && (
         <fieldset>
-          <legend className="mb-2 text-sm font-medium text-text">Temas de interesse</legend>
+          <legend className="mb-2 text-sm font-medium text-text">Treinamentos e temas de interesse</legend>
           <div className="grid gap-x-4 sm:grid-cols-2 xl:grid-cols-3">
             {themes.map((t) => (
               <label key={t} className="flex min-h-11 items-center gap-2 text-sm text-text">
-                <input type="checkbox" name="interests" value={t} className="size-5 accent-[var(--drap-primary-strong)]" />
+                <input type="checkbox" name="interests" value={t} defaultChecked={t === preselected} className="size-5 accent-[var(--drap-primary-strong)]" />
                 {t}
               </label>
             ))}

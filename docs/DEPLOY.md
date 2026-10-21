@@ -48,6 +48,10 @@ Os papéis `anon` e `authenticated` do Supabase não têm acesso a nenhuma tabel
   - **Painel › Minha empresa** (aparece só para gestores): cola a lista de e-mails da equipe (até 500 por vez) com a equipe/área; quem já tem conta recebe acesso imediato, quem não tem recebe convite e a vaga é ativada no primeiro acesso ao painel com aquele e-mail. Acompanha progresso, meta e prazo, filtra por equipe e exporta CSV. A vaga só pode ser repassada enquanto o colaborador não concluiu nenhum assunto.
   - **/empresas** (público): apresentação da versão Enterprise com todos os temas publicados e formulário de proposta. Defina `ENTERPRISE_LEADS_EMAIL` para receber o aviso por e-mail (padrão: `SEED_ADMIN_EMAIL`).
   - O pagamento do contrato é combinado fora do checkout Pix (proposta/fatura); registre o valor no contrato.
+- **Público-alvo dos módulos** (campo *Público-alvo* no editor do módulo):
+  - **Capacitação individual** (`INDIVIDUAL`): aparece na vitrine principal e é vendida por pessoa (matrícula + Pix).
+  - **Treinamento para empresas** (`EMPRESA`): não tem checkout individual; é vendido por contrato em Painel › Empresas e entregue aos colaboradores pelas vagas, sem matrícula avulsa. Aparece em `/empresas` (seção *Treinamentos exclusivos*), na chamada para empresas da página inicial e com o selo *Para empresas* no catálogo. O gestor da empresa contratante lê o conteúdo e baixa a apostila para acompanhar a equipe.
+  - Treinamento instalado pelo seed: **Gestão justa de equipes e escalas** (`/treinamentos/gestao-e-pessoas/gestao-justa-de-equipes-e-escalas`, 12 h, 8 módulos, apostila em `content/courses/gestao-justa-de-equipes/`).
 - Configure primeiro chaves distintas de sandbox em Preview e conclua uma compra de teste. Em produção, use chave e token próprios do ambiente live. A tela de preços suporta Pix à vista por curso; descontos, reembolsos e outros meios não fazem parte deste escopo.
 
 ## Fluxo de deploy

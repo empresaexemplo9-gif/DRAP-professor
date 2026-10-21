@@ -23,8 +23,9 @@ export default async function HomePage() {
     const levels = await tx.level.findMany({ where: { tenantId: tenant.id, active: true }, orderBy: { order: "asc" } });
     const total = await tx.module.count({ where: published });
     const areas = await tx.segment.count({ where: { tenantId: tenant.id, modules: { some: published } } });
+    // Vitrine principal: capacitações individuais. Treinamentos para empresas têm seção própria.
     const modules = await tx.module.findMany({
-      where: published,
+      where: { ...published, audience: "INDIVIDUAL" },
       include: { level: true, segment: true, _count: { select: { topics: { where: { status: "PUBLICADO" } } } } },
       orderBy: [{ order: "asc" }, { createdAt: "asc" }],
       take: 24,
@@ -35,7 +36,13 @@ export default async function HomePage() {
       orderBy: [{ order: "asc" }, { createdAt: "asc" }],
       take: 3,
     });
-    return { levels, total, areas, modules, readings };
+    const companyCourses = await tx.module.findMany({
+      where: { ...published, audience: "EMPRESA" },
+      include: { level: true, segment: true },
+      orderBy: [{ order: "asc" }, { createdAt: "asc" }],
+      take: 6,
+    });
+    return { levels, total, areas, modules, readings, companyCourses };
   });
   return (
     <div>
@@ -61,7 +68,7 @@ export default async function HomePage() {
       <section id="formacoes" className="academic-section pt-10" aria-labelledby="formacoes-title">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow mb-2">Conheça nossas formações</p>
+            <p className="eyebrow mb-2">Capacitações individuais · Conheça nossas formações</p>
             <h2 id="formacoes-title" className="academic-section-title font-display text-text">
               Novos saberes. Novas possibilidades.
             </h2>
@@ -149,6 +156,47 @@ export default async function HomePage() {
           ))}
         </ol>
       </section>
+
+      {data.companyCourses.length > 0 && (
+        <section
+          id="para-empresas"
+          className="academic-section mt-10 rounded-md border border-border bg-surface p-6 sm:p-8"
+          aria-labelledby="empresas-title"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow mb-2">Treinamentos para empresas</p>
+              <h2 id="empresas-title" className="academic-section-title font-display text-text">
+                Capacitação para equipes inteiras.
+              </h2>
+              <p className="mt-2 max-w-xl text-xs leading-relaxed text-text-muted">
+                Contratados pela empresa e liberados aos colaboradores, sem matrícula individual, com painel do gestor, metas e
+                relatórios.
+              </p>
+            </div>
+            <Link href="/empresas" className="inline-flex items-center gap-3 text-xs text-text no-underline hover:text-accent-text">
+              Conhecer a solução para empresas
+              <Icon name="arrow" className="size-4" />
+            </Link>
+          </div>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {data.companyCourses.map((m) => (
+              <li key={m.id}>
+                <Link
+                  href={levelPath(m.level.slug, m.segment.slug, m.slug)}
+                  className="group flex h-full flex-col rounded-md border border-border bg-bg p-5 text-text no-underline hover:border-accent"
+                >
+                  <p className="text-[10px] uppercase tracking-widest text-text-muted">
+                    {m.segment.name} · {formatWorkload(m.workloadMinutes)}
+                  </p>
+                  <h3 className="mt-2 font-display text-lg group-hover:text-accent-text">{m.title}</h3>
+                  {m.summary && <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-text-muted">{m.summary}</p>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="mt-10" aria-labelledby="formatos-title">
         <p className="eyebrow mb-2">Diferentes jeitos de ir além</p>

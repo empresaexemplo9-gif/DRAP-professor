@@ -25,8 +25,8 @@ export default async function EnterpriseDetailPage({ params }: { params: Promise
   const modules = await withTenant(viewer.tenant.id, (tx) =>
     tx.module.findMany({
       where: { tenantId: viewer.tenant.id, status: { not: "ARQUIVADO" } },
-      select: { id: true, title: true, level: { select: { label: true } }, segment: { select: { name: true } } },
-      orderBy: [{ level: { order: "asc" } }, { segment: { name: "asc" } }, { title: "asc" }],
+      select: { id: true, title: true, audience: true, level: { select: { label: true } }, segment: { select: { name: true } } },
+      orderBy: [{ audience: "desc" }, { level: { order: "asc" } }, { segment: { name: "asc" } }, { title: "asc" }],
     }),
   );
   const managers = org.members.filter((m) => m.role === "GESTOR");
@@ -64,7 +64,7 @@ export default async function EnterpriseDetailPage({ params }: { params: Promise
         />
         <Card>
           <h3 className="mb-4 font-display text-xl text-text">Novo contrato de vagas</h3>
-          <CreatePoolForm organizationId={org.id} modules={modules.map((m) => ({ id: m.id, title: m.title, group: `${m.level.label} · ${m.segment.name}` }))} />
+          <CreatePoolForm organizationId={org.id} modules={modules.map((m) => ({ id: m.id, title: m.title, group: m.audience === "EMPRESA" ? `Treinamentos para empresas · ${m.level.label}` : `Capacitações individuais · ${m.level.label} · ${m.segment.name}` }))} />
         </Card>
       </section>
 

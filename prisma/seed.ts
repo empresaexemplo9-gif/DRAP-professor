@@ -12,6 +12,7 @@ import { randomBytes } from "node:crypto";
 import { LEVELS } from "../src/lib/levels";
 import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
+import { seedTeamCourse } from "./courses/team-schedules";
 import type { ContentDocument } from "../src/content-blocks/schema";
 
 try {
@@ -262,6 +263,8 @@ async function main() {
     }
     const businessCourse = await seedBusinessCourse(tx, tenant.id, admin.user.id);
     const financialCourse = await seedFinancialCourse(tx, tenant.id, admin.user.id);
+    // Treinamento para empresas: entregue por contrato (Enterprise), sem matrícula avulsa.
+    const teamCourse = await seedTeamCourse(tx, tenant.id, admin.user.id);
     const demoStudent = demoUsers.find((user) => user.roles.includes("ALUNO"));
     if (demoStudent) await tx.enrollment.upsert({
       where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: businessCourse.id } },
@@ -288,6 +291,12 @@ async function main() {
       });
       await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: pool.id, email: demoStudent.email, userId: demoStudent.user.id, team: "Campo", status: "ATIVO", activatedAt: new Date() } });
       await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: pool.id, email: "novo.colaborador@exemplo.com.br", team: "Campo" } });
+      // Treinamento para empresas entregue pela vaga: a colaboradora acessa sem matrícula avulsa.
+      const leaders = await tx.licensePool.create({
+        data: { tenantId: tenant.id, organizationId: org.id, moduleId: teamCourse.id, seats: 10, goalPercent: 90, dueAt: new Date(Date.now() + 30 * 864e5) },
+      });
+      await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: leaders.id, email: demoStudent.email, userId: demoStudent.user.id, team: "Liderança", status: "ATIVO", activatedAt: new Date() } });
+      await tx.enrollment.create({ data: { tenantId: tenant.id, userId: demoStudent.user.id, moduleId: teamCourse.id, origin: "LICENCA", status: "ATIVA" } });
     }
   });
 

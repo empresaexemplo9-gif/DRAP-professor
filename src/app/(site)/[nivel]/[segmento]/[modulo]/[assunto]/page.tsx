@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTenant } from "@/lib/tenant";
 import { withTenant } from "@/lib/db";
-import { getEnrollment, getModuleBySlugs } from "@/lib/catalog";
+import { getEnrollment, getModuleBySlugs, managesCompanyCourse } from "@/lib/catalog";
+import { isTeamCourse, TEAM_COURSE_DOWNLOAD } from "@/lib/courses/team-schedules";
 import { levelPath } from "@/lib/catalog-paths";
 import { getViewer } from "@/lib/session";
 import { can } from "@/lib/rbac";
@@ -16,7 +17,7 @@ import { formatWorkload } from "@/lib/levels";
 import { parseDocument } from "@/content-blocks/schema";
 import { DocumentView, SlotPlaceholder, tableOfContents } from "@/content-blocks/BlockRenderer";
 import { Breadcrumb, ProgressBar } from "@/components/ui/misc";
-import { Button, ButtonLink } from "@/components/ui/Button";
+import { Button, ButtonLink, buttonClass } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ModuleSideNav } from "../ModuleSideNav";
 import { markTopicAction } from "../../../../actions";
@@ -50,9 +51,11 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
   const viewer = await getViewer();
   const enrollment = viewer ? await getEnrollment(tenant.id, viewer.user.id, mod.id) : null;
   const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));
-  const canRead = Boolean(
-    viewer && !viewer.disabled && !viewer.needsConsent && ((enrollment && enrollment.status === "ATIVA") || isStaff),
-  );
+  const isTeam = isTeamCourse(mod);
+  const enrolled = enrollment?.status === "ATIVA";
+  // Treinamento para empresas: o gestor da empresa contratante lê o material para acompanhar a equipe.
+  const isManager = Boolean(isTeam && viewer && !viewer.disabled && !enrolled && (await managesCompanyCourse(tenant.id, viewer.user.id, mod.id)));
+  const canRead = Boolean(viewer && !viewer.disabled && !viewer.needsConsent && (enrolled || isStaff || isManager));
   const isBusiness = isBusinessCourse(mod);
   const isFinancial = isFinancialCourse(mod);
   const questions = canRead && isBusiness ? businessQuestions(topic.slug) : [];
@@ -129,7 +132,13 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
                   {questions.length > 0 && <KnowledgeCheck key={topic.id} questions={questions} />}
                 </>
               )}
-              {!isBusiness && !isFinancial && (
+              {isTeam && (
+                <div className="no-print mt-10 flex flex-wrap items-center gap-3 text-sm text-text-muted">
+                  <span>Prefere estudar pelo material original?</span>
+                  <a href={TEAM_COURSE_DOWNLOAD} className={buttonClass("secondary", "sm")}>Baixar a apostila completa (DOCX)</a>
+                </div>
+              )}
+              {!isBusiness && !isFinancial && !isTeam && (
                 <div className="mt-12 space-y-6">
                   <SlotPlaceholder
                     title="Questões do assunto"
@@ -152,7 +161,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
                     </Button>
                   </form>
                 ) : (
-                  <p className="text-sm text-text-muted">Pré-visualização da equipe.</p>
+                  <p className="text-sm text-text-muted">{isManager ? "Leitura do gestor da empresa." : "Pré-visualização da equipe."}</p>
                 )}
                 <div className="flex gap-2">
                   {prev && (
@@ -173,10 +182,12 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
             </>
           ) : (
             <Card variant="featured">
-              <h2 className="font-display text-xl text-text">Conteúdo exclusivo para alunos matriculados</h2>
+              <h2 className="font-display text-xl text-text">{isTeam ? "Conteúdo exclusivo para equipes de empresas contratantes" : "Conteúdo exclusivo para alunos matriculados"}</h2>
               <p className="mt-2 text-sm text-text-muted">
                 {viewer?.needsConsent
                   ? "Depois de revisar os termos, volte a este assunto para iniciar seus estudos."
+                  : isTeam
+                    ? "Este treinamento é liberado pela empresa: quando sua empresa atribuir uma vaga ao seu e-mail, o acesso aparece automaticamente em Meu Aprendizado. Empresas interessadas podem solicitar uma proposta."
                   : viewer
                     ? `Sua conta está conectada, mas ainda não tem matrícula ativa em ${mod.title}. Consulte suas matrículas para ver o status e os próximos passos.`
                     : `Entre na sua conta e confirme sua matrícula em ${mod.title} para acessar os módulos, exercícios e materiais.`}
@@ -184,6 +195,13 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
               <div className="mt-4 flex flex-wrap gap-2">
                 {viewer?.needsConsent ? (
                   <ButtonLink href="/aceite">Revisar os termos</ButtonLink>
+                ) : isTeam ? (
+                  <>
+                    <ButtonLink href={`/empresas?curso=${encodeURIComponent(mod.slug)}#proposta`}>Solicitar proposta para minha empresa</ButtonLink>
+                    <ButtonLink href={viewer ? "/painel/aprendizado" : "/entrar"} variant="secondary">
+                      {viewer ? "Ver meu aprendizado" : "Entrar"}
+                    </ButtonLink>
+                  </>
                 ) : viewer ? (
                   <>
                     <ButtonLink href="/painel/aprendizado">Consultar minhas matrículas</ButtonLink>

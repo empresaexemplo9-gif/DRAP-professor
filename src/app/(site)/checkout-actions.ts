@@ -22,7 +22,7 @@ export async function startPixCheckout(_: PixCheckoutActionState, formData: Form
   const course = await withTenant(tenantId, async (tx) => {
     const mod = await tx.module.findFirst({
       where: { id: moduleId.data, tenantId, status: "PUBLICADO" },
-      select: { id: true, title: true, priceCents: true, level: { select: { slug: true } }, segment: { select: { slug: true } }, slug: true },
+      select: { id: true, title: true, priceCents: true, audience: true, level: { select: { slug: true } }, segment: { select: { slug: true } }, slug: true },
     });
     if (!mod) return null;
     const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: mod.id } }, select: { status: true, endsAt: true } });
@@ -32,6 +32,7 @@ export async function startPixCheckout(_: PixCheckoutActionState, formData: Form
   if (!course) return { error: "Este curso não está disponível para matrícula." };
   const coursePath = `/${course.level.slug}/${course.segment.slug}/${course.slug}`;
   if (course.alreadyEnrolled) redirect(coursePath);
+  if (course.audience === "EMPRESA") return { error: "Este treinamento é contratado pela empresa. Solicite uma proposta em Para empresas." };
   if (!course.priceCents || course.priceCents < 100) return { error: "Este curso ainda não tem preço configurado." };
 
   const now = new Date();

@@ -12,7 +12,7 @@ const leadSchema = z.object({
   email: z.string().trim().toLowerCase().email("E-mail inválido"),
   phone: z.string().trim().max(30).optional().transform((v) => v || null),
   teamSize: z.preprocess((v) => (v === "" || v == null ? null : v), z.coerce.number().int().min(1, "Mínimo 1").max(1_000_000).nullable()),
-  interests: z.array(z.string().trim().max(80)).max(30),
+  interests: z.array(z.string().trim().max(200)).max(50),
   message: z.string().trim().max(2000).optional().transform((v) => v || null),
 });
 

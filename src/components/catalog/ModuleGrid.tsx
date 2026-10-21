@@ -19,6 +19,7 @@ export function ModuleGrid({
     title: string;
     summary: string | null;
     workloadMinutes: number;
+    audience?: "INDIVIDUAL" | "EMPRESA";
     _count: { topics: number };
   }[];
 }) {
@@ -40,6 +41,7 @@ export function ModuleGrid({
               <h3 className="font-display text-xl text-text">{m.title}</h3>
               {m.summary && <p className="mt-2 line-clamp-3 text-sm text-text-muted">{m.summary}</p>}
               <div className="mt-auto flex flex-wrap gap-2 pt-4">
+                {m.audience === "EMPRESA" && <Badge tone="primary">Para empresas</Badge>}
                 <Badge tone="gold">{formatWorkload(m.workloadMinutes)}</Badge>
                 <Badge>
                   {m._count.topics} {m._count.topics === 1 ? "assunto" : "assuntos"}
