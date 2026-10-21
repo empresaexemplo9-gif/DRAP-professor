@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { requireViewer } from "@/lib/session";
 import { withTenant } from "@/lib/db";
 import { can } from "@/lib/rbac";
+import { activeEnrollmentWhere } from "@/lib/enrollments";
 import { formatWorkload } from "@/lib/levels";
 import { levelPath } from "@/lib/catalog-paths";
 import { Alert, EmptyState, ProgressBar } from "@/components/ui/misc";
@@ -23,7 +24,7 @@ export default async function PainelHome({ searchParams }: { searchParams: Promi
       where: {
         tenantId: t,
         userId: viewer.user.id,
-        status: "ATIVA",
+        ...activeEnrollmentWhere(),
         module: { status: "PUBLICADO", level: { active: true } },
       },
       include: {
@@ -39,7 +40,7 @@ export default async function PainelHome({ searchParams }: { searchParams: Promi
       orderBy: { createdAt: "desc" },
       take: 6,
     });
-    const active = await tx.enrollment.count({ where: { tenantId: t, userId: viewer.user.id, status: "ATIVA" } });
+    const active = await tx.enrollment.count({ where: { tenantId: t, userId: viewer.user.id, ...activeEnrollmentWhere() } });
     const completed = await tx.enrollment.count({
       where: { tenantId: t, userId: viewer.user.id, status: "CONCLUIDA" },
     });

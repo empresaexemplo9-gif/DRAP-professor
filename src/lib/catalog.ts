@@ -1,6 +1,7 @@
 import "server-only";
 import type { LevelKind } from "@prisma/client";
 import { withTenant } from "./db";
+import { isPastEnd } from "./enrollments";
 
 /** Consultas do catálogo público (só conteúdo publicado). */
 
@@ -39,12 +40,18 @@ export async function getModuleBySlugs(tenantId: string, levelSlug: string, segm
 }
 
 export async function getEnrollment(tenantId: string, userId: string, moduleId: string) {
-  return withTenant(tenantId, (tx) =>
-    tx.enrollment.findUnique({
+  return withTenant(tenantId, async (tx) => {
+    const enrollment = await tx.enrollment.findUnique({
       where: { userId_moduleId: { userId, moduleId } },
       include: { progress: { select: { topicId: true, status: true } } },
-    }),
-  );
+    });
+    // Prazo definido no painel Matrículas: expira na primeira leitura após o vencimento.
+    if (enrollment && isPastEnd(enrollment)) {
+      await tx.enrollment.updateMany({ where: { id: enrollment.id, status: "ATIVA" }, data: { status: "EXPIRADA" } });
+      return { ...enrollment, status: "EXPIRADA" as const };
+    }
+    return enrollment;
+  });
 }
 
 export { levelPath } from "./catalog-paths";

@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import { getViewer } from "@/lib/session";
 import { withTenant } from "@/lib/db";
 import { can } from "@/lib/rbac";
+import { activeEnrollmentWhere } from "@/lib/enrollments";
 import { FINANCIAL_COURSE } from "@/lib/courses/financial-consulting";
 
 export const runtime = "nodejs";
@@ -36,7 +37,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ material: 
     if (can(viewer.roles, "content:manage")) return true;
     return Boolean(
       await tx.enrollment.findFirst({
-        where: { tenantId: viewer.tenant.id, moduleId: course.id, userId: viewer.user.id, status: "ATIVA" },
+        where: { tenantId: viewer.tenant.id, moduleId: course.id, userId: viewer.user.id, ...activeEnrollmentWhere() },
         select: { id: true },
       }),
     );

@@ -41,6 +41,8 @@ export default async function PixCheckoutPage({ params }: { params: Promise<{ id
             <PixPaymentMonitor checkoutId={checkout.id} payload={checkout.pixPayload} />
           ) : checkout.status === "EXPIRED" ? (
             <p className="rounded-md border border-warning p-4 text-sm text-text">Este Pix expirou. Volte à página do curso para gerar outro.</p>
+          ) : checkout.status === "CANCELED" ? (
+            <p className="rounded-md border border-danger p-4 text-sm text-text">Esta cobrança foi cancelada pela equipe. Volte à página do curso para gerar um novo Pix ou fale com o suporte.</p>
           ) : checkout.status === "FAILED" ? (
             <p className="rounded-md border border-danger p-4 text-sm text-text">Não foi possível gerar o Pix. Nenhuma matrícula foi liberada. Volte ao curso para tentar novamente.</p>
           ) : (

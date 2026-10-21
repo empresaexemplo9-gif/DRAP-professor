@@ -4,6 +4,7 @@ import { z } from "zod";
 import { getViewer } from "@/lib/session";
 import { withTenant } from "@/lib/db";
 import { createPixCharge } from "@/lib/payments/asaas";
+import { isPastEnd } from "@/lib/enrollments";
 
 export type PixCheckoutActionState = { error?: string };
 
@@ -24,8 +25,8 @@ export async function startPixCheckout(_: PixCheckoutActionState, formData: Form
       select: { id: true, title: true, priceCents: true, level: { select: { slug: true } }, segment: { select: { slug: true } }, slug: true },
     });
     if (!mod) return null;
-    const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: mod.id } }, select: { status: true } });
-    if (enrollment?.status === "ATIVA") return { ...mod, alreadyEnrolled: true };
+    const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: mod.id } }, select: { status: true, endsAt: true } });
+    if (enrollment?.status === "ATIVA" && !isPastEnd(enrollment)) return { ...mod, alreadyEnrolled: true };
     return { ...mod, alreadyEnrolled: false };
   });
   if (!course) return { error: "Este curso não está disponível para matrícula." };

@@ -404,6 +404,8 @@ model Enrollment {
   status    EnrollmentStatus @default(ATIVA)
   startsAt  DateTime         @default(now())
   endsAt    DateTime?
+  // Observação interna registrada pela equipe (painel Matrículas)
+  note      String?
   createdAt DateTime         @default(now())
 
   user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -420,6 +422,7 @@ enum PixCheckoutStatus {
   PAID
   EXPIRED
   FAILED
+  CANCELED
 }
 
 model PixCheckout {
@@ -434,6 +437,9 @@ model PixCheckout {
   pixImageDataUrl   String?
   expiresAt         DateTime?
   paidAt            DateTime?
+  // Observação interna e autor da baixa manual (painel Financeiro)
+  adminNote           String?
+  manualConfirmedById String?
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
 
