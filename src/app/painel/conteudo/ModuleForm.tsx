@@ -15,6 +15,7 @@ type ModuleValues = {
   slug?: string;
   summary?: string;
   workloadHours?: number;
+  priceCents?: number | null;
   certificateType?: string;
   order?: number;
   levelConfig?: Record<string, unknown>;
@@ -52,6 +53,7 @@ export function ModuleForm({ levels, segments, values = {} }: { levels: Option[]
         </SelectField>
         <TextField label="Ordem" name="order" type="number" min={0} defaultValue={values.order ?? 0} error={fe.order} />
       </div>
+      <TextField label="Preço do curso (R$)" name="price" type="number" step="0.01" min="1" max="100000" defaultValue={values.priceCents == null ? "" : (values.priceCents / 100).toFixed(2)} hint="Deixe vazio para manter o curso sem checkout Pix." error={fe.price} />
 
       <fieldset className="space-y-4 rounded-lg border border-border p-4">
         <legend className="px-2 font-display text-lg text-text">Configuração do nível</legend>

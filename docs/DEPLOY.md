@@ -30,6 +30,17 @@ Os papéis `anon` e `authenticated` do Supabase não têm acesso a nenhuma tabel
 | `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` | ✅ | — | Administrador inicial (criado uma única vez) |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | opcional | opcional | Login com Google (redirect: `<URL>/api/auth/callback/google`) |
 | `RESEND_API_KEY` / `EMAIL_FROM` | opcional | opcional | E-mails transacionais; ao configurar, a confirmação de e-mail passa a ser exigida |
+| `ASAAS_ENVIRONMENT` | ✅ | ✅ | `sandbox` em Preview; `production` apenas após homologação |
+| `ASAAS_API_KEY` | ✅ | ✅ | Chave privada do Asaas; nunca expor no navegador ou no repositório |
+| `ASAAS_WEBHOOK_TOKEN` | ✅ | ✅ | Token secreto configurado no webhook do Asaas |
+
+### Matrícula paga por Pix (primeiro escopo)
+
+- Um administrador configura o preço em cada curso publicado, no campo **Preço do curso** do módulo. Cursos sem preço não exibem checkout.
+- O aluno autenticado gera uma cobrança Pix no Asaas. A página mostra QR Code e Pix copia e cola; o navegador consulta o estado a cada 8 segundos.
+- Configure o webhook Asaas em `https://<dominio-de-producao>/api/webhooks/asaas`, com os eventos `PAYMENT_RECEIVED` e `PAYMENT_CONFIRMED`. Use o mesmo `ASAAS_WEBHOOK_TOKEN` no cabeçalho secreto `asaas-access-token`.
+- O retorno do navegador e o payload do webhook não liberam acesso. O servidor consulta a cobrança no Asaas, confere ID, referência externa e valor; só então cria/reativa a matrícula `COMPRA` numa transação.
+- Configure primeiro chaves distintas de sandbox em Preview e conclua uma compra de teste. Em produção, use chave e token próprios do ambiente live. A tela de preços suporta Pix à vista por curso; descontos, reembolsos e outros meios não fazem parte deste escopo.
 
 ## Fluxo de deploy
 

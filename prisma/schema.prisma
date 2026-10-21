@@ -14,22 +14,23 @@ datasource db {
 // ───────────────────────────── Tenant ─────────────────────────────
 
 model Tenant {
-  id          String       @id @default(uuid(7)) @db.Uuid
-  name        String
-  slug        String       @unique
-  domains     String[]     @default([])
-  legalName   String?
-  cnpj        String?
-  status      TenantStatus @default(ACTIVE)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id        String       @id @default(uuid(7)) @db.Uuid
+  name      String
+  slug      String       @unique
+  domains   String[]     @default([])
+  legalName String?
+  cnpj      String?
+  status    TenantStatus @default(ACTIVE)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 
-  theme       ThemeSettings?
-  memberships Membership[]
-  levels      Level[]
-  segments    Segment[]
-  modules     Module[]
-  topics      Topic[]
+  theme        ThemeSettings?
+  memberships  Membership[]
+  levels       Level[]
+  segments     Segment[]
+  modules      Module[]
+  topics       Topic[]
+  pixCheckouts PixCheckout[]
 
   @@map("tenants")
 }
@@ -63,25 +64,26 @@ enum ThemeMode {
 // ───────────────────────── Autenticação (Better Auth) ─────────────────────────
 
 model User {
-  id               String    @id
+  id               String   @id
   name             String
-  email            String    @unique
-  emailVerified    Boolean   @default(false)
+  email            String   @unique
+  emailVerified    Boolean  @default(false)
   image            String?
-  twoFactorEnabled Boolean?  @default(false)
+  twoFactorEnabled Boolean? @default(false)
   // CPF cifrado (AES-256-GCM) e hash para busca; preenchido só quando necessário (certificado/nota fiscal)
   cpfEncrypted     String?
-  cpfHash          String?   @unique
+  cpfHash          String?  @unique
   phone            String?
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
-  sessions    Session[]
-  accounts    Account[]
-  twoFactors  TwoFactor[]
-  memberships Membership[]
-  consents    Consent[]
-  enrollments Enrollment[]
+  sessions     Session[]
+  accounts     Account[]
+  twoFactors   TwoFactor[]
+  memberships  Membership[]
+  consents     Consent[]
+  enrollments  Enrollment[]
+  pixCheckouts PixCheckout[]
 
   @@map("users")
 }
@@ -282,6 +284,7 @@ model Module {
   summary         String?
   coverUrl        String?
   workloadMinutes Int             @default(0)
+  priceCents      Int?
   status          ContentStatus   @default(RASCUNHO)
   certificateType CertificateType @default(LIVRE)
   // Configuração específica do nível (validada por src/lib/levels.ts)
@@ -290,12 +293,13 @@ model Module {
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 
-  tenant      Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  level       Level         @relation(fields: [levelId], references: [id])
-  segment     Segment       @relation(fields: [segmentId], references: [id])
-  topics      Topic[]
-  staff       ModuleStaff[]
-  enrollments Enrollment[]
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  level        Level         @relation(fields: [levelId], references: [id])
+  segment      Segment       @relation(fields: [segmentId], references: [id])
+  topics       Topic[]
+  staff        ModuleStaff[]
+  enrollments  Enrollment[]
+  pixCheckouts PixCheckout[]
 
   @@unique([levelId, segmentId, slug])
   @@index([tenantId, status])
@@ -402,13 +406,43 @@ model Enrollment {
   endsAt    DateTime?
   createdAt DateTime         @default(now())
 
-  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  module   Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  progress TopicProgress[]
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module    Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress  TopicProgress[]
   notebooks StudyNotebook[]
 
   @@unique([userId, moduleId])
   @@map("enrollments")
+}
+
+enum PixCheckoutStatus {
+  PENDING
+  PAID
+  EXPIRED
+  FAILED
+}
+
+model PixCheckout {
+  id                String            @id @default(uuid(7)) @db.Uuid
+  tenantId          String            @db.Uuid
+  userId            String
+  moduleId          String            @db.Uuid
+  providerPaymentId String?           @unique
+  amountCents       Int
+  status            PixCheckoutStatus @default(PENDING)
+  pixPayload        String?
+  pixImageDataUrl   String?
+  expiresAt         DateTime?
+  paidAt            DateTime?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId, moduleId, status])
+  @@map("pix_checkouts")
 }
 
 enum ProgressStatus {
@@ -418,15 +452,15 @@ enum ProgressStatus {
 }
 
 model TopicProgress {
-  id             String         @id @default(uuid(7)) @db.Uuid
-  tenantId       String         @db.Uuid
-  enrollmentId   String         @db.Uuid
-  topicId        String         @db.Uuid
-  status         ProgressStatus @default(EM_ANDAMENTO)
-  percent        Int            @default(0)
-  lastSectionId  String?
-  completedAt    DateTime?
-  updatedAt      DateTime       @updatedAt
+  id            String         @id @default(uuid(7)) @db.Uuid
+  tenantId      String         @db.Uuid
+  enrollmentId  String         @db.Uuid
+  topicId       String         @db.Uuid
+  status        ProgressStatus @default(EM_ANDAMENTO)
+  percent       Int            @default(0)
+  lastSectionId String?
+  completedAt   DateTime?
+  updatedAt     DateTime       @updatedAt
 
   enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
   topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
@@ -438,15 +472,15 @@ model TopicProgress {
 // ───────────────────────────── Auditoria e documentos legais ─────────────────────────────
 
 model AuditLog {
-  id         String   @id @default(uuid(7)) @db.Uuid
-  tenantId   String   @db.Uuid
-  actorId    String?
-  action     String
-  entity     String
-  entityId   String?
-  data       Json?
-  ip         String?
-  createdAt  DateTime @default(now())
+  id        String   @id @default(uuid(7)) @db.Uuid
+  tenantId  String   @db.Uuid
+  actorId   String?
+  action    String
+  entity    String
+  entityId  String?
+  data      Json?
+  ip        String?
+  createdAt DateTime @default(now())
 
   @@index([tenantId, createdAt])
   @@map("audit_logs")

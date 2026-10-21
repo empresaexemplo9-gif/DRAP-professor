@@ -17,6 +17,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { SlotPlaceholder } from "@/content-blocks/BlockRenderer";
 import { ModuleSideNav } from "./ModuleSideNav";
+import { PixEnrollmentCta } from "@/components/payments/PixEnrollmentCta";
 
 type Params = { nivel: string; segmento: string; modulo: string };
 
@@ -98,6 +99,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
         isStaff={isStaff}
         loggedIn={Boolean(viewer)}
         needsConsent={Boolean(viewer?.needsConsent)}
+        paymentsEnabled={Boolean(process.env.ASAAS_API_KEY && process.env.ASAAS_WEBHOOK_TOKEN)}
       />
     );
   }
@@ -136,7 +138,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
           </div>
           <LevelFacts kind={mod.level.kind} config={mod.levelConfig} />
           <Card>
-            {enrollment ? (
+            {enrollment?.status === "ATIVA" ? (
               <div className="space-y-4">
                 <ProgressBar value={pct} label="Seu progresso" />
                 {first && (
@@ -148,18 +150,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
             ) : (
               <div className="space-y-3">
                 <h2 className="font-display text-xl text-text">Acesso ao conteúdo</h2>
-                <p className="text-sm text-text-muted">
-                  O conteúdo completo é liberado para alunos matriculados. As vendas on-line chegam na Fase 5; por
-                  enquanto, a matrícula é feita pela equipe.
-                </p>
-                {!viewer && (
-                  <div className="flex flex-wrap gap-2">
-                    <ButtonLink href="/cadastro">Criar conta</ButtonLink>
-                    <ButtonLink href="/entrar" variant="secondary">
-                      Entrar
-                    </ButtonLink>
-                  </div>
-                )}
+                <PixEnrollmentCta moduleId={mod.id} priceCents={mod.priceCents} loggedIn={Boolean(viewer)} needsConsent={Boolean(viewer?.needsConsent)} enabled={Boolean(process.env.ASAAS_API_KEY && process.env.ASAAS_WEBHOOK_TOKEN)} />
               </div>
             )}
           </Card>

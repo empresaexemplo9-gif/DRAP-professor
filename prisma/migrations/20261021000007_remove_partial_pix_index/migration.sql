@@ -1,0 +1,1 @@
+DROP INDEX "pix_checkouts_one_pending_per_user_module_key";
