@@ -13,7 +13,7 @@ test("aba Mentorias separa cada tipo de mentoria", async ({ page, isMobile }) =>
   await tabs.getByRole("link", { name: "Grandes empresas" }).click();
   await expect(page).toHaveURL(/tipo=grandes/);
   await expect(page.getByRole("heading", { name: /para grandes empresas/ })).toBeVisible();
-  await expect(page.getByText("Conecte planejamento, desempenho e decisões financeiras à estratégia.")).toBeVisible();
+  await expect(page.getByRole("img", { name: /Conecte planejamento, desempenho e decisões financeiras à estratégia/ })).toBeVisible();
   await expectNoHorizontalScroll(page);
   await expectAccessible(page);
 
