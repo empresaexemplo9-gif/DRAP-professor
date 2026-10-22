@@ -112,7 +112,7 @@ export default async function EnterpriseLandingPage({ searchParams }: { searchPa
             {exclusive.map((m) => (
               <li key={m.id} className="overflow-hidden rounded-md border border-border bg-surface">
                 {m.slug === TEAM_COURSE.slug && (
-                  <Image src={TEAM_COURSE_BANNER} alt="" width={1600} height={600} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
+                  <Image src={TEAM_COURSE_BANNER} alt="" width={1600} height={600} unoptimized className="h-auto w-full" />
                 )}
                 <div className="p-5">
                   <p className="text-xs text-text-muted">{m.level.label} · {m.segment.name} · {formatWorkload(m.workloadMinutes)}</p>

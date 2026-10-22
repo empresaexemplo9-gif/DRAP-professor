@@ -24,8 +24,9 @@ export function MentorshipHero({ m, heading = "h2", id }: { m: FinancialMentorsh
             width={1600}
             height={600}
             priority
-            sizes="(min-width: 1280px) 1100px, 100vw"
-            className="h-auto w-full"
+            // Arquivo original do cliente, sem recompressão; proporção real e nunca ampliado além de 1600 px.
+            unoptimized
+            className="mx-auto h-auto w-full max-w-[1600px]"
           />
           <Title id={id} className="sr-only">{m.title}</Title>
         </>

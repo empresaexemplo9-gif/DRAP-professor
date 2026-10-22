@@ -26,7 +26,7 @@ export const FINANCIAL_MENTORSHIPS: FinancialMentorship[] = [
     title: "Mentoria financeira para pequenas empresas",
     subtitle: "para pequenas empresas",
     summary: "Organize o caixa, fortaleça a gestão e prepare o negócio para crescer.",
-    banner: "/images/mentorias/mentoria-financeira-pequenas-empresas.webp",
+    banner: "/images/mentorias/mentoria-financeira-pequenas-empresas.png",
   },
   {
     key: "medias",
@@ -36,7 +36,7 @@ export const FINANCIAL_MENTORSHIPS: FinancialMentorship[] = [
     title: "Mentoria financeira para médias empresas",
     subtitle: "para médias empresas",
     summary: "Aprimore previsões, margens e decisões de investimento com visão integrada.",
-    banner: "/images/mentorias/mentoria-financeira-medias-empresas.webp",
+    banner: "/images/mentorias/mentoria-financeira-medias-empresas.png",
   },
   {
     key: "grandes",
@@ -46,7 +46,7 @@ export const FINANCIAL_MENTORSHIPS: FinancialMentorship[] = [
     title: "Mentoria financeira para grandes empresas",
     subtitle: "para grandes empresas",
     summary: "Conecte planejamento, desempenho e decisões financeiras à estratégia.",
-    banner: "/images/mentorias/mentoria-financeira-grandes-empresas.webp",
+    banner: "/images/mentorias/mentoria-financeira-grandes-empresas.png",
   },
 ];
 

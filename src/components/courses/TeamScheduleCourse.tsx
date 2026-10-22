@@ -74,8 +74,9 @@ export function TeamScheduleCourse({ course, completed, enrolled, canRead, isSta
           width={1600}
           height={600}
           priority
-          sizes="(min-width: 1280px) 1100px, 100vw"
-          className="h-auto w-full"
+          // Arquivo do cliente sem recompressão; proporção real e nunca ampliado além de 1600 px.
+          unoptimized
+          className="mx-auto h-auto w-full max-w-[1600px]"
         />
         <div className="px-6 py-7 sm:px-9">
           <p className="eyebrow mb-3 flex flex-wrap items-center gap-2">
