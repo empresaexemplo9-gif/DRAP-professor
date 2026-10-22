@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/courses/consultoria-financeira/materiais/*": ["./content/courses/consultoria-financeira/originals/*.docx"],
     "/api/courses/gestao-de-empresas/apostila": ["./content/courses/gestao-de-empresas/source.docx"],
+    "/api/courses/gestao-justa-de-equipes/apostila": ["./content/courses/gestao-justa-de-equipes/source.docx"],
+    "/api/courses/mentorias/*/*": ["./content/courses/mentoria-financeira-*/source.*"],
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

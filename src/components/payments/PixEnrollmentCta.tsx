@@ -14,14 +14,36 @@ export function PixEnrollmentCta({
   loggedIn,
   needsConsent = false,
   enabled,
+  audience = "INDIVIDUAL",
+  courseSlug,
 }: {
   moduleId: string;
   priceCents: number | null;
   loggedIn: boolean;
   needsConsent?: boolean;
   enabled: boolean;
+  audience?: "INDIVIDUAL" | "EMPRESA";
+  courseSlug?: string;
 }) {
   const [state, action, pending] = useActionState<PixCheckoutActionState, FormData>(startPixCheckout, {});
+  if (audience === "EMPRESA") {
+    // Treinamento para empresas: vendido por contrato e entregue à equipe pelas vagas, sem matrícula individual.
+    return (
+      <div className="space-y-3">
+        <p className="text-sm leading-relaxed text-text-muted">
+          <strong className="text-text">Treinamento para empresas.</strong> Sua empresa contrata as vagas e os colaboradores recebem o acesso diretamente, sem matrícula ou pagamento individual.
+        </p>
+        <ButtonLink href={`/empresas${courseSlug ? `?curso=${encodeURIComponent(courseSlug)}` : ""}#proposta`} variant="gold" className="w-full text-sm">
+          Solicitar proposta para minha empresa
+        </ButtonLink>
+        {!loggedIn && (
+          <ButtonLink href="/entrar" variant="secondary" className="w-full text-sm">
+            Sou colaborador(a): entrar com meu e-mail
+          </ButtonLink>
+        )}
+      </div>
+    );
+  }
   if (priceCents == null || priceCents < 100) {
     return <p className="text-sm leading-relaxed text-text-muted">Matrículas Pix ainda não estão disponíveis para este curso.</p>;
   }

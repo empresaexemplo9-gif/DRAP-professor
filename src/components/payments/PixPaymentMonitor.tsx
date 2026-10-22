@@ -24,7 +24,7 @@ export function PixPaymentMonitor({ checkoutId, payload }: { checkoutId: string;
           router.refresh();
           return;
         }
-        if (data.status === "EXPIRED" || data.status === "FAILED") return;
+        if (data.status === "EXPIRED" || data.status === "FAILED" || data.status === "CANCELED") return;
       } catch {
         // Mantém a tela; o webhook ainda pode confirmar o pagamento.
       }
@@ -46,7 +46,7 @@ export function PixPaymentMonitor({ checkoutId, payload }: { checkoutId: string;
 
   return (
     <div className="space-y-4">
-      {status === "PENDING" ? <Alert tone="info">Aguardando a confirmação do pagamento. Esta página atualiza automaticamente.</Alert> : status === "EXPIRED" ? <Alert tone="warning">Este Pix expirou. Volte à página do curso para gerar outro.</Alert> : status === "FAILED" ? <Alert tone="danger">Não foi possível concluir esta cobrança. Volte ao curso para tentar novamente.</Alert> : null}
+      {status === "PENDING" ? <Alert tone="info">Aguardando a confirmação do pagamento. Esta página atualiza automaticamente.</Alert> : status === "EXPIRED" ? <Alert tone="warning">Este Pix expirou. Volte à página do curso para gerar outro.</Alert> : status === "CANCELED" ? <Alert tone="danger">Esta cobrança foi cancelada. Volte ao curso para gerar outro Pix.</Alert> : status === "FAILED" ? <Alert tone="danger">Não foi possível concluir esta cobrança. Volte ao curso para tentar novamente.</Alert> : null}
       <div className="space-y-2">
         <label htmlFor="pix-payload" className="text-sm font-medium text-text">Pix copia e cola</label>
         <textarea id="pix-payload" readOnly value={payload} rows={4} className="w-full rounded-md border border-border bg-bg p-3 text-xs text-text" />

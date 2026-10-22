@@ -24,13 +24,15 @@ model Tenant {
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
 
-  theme        ThemeSettings?
-  memberships  Membership[]
-  levels       Level[]
-  segments     Segment[]
-  modules      Module[]
-  topics       Topic[]
-  pixCheckouts PixCheckout[]
+  theme           ThemeSettings?
+  memberships     Membership[]
+  levels          Level[]
+  segments        Segment[]
+  modules         Module[]
+  topics          Topic[]
+  pixCheckouts    PixCheckout[]
+  organizations   Organization[]
+  enterpriseLeads EnterpriseLead[]
 
   @@map("tenants")
 }
@@ -77,13 +79,15 @@ model User {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
-  sessions     Session[]
-  accounts     Account[]
-  twoFactors   TwoFactor[]
-  memberships  Membership[]
-  consents     Consent[]
-  enrollments  Enrollment[]
-  pixCheckouts PixCheckout[]
+  sessions           Session[]
+  accounts           Account[]
+  twoFactors         TwoFactor[]
+  memberships        Membership[]
+  consents           Consent[]
+  enrollments        Enrollment[]
+  pixCheckouts       PixCheckout[]
+  orgMemberships     OrganizationMember[]
+  licenseAssignments LicenseAssignment[]
 
   @@map("users")
 }
@@ -285,6 +289,8 @@ model Module {
   coverUrl        String?
   workloadMinutes Int             @default(0)
   priceCents      Int?
+  // INDIVIDUAL: capacitação vendida por pessoa (Pix). EMPRESA: treinamento vendido por contrato (Enterprise).
+  audience        ModuleAudience  @default(INDIVIDUAL)
   status          ContentStatus   @default(RASCUNHO)
   certificateType CertificateType @default(LIVRE)
   // Configuração específica do nível (validada por src/lib/levels.ts)
@@ -300,10 +306,17 @@ model Module {
   staff        ModuleStaff[]
   enrollments  Enrollment[]
   pixCheckouts PixCheckout[]
+  licensePools LicensePool[]
 
   @@unique([levelId, segmentId, slug])
   @@index([tenantId, status])
+  @@index([tenantId, audience, status])
   @@map("modules")
+}
+
+enum ModuleAudience {
+  INDIVIDUAL
+  EMPRESA
 }
 
 enum StaffRole {
@@ -386,6 +399,7 @@ enum EnrollmentOrigin {
   ASSINATURA
   ATRIBUICAO
   CORTESIA
+  LICENCA
 }
 
 enum EnrollmentStatus {
@@ -404,6 +418,8 @@ model Enrollment {
   status    EnrollmentStatus @default(ATIVA)
   startsAt  DateTime         @default(now())
   endsAt    DateTime?
+  // Observação interna registrada pela equipe (painel Matrículas)
+  note      String?
   createdAt DateTime         @default(now())
 
   user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -420,22 +436,26 @@ enum PixCheckoutStatus {
   PAID
   EXPIRED
   FAILED
+  CANCELED
 }
 
 model PixCheckout {
-  id                String            @id @default(uuid(7)) @db.Uuid
-  tenantId          String            @db.Uuid
-  userId            String
-  moduleId          String            @db.Uuid
-  providerPaymentId String?           @unique
-  amountCents       Int
-  status            PixCheckoutStatus @default(PENDING)
-  pixPayload        String?
-  pixImageDataUrl   String?
-  expiresAt         DateTime?
-  paidAt            DateTime?
-  createdAt         DateTime          @default(now())
-  updatedAt         DateTime          @updatedAt
+  id                  String            @id @default(uuid(7)) @db.Uuid
+  tenantId            String            @db.Uuid
+  userId              String
+  moduleId            String            @db.Uuid
+  providerPaymentId   String?           @unique
+  amountCents         Int
+  status              PixCheckoutStatus @default(PENDING)
+  pixPayload          String?
+  pixImageDataUrl     String?
+  expiresAt           DateTime?
+  paidAt              DateTime?
+  // Observação interna e autor da baixa manual (painel Financeiro)
+  adminNote           String?
+  manualConfirmedById String?
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
   tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -501,4 +521,143 @@ model StudyNotebook {
   @@unique([enrollmentId, topicId])
   @@index([tenantId])
   @@map("study_notebooks")
+}
+
+// ───────────────────────────── Enterprise (B2B) ─────────────────────────────
+// Empresa cliente compra vagas de um curso (LicensePool); o gestor distribui as vagas à equipe.
+
+enum OrganizationStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum OrgMemberRole {
+  GESTOR
+  COLABORADOR
+}
+
+enum LicensePoolStatus {
+  ACTIVE
+  CANCELED
+}
+
+enum LicenseAssignmentStatus {
+  CONVIDADO
+  ATIVO
+  REVOGADO
+}
+
+enum EnterpriseLeadStatus {
+  NOVO
+  EM_CONTATO
+  FECHADO
+  DESCARTADO
+}
+
+model Organization {
+  id           String             @id @default(uuid(7)) @db.Uuid
+  tenantId     String             @db.Uuid
+  name         String
+  legalName    String?
+  // Somente dígitos
+  cnpj         String?
+  contactName  String?
+  contactEmail String?
+  contactPhone String?
+  notes        String?
+  status       OrganizationStatus @default(ACTIVE)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  tenant  Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  members OrganizationMember[]
+  pools   LicensePool[]
+
+  @@unique([tenantId, cnpj])
+  @@map("organizations")
+}
+
+model OrganizationMember {
+  id             String        @id @default(uuid(7)) @db.Uuid
+  tenantId       String        @db.Uuid
+  organizationId String        @db.Uuid
+  userId         String
+  role           OrgMemberRole @default(COLABORADOR)
+  // Equipe/área dentro da empresa (ex.: "Vendas", "Filial SP")
+  team           String?
+  createdAt      DateTime      @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, userId])
+  @@index([tenantId, userId])
+  @@map("organization_members")
+}
+
+model LicensePool {
+  id             String            @id @default(uuid(7)) @db.Uuid
+  tenantId       String            @db.Uuid
+  organizationId String            @db.Uuid
+  moduleId       String            @db.Uuid
+  seats          Int
+  startsAt       DateTime          @default(now())
+  // Fim do acesso das vagas; vazio = sem prazo
+  endsAt         DateTime?
+  // Prazo de conclusão e meta (% da equipe concluída) acompanhados pelo gestor
+  dueAt          DateTime?
+  goalPercent    Int               @default(90)
+  contractCents  Int?
+  status         LicensePoolStatus @default(ACTIVE)
+  note           String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  organization Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  module       Module              @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  assignments  LicenseAssignment[]
+
+  @@index([tenantId, organizationId])
+  @@map("license_pools")
+}
+
+model LicenseAssignment {
+  id           String                  @id @default(uuid(7)) @db.Uuid
+  tenantId     String                  @db.Uuid
+  poolId       String                  @db.Uuid
+  email        String
+  userId       String?
+  // Equipe informada pelo gestor; aplicada ao colaborador quando a vaga é ativada
+  team         String?
+  status       LicenseAssignmentStatus @default(CONVIDADO)
+  assignedById String?
+  activatedAt  DateTime?
+  revokedAt    DateTime?
+  createdAt    DateTime                @default(now())
+
+  pool LicensePool @relation(fields: [poolId], references: [id], onDelete: Cascade)
+  user User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@unique([poolId, email])
+  @@index([tenantId, email, status])
+  @@map("license_assignments")
+}
+
+model EnterpriseLead {
+  id          String               @id @default(uuid(7)) @db.Uuid
+  tenantId    String               @db.Uuid
+  company     String
+  contactName String
+  email       String
+  phone       String?
+  teamSize    Int?
+  interests   String[]             @default([])
+  message     String?
+  status      EnterpriseLeadStatus @default(NOVO)
+  createdAt   DateTime             @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, createdAt])
+  @@map("enterprise_leads")
 }

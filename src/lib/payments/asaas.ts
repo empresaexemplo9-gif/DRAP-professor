@@ -77,6 +77,18 @@ export function getAsaasPayment(id: string) {
   return asaas<AsaasPayment>(`/payments/${encodeURIComponent(id)}`);
 }
 
+/** Remove a cobrança no Asaas para que o QR Code deixe de aceitar pagamento. */
+export async function cancelAsaasPayment(id: string) {
+  const response = await fetch(`${apiBase()}/payments/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+    cache: "no-store",
+    headers: { access_token: apiKey() },
+    signal: AbortSignal.timeout(12_000),
+  });
+  // 404: a cobrança já não existe no provedor.
+  if (!response.ok && response.status !== 404) throw new Error("Não foi possível cancelar a cobrança no provedor Pix.");
+}
+
 /** Confirma pela API do Asaas; o payload do webhook/navegador nunca libera acesso sozinho. */
 export async function syncPixCheckout(tenantId: string, checkoutId: string, expectedPaymentId?: string) {
   const checkout = await withTenant(tenantId, (tx) => tx.pixCheckout.findFirst({ where: { id: checkoutId } }));
@@ -89,7 +101,8 @@ export async function syncPixCheckout(tenantId: string, checkoutId: string, expe
   if (confirmsPixCheckout(payment, { id: checkout.id, providerPaymentId, amountCents: checkout.amountCents })) {
     await withTenant(tenantId, async (tx) => {
       const claimed = await tx.pixCheckout.updateMany({
-        where: { id: checkout.id, status: { in: ["PENDING", "EXPIRED"] } },
+        // Pagamento confirmado pelo Asaas prevalece mesmo sobre um cancelamento feito no painel.
+        where: { id: checkout.id, status: { in: ["PENDING", "EXPIRED", "CANCELED"] } },
         data: { status: "PAID", paidAt: new Date() },
       });
       if (claimed.count === 0) return;

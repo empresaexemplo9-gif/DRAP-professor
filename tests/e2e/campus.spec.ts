@@ -8,9 +8,9 @@ test("campus apresenta a proposta pedagógica e filtra formações por formato",
   await formations.getByRole("button", { name: "Cursos", exact: true }).click();
   await expect(formations.getByRole("button", { name: "Cursos", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(formations.getByRole("link", { name: /Gestão de Safra/ })).toBeVisible();
-  await expect(formations.getByRole("link", { name: /Mentoria em Finanças/ })).toHaveCount(0);
-  await formations.getByRole("button", { name: "Mentorias", exact: true }).click();
-  await expect(formations.getByRole("link", { name: /Mentoria em Finanças/ })).toBeVisible();
+  await expect(formations.getByRole("link", { name: /Prospecção B2B/ })).toHaveCount(0);
+  await formations.getByRole("button", { name: "Treinamentos", exact: true }).click();
+  await expect(formations.getByRole("link", { name: /Prospecção B2B/ })).toBeVisible();
   await expect(formations.getByRole("link", { name: /Gestão de Safra/ })).toHaveCount(0);
   await expect(
     page.locator("#biblioteca").getByRole("heading", { name: "A curiosidade é o começo de tudo." }),

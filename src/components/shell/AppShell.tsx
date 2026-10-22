@@ -12,22 +12,28 @@ export function AppShell({
   children,
   hasBusinessCourse = false,
   hasFinancialCourse = false,
+  isCompanyManager = false,
 }: {
   viewer: Viewer;
   logoUrl: string | null;
   children: React.ReactNode;
   hasBusinessCourse?: boolean;
   hasFinancialCourse?: boolean;
+  isCompanyManager?: boolean;
 }) {
   const items = navFor(viewer.roles).map(({ href, label, icon }) => ({ href, label, icon }));
+  // Aba "Mentorias": mentorias por tipo (pequenas, médias e grandes empresas).
+  items.splice(3, 0, { href: "/mentorias", label: "Mentorias", icon: "users" });
   if (hasBusinessCourse)
-    items.splice(3, 0, { href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" });
+    items.splice(4, 0, { href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" });
   if (hasFinancialCourse)
-    items.splice(hasBusinessCourse ? 4 : 3, 0, {
+    items.splice(hasBusinessCourse ? 5 : 4, 0, {
       href: FINANCIAL_COURSE_PATH,
       label: "Consultoria Financeira",
       icon: "book",
     });
+  // Gestor de empresa cliente (Enterprise): aba logo após "Meu Aprendizado".
+  if (isCompanyManager) items.splice(2, 0, { href: "/painel/empresa", label: "Minha empresa", icon: "briefcase" });
   const account = (
     <div className="mb-4 flex items-center justify-between gap-3 text-xs">
       <Link href="/painel/conta" className="text-text-muted">

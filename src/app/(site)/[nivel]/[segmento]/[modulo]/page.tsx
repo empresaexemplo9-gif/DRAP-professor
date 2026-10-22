@@ -8,6 +8,12 @@ import { getViewer } from "@/lib/session";
 import { can } from "@/lib/rbac";
 import { isBusinessCourse } from "@/lib/courses/business-management";
 import { isFinancialCourse } from "@/lib/courses/financial-consulting";
+import { isTeamCourse } from "@/lib/courses/team-schedules";
+import { TeamScheduleCourse } from "@/components/courses/TeamScheduleCourse";
+import { managesCompanyCourse } from "@/lib/catalog";
+import { findFinancialMentorship, FINANCIAL_MENTORSHIPS } from "@/lib/mentorships";
+import { MentorshipPage } from "@/components/courses/Mentorships";
+import { withTenant } from "@/lib/db";
 import { FinancialConsultingCourse } from "@/components/courses/FinancialConsultingCourse";
 import { BusinessManagementCourse } from "@/components/courses/BusinessManagementCourse";
 import { formatWorkload, LEVELS, parseLevelConfig } from "@/lib/levels";
@@ -85,6 +91,43 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
   const pct = mod.topics.length ? (completed.size / mod.topics.length) * 100 : 0;
   const first = mod.topics.find((t) => !completed.has(t.id)) ?? mod.topics[0];
 
+  const mentorship = findFinancialMentorship(mod);
+  if (mentorship) {
+    const published = await withTenant(tenant.id, (tx) =>
+      tx.module.findMany({
+        where: { tenantId: tenant.id, status: "PUBLICADO", levelId: mod.levelId, segmentId: mod.segmentId, slug: { in: FINANCIAL_MENTORSHIPS.map((m) => m.slug) } },
+        select: { slug: true, title: true },
+      }),
+    );
+    return (
+      <MentorshipPage
+        m={mentorship}
+        published={published}
+        topics={mod.topics}
+        workloadMinutes={mod.workloadMinutes}
+        cta={<PixEnrollmentCta moduleId={mod.id} priceCents={mod.priceCents} loggedIn={Boolean(viewer)} needsConsent={Boolean(viewer?.needsConsent)} enabled={false} audience={mod.audience} courseSlug={mod.slug} />}
+      />
+    );
+  }
+
+  if (isTeamCourse(mod)) {
+    const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));
+    const enrolled = enrollment?.status === "ATIVA";
+    const isManager = Boolean(viewer && !viewer.disabled && !enrolled && (await managesCompanyCourse(tenant.id, viewer.user.id, mod.id)));
+    return (
+      <TeamScheduleCourse
+        course={mod}
+        completed={completed}
+        enrolled={enrolled}
+        canRead={Boolean(viewer && !viewer.disabled && !viewer.needsConsent && (enrolled || isStaff || isManager))}
+        isStaff={isStaff}
+        isManager={isManager}
+        loggedIn={Boolean(viewer)}
+        needsConsent={Boolean(viewer?.needsConsent)}
+      />
+    );
+  }
+
   if (isBusinessCourse(mod) || isFinancialCourse(mod)) {
     const CoursePage = isFinancialCourse(mod) ? FinancialConsultingCourse : BusinessManagementCourse;
     const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));
@@ -150,7 +193,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
             ) : (
               <div className="space-y-3">
                 <h2 className="font-display text-xl text-text">Acesso ao conteúdo</h2>
-                <PixEnrollmentCta moduleId={mod.id} priceCents={mod.priceCents} loggedIn={Boolean(viewer)} needsConsent={Boolean(viewer?.needsConsent)} enabled={Boolean(process.env.ASAAS_API_KEY && process.env.ASAAS_WEBHOOK_TOKEN)} />
+                <PixEnrollmentCta moduleId={mod.id} priceCents={mod.priceCents} loggedIn={Boolean(viewer)} needsConsent={Boolean(viewer?.needsConsent)} enabled={Boolean(process.env.ASAAS_API_KEY && process.env.ASAAS_WEBHOOK_TOKEN)} audience={mod.audience} courseSlug={mod.slug} />
               </div>
             )}
           </Card>

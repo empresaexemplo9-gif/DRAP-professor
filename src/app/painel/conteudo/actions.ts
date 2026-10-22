@@ -92,6 +92,7 @@ const moduleSchema = z.object({
     return Number.isFinite(amount) ? Math.round(amount * 100) : Number.NaN;
   }, z.number().int().min(100, "O valor mínimo é R$ 1,00").max(10_000_000, "O valor máximo é R$ 100.000,00").nullable()).optional(),
   certificateType: z.enum(["LIVRE", "EXTENSAO", "CAPACITACAO"]).default("LIVRE"),
+  audience: z.enum(["INDIVIDUAL", "EMPRESA"]).default("INDIVIDUAL"),
   order: z.coerce.number().int().min(0).max(9999).default(0),
 });
 
@@ -127,7 +128,9 @@ export async function saveModuleAction(_: ActionState, fd: FormData): Promise<Ac
         slug,
         summary: d.summary,
         workloadMinutes: Math.round(d.workloadHours * 60),
-        priceCents: d.price ?? null,
+        // Treinamento para empresas não tem checkout individual.
+        priceCents: d.audience === "EMPRESA" ? null : (d.price ?? null),
+        audience: d.audience,
         certificateType: d.certificateType,
         order: d.order,
         levelConfig: cfg.data as Prisma.InputJsonValue,
