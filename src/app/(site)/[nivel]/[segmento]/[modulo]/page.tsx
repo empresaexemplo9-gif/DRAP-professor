@@ -104,6 +104,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
         m={mentorship}
         published={published}
         topics={mod.topics}
+        workloadMinutes={mod.workloadMinutes}
         cta={<PixEnrollmentCta moduleId={mod.id} priceCents={mod.priceCents} loggedIn={Boolean(viewer)} needsConsent={Boolean(viewer?.needsConsent)} enabled={false} audience={mod.audience} courseSlug={mod.slug} />}
       />
     );

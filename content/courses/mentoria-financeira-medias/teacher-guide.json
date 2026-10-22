@@ -1,0 +1,1212 @@
+{
+  "schemaVersion": 2,
+  "title": "Apêndice A — Gabaritos e critérios de correção (uso docente)",
+  "sections": [
+    {
+      "id": "mfm-s-apendice-a-gabaritos-e-c-1",
+      "kind": "section",
+      "title": "A.1 Gabarito das questões objetivas",
+      "blocks": [
+        {
+          "id": "mfm-b-284",
+          "type": "table",
+          "header": [
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q1"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q2"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q3"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q4"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q5"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q6"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q7"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Q8"
+                  }
+                ],
+                "header": true
+              }
+            ]
+          ],
+          "rows": [
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "1"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "2"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "3"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "4"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "5"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "6"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "7"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "8"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "B"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "D"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A"
+                  }
+                ]
+              },
+              {
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "C"
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mfm-s-apendice-a-gabaritos-e-c-2",
+      "kind": "section",
+      "title": "A.2 Conferência dos cálculos",
+      "blocks": [
+        {
+          "id": "mfm-b-285",
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M2 Q2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 5% × 1,6 × 2,5 = 20%. "
+                },
+                {
+                  "kind": "text",
+                  "text": "M2 Q7:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 12 / 8 = 1,5."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M3 Q1:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 100 − 60 − 10 = 30. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 1.800.000 / 30 = 60.000. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q3:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (80.000 − 60.000) / 80.000 = 25%. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q4:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 2.400.000 / 600.000 = 4,0. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q8:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " +1% de preço = 80.000 / 600.000 = 13,3%; +1% de volume = 24.000 / 600.000 = 4%."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M4 Q1:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 60 + 45 − 30 = 75. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 333.333 × 10 ≈ 3,33 milhões. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q5:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (2 / 98) × (365 / 20) = 37,2% simples; (1,0204)^18,25 − 1 = 44,6% composto. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q6:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " √(2 × 12.000 × 150 / 6) = √600.000 ≈ 775."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M5 Q1:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (5% + 1,82% + 5%) / 3 = 3,94%. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 0,3 × 110 + 0,7 × 100 = 103. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q3:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (9.500 − 10.000) × 100 = −50.000."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M6 Q1:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 1.600.000 × 3,6048 − 5.000.000 = 767.642. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 5.000.000 / 1.600.000 = 3,125 anos. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q4:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 0,6 × 16% + 0,4 × 14% × 0,66 = 9,6% + 3,70% = 13,3%. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q6:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 0,8 × [1 + 0,66 × 0,667] = 1,15. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q7:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 10,6 / (0,13 − 0,04) = 117,8. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q8:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 12 − 0,133 × 80 = 1,36."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M7 Q3:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (60 − 15) / 30 = 1,5. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q4:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 30 / 7,5 = 4,0. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q6:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 1,14 / 1,045 − 1 = 9,09%. "
+                },
+                {
+                  "kind": "text",
+                  "text": "Q8:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 2.000.000 × R$ 0,50 = R$ 1.000.000."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M8 Q2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " 10% sobre o total distribuído no mês, conforme as publicações consultadas sobre a Lei 15.270/2025; confirme a regulamentação vigente antes de aplicar a prova."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mfm-s-apendice-a-gabaritos-e-c-3",
+      "kind": "section",
+      "title": "A.3 Critérios das questões discursivas (2 pontos)",
+      "blocks": [
+        {
+          "id": "mfm-b-286",
+          "type": "paragraph",
+          "text": [
+            {
+              "kind": "text",
+              "text": "Distribuição: 0,5 ponto por item (a), (b) e (c) e 0,5 ponto por clareza, objetividade e uso correto de conceitos e números. Pontue respostas equivalentes e bem fundamentadas, mesmo que diferentes do roteiro."
+            }
+          ]
+        },
+        {
+          "id": "mfm-b-287",
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M1:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) pelo BNDES, ROB de R$ 130 milhões é Média II; por pessoas ocupadas na indústria, 260 pessoas é médio porte; pela Lei 11.638/2007, a receita está abaixo de R$ 300 milhões, mas é preciso verificar o ativo total (limite de R$ 240 milhões). (b) causas raiz: decisão concentrada, processos de fechamento e sistemas deficientes, ausência de política de crédito e de informação confiável para os bancos. (c) plano de 90 dias: fechamento até o dia 10, alçadas formais, DRE gerencial mensal, caixa de 13 semanas e pacote trimestral de informações aos bancos."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M2:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) hipóteses: crescimento de recebíveis e estoques, receita reconhecida antecipadamente (CPC 47), provisões insuficientes, capitalização de despesas, adiantamentos. (b) examinar contas a receber e aging, estoques, imobilizado em andamento, provisões, partes relacionadas e notas de receita. (c) indicadores: FCO/EBITDA, prazo médio de recebimento, accruals sobre ativo."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M3:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) receita líquida − custos variáveis − custo de servir − custo financeiro do prazo (prazo × custo de capital). (b) alavancas: prazo, frete, lote mínimo e entrega programada, tabela de preços e descontos, mix. (c) decidir pela margem após custo de servir e custo de capital, separando custos evitáveis de fixos, considerando o valor estratégico e tentando reprecificar antes de descontinuar."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M4:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) a NCG cresce mais que o CDG, o saldo de tesouraria fica negativo e a dívida de curto prazo financia o giro (efeito tesoura). (b) NCG aproximada = 140 × 90 / 360 = R$ 35 milhões, contra R$ 25 milhões na receita de R$ 100 milhões, ou seja, cerca de "
+                },
+                {
+                  "kind": "text",
+                  "text": "R$ 10 milhões adicionais",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": ", superiores ao lucro líquido de R$ 8,4 milhões. (c) financiar com dívida de longo prazo, aporte ou retenção de lucros, e agir em PMR, PME e PMP."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M5:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) receita por volume × preço × mix, por canal ou cliente, com pipeline e sazonalidade. (b) cenários base, otimista e adverso, com premissas do Focus, câmbio, reajustes de preços, reforma tributária e tributação de dividendos. (c) KPIs como MAPE, margem de contribuição e ciclo financeiro, e reunião mensal de desempenho."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M6:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) VPL(A) = 1,4 × 2,4018 − 3,0 ≈ R$ 0,363 milhão; VPL(B) = 1,05 × 3,6048 − 3,0 ≈ R$ 0,785 milhão. (b) benefício anual equivalente: A ≈ R$ 0,151 milhão; B ≈ R$ 0,218 milhão. (c) escolher B, testar demanda de longo prazo, obsolescência e taxa de desconto, e faseá-lo em etapas com marcos de decisão."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M7:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) índice atual 2,7x, queda de 10% do EBITDA rompe o covenant, e o pró-forma é (81 + 12) / 30 = "
+                },
+                {
+                  "kind": "text",
+                  "text": "3,1x",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": ", acima de 3,0x. (b) faseamento, aporte de capital ou retenção de dividendos, arrendamento, carência e EBITDA pró-forma no covenant. (c) negociar com projeções, plano de investimento, "
+                },
+                {
+                  "kind": "text",
+                  "text": "waiver",
+                  "marks": [
+                    "italic"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " prévio e redefinição de covenant."
+                }
+              ]
+            },
+            {
+              "text": [
+                {
+                  "kind": "text",
+                  "text": "M8:",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " (a) 10% × R$ 80 mil = R$ 8 mil por sócio, ou "
+                },
+                {
+                  "kind": "text",
+                  "text": "R$ 24 mil por mês",
+                  "marks": [
+                    "bold"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": " no total (confirme a regra vigente). (b) política de distribuição, pró-labore e JCP, precificação e margem com créditos, caixa com "
+                },
+                {
+                  "kind": "text",
+                  "text": "split payment",
+                  "marks": [
+                    "italic"
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": ", contratos. (c) mapear produtos, simular a carga, atualizar premissas de caixa e preços, ajustar sistemas e treinar equipes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
 import { seedTeamCourse } from "./courses/team-schedules";
 import { seedFinancialMentorships } from "./courses/mentorships";
+import { seedMentorshipContent } from "./courses/mentorship-content";
 import type { ContentDocument } from "../src/content-blocks/schema";
 
 try {
@@ -254,6 +255,8 @@ async function main() {
     const teamCourse = await seedTeamCourse(tx, tenant.id, admin.user.id);
     // Mentorias financeiras por porte (substituem a antiga mentoria de exemplo).
     await seedFinancialMentorships(tx, tenant.id, admin.user.id);
+    // Apostilas do cliente para as mentorias de pequenas e médias empresas.
+    await seedMentorshipContent(tx, tenant.id, admin.user.id);
     const demoStudent = demoUsers.find((user) => user.roles.includes("ALUNO"));
     if (demoStudent) await tx.enrollment.upsert({
       where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: businessCourse.id } },

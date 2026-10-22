@@ -1,0 +1,1954 @@
+{
+  "source": {
+    "fileName": "source.docx",
+    "title": "Mentoria Financeira para Pequenas Empresas",
+    "sha256": "31f3d69076ff1fb64552c51ad98b538d42a074eb65cace735fcd64b898541773"
+  },
+  "topics": [
+    {
+      "title": "Como usar esta apostila",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Como usar esta apostila",
+        "sections": [
+          {
+            "id": "mfp-s--0",
+            "kind": "section",
+            "title": "Apresentação",
+            "blocks": [
+              {
+                "id": "mfp-b-1",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "MENTORIA FINANCEIRA\nPARA PEQUENAS EMPRESAS",
+                    "marks": [
+                      "bold"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-2",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Formação avançada • Apostila do participante • Avaliações por módulo"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-3",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga horária sugerida: 56 horas | 8 módulos | Projeto aplicado"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-4",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Material didático independente. Não representa certificação emitida por Sebrae, IFRS, CFA Institute ou qualquer instituição citada."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-como-usar-esta-apostila-0",
+            "kind": "section",
+            "title": "Como usar esta apostila",
+            "blocks": [
+              {
+                "id": "mfp-b-5",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Este curso foi desenhado para orientar micro e pequenas empresas com método, evidências e ética. Cada módulo combina conceitos, aplicação prática, avaliação de cinco questões e entregável. Recomenda-se exigir pelo menos 70% em cada módulo e aprovação do projeto final."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-como-usar-esta-apostila-1",
+            "kind": "section",
+            "title": "Objetivos de aprendizagem",
+            "blocks": [
+              {
+                "id": "mfp-b-6",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Diagnosticar maturidade e riscos financeiros com dados verificáveis."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Construir e interpretar DRE gerencial, fluxo de caixa e indicadores."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Analisar capital de giro, custos, margem, preço e ponto de equilíbrio."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Planejar orçamento, cenários, investimento e endividamento."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Conduzir mentoria com plano de 90 dias, governança e comunicação clara."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-como-usar-esta-apostila-2",
+            "kind": "section",
+            "title": "Critérios pedagógicos sugeridos",
+            "blocks": [
+              {
+                "id": "mfp-b-7",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Avaliações por módulo: 40%; projeto aplicado: 40%; entregáveis e reflexões: 20%. Aprovação sugerida: média final mínima de 70/100, nenhuma avaliação modular abaixo de 60% e projeto final aprovado."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-como-usar-esta-apostila-3",
+            "kind": "section",
+            "title": "Aviso de escopo",
+            "blocks": [
+              {
+                "id": "mfp-b-8",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Material educacional; não substitui orientação contábil, tributária, jurídica ou de investimento individualizada. Adapte fórmulas ao setor, regime tributário, qualidade dos dados e regras brasileiras vigentes. Não prometa lucro, crédito ou resultados garantidos."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Módulo 1 — Diagnóstico financeiro e governança",
+      "slug": "modulo-1-diagnostico-financeiro-e-governanca",
+      "kind": "module",
+      "durationMinutes": 360,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 1 — Diagnóstico financeiro e governança",
+        "sections": [
+          {
+            "id": "mfp-s-1-diagnostico-financeiro-0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-9",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 6 horas. Objetivo: Construir uma fotografia financeira confiável antes de recomendar mudanças."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-1-diagnostico-financeiro-1",
+            "kind": "section",
+            "title": "1.1 Separação patrimonial e rotina de dados",
+            "blocks": [
+              {
+                "id": "mfp-b-10",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Separar contas bancárias, cartões, recebimentos, despesas pessoais e empresariais. Definir pró-labore, política de reembolso, responsáveis e calendário de fechamento. Sem separação, indicadores e decisões ficam contaminados."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-1-diagnostico-financeiro-2",
+            "kind": "section",
+            "title": "1.2 Diagnóstico de maturidade",
+            "blocks": [
+              {
+                "id": "mfp-b-11",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Avaliar qualidade dos registros, conciliação bancária, contas a pagar/receber, estoque, dívidas, obrigações fiscais e previsibilidade do caixa. Classificar achados por impacto, urgência, evidência e esforço."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-1-diagnostico-financeiro-3",
+            "kind": "section",
+            "title": "1.3 Entrevista de mentoria",
+            "blocks": [
+              {
+                "id": "mfp-b-12",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Investigar objetivo do dono, modelo de negócio, sazonalidade, restrições, riscos e decisões pendentes. Distinguir sintomas (caixa curto) de causas (margem baixa, prazo de recebimento longo, estoque excessivo ou retirada desordenada)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-1-diagnostico-financeiro-4",
+            "kind": "section",
+            "title": "1.4 Ética, escopo e confidencialidade",
+            "blocks": [
+              {
+                "id": "mfp-b-13",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Registrar premissas, limitações dos dados, autorização para acesso, conflito de interesses e plano de ação. Não prometer crédito, lucro ou resultados garantidos; encaminhar temas jurídicos, contábeis, tributários ou de investimento regulado a profissionais habilitados."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-14",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: mapa de maturidade, lista de documentos e diagnóstico executivo de uma página."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 1
+    },
+    {
+      "title": "Módulo 2 — Contabilidade gerencial, DRE e leitura de desempenho",
+      "slug": "modulo-2-contabilidade-gerencial-dre-e-leitura-de-desempenho",
+      "kind": "module",
+      "durationMinutes": 420,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 2 — Contabilidade gerencial, DRE e leitura de desempenho",
+        "sections": [
+          {
+            "id": "mfp-s-2-contabilidade-gerencia-0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-15",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 7 horas. Objetivo: Interpretar a rentabilidade do negócio sem confundir lucro, faturamento e dinheiro em caixa."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-2-contabilidade-gerencia-1",
+            "kind": "section",
+            "title": "2.1 Regime de caixa versus competência",
+            "blocks": [
+              {
+                "id": "mfp-b-16",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Caixa registra quando o dinheiro entra ou sai; competência reconhece receitas e despesas no período econômico a que pertencem. Uma venda a prazo pode gerar receita hoje e caixa no futuro; compra de ativo não é necessariamente despesa integral imediata."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-2-contabilidade-gerencia-2",
+            "kind": "section",
+            "title": "2.2 DRE gerencial",
+            "blocks": [
+              {
+                "id": "mfp-b-17",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Estruturar receita bruta, deduções e impostos sobre vendas, receita líquida, custos, lucro bruto, despesas operacionais, resultado financeiro e lucro/prejuízo. Reconciliar categorias com a contabilidade oficial e documentar diferenças."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-2-contabilidade-gerencia-3",
+            "kind": "section",
+            "title": "2.3 Margens e análise horizontal",
+            "blocks": [
+              {
+                "id": "mfp-b-18",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Margem bruta = lucro bruto / receita líquida. Margem operacional = resultado operacional / receita líquida. Margem líquida = lucro líquido / receita líquida. Comparar períodos, orçamento e empresas semelhantes com cautela, considerando mix, sazonalidade e escala."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-2-contabilidade-gerencia-4",
+            "kind": "section",
+            "title": "2.4 Qualidade do lucro",
+            "blocks": [
+              {
+                "id": "mfp-b-19",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Investigar receitas não recorrentes, retiradas, despesas omitidas, inadimplência, estoque obsoleto, depreciação e concentração de clientes. Lucro contábil não garante liquidez."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-20",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: DRE gerencial mensal e comentário de variações com hipóteses verificáveis."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 2
+    },
+    {
+      "title": "Módulo 3 — Fluxo de caixa, previsão e cenários",
+      "slug": "modulo-3-fluxo-de-caixa-previsao-e-cenarios",
+      "kind": "module",
+      "durationMinutes": 480,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 3 — Fluxo de caixa, previsão e cenários",
+        "sections": [
+          {
+            "id": "mfp-s-3-fluxo-de-caixa-previsa-0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-21",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 8 horas. Objetivo: Criar um sistema de caixa operacional e uma previsão útil para antecipar decisões."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-3-fluxo-de-caixa-previsa-1",
+            "kind": "section",
+            "title": "3.1 Caixa realizado e projetado",
+            "blocks": [
+              {
+                "id": "mfp-b-22",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Separar saldo inicial, recebimentos por data provável, pagamentos comprometidos, folha, tributos, dívida, investimentos e saldo final. Atualizar previsão semanalmente e registrar realizado versus previsto."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-3-fluxo-de-caixa-previsa-2",
+            "kind": "section",
+            "title": "3.2 Previsão móvel de 13 semanas",
+            "blocks": [
+              {
+                "id": "mfp-b-23",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Usar horizonte semanal para decisões de curto prazo. Classificar recebimentos por probabilidade, pagamentos por prioridade e cenários base, adverso e favorável. Não contar limite de crédito como caixa disponível sem explicitar condição."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-3-fluxo-de-caixa-previsa-3",
+            "kind": "section",
+            "title": "3.3 Variância e sinais de alerta",
+            "blocks": [
+              {
+                "id": "mfp-b-24",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Medir erro da previsão, dias de caixa, atrasos de clientes, concentração de recebíveis e pagamentos críticos. Para cada desvio, registrar causa, responsável, ação e nova estimativa."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-3-fluxo-de-caixa-previsa-4",
+            "kind": "section",
+            "title": "3.4 Gestão de crise de liquidez",
+            "blocks": [
+              {
+                "id": "mfp-b-25",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Priorizar continuidade operacional, obrigações legais, comunicação transparente e negociação antecipada. Avaliar opções com custo total, garantias, covenants e impacto futuro; evitar rolagem automática sem plano de saída."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-26",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: fluxo de caixa de 13 semanas com três cenários e gatilhos de ação."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 3
+    },
+    {
+      "title": "Módulo 4 — Capital de giro e ciclo financeiro",
+      "slug": "modulo-4-capital-de-giro-e-ciclo-financeiro",
+      "kind": "module",
+      "durationMinutes": 420,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 4 — Capital de giro e ciclo financeiro",
+        "sections": [
+          {
+            "id": "mfp-s-4-capital-de-giro-e-cicl-0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-27",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 7 horas. Objetivo: Diagnosticar o dinheiro preso no ciclo operacional e escolher medidas sustentáveis."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-4-capital-de-giro-e-cicl-1",
+            "kind": "section",
+            "title": "4.1 Ciclo operacional e ciclo de caixa",
+            "blocks": [
+              {
+                "id": "mfp-b-28",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Ciclo operacional = dias de estoque + dias de recebimento. Ciclo de conversão de caixa = dias de estoque + dias de recebimento − dias de pagamento a fornecedores. Use médias consistentes e dados comparáveis."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-4-capital-de-giro-e-cicl-2",
+            "kind": "section",
+            "title": "4.2 Capital de giro líquido e necessidade",
+            "blocks": [
+              {
+                "id": "mfp-b-29",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Capital circulante líquido é ativo circulante menos passivo circulante. A necessidade operacional de capital de giro depende de contas operacionais a receber, estoque e contas operacionais a pagar; não confundir conceitos contábeis e gerenciais."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-4-capital-de-giro-e-cicl-3",
+            "kind": "section",
+            "title": "4.3 Alavancas operacionais",
+            "blocks": [
+              {
+                "id": "mfp-b-30",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Reduzir estoque lento, melhorar cobrança, rever adiantamentos, negociar prazos e alinhar política comercial à capacidade financeira. Não pressionar fornecedores críticos sem avaliar risco de abastecimento."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-4-capital-de-giro-e-cicl-4",
+            "kind": "section",
+            "title": "4.4 Crescimento e caixa",
+            "blocks": [
+              {
+                "id": "mfp-b-31",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Crescimento pode consumir caixa quando a empresa financia estoque e clientes antes de receber. Modelar impacto incremental de vendas, margem, prazo, capacidade e financiamento."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-32",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: mapa do ciclo de caixa, cálculo dos dias e plano de liberação de capital de giro."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 4
+    },
+    {
+      "title": "Módulo 5 — Custos, margem de contribuição e precificação",
+      "slug": "modulo-5-custos-margem-de-contribuicao-e-precificacao",
+      "kind": "module",
+      "durationMinutes": 480,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 5 — Custos, margem de contribuição e precificação",
+        "sections": [
+          {
+            "id": "mfp-s-5-custos-margem-de-contr-0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-33",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 8 horas. Objetivo: Definir preços e mix com base em custos, margem, mercado e valor percebido."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-5-custos-margem-de-contr-1",
+            "kind": "section",
+            "title": "5.1 Classificação de custos",
+            "blocks": [
+              {
+                "id": "mfp-b-34",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Distinguir custos diretos e indiretos, fixos e variáveis, relevantes e irrecuperáveis. A classificação depende da decisão: aluguel pode ser fixo no curto prazo, mas mudar com expansão."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-5-custos-margem-de-contr-2",
+            "kind": "section",
+            "title": "5.2 Margem de contribuição",
+            "blocks": [
+              {
+                "id": "mfp-b-35",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Margem de contribuição unitária = preço líquido unitário − custos e despesas variáveis unitárias. Índice de margem de contribuição = margem de contribuição / receita líquida. Ela cobre custos fixos e depois contribui para o resultado."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-5-custos-margem-de-contr-3",
+            "kind": "section",
+            "title": "5.3 Ponto de equilíbrio",
+            "blocks": [
+              {
+                "id": "mfp-b-36",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Ponto de equilíbrio em unidades = custos fixos / margem de contribuição unitária. Em valor, quando o mix é estável: custos fixos / índice de margem de contribuição. Declare hipóteses; mix, capacidade e preços podem mudar."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-5-custos-margem-de-contr-4",
+            "kind": "section",
+            "title": "5.4 Formação e teste de preço",
+            "blocks": [
+              {
+                "id": "mfp-b-37",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Considerar impostos, taxas de pagamento, comissões, frete, perdas, descontos, custo de servir, posicionamento, concorrência e disposição a pagar. Simular elasticidade e não adotar markup como substituto da análise."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-5-custos-margem-de-contr-5",
+            "kind": "section",
+            "title": "5.5 Rentabilidade por cliente/produto",
+            "blocks": [
+              {
+                "id": "mfp-b-38",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Calcular margem após descontos, devoluções, logística, suporte e prazo de pagamento. Receita alta não significa contribuição alta."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-39",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: calculadora de preço, ponto de equilíbrio e análise de margem por produto/serviço."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 5
+    },
+    {
+      "title": "Módulo 6 — Orçamento, indicadores e decisões de investimento",
+      "slug": "modulo-6-orcamento-indicadores-e-decisoes-de-investimento",
+      "kind": "module",
+      "durationMinutes": 420,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 6 — Orçamento, indicadores e decisões de investimento",
+        "sections": [
+          {
+            "id": "mfp-s-6-orcamento-indicadores--0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-40",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 7 horas. Objetivo: Transformar metas em orçamento, indicadores e decisões disciplinadas."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-6-orcamento-indicadores--1",
+            "kind": "section",
+            "title": "6.1 Orçamento integrado",
+            "blocks": [
+              {
+                "id": "mfp-b-41",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Vincular premissas comerciais, capacidade, custos, despesas, DRE, capital de giro e caixa. Definir dono da premissa, fonte, frequência e intervalo de incerteza."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-6-orcamento-indicadores--2",
+            "kind": "section",
+            "title": "6.2 KPIs e painel",
+            "blocks": [
+              {
+                "id": "mfp-b-42",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Escolher poucos indicadores acionáveis: receita, margem de contribuição, margem operacional, inadimplência, prazo médio de recebimento, giro de estoque, previsão de caixa e dívida/geração operacional. Definir fórmula, fonte, periodicidade e responsável."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-6-orcamento-indicadores--3",
+            "kind": "section",
+            "title": "6.3 Análise de variações",
+            "blocks": [
+              {
+                "id": "mfp-b-43",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Separar efeito volume, preço, mix, custo e prazo. Investigar causas antes de atribuir culpa. Criar faixas de tolerância e ações vinculadas a cada alerta."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-6-orcamento-indicadores--4",
+            "kind": "section",
+            "title": "6.4 Investimentos e retorno",
+            "blocks": [
+              {
+                "id": "mfp-b-44",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Comparar desembolso, benefícios incrementais, vida útil, risco, manutenção, capital de giro e custo de financiamento. Usar payback como indicador complementar; quando adequado, calcular VPL com taxa coerente e cenários."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-6-orcamento-indicadores--5",
+            "kind": "section",
+            "title": "6.5 Cenários e stress test",
+            "blocks": [
+              {
+                "id": "mfp-b-45",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Testar queda de vendas, aumento de insumos, atraso de clientes e alta de juros. Identificar ponto de ruptura e medidas contingenciais antes da crise."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-46",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: orçamento de 12 meses, painel de KPIs e memorando de investimento."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 6
+    },
+    {
+      "title": "Módulo 7 — Crédito, endividamento e relacionamento bancário",
+      "slug": "modulo-7-credito-endividamento-e-relacionamento-bancario",
+      "kind": "module",
+      "durationMinutes": 360,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 7 — Crédito, endividamento e relacionamento bancário",
+        "sections": [
+          {
+            "id": "mfp-s-7-credito-endividamento--0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-47",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 6 horas. Objetivo: Avaliar crédito com custo total e capacidade real de pagamento."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-7-credito-endividamento--1",
+            "kind": "section",
+            "title": "7.1 Diagnóstico de dívida",
+            "blocks": [
+              {
+                "id": "mfp-b-48",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Inventariar saldo, taxa nominal e efetiva, indexadores, tarifas, garantias, vencimentos, carência, amortização, multas e covenants. Comparar CET e fluxo total, não apenas a parcela."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-7-credito-endividamento--2",
+            "kind": "section",
+            "title": "7.2 Capacidade de pagamento",
+            "blocks": [
+              {
+                "id": "mfp-b-49",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Projetar serviço da dívida junto ao fluxo operacional e cenários. O DSCR (fluxo disponível para serviço da dívida / serviço da dívida) exige definição consistente do numerador; não usar um índice isolado como garantia."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-7-credito-endividamento--3",
+            "kind": "section",
+            "title": "7.3 Finalidade do crédito",
+            "blocks": [
+              {
+                "id": "mfp-b-50",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Relacionar instrumento ao uso: capital de giro, investimento ou reestruturação. Crédito de curto prazo para ativo de retorno longo pode criar descasamento. Considerar alternativas operacionais e negociação."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-7-credito-endividamento--4",
+            "kind": "section",
+            "title": "7.4 Negociação e risco",
+            "blocks": [
+              {
+                "id": "mfp-b-51",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Preparar demonstrativos, previsão, uso dos recursos, plano de pagamento e cenários. Entender garantias pessoais, risco de concentração e consequências do atraso. Não recomendar endividamento sem avaliação de capacidade."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-52",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: mapa de dívida, comparação de propostas por custo total e nota de decisão."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 7
+    },
+    {
+      "title": "Módulo 8 — Plano de mentoria, comunicação e projeto final",
+      "slug": "modulo-8-plano-de-mentoria-comunicacao-e-projeto-final",
+      "kind": "module",
+      "durationMinutes": 420,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 8 — Plano de mentoria, comunicação e projeto final",
+        "sections": [
+          {
+            "id": "mfp-s-8-plano-de-mentoria-comu-0",
+            "kind": "section",
+            "title": "Carga e objetivo",
+            "blocks": [
+              {
+                "id": "mfp-b-53",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Carga sugerida: 7 horas. Objetivo: Conduzir ciclos de acompanhamento e demonstrar resultados com evidências."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-8-plano-de-mentoria-comu-1",
+            "kind": "section",
+            "title": "8.1 Plano de 90 dias",
+            "blocks": [
+              {
+                "id": "mfp-b-54",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Priorizar ações por impacto, urgência, confiança da evidência, custo e dependências. Definir responsável, prazo, métrica de base, meta, risco e frequência de revisão."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-8-plano-de-mentoria-comu-2",
+            "kind": "section",
+            "title": "8.2 Conversas difíceis",
+            "blocks": [
+              {
+                "id": "mfp-b-55",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Apresentar dados sem julgamento, diferenciar fato de hipótese e negociar compromissos observáveis. Traduzir análises em escolhas, trade-offs e consequências."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-8-plano-de-mentoria-comu-3",
+            "kind": "section",
+            "title": "8.3 Monitoramento",
+            "blocks": [
+              {
+                "id": "mfp-b-56",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Fazer reuniões semanais de caixa e mensais de resultado. Atualizar riscos, premissas e decisões; registrar ações concluídas e razões de desvios."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-8-plano-de-mentoria-comu-4",
+            "kind": "section",
+            "title": "8.4 Projeto aplicado",
+            "blocks": [
+              {
+                "id": "mfp-b-57",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Produzir diagnóstico, DRE gerencial, fluxo de caixa de 13 semanas, análise de capital de giro, precificação, painel de KPIs, mapa de dívida e plano de 90 dias para uma empresa fictícia ou autorizada, com dados anonimizados."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-8-plano-de-mentoria-comu-5",
+            "kind": "section",
+            "title": "8.5 Limites profissionais",
+            "blocks": [
+              {
+                "id": "mfp-b-58",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Não garantir resultado, não ocultar conflito de interesse, não manipular dados e não se apresentar como contador, advogado ou consultor de investimentos sem a habilitação aplicável."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-59",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Aplicação prática:",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Entregável: apresentação executiva de 10 minutos e plano de ação de 90 dias."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 8
+    },
+    {
+      "title": "Projeto final integrador",
+      "slug": "projeto-final-integrador",
+      "kind": "project",
+      "durationMinutes": 0,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Projeto final integrador",
+        "sections": [
+          {
+            "id": "mfp-s-projeto-final-integrador-0",
+            "kind": "section",
+            "title": "Entregáveis",
+            "blocks": [
+              {
+                "id": "mfp-b-60",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Escolha uma empresa fictícia ou uma empresa real com autorização expressa e dados anonimizados. Entregue:"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-61",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Resumo executivo e limitações dos dados."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "DRE gerencial de pelo menos 3 meses e análise das margens."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Fluxo de caixa projetado de 13 semanas em cenário base e adverso."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Cálculo do ciclo financeiro e hipóteses de melhoria do capital de giro."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Precificação e ponto de equilíbrio para pelo menos um produto/serviço."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Painel de 5 a 8 KPIs com fórmula, fonte, frequência e responsável."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Mapa de dívidas e recomendação fundamentada, quando houver dívida."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Plano de ação de 90 dias com responsáveis, prazos, metas, riscos e acompanhamento."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-projeto-final-integrador-1",
+            "kind": "section",
+            "title": "Rubrica de avaliação do projeto (100 pontos)",
+            "blocks": [
+              {
+                "id": "mfp-b-62",
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Critério"
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Pontos"
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Qualidade e rastreabilidade dos dados"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "DRE, margens e interpretação"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Fluxo de caixa e cenários"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "20"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Capital de giro e precificação"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "KPIs e decisões fundamentadas"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Plano de 90 dias e comunicação"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Ética, limites e confidencialidade"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "5"
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Gabarito, bibliografia e modelo de certificado",
+      "slug": "gabarito-bibliografia-e-certificado",
+      "kind": "resource",
+      "durationMinutes": 0,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Gabarito, bibliografia e modelo de certificado",
+        "sections": [
+          {
+            "id": "mfp-s-gabarito-das-avaliacoes-0",
+            "kind": "section",
+            "title": "Gabarito das avaliações",
+            "blocks": [
+              {
+                "id": "mfp-b-63",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 1: 1-B • 2-B • 3-A • 4-C • 5-B"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-64",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 2: 1-A • 2-B • 3-C • 4-A • 5-B"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-65",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 3: 1-B • 2-C • 3-B • 4-B • 5-A"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-66",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 4: 1-B • 2-A • 3-B • 4-C • 5-A"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-67",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 5: 1-A • 2-A • 3-B • 4-B • 5-A"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-68",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 6: 1-B • 2-B • 3-B • 4-B • 5-A"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-69",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 7: 1-B • 2-B • 3-A • 4-A • 5-B"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-70",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Módulo 8: 1-B • 2-B • 3-A • 4-B • 5-B"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-bibliografia-e-fontes-re-0",
+            "kind": "section",
+            "title": "Bibliografia e fontes recomendadas",
+            "blocks": [
+              {
+                "id": "mfp-b-71",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Consulte a versão vigente, a data de publicação e a aplicabilidade ao Brasil. As referências não implicam endosso institucional ao curso."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-72",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Sebrae — Gestão financeira para pequenos negócios —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Fundamentos, separação patrimonial, gestão do caixa, investimento e crise. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/como-fazer-a-gestao-financeira-do-pequeno-negocio%2Cd999a442d2e5a410VgnVCM1000003b74010aRCRD",
+                    "href": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/como-fazer-a-gestao-financeira-do-pequeno-negocio%2Cd999a442d2e5a410VgnVCM1000003b74010aRCRD"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-73",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Sebrae — Fluxo de caixa: o que é e como implantar —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Registro de recebimentos/pagamentos, saldo e projeção de caixa. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/fluxo-de-caixa-o-que-e-e-como-implantar%2Cb29e438af1c92410VgnVCM100000b272010aRCRD",
+                    "href": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/fluxo-de-caixa-o-que-e-e-como-implantar%2Cb29e438af1c92410VgnVCM100000b272010aRCRD"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-74",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Sebrae — cursos de gestão financeira para pequenos negócios —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Referência de escopo educacional em fluxo de caixa, precificação e planejamento. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://agenciasebrae.com.br/cultura-empreendedora/quatro-cursos-online-e-gratuitos-para-dominar-as-financas-da-sua-pequena-empresa/",
+                    "href": "https://agenciasebrae.com.br/cultura-empreendedora/quatro-cursos-online-e-gratuitos-para-dominar-as-financas-da-sua-pequena-empresa/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-75",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "IFRS Foundation — IFRS for SMEs —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Referência normativa internacional para demonstrações financeiras de pequenas e médias entidades; verificar a edição aplicável. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.ifrs.org/issued-standards/ifrs-for-smes/",
+                    "href": "https://www.ifrs.org/issued-standards/ifrs-for-smes/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-76",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "IASB / IFRS Foundation — materiais de apoio para IFRS for SMEs —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Materiais didáticos sobre conceitos, demonstração de fluxos de caixa e aplicação da norma. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.ifrs.org/supporting-implementation/2015-ifrs-for-smes-supporting-materials/",
+                    "href": "https://www.ifrs.org/supporting-implementation/2015-ifrs-for-smes-supporting-materials/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-77",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "U.S. Small Business Administration — Manage your finances —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Referência prática complementar de registros e gestão financeira de pequenas empresas. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.sba.gov/business-guide/manage-your-business/manage-your-finances",
+                    "href": "https://www.sba.gov/business-guide/manage-your-business/manage-your-finances"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-78",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "CFA Institute — Financial Analysis Techniques —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Referência profissional complementar para análise financeira; consultar materiais e publicações aplicáveis. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.cfainstitute.org/",
+                    "href": "https://www.cfainstitute.org/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-79",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Richard A. Brealey, Stewart C. Myers e Franklin Allen — Principles of Corporate Finance —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Texto acadêmico de referência para valor do dinheiro no tempo, risco e decisões de investimento. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.mheducation.com/",
+                    "href": "https://www.mheducation.com/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-80",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Eugene F. Brigham e Joel F. Houston — Fundamentals of Financial Management —",
+                    "marks": [
+                      "bold"
+                    ]
+                  },
+                  {
+                    "kind": "text",
+                    "text": " Texto acadêmico de referência para capital de giro, estrutura financeira e análise de decisões. "
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.cengage.com/",
+                    "href": "https://www.cengage.com/"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-modelo-de-certificado-de-0",
+            "kind": "section",
+            "title": "Modelo de certificado de conclusão",
+            "blocks": [
+              {
+                "id": "mfp-b-81",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "CERTIFICADO DE CONCLUSÃO — CURSO LIVRE",
+                    "marks": [
+                      "bold"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-82",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Certificamos que ______________________________________________ concluiu o curso livre “Mentoria Financeira para Pequenas Empresas”, com carga horária de 56 horas, após cumprir as atividades avaliativas e apresentar o projeto final conforme os critérios estabelecidos pelo ofertante."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-83",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Conteúdos: diagnóstico financeiro; DRE gerencial; fluxo de caixa; capital de giro; custos e precificação; orçamento e indicadores; crédito e endividamento; plano de mentoria e projeto aplicado."
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-84",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Local e data: ______________________________________________"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-85",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Responsável pela oferta: _____________________________________"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-86",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Assinatura: _________________________________________________"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-87",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Código de validação: ____________________ | Registro interno: ____________________"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-88",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Preencher apenas após conferência de identidade, carga horária, avaliações e conclusão. Certificado de curso livre não equivale a diploma de graduação, pós-graduação, registro profissional ou habilitação regulada. Não inserir logotipos de instituições citadas sem autorização."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfp-s-fontes-e-leituras-0",
+            "kind": "section",
+            "title": "Fontes e leituras",
+            "blocks": [
+              {
+                "id": "mfp-b-89",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Sebrae — Gestão financeira para pequenos negócios\nFundamentos, separação patrimonial, gestão do caixa, investimento e crise.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/como-fazer-a-gestao-financeira-do-pequeno-negocio%2Cd999a442d2e5a410VgnVCM1000003b74010aRCRD",
+                    "href": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/como-fazer-a-gestao-financeira-do-pequeno-negocio%2Cd999a442d2e5a410VgnVCM1000003b74010aRCRD"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-90",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Sebrae — Fluxo de caixa: o que é e como implantar\nRegistro de recebimentos/pagamentos, saldo e projeção de caixa.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/fluxo-de-caixa-o-que-e-e-como-implantar%2Cb29e438af1c92410VgnVCM100000b272010aRCRD",
+                    "href": "https://meuatendimento.sebrae.com.br/sites/PortalSebrae/artigos/fluxo-de-caixa-o-que-e-e-como-implantar%2Cb29e438af1c92410VgnVCM100000b272010aRCRD"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-91",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Sebrae — cursos de gestão financeira para pequenos negócios\nReferência de escopo educacional em fluxo de caixa, precificação e planejamento.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://agenciasebrae.com.br/cultura-empreendedora/quatro-cursos-online-e-gratuitos-para-dominar-as-financas-da-sua-pequena-empresa/",
+                    "href": "https://agenciasebrae.com.br/cultura-empreendedora/quatro-cursos-online-e-gratuitos-para-dominar-as-financas-da-sua-pequena-empresa/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-92",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "IFRS Foundation — IFRS for SMEs\nReferência normativa internacional para demonstrações financeiras de pequenas e médias entidades; verificar a edição aplicável.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.ifrs.org/issued-standards/ifrs-for-smes/",
+                    "href": "https://www.ifrs.org/issued-standards/ifrs-for-smes/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-93",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "IASB / IFRS Foundation — materiais de apoio para IFRS for SMEs\nMateriais didáticos sobre conceitos, demonstração de fluxos de caixa e aplicação da norma.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.ifrs.org/supporting-implementation/2015-ifrs-for-smes-supporting-materials/",
+                    "href": "https://www.ifrs.org/supporting-implementation/2015-ifrs-for-smes-supporting-materials/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-94",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "U.S. Small Business Administration — Manage your finances\nReferência prática complementar de registros e gestão financeira de pequenas empresas.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.sba.gov/business-guide/manage-your-business/manage-your-finances",
+                    "href": "https://www.sba.gov/business-guide/manage-your-business/manage-your-finances"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-95",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "CFA Institute — Financial Analysis Techniques\nReferência profissional complementar para análise financeira; consultar materiais e publicações aplicáveis.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.cfainstitute.org/",
+                    "href": "https://www.cfainstitute.org/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-96",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Richard A. Brealey, Stewart C. Myers e Franklin Allen — Principles of Corporate Finance\nTexto acadêmico de referência para valor do dinheiro no tempo, risco e decisões de investimento.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.mheducation.com/",
+                    "href": "https://www.mheducation.com/"
+                  }
+                ]
+              },
+              {
+                "id": "mfp-b-97",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Eugene F. Brigham e Joel F. Houston — Fundamentals of Financial Management\nTexto acadêmico de referência para capital de giro, estrutura financeira e análise de decisões.\n"
+                  },
+                  {
+                    "kind": "link",
+                    "text": "https://www.cengage.com/",
+                    "href": "https://www.cengage.com/"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

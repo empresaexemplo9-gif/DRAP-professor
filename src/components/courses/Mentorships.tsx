@@ -113,10 +113,12 @@ export function MentorshipPage({
   m,
   published,
   topics,
+  workloadMinutes = 0,
   cta,
 }: {
   m: FinancialMentorship;
   published: Published[];
+  workloadMinutes?: number;
   topics: { id: string; title: string; slug: string; durationMinutes: number }[];
   cta: React.ReactNode;
 }) {
@@ -129,7 +131,10 @@ export function MentorshipPage({
       <div className="mt-7 grid items-start gap-7 xl:grid-cols-[minmax(0,1fr)_300px]">
         <div className="min-w-0 space-y-6">
           <section aria-labelledby="mentoria-sobre" className="rounded-md border border-border bg-surface p-6">
-            <p className="eyebrow mb-2">{m.porte}</p>
+            <p className="eyebrow mb-2">
+              {m.porte}
+              {workloadMinutes > 0 && ` · Curso livre de ${formatWorkload(workloadMinutes)}`}
+            </p>
             <h2 id="mentoria-sobre" className="font-display text-2xl text-text">{m.summary}</h2>
             <p className="mt-4 text-sm leading-relaxed text-text-muted">
               A mentoria é contratada pela empresa e conduzida em encontros com o mentor. Formato, número de encontros e agenda

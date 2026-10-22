@@ -1,0 +1,80 @@
+{
+  "title": "Mentoria Financeira para Médias Empresas",
+  "hours": 80,
+  "topics": [
+    {
+      "title": "Apresentação, estrutura e avaliação",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Módulo 1 — Médias empresas, governança e função financeira",
+      "slug": "modulo-1-medias-empresas-governanca-e-funcao-financeira",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 1
+    },
+    {
+      "title": "Módulo 2 — Demonstrações financeiras e análise integrada",
+      "slug": "modulo-2-demonstracoes-financeiras-e-analise-integrada",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 2
+    },
+    {
+      "title": "Módulo 3 — Custos, margens e precificação",
+      "slug": "modulo-3-custos-margens-e-precificacao",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 3
+    },
+    {
+      "title": "Módulo 4 — Capital de giro e gestão de caixa",
+      "slug": "modulo-4-capital-de-giro-e-gestao-de-caixa",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 4
+    },
+    {
+      "title": "Módulo 5 — Planejamento, orçamento e previsões (FP&A)",
+      "slug": "modulo-5-planejamento-orcamento-e-previsoes-fp-a",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 5
+    },
+    {
+      "title": "Módulo 6 — Decisões de investimento, custo de capital e valor",
+      "slug": "modulo-6-decisoes-de-investimento-custo-de-capital-e-valor",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 6
+    },
+    {
+      "title": "Módulo 7 — Estrutura de capital, crédito e gestão de riscos",
+      "slug": "modulo-7-estrutura-de-capital-credito-e-gestao-de-riscos",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 7
+    },
+    {
+      "title": "Módulo 8 — Tributação, reforma tributária, sustentabilidade e implantação",
+      "slug": "modulo-8-tributacao-reforma-tributaria-sustentabilidade-e-implantacao",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 8
+    },
+    {
+      "title": "Projeto integrador — Plano financeiro integrado",
+      "slug": "projeto-integrador",
+      "kind": "project",
+      "durationMinutes": 960
+    },
+    {
+      "title": "Certificação, bibliografia, cronograma e aviso",
+      "slug": "certificacao-bibliografia-e-cronograma",
+      "kind": "resource",
+      "durationMinutes": 0
+    }
+  ]
+}
