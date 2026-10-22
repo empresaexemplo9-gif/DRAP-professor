@@ -3,11 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import { academicImage } from "./academic-media";
+import { academicImage, courseBanner } from "./academic-media";
 
 export type FeaturedCourse = {
   id: string;
   title: string;
+  slug: string;
   href: string;
   segment: string;
   segmentSlug: string;
@@ -48,27 +49,33 @@ export function FeaturedCourses({
       </p>
       {filtered.length > 0 ? (
         <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {(showAll ? filtered : filtered.slice(0, 4)).map((course) => (
+          {(showAll ? filtered : filtered.slice(0, 4)).map((course) => {
+            const banner = courseBanner(course.slug);
+            return (
             <li key={course.id}>
               <Link
                 href={course.href}
                 className="course-tile group flex h-full flex-col overflow-hidden rounded-md border border-border bg-surface text-text no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-md"
               >
-                <div className="relative h-36 overflow-hidden">
-                  <Image
-                    src={academicImage(course.segmentSlug)}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <span className="absolute bottom-3 left-3 rounded-sm bg-campus/90 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-campus-on-dark">
-                    {course.level}
-                  </span>
-                </div>
+                {banner ? (
+                  <Image src={banner} alt="" width={1600} height={600} unoptimized className="h-auto w-full" />
+                ) : (
+                  <div className="relative aspect-[8/3] overflow-hidden">
+                    <Image
+                      src={academicImage(course.segmentSlug)}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <span className="absolute bottom-3 left-3 rounded-sm bg-campus/90 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-campus-on-dark">
+                      {course.level}
+                    </span>
+                  </div>
+                )}
                 <div className="flex flex-1 flex-col px-4 pb-4 pt-4">
                   <p className="mb-2 text-[9px] font-medium uppercase tracking-[0.16em] text-accent-text">
-                    {course.segment}
+                    {banner ? `${course.level} · ${course.segment}` : course.segment}
                   </p>
                   <h3 className="font-display text-lg leading-snug text-text">{course.title}</h3>
                   <div className="mt-auto flex items-center justify-between gap-2 pt-5 text-[10px] text-text-muted">
@@ -83,7 +90,8 @@ export function FeaturedCourses({
                 </div>
               </Link>
             </li>
-          ))}
+            );
+          })}
         </ul>
       ) : (
         <div className="rounded-md border border-dashed border-border-strong py-10 text-center">
