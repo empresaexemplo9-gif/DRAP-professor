@@ -128,21 +128,29 @@ export default async function PainelHome({ searchParams }: { searchParams: Promi
                 const next = program.topics.find((topic) => !completed.has(topic.id));
                 return (
                   <li key={enrollment.id} className="overflow-hidden rounded-md border border-border bg-surface">
-                    <div className="relative aspect-[8/3]">
+                    {courseBanner(program.slug) ? (
                       <Image
-                        src={courseBanner(program.slug) ?? academicImage(program.segment.slug)}
+                        src={courseBanner(program.slug)!.src}
                         alt=""
-                        fill
-                        unoptimized={Boolean(courseBanner(program.slug))}
-                        sizes="(min-width: 1280px) 30vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover"
+                        width={courseBanner(program.slug)!.width}
+                        height={courseBanner(program.slug)!.height}
+                        unoptimized
+                        className="h-auto w-full"
                       />
-                      {!courseBanner(program.slug) && (
+                    ) : (
+                      <div className="relative aspect-[8/3]">
+                        <Image
+                          src={academicImage(program.segment.slug)}
+                          alt=""
+                          fill
+                          sizes="(min-width: 1280px) 30vw, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
                         <span className="absolute bottom-3 left-4 rounded-sm bg-campus/90 px-2 py-1 text-[9px] uppercase tracking-widest text-campus-on-dark">
                           {program.level.label}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                     <div className="p-5">
                       <p className="mb-2 text-[9px] uppercase tracking-widest text-accent-text">
                         {program.segment.name} · {formatWorkload(program.workloadMinutes)}

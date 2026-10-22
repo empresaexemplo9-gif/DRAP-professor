@@ -14,3 +14,4 @@ Licença: https://unsplash.com/license
 
 - `courses/gestao-justa-de-equipes-banner.webp`: banner de apresentação do treinamento "Gestão justa de equipes e escalas", fornecido pelo cliente junto com a apostila (1600 × 600).
 - `mentorias/mentoria-financeira-{pequenas,medias,grandes}-empresas.png`: banners originais das mentorias financeiras por porte, fornecidos pelo cliente (PNG, 1600 × 600), servidos sem reprocessamento.
+- `courses/gestao-de-empresas-banner.webp` e `courses/prospeccao-b2b-banner.webp`: banners dos cards de "Curso Livre de Gestão de Empresas" e "Prospecção B2B para Equipes Comerciais", fornecidos pelo cliente (2000 × 668).

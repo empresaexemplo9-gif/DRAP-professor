@@ -58,7 +58,7 @@ export function FeaturedCourses({
                 className="course-tile group flex h-full flex-col overflow-hidden rounded-md border border-border bg-surface text-text no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-md"
               >
                 {banner ? (
-                  <Image src={banner} alt="" width={1600} height={600} unoptimized className="h-auto w-full" />
+                  <Image src={banner.src} alt="" width={banner.width} height={banner.height} unoptimized className="h-auto w-full" />
                 ) : (
                   <div className="relative aspect-[8/3] overflow-hidden">
                     <Image

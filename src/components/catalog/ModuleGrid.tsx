@@ -30,7 +30,7 @@ export function ModuleGrid({
           <Link href={levelPath(levelSlug, segmentSlug, m.slug)} className="block h-full no-underline">
             <Card variant="interactive" className="flex h-full flex-col overflow-hidden">
               {courseBanner(m.slug) ? (
-                <Image src={courseBanner(m.slug)!} alt="" width={1600} height={600} unoptimized className="-mx-5 -mt-5 mb-5 h-auto w-[calc(100%+2.5rem)] max-w-none" />
+                <Image src={courseBanner(m.slug)!.src} alt="" width={courseBanner(m.slug)!.width} height={courseBanner(m.slug)!.height} unoptimized className="-mx-5 -mt-5 mb-5 h-auto w-[calc(100%+2.5rem)] max-w-none" />
               ) : (
                 <div className="relative -mx-5 -mt-5 mb-5 aspect-[8/3]">
                   <Image
