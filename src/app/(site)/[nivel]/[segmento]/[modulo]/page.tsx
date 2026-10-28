@@ -189,7 +189,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
                 <li>• Gabarito comentado após cada tentativa</li>
               </ul>
               {enrollment && (
-                <div className="mt-5 overflow-x-auto">
+                <div tabIndex={0} role="region" aria-label="Notas por módulo" className="mt-5 overflow-x-auto">
                   <table className="w-full text-sm">
                     <caption className="sr-only">Notas por módulo</caption>
                     <thead>

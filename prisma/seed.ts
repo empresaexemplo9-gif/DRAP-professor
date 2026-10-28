@@ -14,7 +14,7 @@ import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
 import type { ContentDocument } from "../src/content-blocks/schema";
 import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 import { parseCourse } from "../src/content-import/course";
 import { syncCourse } from "../src/content-import/sync";
 
@@ -181,7 +181,8 @@ const DEMO_CONTENT = process.env.SEED_DEMO_CONTENT === "1";
 const OBSOLETE_MODULE_SLUGS = ["gestao-de-safra", "boas-praticas-defensivos", "financas-pequenas-empresas", "prospeccao-b2b", "introducao-nbr-9050", "fundamentos-de-lideranca", "seguranca-da-informacao"];
 const OBSOLETE_SEGMENT_SLUGS = ["agronegocio", "financas", "vendas", "arquitetura", "gestao-e-lideranca", "tecnologia"];
 
-const CATALOG_DIR = join(process.cwd(), "content", "cursos");
+// Diretórios de cursos separados por ":" (o CI acrescenta tests/fixtures/cursos para os testes de prova).
+const CATALOG_DIRS = (process.env.COURSES_DIR ?? join(process.cwd(), "content", "cursos")).split(":").filter(Boolean);
 
 async function main() {
   const slug = process.env.DEFAULT_TENANT_SLUG ?? "drap";
@@ -300,10 +301,10 @@ async function main() {
   }
 
   // Catálogo oficial de cursos (content/cursos/*.md), na ordem numérica dos arquivos.
-  const files = readdirSync(CATALOG_DIR).filter((f) => f.endsWith(".md")).sort();
+  const files = CATALOG_DIRS.flatMap((dir) => readdirSync(dir).filter((f) => f.endsWith(".md")).sort().map((f) => join(dir, f)));
   const courseLevel = await inTenant(tenant.id, (tx) => tx.level.findUniqueOrThrow({ where: { tenantId_kind: { tenantId: tenant.id, kind: "CURSO" } } }));
   for (const [i, file] of files.entries()) {
-    const spec = parseCourse(readFileSync(join(CATALOG_DIR, file), "utf8"), file);
+    const spec = parseCourse(readFileSync(file, "utf8"), basename(file));
     const report = await inTenant(tenant.id, async (tx) => {
       const r = await syncCourse(tx, { tenantId: tenant.id, levelId: courseLevel.id, authorId: admin.user.id, order: i, spec });
       const student = demoUsers.find((d) => d.roles.includes("ALUNO"));

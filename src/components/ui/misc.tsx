@@ -88,7 +88,8 @@ export function Alert({ tone = "info", children }: { tone?: "info" | "success" |
 /** Tabela responsiva: rola dentro do próprio bloco, nunca a página. */
 export function DataTable({ head, children, caption }: { head: ReactNode[]; children: ReactNode; caption?: string }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-border bg-surface">
+    // Focável e rotulado para que a rolagem horizontal funcione também pelo teclado.
+    <div tabIndex={0} role="region" aria-label={caption ?? "Tabela"} className="overflow-x-auto rounded-lg border border-border bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
       <table className="w-full border-collapse text-left text-sm">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead className="bg-surface-raised text-text-muted">
