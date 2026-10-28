@@ -22,7 +22,7 @@ test("aluno conclui as aulas, faz a prova e recebe o gabarito comentado", async 
       await expect(mark).toHaveCount(left - 1);
     }
   }
-  await expect(page.getByRole("button", { name: /Iniciar prova/ }).or(page.getByRole("link", { name: "Gabarito comentado" }).first())).toBeVisible();
+  await expect(page.getByRole("button", { name: /Iniciar prova/ }).or(page.getByRole("link", { name: "Gabarito comentado" })).first()).toBeVisible();
   if (await page.getByRole("button", { name: /Iniciar prova/ }).isVisible()) {
     await page.getByRole("button", { name: /Iniciar prova/ }).click();
     await page.waitForURL(`**${TOPIC}/prova`);

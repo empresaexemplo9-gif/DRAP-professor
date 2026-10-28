@@ -13,7 +13,7 @@ import { LEVELS } from "../src/lib/levels";
 import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
 import type { ContentDocument } from "../src/content-blocks/schema";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { parseCourse } from "../src/content-import/course";
 import { syncCourse } from "../src/content-import/sync";
@@ -179,7 +179,7 @@ const DEMO_CONTENT = process.env.SEED_DEMO_CONTENT === "1";
 
 /** Conteúdo de exemplo de versões anteriores, removido da produção. */
 const OBSOLETE_MODULE_SLUGS = ["gestao-de-safra", "boas-praticas-defensivos", "financas-pequenas-empresas", "prospeccao-b2b", "introducao-nbr-9050", "fundamentos-de-lideranca", "seguranca-da-informacao"];
-const OBSOLETE_SEGMENT_SLUGS = ["agronegocio", "financas", "vendas", "arquitetura", "gestao-e-lideranca", "tecnologia"];
+const OBSOLETE_SEGMENT_SLUGS = ["agronegocio", "vendas", "arquitetura", "gestao-e-lideranca", "tecnologia"];
 
 // Diretórios de cursos separados por ":" (o CI acrescenta tests/fixtures/cursos para os testes de prova).
 const CATALOG_DIRS = (process.env.COURSES_DIR ?? join(process.cwd(), "content", "cursos")).split(":").filter(Boolean);
@@ -301,7 +301,7 @@ async function main() {
   }
 
   // Catálogo oficial de cursos (content/cursos/*.md), na ordem numérica dos arquivos.
-  const files = CATALOG_DIRS.flatMap((dir) => readdirSync(dir).filter((f) => f.endsWith(".md")).sort().map((f) => join(dir, f)));
+  const files = CATALOG_DIRS.filter((dir) => existsSync(dir)).flatMap((dir) => readdirSync(dir).filter((f) => f.endsWith(".md")).sort().map((f) => join(dir, f)));
   const courseLevel = await inTenant(tenant.id, (tx) => tx.level.findUniqueOrThrow({ where: { tenantId_kind: { tenantId: tenant.id, kind: "CURSO" } } }));
   for (const [i, file] of files.entries()) {
     const spec = parseCourse(readFileSync(file, "utf8"), basename(file));
