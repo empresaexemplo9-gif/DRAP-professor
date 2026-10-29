@@ -80,6 +80,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           courses={modules.map((module) => ({
             id: module.id,
             title: module.title,
+            slug: module.slug,
             href: levelPath(module.level.slug, module.segment.slug, module.slug),
             segment: module.segment.name,
             segmentSlug: module.segment.slug,

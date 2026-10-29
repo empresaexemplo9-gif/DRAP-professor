@@ -39,7 +39,7 @@ test("admin acessa todas as abas", async ({ page, isMobile }) => {
   await login(page, ADMIN.email, ADMIN.password);
   if (isMobile) await page.getByRole("button", { name: "Abrir menu" }).click();
   const nav = page.getByRole("navigation", { name: "Menu principal" }).last();
-  for (const tab of [...ALUNO_TABS, "Conteúdo", "Financeiro", "Biblioteca de Materiais", "Usuários", "Configurações e Tema"]) {
+  for (const tab of [...ALUNO_TABS, "Conteúdo", "Matrículas", "Financeiro", "Biblioteca de Materiais", "Usuários", "Configurações e Tema"]) {
     await expect(nav.getByRole("link", { name: tab })).toBeVisible();
   }
 });

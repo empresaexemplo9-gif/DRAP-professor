@@ -10,16 +10,18 @@ import { Breadcrumb, ProgressBar } from "@/components/ui/misc";
 import { ButtonLink, buttonClass } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { formatWorkload } from "@/lib/levels";
+import { PixEnrollmentCta } from "@/components/payments/PixEnrollmentCta";
 
 type Topic = { id: string; title: string; slug: string; durationMinutes: number };
 type Props = {
-  course: { id: string; title: string; topics: Topic[] };
+  course: { id: string; title: string; priceCents: number | null; topics: Topic[] };
   completed: Set<string>;
   enrolled: boolean;
   canRead: boolean;
   isStaff: boolean;
   loggedIn: boolean;
   needsConsent: boolean;
+  paymentsEnabled: boolean;
 };
 export function FinancialConsultingCourse({
   course,
@@ -29,6 +31,7 @@ export function FinancialConsultingCourse({
   isStaff,
   loggedIn,
   needsConsent,
+  paymentsEnabled,
 }: Props) {
   const topics = new Map(course.topics.map((t) => [t.slug, t]));
   const modules = FINANCIAL_COURSE.topics.filter((t) => t.kind === "module");
@@ -271,23 +274,7 @@ export function FinancialConsultingCourse({
               </ButtonLink>
             ) : (
               <>
-                <p className="text-sm leading-relaxed text-text-muted">
-                  A matrícula é confirmada pela equipe pedagógica. Após a liberação, o curso aparece em Meu Aprendizado.
-                </p>
-                {loggedIn ? (
-                  <ButtonLink href="/painel/aprendizado" variant="secondary" className="w-full text-sm">
-                    Consultar minhas matrículas
-                  </ButtonLink>
-                ) : (
-                  <>
-                    <ButtonLink href="/cadastro" variant="gold" className="w-full text-sm">
-                      Criar minha conta
-                    </ButtonLink>
-                    <ButtonLink href="/entrar" variant="secondary" className="w-full text-sm">
-                      Já tenho conta
-                    </ButtonLink>
-                  </>
-                )}
+                <PixEnrollmentCta moduleId={course.id} priceCents={course.priceCents} loggedIn={loggedIn} needsConsent={needsConsent} enabled={paymentsEnabled} />
               </>
             )}
             {canRead && (

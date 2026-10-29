@@ -114,6 +114,8 @@ export default async function ModuleEditPage({ params }: { params: Promise<{ id:
                   slug: mod.slug,
                   summary: mod.summary ?? "",
                   workloadHours: mod.workloadMinutes / 60,
+                  priceCents: mod.priceCents,
+                  audience: mod.audience,
                   certificateType: mod.certificateType,
                   order: mod.order,
                   levelConfig: mod.levelConfig as Record<string, unknown>,

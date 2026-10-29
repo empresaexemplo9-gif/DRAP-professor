@@ -12,6 +12,9 @@ import { randomBytes } from "node:crypto";
 import { LEVELS } from "../src/lib/levels";
 import { seedFinancialCourse } from "./courses/financial-consulting";
 import { seedBusinessCourse } from "./courses/business-management";
+import { seedTeamCourse } from "./courses/team-schedules";
+import { seedFinancialMentorships } from "./courses/mentorships";
+import { seedMentorshipContent } from "./courses/mentorship-content";
 import type { ContentDocument } from "../src/content-blocks/schema";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
@@ -102,20 +105,6 @@ const MODULES: ModuleSeed[] = [
     ],
   },
   {
-    level: "MENTORIA",
-    segment: "financas",
-    title: "Mentoria em Finanças para Pequenas Empresas",
-    slug: "financas-pequenas-empresas",
-    summary: "Encontros individuais para organizar o caixa, precificar e planejar o crescimento.",
-    hours: 6,
-    certificateType: "LIVRE",
-    config: { sessionFormat: "INDIVIDUAL", plannedSessions: 6, sessionMinutes: 60, videoCallUrl: "" },
-    topics: [
-      { title: "Diagnóstico financeiro", slug: "diagnostico-financeiro", minutes: 60, doc: doc("Diagnóstico financeiro", [{ title: "Antes do primeiro encontro", paragraphs: ["Reúna extratos dos últimos 6 meses, contas a pagar e a receber e a lista de produtos com preços."], list: ["Faturamento mensal", "Despesas fixas", "Margem por produto"] }]) },
-      { title: "Fluxo de caixa", slug: "fluxo-de-caixa", minutes: 60, doc: doc("Fluxo de caixa", [{ title: "Projeção de 13 semanas", paragraphs: ["Projete entradas e saídas semana a semana para antecipar faltas de caixa."], tip: "Atualize a projeção toda segunda-feira, comparando o previsto com o realizado." }]) },
-    ],
-  },
-  {
     level: "TREINAMENTO",
     segment: "vendas",
     title: "Prospecção B2B para Equipes Comerciais",
@@ -174,12 +163,10 @@ async function upsertUser(email: string, name: string, password: string) {
   return { user, created: true };
 }
 
-/** Conteúdo de demonstração (só para desenvolvimento e testes automatizados). */
-const DEMO_CONTENT = process.env.SEED_DEMO_CONTENT === "1";
 
-/** Conteúdo de exemplo de versões anteriores, removido da produção. */
-const OBSOLETE_MODULE_SLUGS = ["gestao-de-safra", "boas-praticas-defensivos", "financas-pequenas-empresas", "prospeccao-b2b", "introducao-nbr-9050", "fundamentos-de-lideranca", "seguranca-da-informacao"];
-const OBSOLETE_SEGMENT_SLUGS = ["agronegocio", "vendas", "arquitetura", "gestao-e-lideranca", "tecnologia"];
+/** Conteúdo de agro de versões anteriores, removido de todos os ambientes. */
+const OBSOLETE_MODULE_SLUGS = ["gestao-de-safra", "boas-praticas-defensivos"];
+const OBSOLETE_SEGMENT_SLUGS = ["agronegocio"];
 
 // Diretórios de cursos separados por ":" (o CI acrescenta tests/fixtures/cursos para os testes de prova).
 const CATALOG_DIRS = (process.env.COURSES_DIR ?? join(process.cwd(), "content", "cursos")).split(":").filter(Boolean);
@@ -203,6 +190,7 @@ async function main() {
           { email: "pedagogico@exemplo.com.br", name: "Paula Pedagógica", roles: ["PEDAGOGICO"] },
           { email: "instrutor@exemplo.com.br", name: "Igor Instrutor", roles: ["INSTRUTOR"] },
           { email: "aluno@exemplo.com.br", name: "Ana Aluna", roles: ["ALUNO"] },
+          { email: "gestor@exemplo.com.br", name: "Gabriel Gestor", roles: ["ALUNO"] },
         ]
       : [];
   const demoPassword = process.env.SEED_DEMO_PASSWORD ?? "Demo@12345678";
@@ -226,7 +214,7 @@ async function main() {
       levelIds.set(kind, level.id);
     }
     const segIds = new Map<string, string>();
-    for (const [i, s] of (DEMO_CONTENT ? SEGMENTS : []).entries()) {
+    for (const [i, s] of SEGMENTS.entries()) {
       const seg = await tx.segment.upsert({
         where: { tenantId_slug: { tenantId: tenant.id, slug: s.slug } },
         create: { tenantId: tenant.id, ...s, order: i },
@@ -250,7 +238,7 @@ async function main() {
       }
     }
 
-    for (const [mi, m] of (DEMO_CONTENT ? MODULES : []).entries()) {
+    for (const [mi, m] of MODULES.entries()) {
       const levelId = levelIds.get(m.level)!;
       const segmentId = segIds.get(m.segment)!;
       const existing = await tx.module.findUnique({ where: { levelId_segmentId_slug: { levelId, segmentId, slug: m.slug } } });
@@ -276,6 +264,12 @@ async function main() {
     }
     const businessCourse = await seedBusinessCourse(tx, tenant.id, admin.user.id);
     const financialCourse = await seedFinancialCourse(tx, tenant.id, admin.user.id);
+    // Treinamento para empresas: entregue por contrato (Enterprise), sem matrícula avulsa.
+    const teamCourse = await seedTeamCourse(tx, tenant.id, admin.user.id);
+    // Mentorias financeiras por porte (substituem a antiga mentoria de exemplo).
+    await seedFinancialMentorships(tx, tenant.id, admin.user.id);
+    // Apostilas do cliente para as mentorias de pequenas e médias empresas.
+    await seedMentorshipContent(tx, tenant.id, admin.user.id);
     const demoStudent = demoUsers.find((user) => user.roles.includes("ALUNO"));
     if (demoStudent) await tx.enrollment.upsert({
       where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: businessCourse.id } },
@@ -287,16 +281,43 @@ async function main() {
       create: { tenantId: tenant.id, userId: demoStudent.user.id, moduleId: financialCourse.id, origin: "CORTESIA" },
       update: {},
     });
+
+    // Enterprise de demonstração: empresa cliente com gestor e um contrato de vagas.
+    const demoManager = demoUsers.find((user) => user.email === "gestor@exemplo.com.br");
+    const training = await tx.module.findFirst({ where: { tenantId: tenant.id, slug: "seguranca-da-informacao" }, select: { id: true } });
+    if (demoManager && demoStudent && training && !(await tx.organization.findFirst({ where: { tenantId: tenant.id, cnpj: "11222333000181" } }))) {
+      const org = await tx.organization.create({
+        data: { tenantId: tenant.id, name: "Logística Exemplo", legalName: "Logística Exemplo Ltda.", cnpj: "11222333000181", contactName: demoManager.name, contactEmail: demoManager.email },
+      });
+      await tx.organizationMember.create({ data: { tenantId: tenant.id, organizationId: org.id, userId: demoManager.user.id, role: "GESTOR" } });
+      await tx.organizationMember.create({ data: { tenantId: tenant.id, organizationId: org.id, userId: demoStudent.user.id, role: "COLABORADOR", team: "Operações" } });
+      const pool = await tx.licensePool.create({
+        data: { tenantId: tenant.id, organizationId: org.id, moduleId: training.id, seats: 20, goalPercent: 90, dueAt: new Date(Date.now() + 60 * 864e5) },
+      });
+      await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: pool.id, email: demoStudent.email, userId: demoStudent.user.id, team: "Operações", status: "ATIVO", activatedAt: new Date() } });
+      await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: pool.id, email: "novo.colaborador@exemplo.com.br", team: "Operações" } });
+      // Treinamento para empresas entregue pela vaga: a colaboradora acessa sem matrícula avulsa.
+      const leaders = await tx.licensePool.create({
+        data: { tenantId: tenant.id, organizationId: org.id, moduleId: teamCourse.id, seats: 10, goalPercent: 90, dueAt: new Date(Date.now() + 30 * 864e5) },
+      });
+      await tx.licenseAssignment.create({ data: { tenantId: tenant.id, poolId: leaders.id, email: demoStudent.email, userId: demoStudent.user.id, team: "Liderança", status: "ATIVO", activatedAt: new Date() } });
+      await tx.enrollment.upsert({
+        where: { userId_moduleId: { userId: demoStudent.user.id, moduleId: teamCourse.id } },
+        create: { tenantId: tenant.id, userId: demoStudent.user.id, moduleId: teamCourse.id, origin: "LICENCA", status: "ATIVA" },
+        update: {},
+      });
+    }
   });
 
-  // Remove o conteúdo de exemplo antigo (inclusive o de agro) quando não estamos em modo demonstração.
-  if (!DEMO_CONTENT) {
+  // Remove o conteúdo de agro de versões anteriores (o segmento só sai quando fica vazio).
+  {
     await inTenant(tenant.id, async (tx) => {
+      await tx.organization.updateMany({ where: { tenantId: tenant.id, name: "Agro Exemplo" }, data: { name: "Logística Exemplo", legalName: "Logística Exemplo Ltda." } });
       const removed = await tx.module.deleteMany({ where: { tenantId: tenant.id, slug: { in: OBSOLETE_MODULE_SLUGS } } });
       const segs = await tx.segment.findMany({ where: { tenantId: tenant.id, slug: { in: OBSOLETE_SEGMENT_SLUGS } }, include: { _count: { select: { modules: true } } } });
       const empty = segs.filter((sg) => sg._count.modules === 0).map((sg) => sg.id);
       if (empty.length) await tx.segment.deleteMany({ where: { id: { in: empty } } });
-      if (removed.count || empty.length) console.log(`Conteúdo de exemplo removido: ${removed.count} módulo(s), ${empty.length} segmento(s).`);
+      if (removed.count || empty.length) console.log(`Conteúdo de agro removido: ${removed.count} módulo(s), ${empty.length} segmento(s).`);
     });
   }
 

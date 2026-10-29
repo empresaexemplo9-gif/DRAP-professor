@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTenant } from "@/lib/tenant";
 import { withTenant } from "@/lib/db";
-import { getEnrollment, getModuleBySlugs } from "@/lib/catalog";
+import { getEnrollment, getModuleBySlugs, managesCompanyCourse } from "@/lib/catalog";
+import { isTeamCourse, TEAM_COURSE_DOWNLOAD } from "@/lib/courses/team-schedules";
 import { levelPath } from "@/lib/catalog-paths";
 import { getViewer } from "@/lib/session";
 import { can } from "@/lib/rbac";
@@ -12,11 +13,14 @@ import { businessQuestions } from "@/lib/courses/business-management-content";
 import { isFinancialCourse } from "@/lib/courses/financial-consulting";
 import { FinancialLesson } from "@/components/courses/FinancialLesson";
 import { KnowledgeCheck } from "@/components/courses/KnowledgeCheck";
+import { findFinancialMentorship, mentorshipPath } from "@/lib/mentorships";
+import { mentorshipDownloadPath, mentorshipDownloads } from "@/lib/courses/mentorship-content";
+import { mentorshipQuestions, mentorshipTeacherGuide } from "@/lib/courses/mentorship-questions";
 import { formatWorkload } from "@/lib/levels";
 import { parseDocument } from "@/content-blocks/schema";
 import { DocumentView, SlotPlaceholder, tableOfContents } from "@/content-blocks/BlockRenderer";
 import { Breadcrumb, ProgressBar } from "@/components/ui/misc";
-import { Button, ButtonLink } from "@/components/ui/Button";
+import { Button, ButtonLink, buttonClass } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { readSheet } from "@/lib/course-progress";
 import { ModuleSideNav } from "../ModuleSideNav";
@@ -68,12 +72,17 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
   const viewer = await getViewer();
   const enrollment = viewer ? await getEnrollment(tenant.id, viewer.user.id, mod.id) : null;
   const isStaff = Boolean(viewer && !viewer.disabled && can(viewer.roles, "content:manage"));
-  const canRead = Boolean(
-    viewer && !viewer.disabled && !viewer.needsConsent && ((enrollment && enrollment.status === "ATIVA") || isStaff),
-  );
+  const isTeam = isTeamCourse(mod);
+  const mentorship = findFinancialMentorship(mod);
+  const enrolled = enrollment?.status === "ATIVA";
+  // Treinamento e mentoria para empresas: o gestor da empresa contratante lê o material para acompanhar a equipe.
+  const isManager = Boolean((isTeam || mentorship) && viewer && !viewer.disabled && !enrolled && (await managesCompanyCourse(tenant.id, viewer.user.id, mod.id)));
+  const canRead = Boolean(viewer && !viewer.disabled && !viewer.needsConsent && (enrolled || isStaff || isManager));
   const isBusiness = isBusinessCourse(mod);
   const isFinancial = isFinancialCourse(mod);
-  const questions = canRead && isBusiness ? businessQuestions(topic.slug) : [];
+  const questions = !canRead ? [] : isBusiness ? businessQuestions(topic.slug) : mentorship ? mentorshipQuestions(mentorship, topic.slug) : [];
+  const teacherGuide = canRead && mentorship ? mentorshipTeacherGuide(mentorship, topic.slug, isStaff) : null;
+  const downloads = mentorship ? mentorshipDownloads(mentorship, isStaff) : [];
   const completed = new Set(enrollment?.progress.filter((x) => x.status === "CONCLUIDO").map((x) => x.topicId) ?? []);
   const idx = mod.topics.findIndex((t) => t.id === topic.id);
   const prev = mod.topics[idx - 1];
@@ -145,9 +154,36 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
                 <>
                   <DocumentView doc={doc} />
                   {questions.length > 0 && <KnowledgeCheck key={topic.id} questions={questions} />}
+                  {teacherGuide && (
+                    <details className="no-print mt-10 rounded-md border border-border bg-surface p-5">
+                      <summary className="cursor-pointer font-display text-lg text-text">
+                        Gabaritos e critérios de correção (uso docente)
+                      </summary>
+                      <p className="mt-2 text-sm text-text-muted">Visível somente para a equipe pedagógica. Participantes não veem este apêndice.</p>
+                      <div className="mt-6">
+                        <DocumentView doc={teacherGuide} />
+                      </div>
+                    </details>
+                  )}
                 </>
               )}
-              {!isBusiness && !isFinancial && (
+              {downloads.length > 0 && (
+                <div className="no-print mt-10 flex flex-wrap items-center gap-3 text-sm text-text-muted">
+                  <span>Prefere estudar pelo material original?</span>
+                  {downloads.map((d) => (
+                    <a key={d.id} href={mentorshipDownloadPath(mentorship!, d.id)} className={buttonClass("secondary", "sm")}>
+                      {d.audience === "docente" ? `Baixar ${d.label} · uso docente` : `Baixar ${d.label}`}
+                    </a>
+                  ))}
+                </div>
+              )}
+              {isTeam && (
+                <div className="no-print mt-10 flex flex-wrap items-center gap-3 text-sm text-text-muted">
+                  <span>Prefere estudar pelo material original?</span>
+                  <a href={TEAM_COURSE_DOWNLOAD} className={buttonClass("secondary", "sm")}>Baixar a apostila completa (DOCX)</a>
+                </div>
+              )}
+              {!isBusiness && !isFinancial && !isTeam && !mentorship && (
                 <div className="mt-12 space-y-6">
                   <SlotPlaceholder
                     title="Questões do assunto"
@@ -170,7 +206,7 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
                     </Button>
                   </form>
                 ) : (
-                  <p className="text-sm text-text-muted">Pré-visualização da equipe.</p>
+                  <p className="text-sm text-text-muted">{isManager ? "Leitura do gestor da empresa." : "Pré-visualização da equipe."}</p>
                 )}
                 <div className="flex gap-2">
                   {prev && (
@@ -191,10 +227,14 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
             </>
           ) : (
             <Card variant="featured">
-              <h2 className="font-display text-xl text-text">Conteúdo exclusivo para alunos matriculados</h2>
+              <h2 className="font-display text-xl text-text">{isTeam || mentorship ? "Conteúdo exclusivo para equipes de empresas contratantes" : "Conteúdo exclusivo para alunos matriculados"}</h2>
               <p className="mt-2 text-sm text-text-muted">
                 {viewer?.needsConsent
                   ? "Depois de revisar os termos, volte a este assunto para iniciar seus estudos."
+                  : mentorship
+                    ? "Esta mentoria é contratada pela empresa: quando sua empresa atribuir uma vaga ao seu e-mail, o acesso aparece automaticamente em Meu Aprendizado. Empresas interessadas podem conhecer a mentoria e solicitar uma proposta."
+                  : isTeam
+                    ? "Este treinamento é liberado pela empresa: quando sua empresa atribuir uma vaga ao seu e-mail, o acesso aparece automaticamente em Meu Aprendizado. Empresas interessadas podem solicitar uma proposta."
                   : viewer
                     ? `Sua conta está conectada, mas ainda não tem matrícula ativa em ${mod.title}. Consulte suas matrículas para ver o status e os próximos passos.`
                     : `Entre na sua conta e confirme sua matrícula em ${mod.title} para acessar os módulos, exercícios e materiais.`}
@@ -202,6 +242,20 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
               <div className="mt-4 flex flex-wrap gap-2">
                 {viewer?.needsConsent ? (
                   <ButtonLink href="/aceite">Revisar os termos</ButtonLink>
+                ) : mentorship ? (
+                  <>
+                    <ButtonLink href={mentorshipPath(mentorship)}>Conhecer a mentoria</ButtonLink>
+                    <ButtonLink href={viewer ? "/painel/aprendizado" : "/entrar"} variant="secondary">
+                      {viewer ? "Ver meu aprendizado" : "Entrar"}
+                    </ButtonLink>
+                  </>
+                ) : isTeam ? (
+                  <>
+                    <ButtonLink href={`/empresas?curso=${encodeURIComponent(mod.slug)}#proposta`}>Solicitar proposta para minha empresa</ButtonLink>
+                    <ButtonLink href={viewer ? "/painel/aprendizado" : "/entrar"} variant="secondary">
+                      {viewer ? "Ver meu aprendizado" : "Entrar"}
+                    </ButtonLink>
+                  </>
                 ) : viewer ? (
                   <>
                     <ButtonLink href="/painel/aprendizado">Consultar minhas matrículas</ButtonLink>

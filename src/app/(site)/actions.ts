@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { withTenant } from "@/lib/db";
 import { getViewer } from "@/lib/session";
+import { isPastEnd } from "@/lib/enrollments";
 
 export async function markTopicAction(formData: FormData) {
   const viewer = await getViewer();
@@ -13,7 +14,7 @@ export async function markTopicAction(formData: FormData) {
     const topic = await tx.topic.findFirst({ where: { id: topicId, tenantId: viewer.tenant.id, status: "PUBLICADO" } });
     if (!topic) return;
     const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: topic.moduleId } } });
-    if (!enrollment || enrollment.status !== "ATIVA") return;
+    if (!enrollment || enrollment.status !== "ATIVA" || isPastEnd(enrollment)) return;
     await tx.topicProgress.upsert({
       where: { enrollmentId_topicId: { enrollmentId: enrollment.id, topicId } },
       create: {

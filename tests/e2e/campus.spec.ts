@@ -7,11 +7,11 @@ test("campus apresenta a proposta pedagógica e filtra formações por formato",
   const formations = page.locator("#formacoes");
   await formations.getByRole("button", { name: "Cursos", exact: true }).click();
   await expect(formations.getByRole("button", { name: "Cursos", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await expect(formations.getByRole("link", { name: /Gestão de Safra/ })).toBeVisible();
-  await expect(formations.getByRole("link", { name: /Mentoria em Finanças/ })).toHaveCount(0);
-  await formations.getByRole("button", { name: "Mentorias", exact: true }).click();
-  await expect(formations.getByRole("link", { name: /Mentoria em Finanças/ })).toBeVisible();
-  await expect(formations.getByRole("link", { name: /Gestão de Safra/ })).toHaveCount(0);
+  await expect(formations.getByRole("link", { name: /Fundamentos de Liderança/ })).toBeVisible();
+  await expect(formations.getByRole("link", { name: /Prospecção B2B/ })).toHaveCount(0);
+  await formations.getByRole("button", { name: "Treinamentos", exact: true }).click();
+  await expect(formations.getByRole("link", { name: /Prospecção B2B/ })).toBeVisible();
+  await expect(formations.getByRole("link", { name: /Fundamentos de Liderança/ })).toHaveCount(0);
   await expect(
     page.locator("#biblioteca").getByRole("heading", { name: "A curiosidade é o começo de tudo." }),
   ).toBeVisible();
@@ -20,11 +20,11 @@ test("campus apresenta a proposta pedagógica e filtra formações por formato",
 
 test("busca encontra uma formação pelo assunto e permite recuperar uma busca vazia", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("searchbox", { name: "Pesquisar formações e conteúdos" }).fill("Tríplice lavagem");
+  await page.getByRole("searchbox", { name: "Pesquisar formações e conteúdos" }).fill("Rotas acessíveis");
   await page.getByRole("button", { name: "Buscar", exact: true }).click();
   await expect(page).toHaveURL(/\/buscar\?q=/);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Tríplice lavagem");
-  await expect(page.locator("main").getByRole("link", { name: /Capacitação em Boas Práticas/ })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Rotas acessíveis");
+  await expect(page.locator("main").getByRole("link", { name: /Introdução à NBR 9050/ })).toBeVisible();
   await expectAccessible(page);
   await page
     .getByRole("searchbox", { name: "O que você quer aprender?", exact: true })
@@ -33,7 +33,7 @@ test("busca encontra uma formação pelo assunto e permite recuperar uma busca v
   await expect(page.getByRole("heading", { name: "Vamos descobrir outro caminho?" })).toBeVisible();
   await page.getByRole("link", { name: "Ver todas as formações", exact: true }).click();
   await expect(page).toHaveURL(/\/buscar$/);
-  await expect(page.getByRole("link", { name: /Gestão de Safra/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Fundamentos de Liderança/ })).toBeVisible();
   await expectNoHorizontalScroll(page);
 });
 
@@ -61,5 +61,5 @@ test("painel do estudante oferece retomada de conteúdo e recursos acadêmicos",
   await expectNoHorizontalScroll(page);
   // O painel resume as matrículas recentes; a lista completa conserva as anteriores.
   await page.goto("/painel/aprendizado");
-  await expect(page.locator("main").getByRole("link", { name: "Gestão de Safra", exact: true })).toBeVisible();
+  await expect(page.locator("main").getByRole("link", { name: "Fundamentos de Liderança", exact: true })).toBeVisible();
 });

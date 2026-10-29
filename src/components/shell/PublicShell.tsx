@@ -44,11 +44,13 @@ export async function PublicShell({ children }: { children: React.ReactNode }) {
   const items = [
     { href: "/", label: "Início", icon: "home" },
     { href: "/#formacoes", label: "Nossas formações", icon: "graduation" },
+    { href: "/mentorias", label: "Mentorias", icon: "users" },
     ...(hasBusinessCourse ? [{ href: BUSINESS_COURSE_PATH, label: "Gestão de Empresas", icon: "layers" }] : []),
     ...(hasFinancialCourse ? [{ href: FINANCIAL_COURSE_PATH, label: "Consultoria Financeira", icon: "book" }] : []),
     { href: "/#biblioteca", label: "Biblioteca de saberes", icon: "openbook" },
     { href: "/#metodologia", label: "Proposta pedagógica", icon: "layers" },
     { href: "/#comunidade", label: "Nossa comunidade", icon: "users" },
+    { href: "/empresas", label: "Para empresas", icon: "briefcase" },
     { href: viewer ? "/painel" : "/entrar", label: "Portal do aluno", icon: "book" },
   ];
   const props = { name: tenant.name, logoUrl, items };
