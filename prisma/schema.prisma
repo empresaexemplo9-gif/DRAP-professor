@@ -766,3 +766,429 @@ model EnterpriseLead {
   @@index([tenantId, createdAt])
   @@map("enterprise_leads")
 }
+
+// ───────────────────────────── Preparatório CPA (docs/cpa/PLANO.md) ─────────────────────────────
+
+enum CpaStatus {
+  PENDENTE
+  EM_ELABORACAO
+  REVISADO
+  PUBLICADO
+  ARQUIVADO
+}
+
+enum CpaOrigin {
+  IMPORTADO
+  EDITADO
+}
+
+/// Matriz oficial do Programa Detalhado (redação e numeração originais).
+model CpaSyllabusItem {
+  id             String    @id @default(uuid(7)) @db.Uuid
+  tenantId       String    @db.Uuid
+  programVersion String
+  code           String
+  text           String
+  level          Int
+  macro          Int
+  parentCode     String?
+  leaf           Boolean
+  weight         Int?
+  reviewer       String?
+  checkedAt      DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  lessons   CpaLessonItem[]
+  questions CpaQuestionItem[]
+
+  @@unique([tenantId, programVersion, code])
+  @@index([tenantId, macro])
+  @@map("cpa_syllabus_items")
+}
+
+model CpaChapter {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  number      Int
+  macro       Int
+  title       String
+  officialRef String
+  summary     String?
+  order       Int
+  status      CpaStatus @default(PUBLICADO)
+  origin      CpaOrigin @default(IMPORTADO)
+  sourceHash  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  lessons CpaLesson[]
+
+  @@unique([tenantId, number])
+  @@map("cpa_chapters")
+}
+
+model CpaLesson {
+  id             String    @id @default(uuid(7)) @db.Uuid
+  tenantId       String    @db.Uuid
+  chapterId      String    @db.Uuid
+  code           String
+  slug           String
+  title          String
+  order          Int
+  minutes        Int
+  prerequisites  String[]  @default([])
+  objectives     String[]  @default([])
+  /// Documento de blocos (src/content-blocks) com o conteúdo integral da aula.
+  document       Json
+  /// Exercícios de fixação e checklist de domínio (JSON).
+  extras         Json      @default("{}")
+  references     Json      @default("[]")
+  checkedAt      DateTime?
+  nextLessonCode String?
+  status         CpaStatus @default(EM_ELABORACAO)
+  origin         CpaOrigin @default(IMPORTADO)
+  sourceHash     String?
+  version        Int       @default(1)
+  reviewer       String?
+  publishedAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  chapter  CpaChapter          @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  items    CpaLessonItem[]
+  versions CpaLessonVersion[]
+  progress CpaLessonProgress[]
+
+  @@unique([tenantId, code])
+  @@unique([tenantId, slug])
+  @@index([chapterId, order])
+  @@map("cpa_lessons")
+}
+
+model CpaLessonItem {
+  lessonId String @db.Uuid
+  itemId   String @db.Uuid
+  tenantId String @db.Uuid
+
+  lesson CpaLesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  item   CpaSyllabusItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@id([lessonId, itemId])
+  @@index([itemId])
+  @@map("cpa_lesson_items")
+}
+
+/// Histórico de publicação: toda versão publicada registra autor, data e conteúdo.
+model CpaLessonVersion {
+  id        String   @id @default(uuid(7)) @db.Uuid
+  tenantId  String   @db.Uuid
+  lessonId  String   @db.Uuid
+  version   Int
+  title     String
+  document  Json
+  authorId  String?
+  note      String?
+  createdAt DateTime @default(now())
+
+  lesson CpaLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([lessonId, version])
+  @@map("cpa_lesson_versions")
+}
+
+model CpaReference {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  key         String
+  title       String
+  publisher   String
+  url         String?
+  scope       String?
+  /// Vigência da norma/fonte, quando aplicável.
+  validFrom   DateTime?
+  checkedAt   DateTime?
+  checkStatus String    @default("PENDENTE")
+  notes       String?
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([tenantId, key])
+  @@map("cpa_references")
+}
+
+enum CpaQuestionType {
+  CONCEITO
+  CALCULO
+  INTERPRETACAO
+  COMPARACAO
+  CASO
+  DECISAO
+  DIALOGO
+}
+
+enum CpaQuestionUse {
+  FIXACAO
+  SIMULADO
+  DIAGNOSTICO
+}
+
+model CpaQuestion {
+  id          String          @id @default(uuid(7)) @db.Uuid
+  tenantId    String          @db.Uuid
+  code        String
+  type        CpaQuestionType
+  use         CpaQuestionUse
+  macro       Int
+  stem        String
+  /// [{ key, text, justification }]
+  options     Json
+  correct     String
+  explanation String
+  difficulty  Int
+  competence  String
+  source      String
+  /// Sempre AUTORAL nesta plataforma (nunca questão de prova aplicada).
+  nature      String          @default("AUTORAL")
+  lessonCode  String?
+  /// Verificação independente de cálculo: expressão e resultado esperado.
+  check       Json?
+  reviewedAt  DateTime?
+  status      CpaStatus       @default(EM_ELABORACAO)
+  origin      CpaOrigin       @default(IMPORTADO)
+  sourceHash  String?
+  version     Int             @default(1)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  items CpaQuestionItem[]
+
+  @@unique([tenantId, code])
+  @@index([tenantId, use, macro])
+  @@map("cpa_questions")
+}
+
+model CpaQuestionItem {
+  questionId String @db.Uuid
+  itemId     String @db.Uuid
+  tenantId   String @db.Uuid
+
+  question CpaQuestion     @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  item     CpaSyllabusItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@id([questionId, itemId])
+  @@index([itemId])
+  @@map("cpa_question_items")
+}
+
+enum CpaExamKind {
+  DIAGNOSTICO
+  MODULO
+  INTERMEDIARIO
+  COMPLETO
+  FINAL
+  ATENDIMENTO
+}
+
+model CpaExam {
+  id                   String         @id @default(uuid(7)) @db.Uuid
+  tenantId             String         @db.Uuid
+  code                 String
+  kind                 CpaExamKind
+  title                String
+  description          String?
+  questionCount        Int
+  durationMinutes      Int
+  /// { "1": 20, "2": 40, "3": 30, "4": 10 } em %; vazio = proporção oficial.
+  distribution         Json           @default("{}")
+  /// Macrotemas sorteados (simulado por módulo/intermediário).
+  macros               Int[]          @default([])
+  /// Lista fixa de códigos de questão (simulados completos); vazio = sorteio.
+  fixedCodes           String[]       @default([])
+  pool                 CpaQuestionUse @default(SIMULADO)
+  allowStudyMode       Boolean        @default(true)
+  allowBackNav         Boolean        @default(true)
+  oneQuestionPerScreen Boolean        @default(true)
+  /// Meta pedagógica interna (não é critério oficial de aprovação).
+  targetPercent        Int            @default(70)
+  order                Int
+  status               CpaStatus      @default(PUBLICADO)
+  origin               CpaOrigin      @default(IMPORTADO)
+  sourceHash           String?
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+
+  attempts CpaAttempt[]
+
+  @@unique([tenantId, code])
+  @@map("cpa_exams")
+}
+
+enum CpaAttemptMode {
+  PROVA
+  ESTUDO
+}
+
+model CpaAttempt {
+  id          String         @id @default(uuid(7)) @db.Uuid
+  tenantId    String         @db.Uuid
+  userId      String
+  examId      String         @db.Uuid
+  mode        CpaAttemptMode
+  /// Retrato das questões (enunciado, alternativas embaralhadas, gabarito, explicações, microtemas).
+  items       Json
+  answers     Json           @default("{}")
+  flagged     String[]       @default([])
+  /// Segundos gastos por questão { questionId: s }.
+  timings     Json           @default("{}")
+  startedAt   DateTime       @default(now())
+  deadlineAt  DateTime
+  submittedAt DateTime?
+  expired     Boolean        @default(false)
+  score       Float?
+  hits        Int?
+  result      Json?
+
+  exam CpaExam @relation(fields: [examId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId, startedAt])
+  @@index([examId])
+  @@map("cpa_attempts")
+}
+
+model CpaTree {
+  id         String    @id @default(uuid(7)) @db.Uuid
+  tenantId   String    @db.Uuid
+  code       String
+  title      String
+  scenario   String
+  /// { start, nodes: { id: { text, choices: [{ label, next, score, feedback, competence }] , end?, outcome? } } }
+  graph      Json
+  itemCodes  String[]  @default([])
+  status     CpaStatus @default(PUBLICADO)
+  origin     CpaOrigin @default(IMPORTADO)
+  sourceHash String?
+  updatedAt  DateTime  @updatedAt
+
+  runs CpaTreeRun[]
+
+  @@unique([tenantId, code])
+  @@map("cpa_trees")
+}
+
+model CpaTreeRun {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  userId      String
+  treeId      String    @db.Uuid
+  path        Json      @default("[]")
+  score       Int       @default(0)
+  maxScore    Int       @default(0)
+  competences String[]  @default([])
+  finishedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  tree CpaTree @relation(fields: [treeId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@map("cpa_tree_runs")
+}
+
+model CpaCard {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  code        String
+  front       String
+  back        String
+  explanation String
+  itemCode    String
+  lessonCode  String?
+  status      CpaStatus @default(PUBLICADO)
+  origin      CpaOrigin @default(IMPORTADO)
+  sourceHash  String?
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("cpa_cards")
+}
+
+/// Fila de revisão espaçada por aluno (cartões e questões erradas).
+model CpaReview {
+  id         String   @id @default(uuid(7)) @db.Uuid
+  tenantId   String   @db.Uuid
+  userId     String
+  kind       String
+  refCode    String
+  itemCode   String?
+  stage      Int      @default(0)
+  dueAt      DateTime
+  lapses     Int      @default(0)
+  lastResult Boolean?
+  updatedAt  DateTime @updatedAt
+
+  @@unique([tenantId, userId, kind, refCode])
+  @@index([tenantId, userId, dueAt])
+  @@map("cpa_reviews")
+}
+
+model CpaLessonProgress {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  userId      String
+  lessonId    String    @db.Uuid
+  completed   Boolean   @default(false)
+  seconds     Int       @default(0)
+  lastSection String?
+  checklist   String[]  @default([])
+  exercises   Json      @default("{}")
+  completedAt DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  lesson CpaLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([tenantId, userId])
+  @@map("cpa_lesson_progress")
+}
+
+enum CpaAnnotationKind {
+  MARCADOR
+  DESTAQUE
+  NOTA
+  FAVORITO
+}
+
+model CpaAnnotation {
+  id         String            @id @default(uuid(7)) @db.Uuid
+  tenantId   String            @db.Uuid
+  userId     String
+  lessonCode String
+  kind       CpaAnnotationKind
+  anchor     String?
+  quote      String?
+  note       String?
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  @@index([tenantId, userId, lessonCode])
+  @@map("cpa_annotations")
+}
+
+model CpaStudyPlan {
+  id             String    @id @default(uuid(7)) @db.Uuid
+  tenantId       String    @db.Uuid
+  userId         String
+  examDate       DateTime?
+  hoursPerWeek   Int       @default(6)
+  pace           String    @default("REGULAR")
+  /// Intervalos de revisão em dias (padrão 1, 3, 7, 14).
+  reviewDays     Int[]     @default([1, 3, 7, 14])
+  studyDays      Int[]     @default([1, 2, 3, 4, 5])
+  streakDays     Int       @default(0)
+  lastStudyOn    DateTime? @db.Date
+  totalSeconds   Int       @default(0)
+  lastLessonCode String?
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([tenantId, userId])
+  @@map("cpa_study_plans")
+}
