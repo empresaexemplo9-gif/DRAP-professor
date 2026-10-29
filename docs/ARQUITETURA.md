@@ -28,7 +28,7 @@ Plataforma white-label, multi-segmento, em que um **tenant** (a instituição/do
 
 ```
 Nível (Mentorias | Treinamentos | Cursos | Aulas | Capacitações)
-  └── Segmento (Agronegócio, Finanças, Vendas, Arquitetura, …)
+  └── Segmento (Gestão e Liderança, Finanças, Vendas, Tecnologia, …)
         └── Módulo
               └── Assunto/Conteúdo  ← página gerada a partir dos materiais (blocos + questões + fórum + anexos)
 ```
@@ -185,13 +185,13 @@ Implementação: permissões finas (`module:publish`, `forum:moderate`, …) map
 ### URLs (cada item tem página e URL próprias)
 
 ```
-/mentorias                                   → segmentos do nível
-/mentorias/agronegocio                       → módulos do segmento no nível
-/mentorias/agronegocio/gestao-de-safra       → página do módulo (+ navegação lateral)
-/mentorias/agronegocio/gestao-de-safra/planejamento-de-plantio  → página do assunto
-/mentorias/agronegocio/gestao-de-safra/forum                   → fórum geral do módulo
-/…/planejamento-de-plantio/forum                                → fórum do assunto
-/…/planejamento-de-plantio/avaliacao                            → avaliação do assunto
+/mentorias                                                          → segmentos do nível
+/mentorias/gestao-e-lideranca                                       → módulos do segmento no nível
+/mentorias/gestao-e-lideranca/lideranca-de-equipes                  → página do módulo (+ navegação lateral)
+/mentorias/gestao-e-lideranca/lideranca-de-equipes/feedback-eficaz  → página do assunto
+/mentorias/gestao-e-lideranca/lideranca-de-equipes/forum            → fórum geral do módulo
+/…/feedback-eficaz/forum                                            → fórum do assunto
+/…/feedback-eficaz/avaliacao                                        → avaliação do assunto
 ```
 
 Slugs são únicos no escopo do pai; renomear gera redirecionamento 301 (`SlugRedirect`) para não quebrar links.

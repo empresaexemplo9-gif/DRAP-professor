@@ -29,6 +29,7 @@ run("Row-Level Security", () => {
 
   afterAll(async () => {
     await inTenant(a, (tx) => tx.segment.deleteMany({ where: { tenantId: a } }));
+    await inTenant(a, (tx) => tx.organization.deleteMany({ where: { tenantId: a } }));
     await db.tenant.deleteMany({ where: { id: { in: [a, b] } } });
     await db.$disconnect();
   });
@@ -50,6 +51,12 @@ run("Row-Level Security", () => {
 
   it("não é possível gravar dados em nome de outro tenant", async () => {
     await expect(inTenant(b, (tx) => tx.segment.create({ data: { tenantId: a, name: "Invasão", slug: "invasao" } }))).rejects.toThrow();
+  });
+
+  it("empresas clientes (Enterprise) ficam isoladas por tenant", async () => {
+    await inTenant(a, (tx) => tx.organization.create({ data: { tenantId: a, name: "Cliente de A" } }));
+    expect(await inTenant(b, (tx) => tx.organization.findMany({ where: { name: "Cliente de A" } }))).toHaveLength(0);
+    expect(await db.organization.findMany({ where: { name: "Cliente de A" } })).toHaveLength(0);
   });
 
   it("auditoria é somente inserção", async () => {

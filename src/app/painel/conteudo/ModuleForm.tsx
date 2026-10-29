@@ -15,6 +15,8 @@ type ModuleValues = {
   slug?: string;
   summary?: string;
   workloadHours?: number;
+  priceCents?: number | null;
+  audience?: "INDIVIDUAL" | "EMPRESA";
   certificateType?: string;
   order?: number;
   levelConfig?: Record<string, unknown>;
@@ -52,6 +54,11 @@ export function ModuleForm({ levels, segments, values = {} }: { levels: Option[]
         </SelectField>
         <TextField label="Ordem" name="order" type="number" min={0} defaultValue={values.order ?? 0} error={fe.order} />
       </div>
+      <SelectField label="Público-alvo" name="audience" defaultValue={values.audience ?? "INDIVIDUAL"} hint="Treinamentos para empresas são vendidos por contrato (Painel › Empresas) e liberados à equipe sem matrícula ou Pix individual." error={fe.audience}>
+        <option value="INDIVIDUAL">Capacitação individual — venda por pessoa</option>
+        <option value="EMPRESA">Treinamento para empresas — venda por contrato</option>
+      </SelectField>
+      <TextField label="Preço do curso (R$)" name="price" type="number" step="0.01" min="1" max="100000" defaultValue={values.priceCents == null ? "" : (values.priceCents / 100).toFixed(2)} hint="Somente capacitações individuais. Deixe vazio para manter o curso sem checkout Pix." error={fe.price} />
 
       <fieldset className="space-y-4 rounded-lg border border-border p-4">
         <legend className="px-2 font-display text-lg text-text">Configuração do nível</legend>

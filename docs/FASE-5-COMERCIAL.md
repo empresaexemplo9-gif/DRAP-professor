@@ -1,6 +1,6 @@
 # Fase 5 — Camada comercial e painel de gestão: modelo financeiro, fluxo de pagamento/webhook e régua de inadimplência
 
-> **Status:** proposta para aprovação. Nenhum código da Fase 5 foi escrito ainda.
+> **Status:** proposta comercial ampla; o primeiro escopo de matrícula avulsa por Pix/Asaas está implementado no app, com gestão de cobranças, baixa manual e preços em **Financeiro** e gestão de matrículas em **Matrículas**; o B2B da seção 7.1 (Organization, OrganizationMember, LicensePool, LicenseAssignment, painel do gestor e relatório por equipe) está implementado como **Enterprise**, ainda sem checkout B2B automático nem NFS-e (ver [DEPLOY.md](DEPLOY.md)). Assinaturas, reembolsos, cupons, cartões, boletos e razão financeiro ainda não estão implementados.
 > Complementa [`ARQUITETURA.md`](ARQUITETURA.md) e os documentos das Fases 2 a 4. As decisões que pedem aprovação estão na [seção 11](#11-decisões-para-aprovação).
 >
 > Tarifas, recursos e regras de gateways, de NFS-e e do WhatsApp mudam com frequência. Os itens marcados com 🔎 devem ser confirmados na documentação e no contrato vigentes durante a integração.
@@ -346,7 +346,7 @@ Compra → `Entitlement` do `SessionPackage` + créditos no `SessionCreditLedger
 
 - **Página de vendas por produto**, gerada automaticamente a partir do produto e dos módulos: título, promessa, para quem é, conteúdo programático (do `ModuleRelease`), carga horária, instrutor/responsável (dos signatários e da equipe), depoimentos, perguntas frequentes, garantia (texto da política de reembolso), preço/ofertas e botão de compra.
 - **Editor de página por blocos** (o mesmo sistema de blocos das Fases 2–4), com blocos de venda adicionais: `hero`, `beneficios`, `paraQuem`, `programa` (automático), `depoimentos`, `faq`, `garantia`, `ofertas`, `ctaFixo`, `contagemRegressiva`, `instrutor`. Tudo no tema, sem HTML livre.
-- **SEO:** URL amigável (`/cursos/financas/gestao-financeira-agro`), título e descrição editáveis, Open Graph, dados estruturados schema.org (`Course`, `Offer`, `FAQPage`), sitemap, `canonical`.
+- **SEO:** URL amigável (`/cursos/financas/gestao-financeira-pequenas-empresas`), título e descrição editáveis, Open Graph, dados estruturados schema.org (`Course`, `Offer`, `FAQPage`), sitemap, `canonical`.
 - **Catálogo** por nível e segmento, busca (texto em português) e filtros (nível, segmento, preço, carga horária, modalidade, gratuito, com certificado).
 - **Rastreamento:** UTMs gravadas na sessão e no pedido; **Meta Pixel + API de Conversões** e **Google Analytics 4 / Google Ads** com envio do lado do servidor para os eventos de compra (dados pessoais com hash). Pixels e cookies de marketing **só disparam após consentimento** no banner de cookies (LGPD).
 - **Funil próprio** (não depende dos pixels): `visita_pagina_vendas` → `checkout_iniciado` → `compra` → `ativacao` (primeiro assunto acessado em até 7 dias) → `conclusao` (Fase 3), por produto, canal (UTM), afiliado e período.

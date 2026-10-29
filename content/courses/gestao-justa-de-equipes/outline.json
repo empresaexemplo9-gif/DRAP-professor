@@ -1,0 +1,85 @@
+{
+  "title": "Gestão justa de equipes e escalas",
+  "slug": "gestao-justa-de-equipes-e-escalas",
+  "segment": {
+    "name": "Gestão e Pessoas",
+    "slug": "gestao-e-pessoas"
+  },
+  "hours": 12,
+  "topics": [
+    {
+      "title": "Apresentação do curso",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Módulo 1 — Papel gerencial e princípios de equipe",
+      "slug": "modulo-1-papel-gerencial-e-principios-de-equipe",
+      "kind": "module",
+      "durationMinutes": 75,
+      "moduleNumber": 1
+    },
+    {
+      "title": "Módulo 2 — Organização operacional e prioridades",
+      "slug": "modulo-2-organizacao-operacional-e-prioridades",
+      "kind": "module",
+      "durationMinutes": 75,
+      "moduleNumber": 2
+    },
+    {
+      "title": "Módulo 3 — Planejamento e construção de escalas",
+      "slug": "modulo-3-planejamento-e-construcao-de-escalas",
+      "kind": "module",
+      "durationMinutes": 120,
+      "moduleNumber": 3
+    },
+    {
+      "title": "Módulo 4 — Comunicação, justiça e gestão de mudanças",
+      "slug": "modulo-4-comunicacao-justica-e-gestao-de-mudancas",
+      "kind": "module",
+      "durationMinutes": 90,
+      "moduleNumber": 4
+    },
+    {
+      "title": "Módulo 5 — Delegação, desempenho e feedback",
+      "slug": "modulo-5-delegacao-desempenho-e-feedback",
+      "kind": "module",
+      "durationMinutes": 90,
+      "moduleNumber": 5
+    },
+    {
+      "title": "Módulo 6 — Saúde mental e prevenção de riscos psicossociais",
+      "slug": "modulo-6-saude-mental-e-prevencao-de-riscos-psicossociais",
+      "kind": "module",
+      "durationMinutes": 120,
+      "moduleNumber": 6
+    },
+    {
+      "title": "Módulo 7 — Conflitos, integração e retenção",
+      "slug": "modulo-7-conflitos-integracao-e-retencao",
+      "kind": "module",
+      "durationMinutes": 75,
+      "moduleNumber": 7
+    },
+    {
+      "title": "Módulo 8 — Indicadores, simulação e plano de 30 dias",
+      "slug": "modulo-8-indicadores-simulacao-e-plano-de-30-dias",
+      "kind": "module",
+      "durationMinutes": 75,
+      "moduleNumber": 8
+    },
+    {
+      "title": "Ferramentas de aplicação: escala, plano de 30 dias e checklists",
+      "slug": "ferramentas-de-aplicacao",
+      "kind": "resource",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Avaliação, conclusão e fontes de referência",
+      "slug": "avaliacao-e-fontes",
+      "kind": "resource",
+      "durationMinutes": 0
+    }
+  ]
+}

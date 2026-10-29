@@ -32,6 +32,7 @@ jobs:
       SEED_ADMIN_EMAIL: admin@exemplo.com.br
       SEED_ADMIN_PASSWORD: Admin@12345678
       SEED_DEMO_USERS: "1"
+      COURSES_DIR: "content/cursos:tests/fixtures/cursos"
       AUTH_RATE_LIMIT: "off"
       NEXT_TELEMETRY_DISABLED: "1"
     steps:

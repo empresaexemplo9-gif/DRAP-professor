@@ -105,7 +105,9 @@ export const blockSchema: z.ZodType<Block> = z.lazy(() =>
 
 export const sectionSchema = z.object({
   id: z.string().min(1).max(64),
-  kind: z.enum(["section", "slide", "sheet", "transcript"]).default("section"),
+  kind: z.enum(["section", "material", "atividade", "slide", "sheet", "transcript"]).default("section"),
+  /** Tempo estimado em minutos (carga horária real). */
+  minutes: z.number().int().min(0).max(1000).optional(),
   title: z.string().max(300),
   blocks: z.array(blockSchema).max(2_000),
 });

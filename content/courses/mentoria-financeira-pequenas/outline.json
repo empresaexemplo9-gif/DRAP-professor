@@ -1,0 +1,80 @@
+{
+  "title": "Mentoria Financeira para Pequenas Empresas",
+  "hours": 56,
+  "topics": [
+    {
+      "title": "Como usar esta apostila",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Módulo 1 — Diagnóstico financeiro e governança",
+      "slug": "modulo-1-diagnostico-financeiro-e-governanca",
+      "kind": "module",
+      "durationMinutes": 360,
+      "moduleNumber": 1
+    },
+    {
+      "title": "Módulo 2 — Contabilidade gerencial, DRE e leitura de desempenho",
+      "slug": "modulo-2-contabilidade-gerencial-dre-e-leitura-de-desempenho",
+      "kind": "module",
+      "durationMinutes": 420,
+      "moduleNumber": 2
+    },
+    {
+      "title": "Módulo 3 — Fluxo de caixa, previsão e cenários",
+      "slug": "modulo-3-fluxo-de-caixa-previsao-e-cenarios",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 3
+    },
+    {
+      "title": "Módulo 4 — Capital de giro e ciclo financeiro",
+      "slug": "modulo-4-capital-de-giro-e-ciclo-financeiro",
+      "kind": "module",
+      "durationMinutes": 420,
+      "moduleNumber": 4
+    },
+    {
+      "title": "Módulo 5 — Custos, margem de contribuição e precificação",
+      "slug": "modulo-5-custos-margem-de-contribuicao-e-precificacao",
+      "kind": "module",
+      "durationMinutes": 480,
+      "moduleNumber": 5
+    },
+    {
+      "title": "Módulo 6 — Orçamento, indicadores e decisões de investimento",
+      "slug": "modulo-6-orcamento-indicadores-e-decisoes-de-investimento",
+      "kind": "module",
+      "durationMinutes": 420,
+      "moduleNumber": 6
+    },
+    {
+      "title": "Módulo 7 — Crédito, endividamento e relacionamento bancário",
+      "slug": "modulo-7-credito-endividamento-e-relacionamento-bancario",
+      "kind": "module",
+      "durationMinutes": 360,
+      "moduleNumber": 7
+    },
+    {
+      "title": "Módulo 8 — Plano de mentoria, comunicação e projeto final",
+      "slug": "modulo-8-plano-de-mentoria-comunicacao-e-projeto-final",
+      "kind": "module",
+      "durationMinutes": 420,
+      "moduleNumber": 8
+    },
+    {
+      "title": "Projeto final integrador",
+      "slug": "projeto-final-integrador",
+      "kind": "project",
+      "durationMinutes": 0
+    },
+    {
+      "title": "Gabarito, bibliografia e modelo de certificado",
+      "slug": "gabarito-bibliografia-e-certificado",
+      "kind": "resource",
+      "durationMinutes": 0
+    }
+  ]
+}

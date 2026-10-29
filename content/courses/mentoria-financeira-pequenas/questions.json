@@ -1,0 +1,962 @@
+[
+  {
+    "id": "mfp-m1-q1",
+    "moduleNumber": 1,
+    "prompt": "Qual é o primeiro passo antes de recomendar corte de custos?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cortar imediatamente os maiores gastos"
+      },
+      {
+        "id": "b",
+        "text": "Validar dados, objetivos e causas com diagnóstico"
+      },
+      {
+        "id": "c",
+        "text": "Contratar empréstimo"
+      },
+      {
+        "id": "d",
+        "text": "Aumentar preços sem cálculo"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m1-q2",
+    "moduleNumber": 1,
+    "prompt": "Misturar despesas pessoais e empresariais prejudica principalmente:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Apenas a identidade visual"
+      },
+      {
+        "id": "b",
+        "text": "A confiabilidade do resultado e do caixa"
+      },
+      {
+        "id": "c",
+        "text": "Somente o estoque"
+      },
+      {
+        "id": "d",
+        "text": "Nenhum indicador"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m1-q3",
+    "moduleNumber": 1,
+    "prompt": "Um diagnóstico responsável deve separar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sintoma, causa provável e evidência"
+      },
+      {
+        "id": "b",
+        "text": "Opinião e promessa"
+      },
+      {
+        "id": "c",
+        "text": "Faturamento e seguidores"
+      },
+      {
+        "id": "d",
+        "text": "Preço e publicidade apenas"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m1-q4",
+    "moduleNumber": 1,
+    "prompt": "Quando surgir questão tributária complexa, o mentor deve:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Inventar uma regra prática"
+      },
+      {
+        "id": "b",
+        "text": "Ignorar o tema"
+      },
+      {
+        "id": "c",
+        "text": "Delimitar o escopo e encaminhar ao especialista adequado"
+      },
+      {
+        "id": "d",
+        "text": "Garantir economia fiscal"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "mfp-m1-q5",
+    "moduleNumber": 1,
+    "prompt": "Qual registro melhora a governança da mentoria?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Promessa de lucro"
+      },
+      {
+        "id": "b",
+        "text": "Premissas, decisões, responsáveis e prazos"
+      },
+      {
+        "id": "c",
+        "text": "Somente mensagens informais"
+      },
+      {
+        "id": "d",
+        "text": "Apagar dados divergentes"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m2-q1",
+    "moduleNumber": 2,
+    "prompt": "Uma venda a prazo pode aumentar a receita sem aumentar imediatamente:",
+    "options": [
+      {
+        "id": "a",
+        "text": "O caixa"
+      },
+      {
+        "id": "b",
+        "text": "O faturamento"
+      },
+      {
+        "id": "c",
+        "text": "A conta de clientes"
+      },
+      {
+        "id": "d",
+        "text": "A atividade comercial"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m2-q2",
+    "moduleNumber": 2,
+    "prompt": "Margem bruta é calculada como:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Receita bruta / despesas"
+      },
+      {
+        "id": "b",
+        "text": "Lucro bruto / receita líquida"
+      },
+      {
+        "id": "c",
+        "text": "Caixa / dívida"
+      },
+      {
+        "id": "d",
+        "text": "Ativo / passivo"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m2-q3",
+    "moduleNumber": 2,
+    "prompt": "Qual sinal pode indicar lucro de baixa qualidade?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Conciliação bancária consistente"
+      },
+      {
+        "id": "b",
+        "text": "Receitas recorrentes verificadas"
+      },
+      {
+        "id": "c",
+        "text": "Resultado dependente de evento não recorrente"
+      },
+      {
+        "id": "d",
+        "text": "DRE fechada no prazo"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "mfp-m2-q4",
+    "moduleNumber": 2,
+    "prompt": "A análise horizontal compara:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rubricas ao longo do tempo"
+      },
+      {
+        "id": "b",
+        "text": "Apenas empresas de setores diferentes"
+      },
+      {
+        "id": "c",
+        "text": "Somente saldo bancário"
+      },
+      {
+        "id": "d",
+        "text": "Preço com número de funcionários"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m2-q5",
+    "moduleNumber": 2,
+    "prompt": "Por que lucro e caixa diferem?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Porque são conceitos iguais"
+      },
+      {
+        "id": "b",
+        "text": "Por competência, prazos, investimentos, dívidas e capital de giro"
+      },
+      {
+        "id": "c",
+        "text": "Apenas por erro"
+      },
+      {
+        "id": "d",
+        "text": "Só em empresas grandes"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m3-q1",
+    "moduleNumber": 3,
+    "prompt": "A principal utilidade do fluxo projetado é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Registrar somente o passado"
+      },
+      {
+        "id": "b",
+        "text": "Antecipar falta ou excesso de caixa e orientar decisões"
+      },
+      {
+        "id": "c",
+        "text": "Substituir a DRE"
+      },
+      {
+        "id": "d",
+        "text": "Eliminar incerteza"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m3-q2",
+    "moduleNumber": 3,
+    "prompt": "Uma previsão confiável deve:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ignorar pagamentos incertos"
+      },
+      {
+        "id": "b",
+        "text": "Misturar realizado e projetado sem distinção"
+      },
+      {
+        "id": "c",
+        "text": "Explicitar premissas e atualizar desvios"
+      },
+      {
+        "id": "d",
+        "text": "Contar todo limite como saldo livre"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "mfp-m3-q3",
+    "moduleNumber": 3,
+    "prompt": "Se um cliente importante atrasar, a melhor primeira reação é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Esperar o mês acabar"
+      },
+      {
+        "id": "b",
+        "text": "Atualizar cenário, contatar o cliente e avaliar ações preventivas"
+      },
+      {
+        "id": "c",
+        "text": "Contratar qualquer crédito"
+      },
+      {
+        "id": "d",
+        "text": "Suspender todos os pagamentos sem análise"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m3-q4",
+    "moduleNumber": 3,
+    "prompt": "Erro de previsão recorrente deve levar a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ocultar a previsão"
+      },
+      {
+        "id": "b",
+        "text": "Revisar premissas e processo de coleta"
+      },
+      {
+        "id": "c",
+        "text": "Eliminar o controle"
+      },
+      {
+        "id": "d",
+        "text": "Aumentar a receita no relatório"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m3-q5",
+    "moduleNumber": 3,
+    "prompt": "Qual horizonte é frequentemente útil para gestão de caixa de curto prazo?",
+    "options": [
+      {
+        "id": "a",
+        "text": "13 semanas com atualização semanal"
+      },
+      {
+        "id": "b",
+        "text": "20 anos sem revisão"
+      },
+      {
+        "id": "c",
+        "text": "Apenas o dia anterior"
+      },
+      {
+        "id": "d",
+        "text": "Somente o balanço anual"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m4-q1",
+    "moduleNumber": 4,
+    "prompt": "Se o prazo médio de recebimento aumenta, mantendo o resto constante, o ciclo de caixa tende a:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Diminuir"
+      },
+      {
+        "id": "b",
+        "text": "Aumentar"
+      },
+      {
+        "id": "c",
+        "text": "Ficar sempre igual"
+      },
+      {
+        "id": "d",
+        "text": "Zerar"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m4-q2",
+    "moduleNumber": 4,
+    "prompt": "Ciclo de conversão de caixa é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Estoque + recebimento − pagamento a fornecedores"
+      },
+      {
+        "id": "b",
+        "text": "Receita − imposto"
+      },
+      {
+        "id": "c",
+        "text": "Ativo − patrimônio"
+      },
+      {
+        "id": "d",
+        "text": "Lucro / receita"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m4-q3",
+    "moduleNumber": 4,
+    "prompt": "Uma empresa pode crescer e ficar sem caixa porque:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Toda venda gera caixa no mesmo instante"
+      },
+      {
+        "id": "b",
+        "text": "Precisa financiar estoque e clientes antes de receber"
+      },
+      {
+        "id": "c",
+        "text": "Crescimento elimina despesas"
+      },
+      {
+        "id": "d",
+        "text": "Capital de giro não existe"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m4-q4",
+    "moduleNumber": 4,
+    "prompt": "Uma ação para reduzir capital preso pode ser:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Comprar estoque sem previsão"
+      },
+      {
+        "id": "b",
+        "text": "Ignorar inadimplência"
+      },
+      {
+        "id": "c",
+        "text": "Atacar estoque obsoleto e melhorar cobrança"
+      },
+      {
+        "id": "d",
+        "text": "Alongar todos os pagamentos sem avaliar fornecedores"
+      }
+    ],
+    "correctOption": "c"
+  },
+  {
+    "id": "mfp-m4-q5",
+    "moduleNumber": 4,
+    "prompt": "Capital circulante líquido é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ativo circulante menos passivo circulante"
+      },
+      {
+        "id": "b",
+        "text": "Receita menos custo"
+      },
+      {
+        "id": "c",
+        "text": "Caixa menos vendas"
+      },
+      {
+        "id": "d",
+        "text": "Lucro bruto menos estoque"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m5-q1",
+    "moduleNumber": 5,
+    "prompt": "Margem de contribuição unitária é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Preço líquido menos custos e despesas variáveis unitárias"
+      },
+      {
+        "id": "b",
+        "text": "Preço menos todos os ativos"
+      },
+      {
+        "id": "c",
+        "text": "Faturamento menos saldo bancário"
+      },
+      {
+        "id": "d",
+        "text": "Custos fixos / receita"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m5-q2",
+    "moduleNumber": 5,
+    "prompt": "Se custos fixos são R$ 12.000 e margem unitária R$ 30, o ponto de equilíbrio é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "400 unidades"
+      },
+      {
+        "id": "b",
+        "text": "360 unidades"
+      },
+      {
+        "id": "c",
+        "text": "40 unidades"
+      },
+      {
+        "id": "d",
+        "text": "R$ 12.030"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m5-q3",
+    "moduleNumber": 5,
+    "prompt": "Uma taxa de cartão variável deve ser considerada:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nunca"
+      },
+      {
+        "id": "b",
+        "text": "Na análise de custos/despesas variáveis e preço"
+      },
+      {
+        "id": "c",
+        "text": "Como ativo imobilizado"
+      },
+      {
+        "id": "d",
+        "text": "Somente no balanço anual"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m5-q4",
+    "moduleNumber": 5,
+    "prompt": "Markup isolado pode falhar porque:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Não existe custo variável"
+      },
+      {
+        "id": "b",
+        "text": "Ignora contexto de impostos, margem, mix e mercado"
+      },
+      {
+        "id": "c",
+        "text": "Sempre calcula preço perfeito"
+      },
+      {
+        "id": "d",
+        "text": "Substitui fluxo de caixa"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m5-q5",
+    "moduleNumber": 5,
+    "prompt": "Produto com maior faturamento pode ser menos atrativo quando:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tem margem e custo de servir desfavoráveis"
+      },
+      {
+        "id": "b",
+        "text": "Tem clientes recorrentes"
+      },
+      {
+        "id": "c",
+        "text": "É entregue no prazo"
+      },
+      {
+        "id": "d",
+        "text": "Tem custos medidos"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m6-q1",
+    "moduleNumber": 6,
+    "prompt": "Um KPI útil precisa ter:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nome sofisticado apenas"
+      },
+      {
+        "id": "b",
+        "text": "Fórmula, fonte, frequência, responsável e ação associada"
+      },
+      {
+        "id": "c",
+        "text": "Apenas uma cor"
+      },
+      {
+        "id": "d",
+        "text": "Dados sem dono"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m6-q2",
+    "moduleNumber": 6,
+    "prompt": "Orçamento integrado conecta:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Somente marketing"
+      },
+      {
+        "id": "b",
+        "text": "Operação, DRE, capital de giro e caixa"
+      },
+      {
+        "id": "c",
+        "text": "Apenas saldo bancário"
+      },
+      {
+        "id": "d",
+        "text": "Somente impostos"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m6-q3",
+    "moduleNumber": 6,
+    "prompt": "Payback deve ser usado:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Como única medida em toda decisão"
+      },
+      {
+        "id": "b",
+        "text": "Como complemento a risco, fluxo e valor do dinheiro no tempo"
+      },
+      {
+        "id": "c",
+        "text": "Sem estimar entradas"
+      },
+      {
+        "id": "d",
+        "text": "Para ignorar manutenção"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m6-q4",
+    "moduleNumber": 6,
+    "prompt": "Stress test serve para:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Provar que o cenário base é garantido"
+      },
+      {
+        "id": "b",
+        "text": "Testar resiliência sob condições adversas"
+      },
+      {
+        "id": "c",
+        "text": "Eliminar riscos"
+      },
+      {
+        "id": "d",
+        "text": "Substituir dados"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m6-q5",
+    "moduleNumber": 6,
+    "prompt": "Uma variação desfavorável deve ser analisada por:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Causa e componentes como preço, volume, mix e custo"
+      },
+      {
+        "id": "b",
+        "text": "Culpa presumida"
+      },
+      {
+        "id": "c",
+        "text": "Apenas comparação visual"
+      },
+      {
+        "id": "d",
+        "text": "Apagar a meta"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m7-q1",
+    "moduleNumber": 7,
+    "prompt": "Para comparar empréstimos, além da parcela, é fundamental observar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "A cor do aplicativo"
+      },
+      {
+        "id": "b",
+        "text": "CET, tarifas, garantias, prazo e fluxo total"
+      },
+      {
+        "id": "c",
+        "text": "Apenas o nome do banco"
+      },
+      {
+        "id": "d",
+        "text": "Somente a taxa anunciada"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m7-q2",
+    "moduleNumber": 7,
+    "prompt": "Crédito de curto prazo para investimento de retorno longo pode gerar:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Melhor alinhamento sempre"
+      },
+      {
+        "id": "b",
+        "text": "Descasamento entre vencimentos e geração de caixa"
+      },
+      {
+        "id": "c",
+        "text": "Lucro garantido"
+      },
+      {
+        "id": "d",
+        "text": "Ausência de risco"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m7-q3",
+    "moduleNumber": 7,
+    "prompt": "DSCR é uma relação entre:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fluxo disponível para dívida e serviço da dívida"
+      },
+      {
+        "id": "b",
+        "text": "Estoque e vendas"
+      },
+      {
+        "id": "c",
+        "text": "Ativo e receita"
+      },
+      {
+        "id": "d",
+        "text": "Preço e custo unitário"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m7-q4",
+    "moduleNumber": 7,
+    "prompt": "Antes de recomendar empréstimo, o mentor deve:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Avaliar finalidade e capacidade de pagamento em cenários"
+      },
+      {
+        "id": "b",
+        "text": "Presumir aprovação"
+      },
+      {
+        "id": "c",
+        "text": "Ignorar garantias"
+      },
+      {
+        "id": "d",
+        "text": "Usar só a parcela"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m7-q5",
+    "moduleNumber": 7,
+    "prompt": "Renegociar dívida sem plano de caixa pode:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Resolver estruturalmente toda causa"
+      },
+      {
+        "id": "b",
+        "text": "Adiar o problema sem corrigir sua origem"
+      },
+      {
+        "id": "c",
+        "text": "Eliminar o custo financeiro"
+      },
+      {
+        "id": "d",
+        "text": "Garantir solvência"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m8-q1",
+    "moduleNumber": 8,
+    "prompt": "Um plano de ação eficaz define:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Somente intenções"
+      },
+      {
+        "id": "b",
+        "text": "Responsável, prazo, indicador, base e meta"
+      },
+      {
+        "id": "c",
+        "text": "Apenas o objetivo anual"
+      },
+      {
+        "id": "d",
+        "text": "Somente orçamento"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m8-q2",
+    "moduleNumber": 8,
+    "prompt": "Em conversa difícil, a prática recomendada é:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Confundir hipótese com fato"
+      },
+      {
+        "id": "b",
+        "text": "Apresentar evidência, opções e trade-offs sem julgamento"
+      },
+      {
+        "id": "c",
+        "text": "Prometer resultado"
+      },
+      {
+        "id": "d",
+        "text": "Evitar registrar decisões"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m8-q3",
+    "moduleNumber": 8,
+    "prompt": "A rotina de acompanhamento deve:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Atualizar indicadores e ações em frequência definida"
+      },
+      {
+        "id": "b",
+        "text": "Ocorrer só no encerramento"
+      },
+      {
+        "id": "c",
+        "text": "Ignorar desvios"
+      },
+      {
+        "id": "d",
+        "text": "Substituir controles"
+      }
+    ],
+    "correctOption": "a"
+  },
+  {
+    "id": "mfp-m8-q4",
+    "moduleNumber": 8,
+    "prompt": "Qual é um requisito do projeto final?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dados sem fonte"
+      },
+      {
+        "id": "b",
+        "text": "Diagnóstico integrado e recomendações rastreáveis"
+      },
+      {
+        "id": "c",
+        "text": "Promessa de lucro garantido"
+      },
+      {
+        "id": "d",
+        "text": "Somente slides visuais"
+      }
+    ],
+    "correctOption": "b"
+  },
+  {
+    "id": "mfp-m8-q5",
+    "moduleNumber": 8,
+    "prompt": "Certificação responsável deve refletir:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pagamento apenas"
+      },
+      {
+        "id": "b",
+        "text": "Critérios publicados de participação, avaliação e conclusão"
+      },
+      {
+        "id": "c",
+        "text": "Garantia de emprego"
+      },
+      {
+        "id": "d",
+        "text": "Registro profissional automático"
+      }
+    ],
+    "correctOption": "b"
+  }
+]

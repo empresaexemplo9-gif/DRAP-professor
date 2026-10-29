@@ -313,9 +313,9 @@ Página no tema da plataforma, sem login, com `noindex` (não indexada por busca
 ├───────────────────────────────────────────────────────────────┤
 │ Titular          Maria A. da Silva                               │
 │ CPF              ***.456.789-**                                  │
-│ Curso            Gestão Financeira para o Agronegócio            │
+│ Curso            Gestão Financeira para Pequenas Empresas         │
 │ Tipo/Natureza    Capacitação · Curso livre de formação continuada│
-│ Nível/Segmento   Capacitações › Agronegócio                      │
+│ Nível/Segmento   Capacitações › Finanças                        │
 │ Carga horária    40 horas                                        │
 │ Período          01/08/2026 a 30/09/2026                         │
 │ Válido até       (quando houver reciclagem)                      │
@@ -359,7 +359,7 @@ Content-Type: application/json
 ```json
 { "resultados": [
   { "codigo": "K7QM-4XPA-9TRB", "situacao": "VALIDO", "cpfConfere": true,
-    "titular": "Maria A. da Silva", "curso": "Gestão Financeira para o Agronegócio",
+    "titular": "Maria A. da Silva", "curso": "Gestão Financeira para Pequenas Empresas",
     "cargaHoraria": 40, "emitidoEm": "2026-10-14", "validoAte": null },
   { "codigo": "P3XD-8LWN-2MCF", "situacao": "NAO_ENCONTRADO" }
 ] }

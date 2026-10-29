@@ -4,6 +4,8 @@ import type { Role } from "@prisma/client";
 export const PERMISSIONS = {
   "theme:manage": ["ADMIN"],
   "finance:view": ["ADMIN"],
+  "finance:manage": ["ADMIN"],
+  "enterprise:manage": ["ADMIN"],
   "users:manage": ["ADMIN"],
   "audit:view": ["ADMIN"],
   "content:manage": ["ADMIN", "PEDAGOGICO"],
@@ -40,6 +42,8 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/painel/forum", label: "Fórum", icon: "chat", permission: "learn:study" },
   { href: "/painel/certificados", label: "Certificados", icon: "award", permission: "learn:study" },
   { href: "/painel/conteudo", label: "Conteúdo", icon: "layers", permission: "content:manage" },
+  { href: "/painel/matriculas", label: "Matrículas", icon: "ticket", permission: "enrollment:manage" },
+  { href: "/painel/empresas", label: "Empresas", icon: "briefcase", permission: "enterprise:manage" },
   { href: "/painel/financeiro", label: "Financeiro", icon: "wallet", permission: "finance:view" },
   { href: "/painel/biblioteca", label: "Biblioteca de Materiais", icon: "folder", permission: "library:manage" },
   { href: "/painel/usuarios", label: "Usuários", icon: "users", permission: "users:manage" },

@@ -14,22 +14,25 @@ datasource db {
 // ───────────────────────────── Tenant ─────────────────────────────
 
 model Tenant {
-  id          String       @id @default(uuid(7)) @db.Uuid
-  name        String
-  slug        String       @unique
-  domains     String[]     @default([])
-  legalName   String?
-  cnpj        String?
-  status      TenantStatus @default(ACTIVE)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id        String       @id @default(uuid(7)) @db.Uuid
+  name      String
+  slug      String       @unique
+  domains   String[]     @default([])
+  legalName String?
+  cnpj      String?
+  status    TenantStatus @default(ACTIVE)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 
-  theme       ThemeSettings?
-  memberships Membership[]
-  levels      Level[]
-  segments    Segment[]
-  modules     Module[]
-  topics      Topic[]
+  theme           ThemeSettings?
+  memberships     Membership[]
+  levels          Level[]
+  segments        Segment[]
+  modules         Module[]
+  topics          Topic[]
+  pixCheckouts    PixCheckout[]
+  organizations   Organization[]
+  enterpriseLeads EnterpriseLead[]
 
   @@map("tenants")
 }
@@ -63,25 +66,28 @@ enum ThemeMode {
 // ───────────────────────── Autenticação (Better Auth) ─────────────────────────
 
 model User {
-  id               String    @id
+  id               String   @id
   name             String
-  email            String    @unique
-  emailVerified    Boolean   @default(false)
+  email            String   @unique
+  emailVerified    Boolean  @default(false)
   image            String?
-  twoFactorEnabled Boolean?  @default(false)
+  twoFactorEnabled Boolean? @default(false)
   // CPF cifrado (AES-256-GCM) e hash para busca; preenchido só quando necessário (certificado/nota fiscal)
   cpfEncrypted     String?
-  cpfHash          String?   @unique
+  cpfHash          String?  @unique
   phone            String?
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
-  sessions    Session[]
-  accounts    Account[]
-  twoFactors  TwoFactor[]
-  memberships Membership[]
-  consents    Consent[]
-  enrollments Enrollment[]
+  sessions           Session[]
+  accounts           Account[]
+  twoFactors         TwoFactor[]
+  memberships        Membership[]
+  consents           Consent[]
+  enrollments        Enrollment[]
+  pixCheckouts       PixCheckout[]
+  orgMemberships     OrganizationMember[]
+  licenseAssignments LicenseAssignment[]
 
   @@map("users")
 }
@@ -282,24 +288,37 @@ model Module {
   summary         String?
   coverUrl        String?
   workloadMinutes Int             @default(0)
+  priceCents      Int?
+  // INDIVIDUAL: capacitação vendida por pessoa (Pix). EMPRESA: treinamento vendido por contrato (Enterprise).
+  audience        ModuleAudience  @default(INDIVIDUAL)
   status          ContentStatus   @default(RASCUNHO)
   certificateType CertificateType @default(LIVRE)
   // Configuração específica do nível (validada por src/lib/levels.ts)
   levelConfig     Json            @default("{}")
+  // Ficha do curso (código, instrutor, revisor, objetivos, bibliografia, versão…) — padrão do arquivo 01
+  courseSheet     Json            @default("{}")
   order           Int             @default(0)
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 
-  tenant      Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  level       Level         @relation(fields: [levelId], references: [id])
-  segment     Segment       @relation(fields: [segmentId], references: [id])
-  topics      Topic[]
-  staff       ModuleStaff[]
-  enrollments Enrollment[]
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  level        Level         @relation(fields: [levelId], references: [id])
+  segment      Segment       @relation(fields: [segmentId], references: [id])
+  topics       Topic[]
+  staff        ModuleStaff[]
+  enrollments  Enrollment[]
+  pixCheckouts PixCheckout[]
+  licensePools LicensePool[]
 
   @@unique([levelId, segmentId, slug])
   @@index([tenantId, status])
+  @@index([tenantId, audience, status])
   @@map("modules")
+}
+
+enum ModuleAudience {
+  INDIVIDUAL
+  EMPRESA
 }
 
 enum StaffRole {
@@ -342,6 +361,9 @@ model Topic {
   publishedVersion TopicVersion?   @relation("PublishedVersion", fields: [publishedVersionId], references: [id])
   progress         TopicProgress[]
   notebooks        StudyNotebook[]
+  questions        Question[]
+  attempts         QuizAttempt[]
+  feedback         TopicFeedback[]
 
   @@unique([moduleId, slug])
   @@map("topics")
@@ -382,6 +404,7 @@ enum EnrollmentOrigin {
   ASSINATURA
   ATRIBUICAO
   CORTESIA
+  LICENCA
 }
 
 enum EnrollmentStatus {
@@ -400,15 +423,53 @@ model Enrollment {
   status    EnrollmentStatus @default(ATIVA)
   startsAt  DateTime         @default(now())
   endsAt    DateTime?
+  // Observação interna registrada pela equipe (painel Matrículas)
+  note      String?
   createdAt DateTime         @default(now())
 
-  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  module   Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  progress TopicProgress[]
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module    Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress  TopicProgress[]
   notebooks StudyNotebook[]
+  attempts  QuizAttempt[]
+  feedback  TopicFeedback[]
 
   @@unique([userId, moduleId])
   @@map("enrollments")
+}
+
+enum PixCheckoutStatus {
+  PENDING
+  PAID
+  EXPIRED
+  FAILED
+  CANCELED
+}
+
+model PixCheckout {
+  id                  String            @id @default(uuid(7)) @db.Uuid
+  tenantId            String            @db.Uuid
+  userId              String
+  moduleId            String            @db.Uuid
+  providerPaymentId   String?           @unique
+  amountCents         Int
+  status              PixCheckoutStatus @default(PENDING)
+  pixPayload          String?
+  pixImageDataUrl     String?
+  expiresAt           DateTime?
+  paidAt              DateTime?
+  // Observação interna e autor da baixa manual (painel Financeiro)
+  adminNote           String?
+  manualConfirmedById String?
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId, moduleId, status])
+  @@map("pix_checkouts")
 }
 
 enum ProgressStatus {
@@ -418,15 +479,21 @@ enum ProgressStatus {
 }
 
 model TopicProgress {
-  id             String         @id @default(uuid(7)) @db.Uuid
-  tenantId       String         @db.Uuid
-  enrollmentId   String         @db.Uuid
-  topicId        String         @db.Uuid
-  status         ProgressStatus @default(EM_ANDAMENTO)
-  percent        Int            @default(0)
-  lastSectionId  String?
-  completedAt    DateTime?
-  updatedAt      DateTime       @updatedAt
+  id                String         @id @default(uuid(7)) @db.Uuid
+  tenantId          String         @db.Uuid
+  enrollmentId      String         @db.Uuid
+  topicId           String         @db.Uuid
+  status            ProgressStatus @default(EM_ANDAMENTO)
+  percent           Int            @default(0)
+  lastSectionId     String?
+  // Aulas (seções) concluídas — base da presença mínima para liberar a prova
+  completedSections String[]       @default([])
+  quizCycle         Int            @default(1)
+  quizPassed        Boolean        @default(false)
+  firstScore        Float?
+  bestScore         Float?
+  completedAt       DateTime?
+  updatedAt         DateTime       @updatedAt
 
   enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
   topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
@@ -438,15 +505,15 @@ model TopicProgress {
 // ───────────────────────────── Auditoria e documentos legais ─────────────────────────────
 
 model AuditLog {
-  id         String   @id @default(uuid(7)) @db.Uuid
-  tenantId   String   @db.Uuid
-  actorId    String?
-  action     String
-  entity     String
-  entityId   String?
-  data       Json?
-  ip         String?
-  createdAt  DateTime @default(now())
+  id        String   @id @default(uuid(7)) @db.Uuid
+  tenantId  String   @db.Uuid
+  actorId   String?
+  action    String
+  entity    String
+  entityId  String?
+  data      Json?
+  ip        String?
+  createdAt DateTime @default(now())
 
   @@index([tenantId, createdAt])
   @@map("audit_logs")
@@ -467,4 +534,235 @@ model StudyNotebook {
   @@unique([enrollmentId, topicId])
   @@index([tenantId])
   @@map("study_notebooks")
+}
+
+// ───────────────────────────── Avaliações (padrão do arquivo 01) ─────────────────────────────
+
+enum QuestionKind {
+  MULTIPLA
+  VF
+  ASSOCIACAO
+}
+
+enum BloomLevel {
+  LEMBRAR
+  COMPREENDER
+  APLICAR
+  ANALISAR
+}
+
+model Question {
+  id         String       @id @default(uuid(7)) @db.Uuid
+  tenantId   String       @db.Uuid
+  topicId    String       @db.Uuid
+  code       String
+  objective  String
+  bloom      BloomLevel
+  kind       QuestionKind @default(MULTIPLA)
+  isCase     Boolean      @default(false)
+  stem       String
+  // [{ key: "A", text: "..." }, …]
+  options    Json
+  correct    String
+  commentary String
+  version    Int          @default(1)
+  active     Boolean      @default(true)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, code])
+  @@index([topicId])
+  @@map("questions")
+}
+
+enum AttemptStatus {
+  EM_ANDAMENTO
+  ENTREGUE
+  EXPIRADA
+}
+
+model QuizAttempt {
+  id           String        @id @default(uuid(7)) @db.Uuid
+  tenantId     String        @db.Uuid
+  enrollmentId String        @db.Uuid
+  topicId      String        @db.Uuid
+  cycle        Int
+  number       Int
+  // Snapshot imutável das questões sorteadas (enunciado, alternativas na ordem exibida, gabarito, comentário, versão)
+  items        Json
+  answers      Json          @default("{}")
+  score        Float?
+  passed       Boolean?
+  status       AttemptStatus @default(EM_ANDAMENTO)
+  startedAt    DateTime      @default(now())
+  deadlineAt   DateTime
+  submittedAt  DateTime?
+  ip           String?
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@index([enrollmentId, topicId])
+  @@index([topicId, status])
+  @@map("quiz_attempts")
+}
+
+/// Avaliação de reação do aluno (Kirkpatrick nível 1), por módulo.
+model TopicFeedback {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  tenantId      String   @db.Uuid
+  enrollmentId  String   @db.Uuid
+  topicId       String   @db.Uuid
+  clarity       Int
+  applicability Int
+  overall       Int
+  comment       String?
+  createdAt     DateTime @default(now())
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  topic      Topic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, topicId])
+  @@map("topic_feedback")
+}
+
+// ───────────────────────────── Enterprise (B2B) ─────────────────────────────
+// Empresa cliente compra vagas de um curso (LicensePool); o gestor distribui as vagas à equipe.
+
+enum OrganizationStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum OrgMemberRole {
+  GESTOR
+  COLABORADOR
+}
+
+enum LicensePoolStatus {
+  ACTIVE
+  CANCELED
+}
+
+enum LicenseAssignmentStatus {
+  CONVIDADO
+  ATIVO
+  REVOGADO
+}
+
+enum EnterpriseLeadStatus {
+  NOVO
+  EM_CONTATO
+  FECHADO
+  DESCARTADO
+}
+
+model Organization {
+  id           String             @id @default(uuid(7)) @db.Uuid
+  tenantId     String             @db.Uuid
+  name         String
+  legalName    String?
+  // Somente dígitos
+  cnpj         String?
+  contactName  String?
+  contactEmail String?
+  contactPhone String?
+  notes        String?
+  status       OrganizationStatus @default(ACTIVE)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  tenant  Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  members OrganizationMember[]
+  pools   LicensePool[]
+
+  @@unique([tenantId, cnpj])
+  @@map("organizations")
+}
+
+model OrganizationMember {
+  id             String        @id @default(uuid(7)) @db.Uuid
+  tenantId       String        @db.Uuid
+  organizationId String        @db.Uuid
+  userId         String
+  role           OrgMemberRole @default(COLABORADOR)
+  // Equipe/área dentro da empresa (ex.: "Vendas", "Filial SP")
+  team           String?
+  createdAt      DateTime      @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, userId])
+  @@index([tenantId, userId])
+  @@map("organization_members")
+}
+
+model LicensePool {
+  id             String            @id @default(uuid(7)) @db.Uuid
+  tenantId       String            @db.Uuid
+  organizationId String            @db.Uuid
+  moduleId       String            @db.Uuid
+  seats          Int
+  startsAt       DateTime          @default(now())
+  // Fim do acesso das vagas; vazio = sem prazo
+  endsAt         DateTime?
+  // Prazo de conclusão e meta (% da equipe concluída) acompanhados pelo gestor
+  dueAt          DateTime?
+  goalPercent    Int               @default(90)
+  contractCents  Int?
+  status         LicensePoolStatus @default(ACTIVE)
+  note           String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  organization Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  module       Module              @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  assignments  LicenseAssignment[]
+
+  @@index([tenantId, organizationId])
+  @@map("license_pools")
+}
+
+model LicenseAssignment {
+  id           String                  @id @default(uuid(7)) @db.Uuid
+  tenantId     String                  @db.Uuid
+  poolId       String                  @db.Uuid
+  email        String
+  userId       String?
+  // Equipe informada pelo gestor; aplicada ao colaborador quando a vaga é ativada
+  team         String?
+  status       LicenseAssignmentStatus @default(CONVIDADO)
+  assignedById String?
+  activatedAt  DateTime?
+  revokedAt    DateTime?
+  createdAt    DateTime                @default(now())
+
+  pool LicensePool @relation(fields: [poolId], references: [id], onDelete: Cascade)
+  user User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@unique([poolId, email])
+  @@index([tenantId, email, status])
+  @@map("license_assignments")
+}
+
+model EnterpriseLead {
+  id          String               @id @default(uuid(7)) @db.Uuid
+  tenantId    String               @db.Uuid
+  company     String
+  contactName String
+  email       String
+  phone       String?
+  teamSize    Int?
+  interests   String[]             @default([])
+  message     String?
+  status      EnterpriseLeadStatus @default(NOVO)
+  createdAt   DateTime             @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, createdAt])
+  @@map("enterprise_leads")
 }

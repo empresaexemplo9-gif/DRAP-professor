@@ -81,7 +81,7 @@ export default async function DesignSystemPage() {
           <Alert tone="info">Informação.</Alert><Alert tone="success">Sucesso.</Alert><Alert tone="warning">Atenção.</Alert><Alert tone="danger">Erro.</Alert>
         </div>
         <DataTable head={["Aluno", "Módulo", "Nota"]} caption="Exemplo de tabela">
-          <tr><td>Maria Silva</td><td>Gestão de safra</td><td className="tabular-nums">9,5</td></tr>
+          <tr><td>Maria Silva</td><td>Fundamentos de Liderança</td><td className="tabular-nums">9,5</td></tr>
           <tr><td>João Souza</td><td>Fluxo de caixa</td><td className="tabular-nums">8,0</td></tr>
         </DataTable>
         <DemoControls />

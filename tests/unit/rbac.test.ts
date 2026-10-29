@@ -12,7 +12,9 @@ describe("matriz de permissões e abas por perfil", () => {
     const l = labels(["PEDAGOGICO"]);
     expect(l).toContain("Conteúdo");
     expect(l).toContain("Biblioteca de Materiais");
+    expect(l).toContain("Matrículas");
     expect(l).not.toContain("Financeiro");
+    expect(l).not.toContain("Empresas");
     expect(l).not.toContain("Usuários");
     expect(l).not.toContain("Configurações e Tema");
   });
@@ -23,7 +25,12 @@ describe("matriz de permissões e abas por perfil", () => {
   });
 
   it("administrador vê todas as abas", () => {
-    expect(labels(["ADMIN"])).toHaveLength(11);
+    expect(labels(["ADMIN"])).toHaveLength(13);
+  });
+
+  it("só o administrador edita cobranças e preços", () => {
+    expect(can(["ADMIN"], "finance:manage")).toBe(true);
+    expect(can(["PEDAGOGICO"], "finance:manage")).toBe(false);
   });
 
   it("papéis combinados somam permissões", () => {

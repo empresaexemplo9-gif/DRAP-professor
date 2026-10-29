@@ -1,0 +1,3108 @@
+{
+  "source": {
+    "fileName": "source.docx",
+    "title": "Gestão justa de equipes e escalas",
+    "sha256": "1c2d8eecb66966c2d3862017dd398085da745626385da97ed2c35a28a3f38d1b",
+    "paragraphs": 241,
+    "tables": 5
+  },
+  "topics": [
+    {
+      "title": "Apresentação do curso",
+      "slug": "apresentacao",
+      "kind": "introduction",
+      "durationMinutes": 0,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Apresentação do curso",
+        "sections": [
+          {
+            "id": "gje-s-capa-0",
+            "kind": "section",
+            "title": "Gestão justa de equipes e escalas",
+            "blocks": [
+              {
+                "id": "gje-b-0",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "FORMAÇÃO PROFISSIONAL",
+                    "marks": [
+                      "bold"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-2",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Curso livre completo com apostila, atividades e ferramentas de aplicação"
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-3",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Como manter a operação funcionando com clareza, previsibilidade, descanso e respeito às pessoas."
+                  }
+                ]
+              },
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Formato",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Público",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Resultado esperado",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "12 horas | 8 módulos"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Gestores, encarregados, supervisores e líderes de turno"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Aplicar rotina de liderança, construir escala objetiva e acompanhar riscos, desempenho e bem-estar"
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                "id": "gje-b-7"
+              },
+              {
+                "id": "gje-b-8",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Material didático | Brasil | Atualizado em 21 de outubro de 2026"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-apresentao-0",
+            "kind": "section",
+            "title": "Apresentação",
+            "blocks": [
+              {
+                "id": "gje-b-11",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Gerenciar uma equipe exige mais do que conhecer a operação. O líder precisa organizar o trabalho de modo que as responsabilidades estejam claras, a cobertura do serviço seja suficiente e as pessoas tenham condições reais de cumprir a jornada e descansar. Uma escala compreensível, divulgada com antecedência e administrada com critérios consistentes reduz improviso e conflitos, facilita a continuidade do serviço e melhora a experiência de quem já trabalha e de quem está chegando."
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-12",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Esta apostila transforma essa premissa em práticas observáveis. O curso trata a escala como ferramenta de gestão e prevenção de riscos, junto com comunicação, delegação, justiça, desempenho e saúde mental. Não presume que uma escala, sozinha, resolva toda rotatividade: remuneração, condições de trabalho, cultura, oportunidades, segurança e relações também influenciam a decisão de permanecer."
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-13",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "O material é educacional e não substitui análise jurídica, convenções e acordos coletivos, medicina/segurança do trabalho ou políticas internas. Antes de aprovar jornadas e mudanças, valide o caso com RH, departamento pessoal, SST e assessoria jurídica."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-apresentao-1",
+            "kind": "section",
+            "title": "Como usar este curso",
+            "blocks": [
+              {
+                "id": "gje-b-15",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Aplicação sugerida: 12 horas, em dois dias ou quatro encontros de 3 horas."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Cada módulo combina explicação, debate, exercício e evidência prática."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Participantes devem trazer um exemplo real de rotina ou escala, sem dados pessoais identificáveis."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Ao final, cada líder sai com um plano de 30 dias, um modelo de escala e uma rotina de acompanhamento."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-apresentao-2",
+            "kind": "section",
+            "title": "Resultados de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-20",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Diagnosticar gargalos de equipe com dados, observação e escuta."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Planejar cobertura por demanda e competências, respeitando limites legais e acordos aplicáveis."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Comunicar a escala, administrar trocas e ausências com registro e critérios justos."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Delegar, orientar, dar feedback e reconhecer contribuições com consistência."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Identificar fatores de risco psicossocial relacionados ao trabalho e encaminhar corretamente."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Acompanhar indicadores sem incentivar competição prejudicial ou ocultação de problemas."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-apresentao-3",
+            "kind": "section",
+            "title": "Roteiro e carga horária",
+            "blocks": [
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Módulo",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Tema",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Tempo",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Papel gerencial e princípios de equipe"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1 h 15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "2"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Organização operacional e prioridades"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1 h 15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "3"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Planejamento e construção de escalas"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "2 h"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "4"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Comunicação, justiça e gestão de mudanças"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1 h 30"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "5"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Delegação, desempenho e feedback"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1 h 30"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "6"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Saúde mental, descanso e riscos psicossociais"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "2 h"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "7"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Conflitos, integração e retenção"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1 h 15"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "8"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Indicadores, simulação e plano de 30 dias"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "1 h 15"
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                "id": "gje-b-27"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Módulo 1 — Papel gerencial e princípios de equipe",
+      "slug": "modulo-1-papel-gerencial-e-principios-de-equipe",
+      "kind": "module",
+      "durationMinutes": 75,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 1 — Papel gerencial e princípios de equipe",
+        "sections": [
+          {
+            "id": "gje-s-mdulo1papelg-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-29",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-29-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: reconhecer que liderança é uma competência aprendida, diferente de domínio técnico da função."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo1papelg-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-31",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Conhecimento técnico ajuda a compreender a operação; não garante capacidade de planejar, comunicar, decidir com equidade ou desenvolver pessoas."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "O gestor responde por combinar objetivo, recursos, papéis, padrões e acompanhamento. Não transfere sua responsabilidade de organizar para a equipe."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Princípios: clareza, previsibilidade, consistência, escuta, imparcialidade, prestação de contas e respeito."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Gestão justa não significa tratar situações diferentes de forma idêntica: significa usar critérios transparentes, relacionados ao trabalho e aplicados com coerência."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo1papelg-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-36",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Em duplas, compare duas situações: liderança tecnicamente experiente que improvisa escalas e liderança nova que consulta dados, comunica critérios e acompanha. Identifique comportamentos observáveis e impactos na operação."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo1papelg-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-38",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Uma lista pessoal com dois pontos fortes e duas práticas a desenvolver, cada uma vinculada a um comportamento concreto."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 1
+    },
+    {
+      "title": "Módulo 2 — Organização operacional e prioridades",
+      "slug": "modulo-2-organizacao-operacional-e-prioridades",
+      "kind": "module",
+      "durationMinutes": 75,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 2 — Organização operacional e prioridades",
+        "sections": [
+          {
+            "id": "gje-s-mdulo2organi-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-40",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-40-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: transformar demanda em cobertura, sem confundir urgência constante com planejamento."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo2organi-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-42",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Mapear ciclos de demanda por dia, horário, atividade e sazonalidade; usar registros disponíveis e validar hipóteses com quem executa o trabalho."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Definir atividades críticas, níveis mínimos de cobertura e competências necessárias por faixa horária."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Distinguir falta de pessoal, distribuição inadequada, falha de processo, treinamento insuficiente e pico excepcional."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Estabelecer rotina de início de turno, passagem de serviço, prioridades e escalonamento de incidentes."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo2organi-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-47",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Desenhe o fluxo de um turno: entradas, picos, tarefas essenciais, pausas, passagem de serviço e contingências. Marque em que horários falta cobertura e o que pode ser reorganizado sem sobrecarregar uma pessoa."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo2organi-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-49",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Mapa simples de demanda e cobertura com três hipóteses testáveis."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 2
+    },
+    {
+      "title": "Módulo 3 — Planejamento e construção de escalas",
+      "slug": "modulo-3-planejamento-e-construcao-de-escalas",
+      "kind": "module",
+      "durationMinutes": 120,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 3 — Planejamento e construção de escalas",
+        "sections": [
+          {
+            "id": "gje-s-mdulo3planej-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-51",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-51-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: produzir uma escala objetiva, legível, validada e administrável."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo3planej-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-53",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Começar pela demanda e competências: quais postos precisam estar cobertos em quais horários? Depois alocar pessoas habilitadas e verificar jornada, folgas, intervalos e regras aplicáveis."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Publicar a escala com antecedência definida pela empresa e pela norma coletiva; indicar período, turno, horários, folgas, pausas, local/função, responsável e canal para correção."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Manter critérios para fins de semana, feriados, abertura/fechamento, turnos menos desejados e distribuição de horas extras. Registrar exceções e explicar a razão."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Trocas: definir pedido, aprovação, prazo, conferência de competência e descanso, atualização do registro e comunicação a todos os envolvidos. Não deixar acordos informais sem validação."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Mudanças imprevistas: documentar motivo, comunicar diretamente, avaliar impacto individual e operacional e buscar alternativa menos onerosa."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Validar escala conforme CLT, convenção/acordo coletivo, contratos, regras setoriais e orientações internas. Não usar modelo genérico para declarar conformidade jurídica."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo3planej-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-60",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Caso prático: uma equipe de 8 pessoas precisa cobrir atendimento de segunda a domingo, 07h–23h, com pico 11h–14h e 17h–20h. Identifique dados ausentes, defina cobertura por função, proponha critérios de rodízio e construa uma semana-modelo em branco. Explique como checou o descanso e quais validações ainda são necessárias."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo3planej-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-62",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Uma escala semanal simulada, lista de premissas e pendências para validação com RH/DP/SST."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo3planej-4",
+            "kind": "section",
+            "title": "Modelo de quadro semanal",
+            "blocks": [
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Pessoa / função",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Seg",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Ter",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Qua",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Qui",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Sex",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Sáb",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dom",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Observações",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ]
+                ],
+                "id": "gje-b-64"
+              },
+              {
+                "id": "gje-b-65",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Legenda a definir: turno/horário, folga, férias, treinamento, ausência autorizada. Preencher pausas e intervalos de forma visível quando exigido. Restringir o acesso aos dados pessoais."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo3planej-5",
+            "kind": "section",
+            "title": "Lista de verificação da escala",
+            "blocks": [
+              {
+                "id": "gje-b-67",
+                "type": "list",
+                "style": "check",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A demanda por período foi estimada com dados e validação da equipe?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Cada atividade crítica tem pessoa habilitada e cobertura suficiente?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Jornada, intervalos, descanso entre jornadas, repousos, horas extras e regras coletivas foram conferidos por profissional responsável?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Critérios de rodízio e distribuição foram escritos e aplicados sem favoritismo?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Folgas, pausas, local, horário e responsável estão legíveis e sem ambiguidades?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A escala foi divulgada no prazo definido? Mudanças e trocas estão registradas?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Há plano para faltas, picos e emergências sem depender sempre das mesmas pessoas?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A escala foi revisada com a equipe e o que foi aprendido ficou registrado?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 3
+    },
+    {
+      "title": "Módulo 4 — Comunicação, justiça e gestão de mudanças",
+      "slug": "modulo-4-comunicacao-justica-e-gestao-de-mudancas",
+      "kind": "module",
+      "durationMinutes": 90,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 4 — Comunicação, justiça e gestão de mudanças",
+        "sections": [
+          {
+            "id": "gje-s-mdulo4comuni-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-76",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-76-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: explicar decisões, receber solicitações e tratar exceções sem humilhar ou criar regras paralelas."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo4comuni-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-78",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Comunicar o que muda, por que muda, quando passa a valer, quem é afetado e onde pedir apoio."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Ouvir não é prometer atender tudo: é entender restrições, aplicar critérios e dar retorno no prazo combinado."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Separar comportamento observável de rótulo pessoal. Tratar assunto sensível em privado e manter registros proporcionais e protegidos."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Evitar retaliação, exposição pública, brincadeiras humilhantes e cobrança por canais fora da jornada sem regra definida."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo4comuni-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-83",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Pratique uma conversa: explique a alteração de um turno por necessidade operacional, escute o impacto e avalie alternativas. O observador verifica clareza, respeito, critério e compromisso de retorno."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo4comuni-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-85",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Roteiro de conversa com decisão, justificativa, alternativa examinada e data de retorno."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 4
+    },
+    {
+      "title": "Módulo 5 — Delegação, desempenho e feedback",
+      "slug": "modulo-5-delegacao-desempenho-e-feedback",
+      "kind": "module",
+      "durationMinutes": 90,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 5 — Delegação, desempenho e feedback",
+        "sections": [
+          {
+            "id": "gje-s-mdulo5delega-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-87",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-87-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: alinhar resultados, autonomia e acompanhamento sem microgerenciar."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo5delega-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-89",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Delegar com contexto, resultado esperado, limites de decisão, recursos, prazo e ponto de checagem. Confirmar entendimento."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Definir poucas metas que a pessoa possa influenciar; combinar qualidade, segurança, serviço e sustentabilidade do ritmo."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Feedback útil: situação específica, comportamento observável, efeito no trabalho, escuta da perspectiva da pessoa e próximo passo."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Reconhecer contribuições com especificidade e sinceridade. Corrigir falhas em tempo adequado, sem ameaça ou comparação vexatória."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Acompanhar pessoas e processo: quando o padrão falha, verificar se houve clareza, treinamento, ferramenta e capacidade antes de atribuir intenção."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo5delega-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-95",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Transforme três frases vagas (“tenha mais atitude”, “seja mais rápido”, “melhore a comunicação”) em expectativas observáveis, recursos e checkpoints."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo5delega-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-97",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Um acordo de desempenho curto e uma conversa de feedback simulada."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 5
+    },
+    {
+      "title": "Módulo 6 — Saúde mental e prevenção de riscos psicossociais",
+      "slug": "modulo-6-saude-mental-e-prevencao-de-riscos-psicossociais",
+      "kind": "module",
+      "durationMinutes": 120,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 6 — Saúde mental e prevenção de riscos psicossociais",
+        "sections": [
+          {
+            "id": "gje-s-reaespecials-0",
+            "kind": "section",
+            "title": "Área especial · Saúde mental, descanso e trabalho sustentável",
+            "blocks": [
+              {
+                "id": "gje-b-99",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Saúde mental no trabalho é influenciada por fatores individuais e pelas condições de trabalho. O líder não diagnostica nem substitui atendimento clínico; sua responsabilidade prática é organizar o trabalho, ouvir sem julgamento, reduzir riscos sob seu controle, agir contra assédio e encaminhar preocupações pelos canais adequados."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-reaespecials-1",
+            "kind": "section",
+            "title": "Área especial · Por que o descanso precisa entrar no planejamento",
+            "blocks": [
+              {
+                "id": "gje-b-101",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Pausas e períodos de recuperação ajudam a reduzir acúmulo de fadiga; jornadas irregulares e mudanças frequentes podem prejudicar sono, atenção, tomada de decisão e segurança."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Descanso não é prêmio por bom desempenho: deve ser planejado e protegido conforme a legislação, instrumentos coletivos e regras aplicáveis."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Escala previsível dá condição para organizar sono, deslocamento, cuidado familiar, estudo e vida fora do trabalho. Mudanças de última hora repetidas corroem essa previsibilidade."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Não dependa de heroísmo, horas extras constantes ou da disponibilidade permanente de alguns colaboradores para fechar a operação. Isso mascara subdimensionamento ou falha de desenho."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Ajustar pausas, turnos, carga e participação da equipe são intervenções organizacionais; bem-estar não deve ser tratado apenas como responsabilidade individual."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-reaespecials-2",
+            "kind": "section",
+            "title": "Área especial · Fatores que podem empurrar alguém a uma saída abrupta",
+            "blocks": [
+              {
+                "id": "gje-b-107",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Não há uma única causa nem uma ordem universal. Uma saída conturbada pode resultar de um conjunto acumulado de experiências e condições. Faça entrevistas de saída e escuta contínua; não atribua a decisão de uma pessoa a um único motivo sem ouvi-la."
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-108",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Escalas ausentes, confusas ou alteradas sem critério, sobretudo quando a falta de previsibilidade afeta descanso e compromissos pessoais."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Percepção de favoritismo, distribuição desigual de turnos, horas extras, tarefas difíceis, folgas ou oportunidades."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Sobrecarga crônica, falta de pessoal, pausas inviáveis e pressão constante para “dar conta”."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Liderança que não escuta, comunica tarde, muda regras de forma arbitrária ou reage com punição quando há discordância."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Assédio, discriminação, conflito sem tratamento, falta de segurança psicológica ou ausência de apoio."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Expectativas incompatíveis com remuneração, treinamento insuficiente, falta de recursos ou ausência de perspectiva de desenvolvimento."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-114",
+                "type": "callout",
+                "variant": "atencao",
+                "blocks": [
+                  {
+                    "id": "gje-b-114-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A má organização da escala é um fator gerencial modificável e pode contribuir para desgaste, piora da experiência e intenção de saída. É correto tratá-la como prioridade de gestão; não é correto afirmar que seja sempre a principal causa em todas as empresas sem dados locais."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-reaespecials-3",
+            "kind": "section",
+            "title": "Área especial · Sinais de alerta e resposta do líder",
+            "blocks": [
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Sinal observado",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Resposta adequada",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Fadiga frequente, erros, atrasos ou queda abrupta de atenção"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Converse em privado, avalie carga, turno, pausas, cobertura e segurança; acione os canais de SST/RH."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Pessoa relata sofrimento ou dificuldade emocional"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Escute sem pressionar por detalhes; pergunte de que apoio precisa no trabalho; informe canais disponíveis e encaminhe conforme protocolo."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Conflito, humilhação, assédio ou discriminação"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Interrompa risco imediato, preserve dignidade e confidencialidade, registre fatos e siga os canais formais; não prometa sigilo absoluto."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Risco iminente à segurança ou à vida"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Acione imediatamente o protocolo de emergência local e suporte profissional competente. Não deixe a pessoa sem apoio."
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                "id": "gje-b-116"
+              },
+              {
+                "id": "gje-b-117",
+                "type": "callout",
+                "variant": "atencao",
+                "blocks": [
+                  {
+                    "id": "gje-b-117-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "O que evitar: diagnosticar, minimizar (“isso é frescura”), exigir relato íntimo, prometer segredo sem limite, expor a pessoa à equipe ou fazer da conversa uma avaliação disciplinar improvisada."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo6sademe-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-119",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-119-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: atuar sobre condições de trabalho e saber encaminhar situações de sofrimento."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo6sademe-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-121",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A OMS recomenda ações organizacionais para modificar fatores psicossociais, treinamento de gestores e formação de trabalhadores; a intervenção deve considerar participação significativa da equipe."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Exemplos de fatores relacionados ao trabalho: carga excessiva, baixo controle sobre o trabalho, papéis confusos, apoio insuficiente, assédio, discriminação e horários que prejudicam recuperação."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "No Brasil, a NR-1 atualizada inclui fatores de risco psicossociais relacionados ao trabalho no gerenciamento de riscos ocupacionais; a implementação do capítulo 1.5 entrou em vigor em 26 de maio de 2026. A empresa deve coordenar com SST/RH e profissionais competentes a avaliação e medidas do GRO/PGR."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "O líder contribui oferecendo evidências da organização real do trabalho, registrando perigos e medidas, ouvindo trabalhadores e acompanhando se as ações reduzem exposição."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Apoio individual pode complementar a prevenção, mas não substitui a correção de sobrecarga, escala insegura, conflito ou assédio."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo6sademe-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-127",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Em grupos, faça análise de um turno: riscos psicossociais possíveis, fonte organizacional, pessoas expostas, medida de prevenção, responsável, prazo e como medir. Não colete histórias clínicas."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo6sademe-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-129",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Registro de risco e plano de ação para discussão com SST/RH, sem dados de saúde identificáveis."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 6
+    },
+    {
+      "title": "Módulo 7 — Conflitos, integração e retenção",
+      "slug": "modulo-7-conflitos-integracao-e-retencao",
+      "kind": "module",
+      "durationMinutes": 75,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 7 — Conflitos, integração e retenção",
+        "sections": [
+          {
+            "id": "gje-s-mdulo7confli-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-131",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-131-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: resolver atritos com método e dar aos novos profissionais um início organizado."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo7confli-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-133",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Em conflito, separar fatos, impacto, regra aplicável e necessidades; ouvir as partes com imparcialidade e combinar ação e revisão."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Integração começa antes do primeiro turno: informar escala, local, uniforme/equipamento, pessoa de referência, tarefas e canais de dúvida."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Um novo funcionário percebe a gestão pela coerência entre o que foi prometido e o que encontra: acolhimento, organização, justiça e capacidade de pedir ajuda."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Saída brusca é dado para aprender, não motivo para punir quem sai nem para desqualificar sua versão. Identifique padrões sem expor indivíduos."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo7confli-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-138",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Desenhe os primeiros sete dias de uma pessoa recém-contratada, com pontos de contato, treinamento, pausas, escala conhecida e avaliação de compreensão."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo7confli-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-140",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Checklist de integração de 7 dias e roteiro de entrevista de permanência."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 7
+    },
+    {
+      "title": "Módulo 8 — Indicadores, simulação e plano de 30 dias",
+      "slug": "modulo-8-indicadores-simulacao-e-plano-de-30-dias",
+      "kind": "module",
+      "durationMinutes": 75,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Módulo 8 — Indicadores, simulação e plano de 30 dias",
+        "sections": [
+          {
+            "id": "gje-s-mdulo8indica-0",
+            "kind": "section",
+            "title": "Objetivo",
+            "blocks": [
+              {
+                "id": "gje-b-142",
+                "type": "callout",
+                "variant": "destaque",
+                "title": "Objetivo do módulo",
+                "blocks": [
+                  {
+                    "id": "gje-b-142-p",
+                    "type": "paragraph",
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Objetivo: acompanhar se mudanças de gestão melhoram a operação e a experiência da equipe."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo8indica-1",
+            "kind": "section",
+            "title": "Conteúdo essencial",
+            "blocks": [
+              {
+                "id": "gje-b-144",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Indicadores úteis: antecedência de publicação da escala; alterações tardias; trocas pendentes; horas extras; ausência não planejada; pausas não realizadas; cobertura por competência; retrabalho/erros; incidentes; rotatividade e motivos de saída."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Desagregar dados com cautela e privacidade; observar tendências e contexto. Indicador isolado não prova causa nem deve virar ranking punitivo."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Definir linha de base, responsável, frequência e ação quando um indicador sai do limite acordado. Combinar números com escuta qualitativa."
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Revisar em ciclos curtos: planejar, testar, ouvir, medir e ajustar."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo8indica-2",
+            "kind": "section",
+            "title": "Atividade prática",
+            "blocks": [
+              {
+                "id": "gje-b-149",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Simulação final: absorver aumento inesperado da demanda sem reduzir descanso ou transferir toda a carga à mesma pessoa. Apresente escala revisada, comunicação à equipe, riscos, plano de contingência e indicadores de revisão."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-mdulo8indica-3",
+            "kind": "section",
+            "title": "Evidência de aprendizagem",
+            "blocks": [
+              {
+                "id": "gje-b-151",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Plano de 30 dias com três ações, um responsável por ação, prazo, indicador e data de revisão."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-planodeaplic-0",
+            "kind": "section",
+            "title": "Plano de aplicação em 30 dias",
+            "blocks": [
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Período",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Ação",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Evidência / indicador",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 1–5"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Mapear demanda, escalas atuais e pontos de atrito; ouvir a equipe em espaço seguro."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Mapa de cobertura; linha de base de alterações e horas extras."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 6–10"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Definir critérios de escala, responsáveis, prazos de publicação e canal de troca."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Critérios escritos e validados com RH/DP/SST."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 11–20"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Testar escala piloto e realizar check-in semanal curto."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Mudanças tardias, cobertura, pausas e percepção de previsibilidade."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 21–30"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Revisar dados e relatos; corrigir gargalos; registrar aprendizados."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Reunião de revisão e próxima versão do plano."
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                "id": "gje-b-153"
+              }
+            ]
+          }
+        ]
+      },
+      "moduleNumber": 8
+    },
+    {
+      "title": "Ferramentas de aplicação: escala, plano de 30 dias e checklists",
+      "slug": "ferramentas-de-aplicacao",
+      "kind": "resource",
+      "durationMinutes": 0,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Ferramentas de aplicação: escala, plano de 30 dias e checklists",
+        "sections": [
+          {
+            "id": "gje-s-kit-0",
+            "kind": "section",
+            "title": "Modelo de quadro semanal (Módulo 3)",
+            "blocks": [
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Pessoa / função",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Seg",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Ter",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Qua",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Qui",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Sex",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Sáb",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dom",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Observações",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    },
+                    {
+                      "text": []
+                    }
+                  ]
+                ],
+                "id": "gje-b-64"
+              },
+              {
+                "id": "gje-b-65",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Legenda a definir: turno/horário, folga, férias, treinamento, ausência autorizada. Preencher pausas e intervalos de forma visível quando exigido. Restringir o acesso aos dados pessoais."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-kit-1",
+            "kind": "section",
+            "title": "Lista de verificação da escala (Módulo 3)",
+            "blocks": [
+              {
+                "id": "gje-b-67",
+                "type": "list",
+                "style": "check",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A demanda por período foi estimada com dados e validação da equipe?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Cada atividade crítica tem pessoa habilitada e cobertura suficiente?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Jornada, intervalos, descanso entre jornadas, repousos, horas extras e regras coletivas foram conferidos por profissional responsável?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Critérios de rodízio e distribuição foram escritos e aplicados sem favoritismo?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Folgas, pausas, local, horário e responsável estão legíveis e sem ambiguidades?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A escala foi divulgada no prazo definido? Mudanças e trocas estão registradas?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Há plano para faltas, picos e emergências sem depender sempre das mesmas pessoas?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A escala foi revisada com a equipe e o que foi aprendido ficou registrado?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-planodeaplic-0",
+            "kind": "section",
+            "title": "Plano de aplicação em 30 dias",
+            "blocks": [
+              {
+                "type": "table",
+                "header": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Período",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Ação",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Evidência / indicador",
+                          "marks": [
+                            "bold"
+                          ]
+                        }
+                      ],
+                      "header": true
+                    }
+                  ]
+                ],
+                "rows": [
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 1–5"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Mapear demanda, escalas atuais e pontos de atrito; ouvir a equipe em espaço seguro."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Mapa de cobertura; linha de base de alterações e horas extras."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 6–10"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Definir critérios de escala, responsáveis, prazos de publicação e canal de troca."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Critérios escritos e validados com RH/DP/SST."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 11–20"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Testar escala piloto e realizar check-in semanal curto."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Mudanças tardias, cobertura, pausas e percepção de previsibilidade."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Dias 21–30"
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Revisar dados e relatos; corrigir gargalos; registrar aprendizados."
+                        }
+                      ]
+                    },
+                    {
+                      "text": [
+                        {
+                          "kind": "text",
+                          "text": "Reunião de revisão e próxima versão do plano."
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                "id": "gje-b-153"
+              }
+            ]
+          },
+          {
+            "id": "gje-s-checklistdir-0",
+            "kind": "section",
+            "title": "Checklist diário do líder",
+            "blocks": [
+              {
+                "id": "gje-b-155",
+                "type": "list",
+                "style": "check",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A equipe conhece prioridades, papéis e canal de apoio do turno?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A cobertura e as competências críticas estão atendidas?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "As pausas e a passagem de serviço foram planejadas?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Alguma pessoa está acumulando horas extras, tarefas críticas ou turnos menos desejados repetidamente?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Houve mudança de escala? Foi validada, comunicada e registrada?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Há sinal de risco à saúde ou segurança que precisa de ação/encaminhamento?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "O que aconteceu hoje que exige ajuste no próximo turno?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-checklistsem-0",
+            "kind": "section",
+            "title": "Checklist semanal de gestão",
+            "blocks": [
+              {
+                "id": "gje-b-163",
+                "type": "list",
+                "style": "check",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Escala futura foi publicada no prazo e está atualizada?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Folgas, intervalos e demais limites foram revisados pela área responsável?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Solicitações de troca e conflitos de cobertura tiveram resposta?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "A distribuição de turnos, tarefas e horas extras segue critérios transparentes?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Houve check-in de equipe, feedback ou reconhecimento específico?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Pausas, fadiga, sobrecarga e riscos psicossociais foram discutidos com os canais adequados?"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Quais indicadores pioraram ou melhoraram e que ação será tomada?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Avaliação, conclusão e fontes de referência",
+      "slug": "avaliacao-e-fontes",
+      "kind": "resource",
+      "durationMinutes": 0,
+      "document": {
+        "schemaVersion": 2,
+        "title": "Avaliação, conclusão e fontes de referência",
+        "sections": [
+          {
+            "id": "gje-s-avaliaoeconc-0",
+            "kind": "section",
+            "title": "Avaliação e conclusão",
+            "blocks": [
+              {
+                "id": "gje-b-171",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "A avaliação do curso pode combinar participação, exercício de escala e plano final. Critérios sugeridos: (1) identifica premissas e dados ausentes; (2) considera cobertura e competências; (3) lista verificações legais e coletivas para validação; (4) comunica critérios e mudanças com respeito; (5) inclui descanso e prevenção de riscos; (6) define indicadores e acompanhamento. Sugestão de conclusão: presença mínima definida pelo organizador e entrega do plano de aplicação. Por ser curso livre, eventual certificado depende de quem o oferece e não equivale a habilitação profissional regulamentada."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gje-s-fonteseleitu-0",
+            "kind": "section",
+            "title": "Fontes e leituras de referência",
+            "blocks": [
+              {
+                "id": "gje-b-173",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Fontes consultadas em 21 de outubro de 2026. Consulte a versão oficial vigente e as regras coletivas aplicáveis antes de tomar decisões sobre jornada ou escala."
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-174",
+                "type": "list",
+                "style": "bullet",
+                "items": [
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Organização Mundial da Saúde. Guidelines on mental health at work (2022). Recomendações sobre intervenções organizacionais, capacitação de gestores e participação. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.who.int/publications-detail-redirect/9789240053052",
+                        "href": "https://www.who.int/publications-detail-redirect/9789240053052"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Organização Mundial da Saúde. Mental health at work (ficha informativa, atualização consultada em 2026). Prevenção de riscos e ações organizacionais. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work",
+                        "href": "https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Organização Internacional do Trabalho. Guide to developing balanced working time arrangements (2019). Manual prático para desenho de horários equilibrados. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.ilo.org/publications/guide-developing-balanced-working-time-arrangements",
+                        "href": "https://www.ilo.org/publications/guide-developing-balanced-working-time-arrangements"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Organização Internacional do Trabalho. Questions and answers on business and working time. Orientações sobre jornada, fadiga e descanso; a legislação nacional prevalece nos detalhes aplicáveis. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.ilo.org/ilo-helpdesk-questions-and-answers-business-and-working-time",
+                        "href": "https://www.ilo.org/ilo-helpdesk-questions-and-answers-business-and-working-time"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Ministério do Trabalho e Emprego. NR-1: Disposições Gerais e Gerenciamento de Riscos Ocupacionais. Página oficial, incluindo a revisão do capítulo 1.5 e vigência em 26/05/2026. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-paritaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/nr-1",
+                        "href": "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-paritaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/nr-1"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Brasil. Consolidação das Leis do Trabalho (CLT), texto compilado. Verificar especialmente regras de duração do trabalho, intervalos e repouso conforme contexto e alterações vigentes. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://planalto.gov.br/ccivil_03/decreto-lei/del5452compilado.htm",
+                        "href": "https://planalto.gov.br/ccivil_03/decreto-lei/del5452compilado.htm"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Gallup. The Relationship Between Engagement at Work and Organizational Outcomes: 11th Edition Q12 Meta-Analysis (2024). Associação entre engajamento e resultados organizacionais; não estabelece causalidade para cada contexto. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.gallup.com/file/workplace/645380/Q12%202024%20Q12%20Meta-Analysis.pdf",
+                        "href": "https://www.gallup.com/file/workplace/645380/Q12%202024%20Q12%20Meta-Analysis.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "text": [
+                      {
+                        "kind": "text",
+                        "text": "Gallup e Workhuman. New Research Finds Recognition in the Workplace Could Prevent 45% of Voluntary Turnover (2024). Pesquisa longitudinal reportada pelas organizações autoras. "
+                      },
+                      {
+                        "kind": "link",
+                        "text": "https://www.gallup.com/file/analytics/650651/Gallup-Workhuman-Human-Centered-Workplace-Press-Release.pdf",
+                        "href": "https://www.gallup.com/file/analytics/650651/Gallup-Workhuman-Human-Centered-Workplace-Press-Release.pdf"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "gje-b-182",
+                "type": "paragraph",
+                "text": [
+                  {
+                    "kind": "text",
+                    "text": "Nota metodológica: fontes institucionais e pesquisas de mercado sustentam os princípios gerais do curso. Alegações sobre causas de saída, fadiga e produtividade devem ser confrontadas com dados da própria organização; associações agregadas não garantem o mesmo efeito em cada equipe."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

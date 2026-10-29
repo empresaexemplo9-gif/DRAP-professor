@@ -30,6 +30,30 @@ Os papéis `anon` e `authenticated` do Supabase não têm acesso a nenhuma tabel
 | `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` | ✅ | — | Administrador inicial (criado uma única vez) |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | opcional | opcional | Login com Google (redirect: `<URL>/api/auth/callback/google`) |
 | `RESEND_API_KEY` / `EMAIL_FROM` | opcional | opcional | E-mails transacionais; ao configurar, a confirmação de e-mail passa a ser exigida |
+| `ASAAS_ENVIRONMENT` | ✅ | ✅ | `sandbox` em Preview; `production` apenas após homologação |
+| `ASAAS_API_KEY` | ✅ | ✅ | Chave privada do Asaas; nunca expor no navegador ou no repositório |
+| `ASAAS_WEBHOOK_TOKEN` | ✅ | ✅ | Token secreto configurado no webhook do Asaas |
+| `ENTERPRISE_LEADS_EMAIL` | opcional | opcional | Recebe o aviso de novos pedidos de proposta Enterprise |
+
+### Matrícula paga por Pix (primeiro escopo)
+
+- Um administrador configura o preço em cada curso publicado, no campo **Preço do curso** do módulo. Cursos sem preço não exibem checkout.
+- O aluno autenticado gera uma cobrança Pix no Asaas. A página mostra QR Code e Pix copia e cola; o navegador consulta o estado a cada 8 segundos.
+- Configure o webhook Asaas em `https://<dominio-de-producao>/api/webhooks/asaas`, com os eventos `PAYMENT_RECEIVED` e `PAYMENT_CONFIRMED`. Use o mesmo `ASAAS_WEBHOOK_TOKEN` no cabeçalho secreto `asaas-access-token`.
+- O retorno do navegador e o payload do webhook não liberam acesso. O servidor consulta a cobrança no Asaas, confere ID, referência externa e valor; só então cria/reativa a matrícula `COMPRA` numa transação.
+- **Painel › Financeiro** (somente Administrador): totais de receita, lista de cobranças Pix com filtros por situação e, por cobrança, **Verificar no Asaas** (reconsulta o provedor), **Cancelar** (remove a cobrança no Asaas e marca como `Cancelado`) e **Confirmar pagamento manualmente** (baixa com justificativa obrigatória, que libera a matrícula e fica na auditoria). A seção **Preços dos cursos** edita o valor de cada curso; vazio retira o curso do checkout.
+- **Painel › Matrículas** (Administrador e Pedagógico): matricula uma conta existente em qualquer curso (origem Atribuição, Cortesia, Compra ou Assinatura), com prazo opcional de acesso e observação interna; edita situação, origem, prazo e observação de cada matrícula. Matrículas com prazo vencido deixam de liberar o conteúdo e passam a `Expirada`. Todas as alterações são auditadas.
+- **Enterprise (B2B)** — treinamento de equipes inteiras de empresas clientes, para qualquer curso, treinamento, mentoria, aula ou capacitação do catálogo:
+  - **Painel › Empresas** (Administrador): cadastra a empresa (CNPJ validado), os **gestores** (contas existentes) e os **contratos de vagas** (curso, quantidade, vigência, prazo de conclusão, meta da equipe em %, valor). Editar ou cancelar um contrato, ou suspender a empresa, atualiza na hora as matrículas `LICENCA`. A aba **Pedidos de proposta** lista os contatos enviados pela página pública.
+  - **Painel › Minha empresa** (aparece só para gestores): cola a lista de e-mails da equipe (até 500 por vez) com a equipe/área; quem já tem conta recebe acesso imediato, quem não tem recebe convite e a vaga é ativada no primeiro acesso ao painel com aquele e-mail. Acompanha progresso, meta e prazo, filtra por equipe e exporta CSV. A vaga só pode ser repassada enquanto o colaborador não concluiu nenhum assunto.
+  - **/empresas** (público): apresentação da versão Enterprise com todos os temas publicados e formulário de proposta. Defina `ENTERPRISE_LEADS_EMAIL` para receber o aviso por e-mail (padrão: `SEED_ADMIN_EMAIL`).
+  - O pagamento do contrato é combinado fora do checkout Pix (proposta/fatura); registre o valor no contrato.
+- **Público-alvo dos módulos** (campo *Público-alvo* no editor do módulo):
+  - **Capacitação individual** (`INDIVIDUAL`): aparece na vitrine principal e é vendida por pessoa (matrícula + Pix).
+  - **Treinamento para empresas** (`EMPRESA`): não tem checkout individual; é vendido por contrato em Painel › Empresas e entregue aos colaboradores pelas vagas, sem matrícula avulsa. Aparece em `/empresas` (seção *Treinamentos exclusivos*), na chamada para empresas da página inicial e com o selo *Para empresas* no catálogo. O gestor da empresa contratante lê o conteúdo e baixa a apostila para acompanhar a equipe.
+  - **Mentorias** (aba no menu, `/mentorias`): uma aba por tipo — *Pequenas empresas*, *Médias empresas* e *Grandes empresas* — com as mentorias financeiras por porte (público `EMPRESA`, contratadas por proposta). Elas substituem a antiga "Mentoria em Finanças para Pequenas Empresas", que foi **arquivada** (não excluída) pelo seed, preservando matrículas. Os banners ficam em `public/images/mentorias/` e são ligados em `src/lib/mentorships.ts`.
+  - Treinamento instalado pelo seed: **Gestão justa de equipes e escalas** (`/treinamentos/gestao-e-pessoas/gestao-justa-de-equipes-e-escalas`, 12 h, 8 módulos, apostila em `content/courses/gestao-justa-de-equipes/`).
+- Configure primeiro chaves distintas de sandbox em Preview e conclua uma compra de teste. Em produção, use chave e token próprios do ambiente live. A tela de preços suporta Pix à vista por curso; descontos, reembolsos e outros meios não fazem parte deste escopo.
 
 ## Fluxo de deploy
 
