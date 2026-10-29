@@ -21,6 +21,7 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "cursos:validar": "tsx scripts/validar-cursos.ts",
+    "cpa:validar": "tsx scripts/cpa-validar.ts",
     "db:reset": "prisma migrate reset --force --skip-seed && tsx prisma/seed.ts",
     "postinstall": "prisma generate"
   },
