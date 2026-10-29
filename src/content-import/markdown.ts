@@ -7,6 +7,7 @@ import { CALLOUT_VARIANTS, type Block, type Inline, type ListItem } from "@/cont
  *   - [ ] / - [x]  checklist       | a | b |  tabelas      ```  código
  *   > [!DICA] Título  destaque (DICA, ATENCAO, DESTAQUE, EXEMPLO, INFO)
  *   > texto / > — Autor  citação  ---  divisor               demais linhas: parágrafos
+ *   $$ … $$  fórmula (LaTeX, uma ou várias linhas)
  * Os ids são determinísticos (prefixo + posição) para manter âncoras estáveis entre importações.
  */
 
@@ -27,7 +28,7 @@ export function markdownToBlocks(md: string, idPrefix: string): Block[] {
   let i = 0;
 
   const isSpecial = (l: string) =>
-    /^#{3,4}\s/.test(l) || /^\s*([-*]|\d+\.)\s/.test(l) || l.startsWith("|") || l.startsWith(">") || l.startsWith("```") || /^-{3,}\s*$/.test(l);
+    /^#{3,4}\s/.test(l) || /^\s*([-*]|\d+\.)\s/.test(l) || l.startsWith("|") || l.startsWith(">") || l.startsWith("```") || l.trim().startsWith("$$") || /^-{3,}\s*$/.test(l);
 
   while (i < lines.length) {
     const line = lines[i]!;
@@ -46,6 +47,17 @@ export function markdownToBlocks(md: string, idPrefix: string): Block[] {
     if (/^-{3,}\s*$/.test(line)) {
       blocks.push({ id: id(), type: "divider" });
       i++;
+      continue;
+    }
+    // Fórmula
+    if (line.trim().startsWith("$$")) {
+      let body = line.trim().slice(2);
+      i++;
+      if (!body.trim().endsWith("$$")) {
+        while (i < lines.length && !lines[i]!.trim().endsWith("$$")) body += "\n" + lines[i++]!;
+        body += "\n" + (lines[i++] ?? "");
+      }
+      blocks.push({ id: id(), type: "formula", latex: body.trim().replace(/\$\$\s*$/, "").trim() });
       continue;
     }
     // Código

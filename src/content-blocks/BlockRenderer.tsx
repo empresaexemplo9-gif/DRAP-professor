@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Block, ContentDocument, Inline, ListItem } from "./schema";
 import { clsx } from "clsx";
+import katex from "katex";
 
 /**
  * Renderizador único de blocos. Cada tipo é mapeado para um componente que usa
@@ -115,6 +116,14 @@ export function BlockView({ block }: { block: Block }) {
         <pre tabIndex={0} className="overflow-x-auto rounded-lg border border-border bg-surface-raised p-4 text-sm">
           <code className="font-mono">{block.code}</code>
         </pre>
+      );
+    case "formula":
+      return (
+        <figure className="my-6 overflow-x-auto rounded-lg border border-border bg-surface-raised p-4" tabIndex={0} aria-label="Fórmula">
+          {/* KaTeX gera HTML + MathML a partir do LaTeX do próprio conteúdo (sem HTML do autor). */}
+          <div dangerouslySetInnerHTML={{ __html: katex.renderToString(block.latex, { displayMode: true, throwOnError: false, output: "htmlAndMathml", trust: false }) }} />
+          {block.legend && <figcaption className="mt-2 text-sm text-text-muted">{block.legend}</figcaption>}
+        </figure>
       );
     case "divider":
       return <hr className="border-border" />;

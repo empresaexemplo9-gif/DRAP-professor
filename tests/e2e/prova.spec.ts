@@ -1,4 +1,7 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { expect, test } from "@playwright/test";
+import { parseCourse } from "../../src/content-import/course";
 import { ADMIN, DEMO_PASSWORD, expectAccessible, expectNoHorizontalScroll, login } from "./helpers";
 
 // Curso de teste em tests/fixtures/cursos (o CI semeia esse diretório junto com o catálogo).
@@ -69,3 +72,23 @@ test("equipe pedagógica vê as métricas do banco de questões", async ({ page,
   await expect(page.getByText("TST001-M1-Q01 v1")).toBeVisible();
   await expectAccessible(page);
 });
+
+// Cada curso do catálogo oficial (content/cursos) abre a ficha e o primeiro módulo sem violações de acessibilidade.
+const CATALOG = process.env.E2E_COURSES_DIR ?? join(process.cwd(), "content", "cursos");
+for (const file of readdirSync(CATALOG).filter((f) => f.endsWith(".md")).sort()) {
+  test(`curso do catálogo ${file} abre ficha e primeiro módulo`, async ({ page, isMobile }) => {
+    test.skip(isMobile, "conteúdo dos cursos validado no desktop; o layout móvel é coberto pelo curso de teste");
+    const spec = parseCourse(readFileSync(join(CATALOG, file), "utf8"), file);
+    await login(page, "aluno@exemplo.com.br", DEMO_PASSWORD);
+    const course = `/cursos/${spec.segment.slug}/${spec.slug}`;
+    await page.goto(course);
+    await expect(page.getByRole("heading", { level: 1, name: spec.title })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Ficha do curso" })).toBeVisible();
+    await expectAccessible(page);
+    await page.goto(`${course}/${spec.modules[0]!.slug}`);
+    await expect(page.getByRole("heading", { name: "Objetivos de aprendizagem" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Prova do módulo" })).toBeVisible();
+    await expectAccessible(page);
+    await expectNoHorizontalScroll(page);
+  });
+}
