@@ -67,7 +67,10 @@ export function chapterOf(code: string, chapters: CpaCatalog["chapters"]): numbe
   return null;
 }
 
-export function loadCpaCatalog(root = join(process.cwd(), "content", "cpa")): { catalog: CpaCatalog; errors: string[] } {
+/** `chapter` limita a leitura aos arquivos de um capítulo (aulas CPA-CC-*, questoes/CC-*, cartoes/CC-*). */
+export function loadCpaCatalog(root = join(process.cwd(), "content", "cpa"), chapter?: number): { catalog: CpaCatalog; errors: string[] } {
+  const cc = chapter ? String(chapter).padStart(2, "0") : null;
+  const only = (prefix: string) => (f: string) => !cc || f.startsWith(prefix.replace("CC", cc));
   const errors: string[] = [];
   const program = JSON.parse(readFileSync(join(root, "programa-oficial.json"), "utf8")) as Program;
   const chapters = structureSchema.parse(JSON.parse(readFileSync(join(root, "estrutura.json"), "utf8"))).chapters;
@@ -80,10 +83,11 @@ export function loadCpaCatalog(root = join(process.cwd(), "content", "cpa")): { 
     }
   };
   const lessons = md(join(root, "aulas"))
+    .filter(only("CPA-CC-"))
     .map((f) => attempt(() => parseCpaLesson(readFileSync(join(root, "aulas", f), "utf8"), f)))
     .filter((x): x is CpaLessonSpec => Boolean(x));
-  const bank = md(join(root, "questoes")).flatMap((f) => attempt(() => parseCpaQuestions(readFileSync(join(root, "questoes", f), "utf8"), f)) ?? []);
-  const cards = md(join(root, "cartoes")).flatMap((f) => attempt(() => parseCpaCards(readFileSync(join(root, "cartoes", f), "utf8"), f)) ?? []);
+  const bank = md(join(root, "questoes")).filter(only("CC-")).flatMap((f) => attempt(() => parseCpaQuestions(readFileSync(join(root, "questoes", f), "utf8"), f)) ?? []);
+  const cards = md(join(root, "cartoes")).filter(only("CC-")).flatMap((f) => attempt(() => parseCpaCards(readFileSync(join(root, "cartoes", f), "utf8"), f)) ?? []);
   const treeDir = join(root, "arvores");
   const trees = (existsSync(treeDir) ? readdirSync(treeDir).filter((f) => f.endsWith(".json")).sort() : [])
     .map((f) => attempt(() => treeSchema.parse(JSON.parse(readFileSync(join(treeDir, f), "utf8")))))

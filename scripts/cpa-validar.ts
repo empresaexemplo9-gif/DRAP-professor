@@ -2,11 +2,15 @@
  * Valida todo o conteúdo do preparatório CPA (content/cpa) e mostra a matriz de cobertura.
  *   npm run cpa:validar            → erros (falha), avisos e cobertura por macrotema
  *   npm run cpa:validar -- --lacunas   → lista os microtemas-folha sem aula ou sem questão
+ *   npm run cpa:validar -- --capitulo 3 --lacunas   → só os arquivos e microtemas do capítulo 3
  */
 import { loadCpaCatalog, validateCpaCatalog } from "../src/lib/cpa/catalog";
 
-const { catalog, errors: parseErrors } = loadCpaCatalog();
+const chapterArg = process.argv.indexOf("--capitulo");
+const chapter = chapterArg > 0 ? Number(process.argv[chapterArg + 1]) : undefined;
+const { catalog, errors: parseErrors } = loadCpaCatalog(undefined, chapter);
 const report = validateCpaCatalog(catalog);
+if (chapter) report.coverage = report.coverage.filter((r) => r.chapter === chapter);
 const errors = [...parseErrors, ...report.errors];
 
 const leaves = report.coverage;
