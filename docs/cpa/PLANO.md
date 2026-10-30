@@ -2,6 +2,8 @@
 
 Este é o registro da fase 1 do projeto CPA. O controle de execução, atualizado a cada lote, fica em [`CONTROLE.md`](CONTROLE.md).
 
+> **Preparatório para a prova oficial da CPA. A plataforma não emite certificado deste curso** (a certificação é exclusiva da ANBIMA, pela prova oficial).
+>
 > Material autoral de preparação. A DRAP Professor não é a ANBIMA nem tem vínculo com ela: nenhuma questão, aula ou simulado da plataforma é publicação oficial ou questão de prova aplicada.
 
 ## 1. Auditoria do projeto existente

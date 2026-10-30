@@ -94,7 +94,7 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
       prerequisites: l.prerequisites,
       objectives: l.objectives,
       document: l.document as unknown as Prisma.InputJsonValue,
-      extras: { exercises: l.exercises, checklist: l.checklist } as unknown as Prisma.InputJsonValue,
+      extras: { exercises: l.exercises, checklist: l.checklist, source: l.source } as unknown as Prisma.InputJsonValue,
       references: l.references as unknown as Prisma.InputJsonValue,
       checkedAt: l.checkedAt ? new Date(l.checkedAt) : null,
       nextLessonCode: l.next ?? null,

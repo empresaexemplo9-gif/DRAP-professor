@@ -68,6 +68,8 @@ export type CpaLessonSpec = {
   checklist: string[];
   references: CpaReferenceSpec[];
   hash: string;
+  /** Texto-fonte da aula (Markdown com ficha), usado pela edição no painel. */
+  source: string;
 };
 
 export type CpaCardSpec = { code: string; item: string; lesson?: string; front: string; back: string; explanation: string };
@@ -259,6 +261,7 @@ export function parseCpaLesson(source: string, file: string): CpaLessonSpec {
     checklist,
     references,
     hash: hash(text),
+    source: text,
   };
 }
 
