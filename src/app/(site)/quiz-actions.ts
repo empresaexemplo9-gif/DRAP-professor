@@ -3,20 +3,58 @@ import { randomInt } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import type { Prisma } from "@prisma/client";
+import type { EnrollmentStatus, Prisma, Role } from "@prisma/client";
 import { withTenant } from "@/lib/db";
 import { clientIp, getViewer } from "@/lib/session";
+import { can } from "@/lib/rbac";
+import { isPastEnd } from "@/lib/enrollments";
 import { audit } from "@/lib/audit";
 import { buildAttempt, grade, quizGate, type AttemptItem, type QuestionForQuiz } from "@/lib/quiz";
 import { ensureProgress, lessonIds, quizConfig, readSheet, refreshEnrollment } from "@/lib/course-progress";
 
 const uuid = z.string().uuid();
+/** Caminho interno do site: recusa "//host" e "/\\host", que o navegador trata como outro domínio. */
+const internalPath = z.string().regex(/^\/(?![/\\])/);
 
-async function loadContext(topicId: string) {
+/** Mesmas condições da página do assunto: conta ativa e termos aceitos. */
+async function requireStudent() {
   const viewer = await getViewer();
   if (!viewer) redirect("/entrar");
+  if (viewer.disabled) redirect("/acesso-desativado");
+  if (viewer.needsConsent) redirect("/aceite");
+  return viewer;
+}
+
+async function loadContext(topicId: string) {
+  const viewer = await requireStudent();
   const tenantId = viewer.tenant.id;
   return { viewer, tenantId, topicId: uuid.parse(topicId) };
+}
+
+/** Matrícula que não libera estudo: inexistente, cancelada, expirada ou com o prazo vencido. */
+function inactive(enrollment: { status: EnrollmentStatus; endsAt: Date | null } | null) {
+  return !enrollment || enrollment.status === "CANCELADA" || enrollment.status === "EXPIRADA" || isPastEnd(enrollment);
+}
+
+/** Curso sequencial: o assunto só abre depois que o anterior foi concluído (a equipe pedagógica pré-visualiza). */
+async function lockedByPrevious(
+  tx: Prisma.TransactionClient,
+  topic: { id: string; moduleId: string },
+  enrollmentId: string,
+  levelConfig: unknown,
+  roles: readonly Role[],
+) {
+  if (can(roles, "content:manage")) return false;
+  if ((levelConfig as { sequential?: boolean } | null)?.sequential === false) return false;
+  const topics = await tx.topic.findMany({
+    where: { moduleId: topic.moduleId, status: "PUBLICADO" },
+    orderBy: { order: "asc" },
+    select: { id: true, _count: { select: { questions: { where: { active: true } } } } },
+  });
+  const prev = topics[topics.findIndex((t) => t.id === topic.id) - 1];
+  if (!prev) return false;
+  const progress = await tx.topicProgress.findUnique({ where: { enrollmentId_topicId: { enrollmentId, topicId: prev.id } } });
+  return !(prev._count.questions > 0 ? progress?.quizPassed : progress?.status === "CONCLUIDO");
 }
 
 /** Marca/desmarca uma aula (seção) como concluída — base da presença mínima. */
@@ -26,11 +64,12 @@ export async function markSectionAction(fd: FormData) {
   const done = fd.get("done") === "1";
   const path = String(fd.get("path") ?? "/");
   await withTenant(tenantId, async (tx) => {
-    const topic = await tx.topic.findFirst({ where: { id: topicId, tenantId, status: "PUBLICADO" }, include: { publishedVersion: true } });
+    const topic = await tx.topic.findFirst({ where: { id: topicId, tenantId, status: "PUBLICADO" }, include: { publishedVersion: true, module: { select: { levelConfig: true } } } });
     if (!topic?.publishedVersion) return;
     if (!lessonIds(topic.publishedVersion.document).includes(sectionId)) return;
     const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: topic.moduleId } } });
-    if (!enrollment || enrollment.status === "CANCELADA" || enrollment.status === "EXPIRADA") return;
+    if (!enrollment || inactive(enrollment)) return;
+    if (await lockedByPrevious(tx, topic, enrollment.id, topic.module.levelConfig, viewer.roles)) return;
     const progress = await ensureProgress(tx, tenantId, enrollment.id, topicId);
     const set = new Set(progress.completedSections);
     if (done) set.add(sectionId);
@@ -45,13 +84,14 @@ export async function markSectionAction(fd: FormData) {
 /** Inicia uma tentativa (sorteio das questões, ordem das alternativas e prazo). */
 export async function startQuizAction(fd: FormData) {
   const { viewer, tenantId, topicId } = await loadContext(String(fd.get("topicId")));
-  const path = z.string().startsWith("/").parse(fd.get("path"));
+  const path = internalPath.parse(fd.get("path"));
   const ip = await clientIp();
   const result = await withTenant(tenantId, async (tx) => {
     const topic = await tx.topic.findFirst({ where: { id: topicId, tenantId, status: "PUBLICADO" }, include: { publishedVersion: true, module: true } });
     if (!topic?.publishedVersion) return { error: "Módulo não encontrado." };
     const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: topic.moduleId } } });
-    if (!enrollment || enrollment.status === "CANCELADA" || enrollment.status === "EXPIRADA") return { error: "Matrícula inativa." };
+    if (!enrollment || inactive(enrollment)) return { error: "Matrícula inativa." };
+    if (await lockedByPrevious(tx, topic, enrollment.id, topic.module.levelConfig, viewer.roles)) return { error: "Seja aprovado no módulo anterior para liberar esta prova." };
     const cfg = quizConfig(readSheet(topic.module.courseSheet));
     const progress = await ensureProgress(tx, tenantId, enrollment.id, topicId);
     const bank = await tx.question.findMany({ where: { topicId, active: true } });
@@ -136,11 +176,10 @@ const answersSchema = z.record(z.string().uuid(), z.enum(["A", "B", "C", "D", "E
 
 /** Entrega da prova (também usada no encerramento automático pelo tempo). */
 export async function submitQuizAction(input: { attemptId: string; answers: Record<string, string>; path: string }) {
-  const viewer = await getViewer();
-  if (!viewer) redirect("/entrar");
+  const viewer = await requireStudent();
   const attemptId = uuid.parse(input.attemptId);
   const answers = answersSchema.parse(input.answers);
-  const path = z.string().startsWith("/").parse(input.path);
+  const path = internalPath.parse(input.path);
   const tenantId = viewer.tenant.id;
   await withTenant(tenantId, async (tx) => {
     const attempt = await tx.quizAttempt.findFirst({ where: { id: attemptId, tenantId }, include: { enrollment: true } });
@@ -157,7 +196,7 @@ export async function submitQuizAction(input: { attemptId: string; answers: Reco
 /** Salva respostas parciais (recuperação após queda de conexão). */
 export async function saveAnswersAction(input: { attemptId: string; answers: Record<string, string> }) {
   const viewer = await getViewer();
-  if (!viewer) return;
+  if (!viewer || viewer.disabled || viewer.needsConsent) return;
   const attemptId = uuid.parse(input.attemptId);
   const answers = answersSchema.parse(input.answers);
   await withTenant(viewer.tenant.id, async (tx) => {

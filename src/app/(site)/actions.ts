@@ -6,7 +6,7 @@ import { isPastEnd } from "@/lib/enrollments";
 
 export async function markTopicAction(formData: FormData) {
   const viewer = await getViewer();
-  if (!viewer) return;
+  if (!viewer || viewer.disabled || viewer.needsConsent) return;
   const topicId = String(formData.get("topicId"));
   const done = formData.get("done") === "1";
   const path = String(formData.get("path") ?? "/");

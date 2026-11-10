@@ -78,6 +78,7 @@ export async function updateEnrollmentAction(_: EnrollmentState, fd: FormData): 
   const result = await withTenant(tenantId, async (tx) => {
     const before = await tx.enrollment.findFirst({ where: { id: id.data, tenantId } });
     if (!before) return { error: "Matrícula não encontrada." };
+    if (origin.data === "LICENCA" && before.origin !== "LICENCA") return { error: "A origem Licença empresarial só vem do contrato da empresa." };
     await tx.enrollment.update({ where: { id: before.id }, data: { status: status.data, origin: origin.data, endsAt, note: note.data } });
     await audit(tx, {
       tenantId,

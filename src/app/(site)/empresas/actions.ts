@@ -39,7 +39,7 @@ export async function requestProposalAction(_: LeadState, fd: FormData): Promise
   );
   if (recent >= 3) return { ok: true };
   await withTenant(tenant.id, (tx) => tx.enterpriseLead.create({ data: { tenantId: tenant.id, ...parsed.data } }));
-  const notify = process.env.ENTERPRISE_LEADS_EMAIL ?? process.env.SEED_ADMIN_EMAIL;
+  const notify = process.env.ENTERPRISE_LEADS_EMAIL || process.env.SEED_ADMIN_EMAIL;
   if (notify) {
     await sendEmail(
       notify,

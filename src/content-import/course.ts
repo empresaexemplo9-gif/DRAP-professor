@@ -164,7 +164,7 @@ export function parseCourse(source: string, file = "curso"): CourseSpec {
   const intro = splitBy(body.slice(0, firstModule), /^##\s+/).map((s) => ({ title: s.head.replace(/^##\s+/, "").trim(), markdown: s.body.join("\n").trim() }));
 
   const questionsPerQuiz = Number(sheet.questoes_por_prova ?? 10);
-  const modules: ModuleSpec[] = splitBy(body.slice(firstModule), /^#\s+M\d+/).map(({ head, body: mBody }, mi) => {
+  const modules: ModuleSpec[] = splitBy(body.slice(firstModule), /^#\s+M\d+/).map(({ head, body: mBody }) => {
     const hm = /^#\s+M(\d+)\s*[—–-]\s*(.+)$/.exec(head);
     if (!hm) throw new CourseFormatError(`${file}: cabeçalho de módulo inválido: ${head}`);
     const number = Number(hm[1]);
