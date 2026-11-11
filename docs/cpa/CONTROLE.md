@@ -1,10 +1,15 @@
 # Preparatório CPA: controle do projeto
 
-Última atualização: 2026-10-29. Este arquivo é atualizado ao fim de cada lote. O plano está em [`PLANO.md`](PLANO.md).
+Última atualização: 2026-11-11. Este arquivo é atualizado ao fim de cada lote. O plano está em [`PLANO.md`](PLANO.md).
 
 ## Próxima tarefa
 
-Fase 3: migração Prisma dos modelos `Cpa*`, importador de `content/cpa` e testes de integridade.
+1. Retomar os redatores dos capítulos 3, 4, 5, 6, 9, 12, 13, 14 e 15 (lacunas e 3 questões sem justificativa completa).
+2. Telas pendentes: apostila (navegável e impressão/PDF), simulados (execução, relatório), revisões, casos (árvores), desempenho, plano de estudo.
+3. Painel administrativo do CPA e simulados.json (diagnóstico, por macrotema, intermediários, 5 completos, final).
+4. Testes E2E do CPA e relatório final.
+
+Regra do cliente: o preparatório **não emite certificado** (preparação para a prova oficial da ANBIMA).
 
 ## Fases
 
@@ -12,8 +17,8 @@ Fase 3: migração Prisma dos modelos `Cpa*`, importador de `content/cpa` e test
 |---|---|---|
 | 1. Auditoria e plano | ✅ concluída | `docs/cpa/PLANO.md` |
 | 2. Matriz oficial | ✅ extraída | `content/cpa/programa-oficial.json`: 586 itens, 445 folhas, PDF v1.2 (vigência 01/01/2026). O painel de cobertura entra na fase 3 |
-| 3. Modelo de dados e estrutura | ⏳ em andamento | |
-| 4. Painel do aluno e navegação | pendente | |
+| 3. Modelo de dados e estrutura | ✅ concluída | 17 tabelas com RLS, importador e motor testados |
+| 4. Painel do aluno e navegação | ⏳ em andamento | painel, sumário de aulas e página da aula prontos |
 | 5. Conteúdo das aulas | pendente | Em lotes por capítulo (tabela abaixo) |
 | 6. Banco de questões | pendente | Meta inicial: 300 ou mais, distribuídas pelos microtemas |
 | 7. Simulados, relatórios e árvores | pendente | |
@@ -46,9 +51,9 @@ Fase 3: migração Prisma dos modelos `Cpa*`, importador de `content/cpa` e test
 
 ## Contadores
 
-- Microtemas-folha cobertos por aula: 0 de 445
-- Microtemas-folha cobertos por questão: 0 de 445
-- Questões: 0. Cartões: 0. Árvores de decisão: 0.
+- Capítulos completos e publicados: 1, 2, 7, 8, 10, 11, 16, 17, 18 (31 aulas, 209 questões, 175 cartões)
+- Em redação: 3, 4, 5, 6, 9, 12, 13, 14, 15 (no disco: 69 aulas, 295 questões, 195 cartões no total; cobertura 300/445)
+- Árvores de decisão: 3 (capítulo 13, ainda não publicadas)
 - Simulados prontos: 0 (diagnóstico, por macrotema, intermediários, 5 completos, final e atendimento)
 
 ## Fontes: situação de acesso
