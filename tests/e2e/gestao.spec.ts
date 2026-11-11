@@ -34,10 +34,11 @@ test("admin edita o preço de um curso no Financeiro", async ({ page, isMobile }
   const row = page.getByRole("row").filter({ hasText: "Fundamentos de Liderança" });
   const price = row.getByLabel("Preço em reais");
   await price.fill("49,90");
-  await row.getByRole("button", { name: "Salvar" }).click();
+  // A linha tem dois preços (individual e por pessoa para empresas): envia o formulário do campo editado.
+  await price.press("Enter");
   await expect(row.getByText("Preço atualizado para R$ 49,90.")).toBeVisible();
   await price.fill("");
-  await row.getByRole("button", { name: "Salvar" }).click();
+  await price.press("Enter");
   await expect(row.getByText("Checkout Pix desativado para este curso.")).toBeVisible();
 });
 
