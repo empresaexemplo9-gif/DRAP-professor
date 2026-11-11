@@ -6,6 +6,7 @@ import "@fontsource/lora/400.css";
 import "@fontsource/lora/600.css";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/source-sans-3";
+import "katex/dist/katex.min.css";
 import "./globals.css";
 import { getTenantTheme, resolveThemeChoice } from "@/theme/server";
 

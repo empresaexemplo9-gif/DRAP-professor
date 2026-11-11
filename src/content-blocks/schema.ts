@@ -64,6 +64,7 @@ export type Block = BlockBase &
     | { type: "callout"; variant: (typeof CALLOUT_VARIANTS)[number]; title?: string; blocks: Block[] }
     | { type: "code"; language?: string; code: string }
     | { type: "divider" }
+    | { type: "formula"; latex: string; legend?: string }
     | { type: "questionSlot"; bankRef?: string }
     | { type: "forumSlot" }
   );
@@ -98,6 +99,8 @@ export const blockSchema: z.ZodType<Block> = z.lazy(() =>
     }),
     z.object({ ...base, type: z.literal("code"), language: z.string().max(30).optional(), code: z.string().max(50_000) }),
     z.object({ ...base, type: z.literal("divider") }),
+    // Fórmula em LaTeX, renderizada no servidor (KaTeX); `legend` define as variáveis.
+    z.object({ ...base, type: z.literal("formula"), latex: z.string().max(2_000), legend: z.string().max(2_000).optional() }),
     z.object({ ...base, type: z.literal("questionSlot"), bankRef: z.string().optional() }),
     z.object({ ...base, type: z.literal("forumSlot") }),
   ]),

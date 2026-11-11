@@ -1,0 +1,4720 @@
+{
+ "fonte": "ANBIMA — Programa Detalhado CPA (Certificado Profissional Anbima)",
+ "url": "https://www.anbima.com.br/data/files/6A/52/6F/A1/BED73910B07B2739B82BA2A8/Programa-Detalhado-CPA-ANBIMA.pdf",
+ "versao": "1.2 (revisado em 04/06/2025)",
+ "elaboracao": "2024-09-02",
+ "vigencia": "2026-01-01",
+ "conferido_em": "2026-10-29",
+ "macrotemas": [
+  {
+   "codigo": "1",
+   "titulo": "Estrutura e dinâmica do sistema financeiro nacional",
+   "peso": 20
+  },
+  {
+   "codigo": "2",
+   "titulo": "Produtos do mercado financeiro",
+   "peso": 40
+  },
+  {
+   "codigo": "3",
+   "titulo": "Relacionamento com o cliente (prospecção, atendimento e suporte)",
+   "peso": 30
+  },
+  {
+   "codigo": "4",
+   "titulo": "Inovação e desenvolvimento de mercado",
+   "peso": 10
+  }
+ ],
+ "itens": [
+  {
+   "codigo": "1.1",
+   "texto": "Sistema financeiro nacional.",
+   "nivel": 2,
+   "macro": "1",
+   "pai": "1",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.1",
+   "texto": "Órgãos normativos.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.1.1",
+   "texto": "Características, funções e objetivos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.1.1.1",
+   "texto": "Conselho Monetário Nacional (CMN).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.1.1.2",
+   "texto": "Conselho Nacional de Seguros Privados (CNSP).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.1.1.3",
+   "texto": "Conselho Nacional de Previdência Complementar (CNPC).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.2",
+   "texto": "Supervisão.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.2.1",
+   "texto": "Características, funções e objetivos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.2.1.1",
+   "texto": "Banco Central (BC).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.2.1.2",
+   "texto": "Comissão de Valores Mobiliários (CVM).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.2.1.3",
+   "texto": "Superintendência de Seguros Privados (SUSEP).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.2.1.4",
+   "texto": "Superintendência Nacional de Previdência Complementar (PREVIC).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3",
+   "texto": "Operadores e participantes do sistema.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.3.1",
+   "texto": "Características, funções e objetivos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.1.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.3.1.1",
+   "texto": "Bancos e caixas econômicas.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.2",
+   "texto": "Cooperativas de crédito e banco cooperativo.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.3",
+   "texto": "Instituições de pagamento.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.4",
+   "texto": "Administradoras de consórcios.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.5",
+   "texto": "Corretoras e distribuidoras.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.6",
+   "texto": "Fintechs.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.7",
+   "texto": "Sociedades de crédito, financiamento e investimento.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.8",
+   "texto": "Companhias hipotecárias.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.9",
+   "texto": "Agências de fomento.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.10",
+   "texto": "Sociedades de crédito à pessoa microempreendedora e à empresa de pequeno porte.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.11",
+   "texto": "Sociedade de Crédito Imobiliário (SCI).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.12",
+   "texto": "B3 S/A – Brasil, bolsa e balcão.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.13",
+   "texto": "Seguradoras e resseguradoras.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.14",
+   "texto": "Entidades Abertas de Previdência Complementar (EAPC).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.15",
+   "texto": "Sociedades de capitalização.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.16",
+   "texto": "Entidades Fechadas de Previdência Complementar (EFPC) (Fundos de pensão).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.3.1.17",
+   "texto": "Corretoras de seguros.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.1.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.4",
+   "texto": "Autorreguladores e demais participantes do mercado.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.1.4.1",
+   "texto": "Anbima.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.4.2",
+   "texto": "Apimec, Planejar e Ancord.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.4.3",
+   "texto": "Fundo Garantidor de Créditos (FGC) e Fundo Garantidor do Cooperativismo de Crédito (FGCCoop).",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.1.5",
+   "texto": "Sistema Brasileiro de Pagamentos (SBP).",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.2",
+   "texto": "Política econômica.",
+   "nivel": 2,
+   "macro": "1",
+   "pai": "1",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.1",
+   "texto": "Fluxo circular da renda.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.1.1",
+   "texto": "Principais componentes do fluxo circular de renda (famílias, empresas, mercado e governo) e os impactos de suas decisões/ações sobre a economia.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.2",
+   "texto": "Mercado financeiro e suas subdivisões.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.2.1",
+   "texto": "Mercado monetário.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.2.2",
+   "texto": "Mercado cambial.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.2.3",
+   "texto": "Mercado de crédito.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.2.4",
+   "texto": "Mercado de capitais.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.3",
+   "texto": "Política fiscal.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.3.1",
+   "texto": "Conceito e objetivos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.3.2",
+   "texto": "Modelos e funções da política fiscal.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.3.3",
+   "texto": "Relações entre política fiscal, dívida pública, inflação, taxa de juros e investimentos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.3.4",
+   "texto": "Financiamento do Governo (Lei de Responsabilidade fiscal e equilíbrio das contas públicas).",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4",
+   "texto": "Política monetária.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.4.1",
+   "texto": "Política monetária expansionista e contracionista.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4.2",
+   "texto": "Instrumentos de política monetária: open market, redesconto e depósito compulsório.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4.3",
+   "texto": "Principais canais de transmissão.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4.4",
+   "texto": "Influência dos instrumentos e decisões de política monetária nas taxas de juros de curto e longo prazo, nos preços dos ativos financeiros, na inflação e na atividade econômica.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4.5",
+   "texto": "Copom (atribuições, relação com a política monetária e o impacto de suas decisões na atividade econômica e no mercado financeiro).",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4.6",
+   "texto": "Regime de metas para a inflação e expectativas inflacionárias.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.4.7",
+   "texto": "A relação entre a meta Selic, a taxa Selic, a taxa do CDI e suas definições.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.5",
+   "texto": "Política cambial.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.5.1",
+   "texto": "Definição e objetivos da política cambial.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.5.2",
+   "texto": "Conceito de regimes de taxas de câmbio, cupom cambial e reservas internacionais.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.5.3",
+   "texto": "Relação entre cupom cambial e investimentos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.5.4",
+   "texto": "Swap cambial.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.5.5",
+   "texto": "Taxa de câmbio nominal e real, taxa PTAX, câmbio turismo e câmbio comercial.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.6",
+   "texto": "Principais indicadores econômicos e de mercado.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": false
+  },
+  {
+   "codigo": "1.2.6.1",
+   "texto": "Definição de PIB e seus principais componentes.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.6.2",
+   "texto": "Definições e aplicações de IPCA, IGP-M, IPA e IPC-Fipe e como se relacionam.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.6.3",
+   "texto": "Taxa de desemprego e seu impacto na economia.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.6.4",
+   "texto": "Taxa básica de juros (Selic), Taxa DI e Taxa Referencial (TR).",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.2.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.2.7",
+   "texto": "Risco de liquidez, crédito e mercado.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.3",
+   "texto": "Operações do mercado financeiro.",
+   "nivel": 2,
+   "macro": "1",
+   "pai": "1",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.1",
+   "texto": "Taxa de juros nominal e taxa de juros real: como se relacionam e conceito de indexador.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.2",
+   "texto": "Capitalização simples versus capitalização composta: conceito, desconto, equivalência e proporcionalidade.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3",
+   "texto": "Principais diferenças do efeito dos juros versus tempo de alocação dos ativos.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.3.1",
+   "texto": "Pagamento de amortização e juros dos ativos de crédito privado.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.2",
+   "texto": "Regime de capitalização em empréstimos e mútuo.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.3.2.1",
+   "texto": "Fluxo de pagamentos: relações e conceitos.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.2.2",
+   "texto": "Fluxo de caixa: cupom, amortizações e valores.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.2.3",
+   "texto": "Valor Presente, Valor Futuro e Valor Presente Líquido (VPL).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.3",
+   "texto": "Taxa de desconto.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.4",
+   "texto": "Taxa bruta versus taxa líquida de impostos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.5",
+   "texto": "Amortização.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.3.5.1",
+   "texto": "Prazo médio e vencimento.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.5.2",
+   "texto": "Taxa Interna de Retorno (TIR).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.5.3",
+   "texto": "Conceito de custo de oportunidade.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.5.4",
+   "texto": "Conceito de taxa livre de risco.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.5.5",
+   "texto": "Conceito de Custo Médio Ponderado de Capital (CMPC).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.5.6",
+   "texto": "Duration versus prazo.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.5",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.3.5.6.1",
+   "texto": "Alavancagem financeira, custos de captações (dívidas e/ou capital).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.3.3.5.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.6",
+   "texto": "Retorno histórico e retorno esperado.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.3.6.1",
+   "texto": "De um ativo.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.3.6.2",
+   "texto": "De uma carteira.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.3.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.4",
+   "texto": "Taxas de juros.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.4.1",
+   "texto": "Nominal, efetiva e real (fórmula de Fisher).",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.4.2",
+   "texto": "Taxas prefixada e pós-fixada.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.4.3",
+   "texto": "Juros simples e compostos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.5",
+   "texto": "Taxa de desconto comercial.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.6",
+   "texto": "Prazo de retorno (payback).",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.7",
+   "texto": "Sistemas de amortização (SAC e price).",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.3.8",
+   "texto": "Aplicabilidade do desconto bancário na antecipação de recebíveis bancários ou de direitos creditórios.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.3",
+   "folha": false
+  },
+  {
+   "codigo": "1.3.8.1",
+   "texto": "Desconto bancário simples.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.3.8",
+   "folha": true
+  },
+  {
+   "codigo": "1.4",
+   "texto": "Regulação e infraestrutura de mercado.",
+   "nivel": 2,
+   "macro": "1",
+   "pai": "1",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.1",
+   "texto": "Principais Infraestruturas do Mercado Financeiro (IMFs) e função de gatekeepers.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.1.1",
+   "texto": "Sistemas de pagamentos: conceitos, atribuições e exemplos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.1.1.1",
+   "texto": "Sistema de Pagamentos Brasileiro (SPB).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.1.1.2",
+   "texto": "Sistema de Pagamentos Instantâneos (SPI).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.1.2",
+   "texto": "Sistema de liquidação de títulos: conceitos, atribuições e exemplos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.1.2.1",
+   "texto": "Sistema Especial de Liquidação e Custódia (Selic).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.1.3",
+   "texto": "Contrapartes centrais: conceitos, atribuições e exemplos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.1.4",
+   "texto": "Depositários centrais: conceitos, atribuições e exemplos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.1.5",
+   "texto": "Entidade registradora: conceitos, atribuições e exemplos.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.2",
+   "texto": "Normas e procedimentos adotados pelo Bacen para manter a estabilidade financeira do Brasil.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.2.1",
+   "texto": "Comitê de estabilização financeira (Comef), Depósito Compulsório, Linhas Financeiras de Liquidez (LLI e LLT).",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.3",
+   "texto": "Ferramentas utilizadas pelo Bacen para intermediação financeira e suas características.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.3.1",
+   "texto": "Definição de risco sistêmico.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.3.2",
+   "texto": "Índice de Basileia I, II e III e os principais riscos (liquidez e alavancagem) que as normas e regras buscam evitar para a economia real.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.4",
+   "texto": "Clearings houses e suas principais funções no mercado financeiro.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.5",
+   "texto": "Impactos do risco da contraparte.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.6",
+   "texto": "B3, Selic e suas responsabilidades.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.7",
+   "texto": "Portabilidades de custódia entre instituições.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.8",
+   "texto": "Desintermediação financeira.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.9",
+   "texto": "BSM (supervisão de mercados).",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.10",
+   "texto": "Classificação de pessoas investidoras.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.10.1",
+   "texto": "Pessoas investidoras qualificadas, profissionais e não-residentes.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.10",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.10.1.1",
+   "texto": "Definições.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.10.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.10.1.2",
+   "texto": "Definição do tipo de pessoa investidora e regras de enquadramento, segundo a resolução CVM 30.",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.10.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.11",
+   "texto": "Lei de Liberdade Econômica lei 13.874/19 (garantia de livre mercado).",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12",
+   "texto": "Autorregulação Anbima.",
+   "nivel": 3,
+   "macro": "1",
+   "pai": "1.4",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.12.1",
+   "texto": "Código de distribuição de produtos de investimento.",
+   "nivel": 4,
+   "macro": "1",
+   "pai": "1.4.12",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.12.1.1",
+   "texto": "Objetivo e abrangência (título I, capítulo I).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.12.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.2",
+   "texto": "Princípios gerais de conduta (título II, capítulo III).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.12.1",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3",
+   "texto": "Regras gerais de distribuição de produtos de investimento (Título III, Capítulo IV).",
+   "nivel": 5,
+   "macro": "1",
+   "pai": "1.4.12.1",
+   "folha": false
+  },
+  {
+   "codigo": "1.4.12.1.3.1",
+   "texto": "Conheça sua clientela (capítulo V).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.2",
+   "texto": "Suitability (capítulo VI).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.3",
+   "texto": "Publicidade (capítulo VII).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.4",
+   "texto": "Transparência na remuneração do canal de distribuição (capítulo VIII).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.5",
+   "texto": "Serviços de intermediação no exterior (capítulo X).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.6",
+   "texto": "Transferência de produtos de investimento (capítulo XI).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.7",
+   "texto": "Apuração de valores de referência (capítulo XII).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "1.4.12.1.3.8",
+   "texto": "Distribuição para o private (título IV, capítulo XIV).",
+   "nivel": 6,
+   "macro": "1",
+   "pai": "1.4.12.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1",
+   "texto": "Produtos de investimentos.",
+   "nivel": 2,
+   "macro": "2",
+   "pai": "2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1",
+   "texto": "Instrumentos de renda variável e renda fixa.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.1",
+   "texto": "Renda fixa.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.1.1",
+   "texto": "Títulos públicos federais.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.1.1.1",
+   "texto": "NTN-B e NTN-B Principal.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.1.2",
+   "texto": "LFT.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.1.3",
+   "texto": "LTN.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.1.4",
+   "texto": "Plataforma do tesouro direto.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.2",
+   "texto": "Tesouro prefixado, tesouro Selic, tesouro IPCA+, tesouro educa+, tesouro renda+.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.3",
+   "texto": "Títulos bancários.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.1.3.1",
+   "texto": "Certificado de Depósito Bancário (CDB).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.3.2",
+   "texto": "Recibo de Depósito Bancário (RDB) e Recibo de Depósito Cooperativo (RDC).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.3.3",
+   "texto": "Letra de Crédito Imobiliário (LCI).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.3.4",
+   "texto": "Letra de Crédito do Agronegócio (LCA).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.3.5",
+   "texto": "Letra de Crédito de Desenvolvimento (LCD).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.4",
+   "texto": "Debêntures.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.1.4.1",
+   "texto": "Debênture de infraestrutura.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.4.2",
+   "texto": "Debêntures conversíveis e permutáveis.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.5",
+   "texto": "Certificado Recebível Imobiliário (CRI).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.6",
+   "texto": "Certificado Recebível do Agronegócio (CRA).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.7",
+   "texto": "Rating.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.8",
+   "texto": "Poupança.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.1.8.1",
+   "texto": "Importância da poupança no SFH e garantias.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.8",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.8.2",
+   "texto": "Custos e tributação.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.8",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.8.3",
+   "texto": "Rentabilidade e riscos.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.8",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.8.4",
+   "texto": "Data de aniversário: conceito e prática.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.1.8",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.9",
+   "texto": "TR.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.10",
+   "texto": "TLP.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.11",
+   "texto": "Tributação de aplicações de renda fixa.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.1.12",
+   "texto": "Imposto sobre operações financeiras (IOF).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2",
+   "texto": "Instrumentos de renda variável.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.2.1",
+   "texto": "Renda variável (definição).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2",
+   "texto": "Ações.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.2.2.1",
+   "texto": "Definições e contexto.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.2.2.1.1",
+   "texto": "Empresa limitada e empresa S/A.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.2",
+   "texto": "S/A aberta versus S/A fechada.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.3",
+   "texto": "Empresa listada e não listada.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.4",
+   "texto": "Classes: ordinárias, preferenciais, units, BDR´s e bônus de subscrição.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.5",
+   "texto": "Capital próprio e de terceiros.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.6",
+   "texto": "IPO e OPA.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.7",
+   "texto": "Follow on.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.1.8",
+   "texto": "Mercado primário versus secundário.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2",
+   "texto": "Eventos corporativos.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.2.2.2.1",
+   "texto": "Assembleia Geral Extraordinária (AGE).",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.2",
+   "texto": "Assembleia Geral Ordinária (AGO).",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.3",
+   "texto": "Dividendos.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.4",
+   "texto": "Juros sobre Capital Próprio (JCP).",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.5",
+   "texto": "Restituição de capital.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.6",
+   "texto": "Grupamentos e desdobramentos.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.7",
+   "texto": "Bonificação.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.2.8",
+   "texto": "Subscrição.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.2.3",
+   "texto": "Índices de mercado: Ibovespa (Índice Bovespa), IBR×100 (Índice Brasil 100) e IBr×50 (Índice Brasil 50).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.3",
+   "texto": "Governança corporativa.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.2.3.1",
+   "texto": "Níveis de governança para as empresas.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.1.2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.2.3.1.1",
+   "texto": "Segmentos de listagem.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.3.1.2",
+   "texto": "Conselho de administração.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.2.3.1.3",
+   "texto": "Tag Along, drag along, freefloat.",
+   "nivel": 7,
+   "macro": "2",
+   "pai": "2.1.1.2.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.3",
+   "texto": "Tributação de aplicações de renda variável.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.3.1",
+   "texto": "Alíquotas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.3.2",
+   "texto": "Isenções.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.3.3",
+   "texto": "Compensação de perdas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.3.4",
+   "texto": "Imposto sobre operações financeiras (IOF).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.4",
+   "texto": "Certificado de Operações Estruturadas (COE).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.1.4.1",
+   "texto": "Principais regras e conhecimento da estrutura via derivativos.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.4.2",
+   "texto": "Diferentes níveis de risco e garantias de rentabilidade (capital protegido ou capital em risco).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.1.4.3",
+   "texto": "Tributação.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2",
+   "texto": "Introdução aos fundos de investimento.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.1",
+   "texto": "Características, estratégias, composição de carteiras, público- alvo e os riscos envolvidos nos fundos.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2",
+   "texto": "Resolução CVM nº 175, parte geral.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.2.1",
+   "texto": "Características, constituição e comunicação.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.2",
+   "texto": "Definição de fundos de investimento.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.3",
+   "texto": "Conceito de condomínio, constituição e registro na CVM.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.4",
+   "texto": "Estrutura dos fundos de investimento: divisão em classes e subclasses.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.5",
+   "texto": "Segregação patrimonial.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.6",
+   "texto": "Cotas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.7",
+   "texto": "Classes abertas e fechadas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.8",
+   "texto": "Emissão.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.9",
+   "texto": "Subscrição e integralização.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.10",
+   "texto": "Resgate e amortização.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.11",
+   "texto": "Distribuição.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.12",
+   "texto": "Investimento por conta e ordem.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.13",
+   "texto": "Participação política da pessoa investidora por conta e ordem.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.14",
+   "texto": "Divulgação de informações.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.15",
+   "texto": "Envio de comunicações para cotistas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.16",
+   "texto": "Divulgação de Informações e resultados.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.17",
+   "texto": "Divulgação de cota e rentabilidade.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.18",
+   "texto": "Assembleia de cotistas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.2.18.1",
+   "texto": "Assembleias gerais de cotistas.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.18",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.18.2",
+   "texto": "Assembleias especiais de cotistas.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.18",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.19",
+   "texto": "Prestação de serviços.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.2.19.1",
+   "texto": "Serviços essenciais.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.19",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.19.2",
+   "texto": "Funções da administração.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.19",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.19.3",
+   "texto": "Funções da gestão.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.19",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.19.4",
+   "texto": "Negociação de ativos em mercados organizados.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.19",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.20",
+   "texto": "Remuneração.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.2.20.1",
+   "texto": "Taxa de administração.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.20",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.20.2",
+   "texto": "Taxa de ingresso.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.20",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.20.3",
+   "texto": "Taxa de saída.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.20",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.20.4",
+   "texto": "Taxa máxima de distribuição.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.20",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.20.5",
+   "texto": "Acordos de remuneração.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.20",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.21",
+   "texto": "Vedações.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.22",
+   "texto": "Obrigações.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.23",
+   "texto": "Normas de conduta.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.24",
+   "texto": "Encargos.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.25",
+   "texto": "Patrimônio líquido negativo com limitação de responsabilidade.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.2.25.1",
+   "texto": "Responsabilidade limitada de cotistas.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.25",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.25.2",
+   "texto": "Responsabilidade ilimitada de cotistas.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.25",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.25.3",
+   "texto": "Patrimônio líquido negativo.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.25",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.2.25.4",
+   "texto": "Insolvência da classe de cotas.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.2.25",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3",
+   "texto": "Fundos de Investimento Financeiro (FIF) – Resolução CVM nº 175/22, Anexo I.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.3.1",
+   "texto": "Prestação de serviços.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.2",
+   "texto": "Obrigações da pessoa administradora, gestora e custodiante.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.3",
+   "texto": "Disposições gerais.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.3.3.1",
+   "texto": "Vedações.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.4",
+   "texto": "Distribuição e subscrição.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.5",
+   "texto": "Carteira.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.3.5.1",
+   "texto": "Ativos financeiros no Brasil.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.5.2",
+   "texto": "Ativos financeiros no exterior.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.5.3",
+   "texto": "Limites para cada emissor.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.5.4",
+   "texto": "Limites por modalidade de ativo financeiro.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.5.5",
+   "texto": "Deveres quanto aos limites de concentração.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6",
+   "texto": "Tipificação.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.2.3.6.1",
+   "texto": "Fundos de renda fixa.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6.2",
+   "texto": "Fundo de ações.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6.3",
+   "texto": "Fundos cambiais.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6.4",
+   "texto": "Fundos multimercados.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6.5",
+   "texto": "Fundos Incentivados em Infraestrutura (FI-Infra).",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6.6",
+   "texto": "Fundos destinados à garantia de locação imobiliária.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.6.7",
+   "texto": "Concentração em crédito privado.",
+   "nivel": 6,
+   "macro": "2",
+   "pai": "2.1.2.3.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.7",
+   "texto": "Investimento em cotas de outros fundos de investimento financeiro.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.8",
+   "texto": "Exposição ao risco de capital.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.9",
+   "texto": "Classes restritas.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.2.3.10",
+   "texto": "Encargos.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.3",
+   "texto": "Tributação em fundos de investimento.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.3.1",
+   "texto": "Aplicação das normas tributárias.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.3.2",
+   "texto": "Impostos incidentes sobre rendimentos.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.3.2.1",
+   "texto": "Imposto sobre Operações Financeiras (IOF).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.3.2.2",
+   "texto": "Imposto de Renda (IR).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.1.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.4",
+   "texto": "Fundos Imobiliários (FIIs).",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.1.4.1",
+   "texto": "Ambiente de negociação e regime de cotas.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.4.2",
+   "texto": "Risco de liquidez, crédito, vacância e composição de ativos.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.4.3",
+   "texto": "Dinâmica de dividendos e suas regras.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.4.4",
+   "texto": "Taxas, administração e subscrição.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.4.5",
+   "texto": "Fundos de tijolos, fundos de papel e híbridos, principais diferenças.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.1.4.6",
+   "texto": "Tributação e custos.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2",
+   "texto": "Produtos de Previdência Complementar (PGBL E VGBL).",
+   "nivel": 2,
+   "macro": "2",
+   "pai": "2",
+   "folha": false
+  },
+  {
+   "codigo": "2.2.1",
+   "texto": "Modalidades de planos (PGBL e VGBL).",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.2.1.1",
+   "texto": "PGBL (definição, público-alvo, principais características e utilizações).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.1.2",
+   "texto": "VGBL (definição, público-alvo, principais características e utilizações).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.2",
+   "texto": "Regimes de tributação (progressivo e regressivo).",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.2.2.1",
+   "texto": "Regime progressivo, tributável ou compensável (base de cálculo, alíquotas, aplicação prática da tabela, público-alvo).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.2.2",
+   "texto": "Regime regressivo, definitivo ou exclusivo (base de cálculo, alíquotas, aplicação prática da tabela, público-alvo).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3",
+   "texto": "Conceitos técnicos ligados a previdência complementar.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.2",
+   "folha": false
+  },
+  {
+   "codigo": "2.2.3.1",
+   "texto": "Fases do produto (contribuição e benefícios).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.2",
+   "texto": "Taxa de administração (Conceito, tipos, entrada, saída e forma de cobrança).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.3",
+   "texto": "Portabilidade externa e interna (regras e carências).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4",
+   "texto": "Transformação da reserva em renda.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.2.3.4.1",
+   "texto": "Renda Mensal Vitalícia (RMV).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4.2",
+   "texto": "Renda Mensal Vitalícia com prazo mínimo garantido.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4.3",
+   "texto": "Renda Mensal Vitalícia com reversão a beneficiário indicado.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4.4",
+   "texto": "Renda Mensal Vitalícia reversível para cônjuges com continuidade aos menores.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4.5",
+   "texto": "Renda mensal temporária.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4.6",
+   "texto": "Renda mensal por prazo certo.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.2.3.4.7",
+   "texto": "Pagamento único.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.3",
+   "texto": "Produtos de financiamento.",
+   "nivel": 2,
+   "macro": "2",
+   "pai": "2",
+   "folha": false
+  },
+  {
+   "codigo": "2.3.1",
+   "texto": "Princípios para disponibilização de crédito.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.3.1.1",
+   "texto": "Rating de crédito, score Serasa, comprovação de renda.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.1.2",
+   "texto": "Diferenças entre empréstimo, financiamento e leasing.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.1.3",
+   "texto": "Utilização do SCR.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.2",
+   "texto": "Cartão de crédito.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.3.2.1",
+   "texto": "Limites, incidência de juros, regras de pagamento parcial e refinanciamento.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.2.2",
+   "texto": "Cálculos da taxa de refinanciamento de faturas.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.3",
+   "texto": "Cheque especial.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.3.3.1",
+   "texto": "Data de vencimento, cálculos dos valores de juros e IOF.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.4",
+   "texto": "Crédito consignado.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.3.4.1",
+   "texto": "Margem de financiamento e desconto.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.4.2",
+   "texto": "Principais vantagens (juros e prazo).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.5",
+   "texto": "Crédito Direto ao Consumidor (CDC).",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": false
+  },
+  {
+   "codigo": "2.3.5.1",
+   "texto": "Utilização de bens como garantia.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.5.2",
+   "texto": "Prazos maiores e destinação dos recursos.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.3.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.6",
+   "texto": "Crédito imobiliário.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.7",
+   "texto": "Capital de giro.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.3.8",
+   "texto": "Consórcio.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.4",
+   "texto": "Serviços bancários.",
+   "nivel": 2,
+   "macro": "2",
+   "pai": "2",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.1",
+   "texto": "Conta corrente.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.4",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.1.1",
+   "texto": "Recebimento de salários.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.2",
+   "texto": "Depósitos à vista.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.1.2.1",
+   "texto": "Garantias para depósitos à vista.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.2.2",
+   "texto": "Depósito compulsório.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.3",
+   "texto": "Boleto bancário.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.4",
+   "texto": "Serviços digitais.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.5",
+   "texto": "Pagamento Instantâneo Brasileiro (PIX).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.1.5.1",
+   "texto": "Definição e objetivos.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.5.2",
+   "texto": "Funcionamento (processo de transferência/Chaves PIX/Custos e tarifas/ liquidação).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.5.3",
+   "texto": "Aplicações (transferências e pagamentos).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.5.4",
+   "texto": "Pix na pessoa jurídica (pagamentos e recebimentos).",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.6",
+   "texto": "Tarifas.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.1.6.1",
+   "texto": "Critérios para cobrança de tarifa e direitos a gratuidade.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.6",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.1.7",
+   "texto": "Atendimento bancário.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.1",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.1.7.1",
+   "texto": "Horários de atendimento, regra para filas, atendimento presencial e dias de não atendimento ao público.",
+   "nivel": 5,
+   "macro": "2",
+   "pai": "2.4.1.7",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.2",
+   "texto": "Conta internacional.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.4",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.2.1",
+   "texto": "Principais facilidades e inovações.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.2.2",
+   "texto": "Cobrança de IOF com diferentes alíquotas.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.2.3",
+   "texto": "Investimento internacional (implicações no imposto renda no Brasil).",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.3",
+   "texto": "Compra e venda de moeda estrangeira.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.4",
+   "folha": false
+  },
+  {
+   "codigo": "2.4.3.1",
+   "texto": "Regras para pessoa correspondente bancária.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.3.2",
+   "texto": "Regras para compra e venda de moeda em instituições financeiras.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.4.3.3",
+   "texto": "Definição e regras para recompra de moeda estrangeira.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "2.5",
+   "texto": "Seguros de vida e patrimoniais.",
+   "nivel": 2,
+   "macro": "2",
+   "pai": "2",
+   "folha": false
+  },
+  {
+   "codigo": "2.5.1",
+   "texto": "Seguros de vida.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.5",
+   "folha": false
+  },
+  {
+   "codigo": "2.5.1.1",
+   "texto": "Vida inteira.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.5.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.5.1.2",
+   "texto": "Vida temporário.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.5.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.5.1.3",
+   "texto": "Tradicional.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.5.1",
+   "folha": true
+  },
+  {
+   "codigo": "2.5.2",
+   "texto": "Seguros patrimoniais.",
+   "nivel": 3,
+   "macro": "2",
+   "pai": "2.5",
+   "folha": false
+  },
+  {
+   "codigo": "2.5.2.1",
+   "texto": "Automóveis.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.5.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.5.2.2",
+   "texto": "Residencial.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.5.2",
+   "folha": true
+  },
+  {
+   "codigo": "2.5.2.3",
+   "texto": "Prestamista.",
+   "nivel": 4,
+   "macro": "2",
+   "pai": "2.5.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.1",
+   "texto": "Finanças pessoais.",
+   "nivel": 2,
+   "macro": "3",
+   "pai": "3",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.1",
+   "texto": "Faixa etária versus exposição ao risco versus produtos orientados ao perfil da pessoa investidora.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.2",
+   "texto": "Ciclo de vida da pessoa investidora.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.1",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.2.1",
+   "texto": "Acumulação de capital.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.2.2",
+   "texto": "Crescimento patrimonial.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.2.3",
+   "texto": "Preservação de capital.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.2.4",
+   "texto": "Distribuição de renda.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3",
+   "texto": "Orçamento e fluxo de caixa pessoal ou familiar.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.1",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.3.1",
+   "texto": "Educação financeira básica.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.2",
+   "texto": "Receitas e despesas pessoais ou familiares (definição da capacidade de poupança).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3",
+   "texto": "Gestão de dívidas e crédito.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.3",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.3.3.1",
+   "texto": "Avaliação da melhor dívida em função da necessidade atual do cliente.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.2",
+   "texto": "Empréstimo e financiamento.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.3",
+   "texto": "Modalidades de operações de crédito, crédito direto ao consumidor, crédito pessoal e consignado.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.4",
+   "texto": "Garantias.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.5",
+   "texto": "Controle de gastos e orçamento.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.6",
+   "texto": "Financiamento imobiliário e de veículos.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.7",
+   "texto": "Cartão de crédito e gerenciamento de dívidas.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.8",
+   "texto": "Empréstimo com garantia e crédito rotativo.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.9",
+   "texto": "Cheque especial e financiamento estudantil.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.10",
+   "texto": "Microcrédito e crédito rural.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.11",
+   "texto": "Crédito para reforma e construção.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.3.12",
+   "texto": "Crédito para energia sustentável.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.4",
+   "texto": "Reserva de emergência.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.3",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.3.4.1",
+   "texto": "Montante necessário.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.3.4.2",
+   "texto": "Ativos de alta liquidez.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.1.3.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.4",
+   "texto": "Balanço patrimonial pessoal ou familiar.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.1",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.4.1",
+   "texto": "Indicadores: liquidez, cobertura de despesas mensais e endividamento.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.4.2",
+   "texto": "Ativos de uso e não uso.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.4.3",
+   "texto": "Patrimônio líquido pessoal.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.5",
+   "texto": "Planejamento familiar ou pessoal.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.1",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.5.1",
+   "texto": "Etapas do processo do planejamento financeiro pessoal (objetivos financeiros da clientela, avaliação da situação financeira atual, desenvolvimento do plano de ação, implementação do plano, monitoramento e revisão regular).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.5.2",
+   "texto": "Definição do momento de vida e financeiro da clientela.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.5.3",
+   "texto": "Estabelecimento de metas financeiras.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.5.4",
+   "texto": "Planejamento de investimentos.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.5.5",
+   "texto": "Planejamento de fundo educacional para descendentes.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.5.6",
+   "texto": "Planejamento para aposentadoria (cálculo para independência financeira).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.6",
+   "texto": "Tributação – Conceitos básicos sobre tributação de pessoas físicas.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.1",
+   "folha": false
+  },
+  {
+   "codigo": "3.1.6.1",
+   "texto": "Declaração de imposto de renda da pessoa física (conhecimento básico sobre o que deve ser declarado).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.6.2",
+   "texto": "Classificação de rendimentos (visão básica para compreensão dos impactos dos rendimentos dos investimentos na declaração).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.1.6.3",
+   "texto": "Modelo completo x desconto simplificado (visão básica para compreensão das diferenças entre os modelos).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.1.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.2",
+   "texto": "Orientações financeiras para o cliente.",
+   "nivel": 2,
+   "macro": "3",
+   "pai": "3",
+   "folha": false
+  },
+  {
+   "codigo": "3.2.1",
+   "texto": "Tipos de investimento versus tolerância a risco e horizonte de investimento.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.2.2",
+   "texto": "Gestão financeira.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.2",
+   "folha": false
+  },
+  {
+   "codigo": "3.2.2.1",
+   "texto": "Financiamento de emergências (estratégias e produtos).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.2.2.2",
+   "texto": "Utilização de crédito e gestão de dívidas.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.2.3",
+   "texto": "Gestão de investimentos.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.2.4",
+   "texto": "Gestão de risco e seguros.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.3",
+   "texto": "Classificação das pessoas investidoras.",
+   "nivel": 2,
+   "macro": "3",
+   "pai": "3",
+   "folha": false
+  },
+  {
+   "codigo": "3.3.1",
+   "texto": "Perfis da pessoa investidora.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.3.2",
+   "texto": "Adequação de produtos financeiros.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.3.3",
+   "texto": "Avaliação de risco e retorno.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.3.4",
+   "texto": "Diversificação de carteira.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.3.5",
+   "texto": "Pessoa investidora profissional e qualificada.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4",
+   "texto": "Regras e condutas aplicáveis para atuação profissional e no relacionamento com o cliente.",
+   "nivel": 2,
+   "macro": "3",
+   "pai": "3",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.1",
+   "texto": "Código de conduta ética para pessoas candidatas e profissionais com certificação Anbima.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.1.1",
+   "texto": "Os nove princípios éticos.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.1.2",
+   "texto": "Regras gerais de conduta para pessoas candidatas.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.1.3",
+   "texto": "Regras gerais de conduta para profissionais com certificação.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.1.4",
+   "texto": "Deveres profissionais.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2",
+   "texto": "Suitability e código de distribuição da Anbima.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.2.1",
+   "texto": "Objetivos do código Anbima.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.2",
+   "texto": "Documentação e registro de Informações da clientela.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.3",
+   "texto": "Ferramentas e metodologias de avaliação de suitability.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.4",
+   "texto": "Adequação dos produtos ao perfil da clientela.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.5",
+   "texto": "Adequação dos produtos ao objetivo da clientela.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.6",
+   "texto": "Monitoramento contínuo da suitability.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.7",
+   "texto": "Comunicação clara e transparente com a clientela.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.2.8",
+   "texto": "Gestão de conflitos de interesses.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3",
+   "texto": "Ética profissional e atendimento ao cliente.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.3.1",
+   "texto": "Técnicas de atendimento.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.3",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.3.1.1",
+   "texto": "Escuta ativa.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.1.2",
+   "texto": "Personalização do atendimento.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.1.3",
+   "texto": "Solução proativa de problemas.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.1.4",
+   "texto": "Educação continuada e conhecimento dos produtos e serviços.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.1.5",
+   "texto": "Gerenciamento de expectativas.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.2",
+   "texto": "Ética e responsabilidade no atendimento.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3",
+   "texto": "Conflitos de interesses.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.3",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.3.3.1",
+   "texto": "Relações pessoais e familiares.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.2",
+   "texto": "Benefícios e incentivos.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3",
+   "texto": "Medidas de gestão de conflitos de interesse.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.3.3",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.3.3.3.1",
+   "texto": "Políticas e procedimentos claros.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.3.3.3",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.3.3.3.1.1",
+   "texto": "Treinamento e educação.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3.1.2",
+   "texto": "Divulgação obrigatória.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3.1.3",
+   "texto": "Segregação de funções.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3.1.4",
+   "texto": "Revisão e monitoramento contínuos.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3.1.5",
+   "texto": "Comitês de ética e compliance.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3.1.6",
+   "texto": "Proibição de atividades específicas.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.3.3.3.1.7",
+   "texto": "Relatórios de transparência.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.3.3.3.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.4",
+   "texto": "Riscos associados à atividade profissional.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.4.1",
+   "texto": "Riscos operacionais.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.4.2",
+   "texto": "Riscos regulatórios.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.4.3",
+   "texto": "Riscos legais.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.4.4",
+   "texto": "Riscos de imagem.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5",
+   "texto": "Prevenção e Combate à Lavagem de Dinheiro e Combate ao Terrorismo (PLDFT) e fraudes eletrônicas.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.5.1",
+   "texto": "Legislação e regulamentação aplicável (crime e infração administrativa).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5.2",
+   "texto": "Responsabilidades administrativa e legal (entidades e pessoas físicas sujeitas à lei e a regulamentação).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5.3",
+   "texto": "Modelo de abordagem baseada em risco.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.5",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.5.3.1",
+   "texto": "Avaliação interna de risco.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.5.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5.3.2",
+   "texto": "Política direcionada às características e riscos relevantes da instituição.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.5.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5.3.3",
+   "texto": "Controle de efetividade das políticas e procedimentos.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.5.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5.4",
+   "texto": "Princípio do “conheça seu cliente” (KYC).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.5",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.5.4.1",
+   "texto": "Função do cadastro e implicações de um cadastro desatualizado e análise da capacidade financeira da clientela.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.5.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.5.4.2",
+   "texto": "O princípio “conheça seu cliente” como forma de proteção da instituição financeira e do profissional.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.5.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6",
+   "texto": "Lei Geral de Proteção de Dados (LGPD).",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.6.1",
+   "texto": "Normativas (lei n° 13.709/2018).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.2",
+   "texto": "Conceito.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.3",
+   "texto": "Aplicabilidade.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.4",
+   "texto": "Confidencialidade de dados no mundo digital e internet.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.5",
+   "texto": "Sigilo Bancário (lei complementar nº 105, de 10 de janeiro de 2001).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.6",
+   "texto": "Registro de operações.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.7",
+   "texto": "Operações suspeitas.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.8",
+   "texto": "Caracterização.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.9",
+   "texto": "Obrigatoriedade de comunicação e controle (instituições, empresas e autoridades competentes).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.10",
+   "texto": "Indisponibilidade de bens, direitos e valores em decorrência de resoluções do conselho de segurança das nações unidas.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.6.11",
+   "texto": "Princípio do “conheça sua parceria”.",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.6",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7",
+   "texto": "Dos crimes e dos ilícitos contra o mercado de capitais.",
+   "nivel": 3,
+   "macro": "3",
+   "pai": "3.4",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.1",
+   "texto": "Crimes contra o mercado de capitais (capítulo VII-B da lei 6.385/76).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.7",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.1.1",
+   "texto": "Manipulação do mercado (art. 27-C).",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.7.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.1.2",
+   "texto": "Uso indevido de informação privilegiada (art. 27-D).",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.7.1",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.1.2.1",
+   "texto": "Insider trading primário.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.1.2.2",
+   "texto": "Insider trading secundário.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.1.2.3",
+   "texto": "Repasse de informação privilegiada.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.1.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.1.3",
+   "texto": "Exercício irregular de cargo, profissão, atividade ou função regulada (art. 27-E).",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.7.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.1.4",
+   "texto": "Omissão imprópria (art. 13, § 2º do Código Penal).",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.7.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2",
+   "texto": "Ilícitos de mercado (resolução CVM nº 62).",
+   "nivel": 4,
+   "macro": "3",
+   "pai": "3.4.7",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.2.1",
+   "texto": "Conceito de tipologia aberta e suas implicações para os profissionais.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.7.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2",
+   "texto": "Os ilícitos de mercado.",
+   "nivel": 5,
+   "macro": "3",
+   "pai": "3.4.7.2",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.2.2.1",
+   "texto": "Criação de condições artificiais.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.2.2.1.1",
+   "texto": "Conceito.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.1.2",
+   "texto": "Money pass.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.2",
+   "texto": "Manipulação de preços.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.2.2.2.1",
+   "texto": "Conceito.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.2.2",
+   "texto": "Spoofing.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.2.3",
+   "texto": "Layering.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.2.4",
+   "texto": "Manipulação de benchmark.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.2",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.3",
+   "texto": "Operações fraudulentas.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.2.2.3.1",
+   "texto": "Conceito.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.3.2",
+   "texto": "Churning.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.3",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.4",
+   "texto": "Práticas não equitativas.",
+   "nivel": 6,
+   "macro": "3",
+   "pai": "3.4.7.2.2",
+   "folha": false
+  },
+  {
+   "codigo": "3.4.7.2.2.4.1",
+   "texto": "Conceito.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.4.2",
+   "texto": "Insider trading.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "3.4.7.2.2.4.3",
+   "texto": "Front running.",
+   "nivel": 7,
+   "macro": "3",
+   "pai": "3.4.7.2.2.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.1",
+   "texto": "ESG no mercado financeiro.",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": false
+  },
+  {
+   "codigo": "4.1.1",
+   "texto": "Conceitos de ESG (Environment, Social e Governance).",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.1.2",
+   "texto": "Aspectos ambientais.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.1.3",
+   "texto": "Aspectos sociais.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.1.4",
+   "texto": "Aspectos de governança corporativa.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.2",
+   "texto": "Introdução aos investimentos ESG.",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": false
+  },
+  {
+   "codigo": "4.2.1",
+   "texto": "A relação entre ESG e finanças.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.2",
+   "texto": "Impactos de ESG na indústria de investimentos.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.3",
+   "texto": "Conceitos de investimentos ESG.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.4",
+   "texto": "Produtos ESG.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.5",
+   "texto": "Estratégias de investimento ESG.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.6",
+   "texto": "Avaliação de investimentos ESG.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.2",
+   "folha": false
+  },
+  {
+   "codigo": "4.2.6.1",
+   "texto": "Desafios para a evolução dos investimentos ESG.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.2.6",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.6.2",
+   "texto": "Órgãos reguladores e autorreguladores e outros órgãos relacionados a investimento ESG.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.2.6",
+   "folha": false
+  },
+  {
+   "codigo": "4.2.6.2.1",
+   "texto": "Anbima.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.2.6.2",
+   "folha": false
+  },
+  {
+   "codigo": "4.2.6.2.1.1",
+   "texto": "A autorregulação da Anbima.",
+   "nivel": 6,
+   "macro": "4",
+   "pai": "4.2.6.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.6.2.1.2",
+   "texto": "A regulação CVM 175 (artigo 49).",
+   "nivel": 6,
+   "macro": "4",
+   "pai": "4.2.6.2.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.6.2.2",
+   "texto": "CVM.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.2.6.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.2.6.2.3",
+   "texto": "Princípios para Investimentos Responsáveis (PRI).",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.2.6.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.3",
+   "texto": "Identificação dos fundos de investimento sustentável (IS) e fundos que integram questões ESG.",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4",
+   "texto": "Finanças Descentralizadas (DEFI).",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.1",
+   "texto": "Finanças tradicionais versus finanças descentralizadas.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.2",
+   "texto": "Vantagens do DEFI.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.4",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.2.1",
+   "texto": "Conceito de Blockchain.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3",
+   "texto": "Smart contracts.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.4",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.3.1",
+   "texto": "Conceito Smart contracts.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.2",
+   "texto": "Componentes e funcionamento dos Smart contracts.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.3",
+   "texto": "Conceito de contratos autoexecutáveis.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.4",
+   "texto": "Plataformas de smart contracts.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.5",
+   "texto": "Aplicações práticas de smart contracts.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.6",
+   "texto": "Aplicação em contratos de empréstimos.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.7",
+   "texto": "Exchanges Descentralizadas (DEXs).",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.8",
+   "texto": "Seguros.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.3.8.1",
+   "texto": "Apólices automatizadas.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.4.3.8",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.9",
+   "texto": "Imobiliário.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.3.9.1",
+   "texto": "Compra e venda de propriedades.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.4.3.9",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.3.10",
+   "texto": "Governança descentralizada.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.3",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.3.10.1",
+   "texto": "Organizações Autônomas Descentralizadas (DAOs).",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.4.3.10",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.4",
+   "texto": "Tokenização.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.4",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.4.1",
+   "texto": "Conceito básico.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.4.2",
+   "texto": "Tipos de tokens.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.4.3",
+   "texto": "Benefícios da tokenização.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.4.4",
+   "texto": "Risco e desafios (segurança, regulação e tecnologia).",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.4.5",
+   "texto": "Tokenização de ativos financeiros, imóveis e artes.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.5",
+   "texto": "Novas estruturas de mercado para negociações.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.4",
+   "folha": false
+  },
+  {
+   "codigo": "4.4.5.1",
+   "texto": "NFT (Non-Fungible Token).",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.5.2",
+   "texto": "Stable coins.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.5.3",
+   "texto": "Renda fixa digital.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.5.4",
+   "texto": "ETF bitcoin.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.5.5",
+   "texto": "ETF novas moedas digitais.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.4.5.6",
+   "texto": "Moeda Digital do Banco Central (CBDC) – DREX.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.5",
+   "texto": "Openfinance, open investment e open insurance.",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": false
+  },
+  {
+   "codigo": "4.5.1",
+   "texto": "Open finance.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.5",
+   "folha": false
+  },
+  {
+   "codigo": "4.5.1.1",
+   "texto": "Conceitos e aplicabilidade.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.5.1",
+   "folha": false
+  },
+  {
+   "codigo": "4.5.1.1.1",
+   "texto": "CreditScore.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.5.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.1.1.2",
+   "texto": "Vantagens sob a ótica de adimplência financeira.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.5.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.1.1.3",
+   "texto": "Novo marco regulatório – Regulação CVM 175 e Resolução Conjunta nº 1 de 2020 entre Bacen e CMN.",
+   "nivel": 5,
+   "macro": "4",
+   "pai": "4.5.1.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.2",
+   "texto": "Consequências no mercado financeiro brasileiro.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.5",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.3",
+   "texto": "Open investment.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.5",
+   "folha": false
+  },
+  {
+   "codigo": "4.5.3.1",
+   "texto": "Vantagens e desvantagens.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.5.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.3.2",
+   "texto": "Resoluções CVM 229, 209 e 210– Portabilidade de Valores Mobiliários.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.5.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.4",
+   "texto": "Open Insurance.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.5",
+   "folha": false
+  },
+  {
+   "codigo": "4.5.4.1",
+   "texto": "Conceitos.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.5.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.5.4.2",
+   "texto": "Vantagens e desvantagens.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.5.4",
+   "folha": true
+  },
+  {
+   "codigo": "4.6",
+   "texto": "Inteligência Artificial (IA).",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": false
+  },
+  {
+   "codigo": "4.6.1",
+   "texto": "IA Generativa.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.6",
+   "folha": false
+  },
+  {
+   "codigo": "4.6.1.1",
+   "texto": "Conceitos gerais.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.1.2",
+   "texto": "Aplicabilidade.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.1.3",
+   "texto": "Modelos preditivos.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.1",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.2",
+   "texto": "IA Regenerativa.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.6",
+   "folha": false
+  },
+  {
+   "codigo": "4.6.2.1",
+   "texto": "Conceitos gerais.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.2.2",
+   "texto": "Aplicabilidade.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.2.3",
+   "texto": "Modelos preditivos.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.2",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.3",
+   "texto": "Atendimento e suporte à clientela com IA.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.6",
+   "folha": false
+  },
+  {
+   "codigo": "4.6.3.1",
+   "texto": "Chatbots.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.6.3.2",
+   "texto": "Assistentes virtuais.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.6.3",
+   "folha": true
+  },
+  {
+   "codigo": "4.7",
+   "texto": "Fintechs e meios de pagamento.",
+   "nivel": 2,
+   "macro": "4",
+   "pai": "4",
+   "folha": false
+  },
+  {
+   "codigo": "4.7.1",
+   "texto": "O que são as fintechs de hoje.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.7",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.2",
+   "texto": "Sandbox regulatório (BCB e CVM).",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.7",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.3",
+   "texto": "Relação com o Open Finance.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.7",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.4",
+   "texto": "Regulação.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.7",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.5",
+   "texto": "Desintermediação financeira.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.7",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.6",
+   "texto": "Meios de pagamento.",
+   "nivel": 3,
+   "macro": "4",
+   "pai": "4.7",
+   "folha": false
+  },
+  {
+   "codigo": "4.7.6.1",
+   "texto": "Conceitos.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.7.6",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.6.2",
+   "texto": "Arranjo.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.7.6",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.6.3",
+   "texto": "Adquirente.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.7.6",
+   "folha": true
+  },
+  {
+   "codigo": "4.7.6.4",
+   "texto": "Sub-adquitente.",
+   "nivel": 4,
+   "macro": "4",
+   "pai": "4.7.6",
+   "folha": true
+  }
+ ]
+}

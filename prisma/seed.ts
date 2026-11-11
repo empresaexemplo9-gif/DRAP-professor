@@ -20,6 +20,9 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { parseCourse } from "../src/content-import/course";
 import { syncCourse } from "../src/content-import/sync";
+import { loadCpaCatalog, validateCpaCatalog } from "../src/lib/cpa/catalog";
+import { syncCpaCatalog } from "../src/lib/cpa/sync";
+import { CPA_MODULE } from "../src/lib/cpa/module";
 
 try {
   process.loadEnvFile(".env");
@@ -319,6 +322,35 @@ async function main() {
       if (empty.length) await tx.segment.deleteMany({ where: { id: { in: empty } } });
       if (removed.count || empty.length) console.log(`Conteúdo de agro removido: ${removed.count} módulo(s), ${empty.length} segmento(s).`);
     });
+  }
+
+  // Preparatório CPA (content/cpa). A matriz e os capítulos entram sempre; o conteúdo só quando a
+  // validação não tem erros. O módulo do catálogo fica em rascunho até a cobertura estar completa.
+  {
+    const { catalog, errors: parseErrors } = loadCpaCatalog();
+    const report = validateCpaCatalog(catalog);
+    const errors = [...parseErrors, ...report.errors];
+    const content = errors.length ? { ...catalog, lessons: [], questions: [], cards: [], trees: [], exams: [] } : catalog;
+    if (errors.length) console.log(`CPA: conteúdo não importado (${errors.length} erro(s) de validação; rode npm run cpa:validar).`);
+    const r = await inTenant(tenant.id, (tx) => syncCpaCatalog(tx, { tenantId: tenant.id, authorId: admin.user.id, catalog: content }));
+    const complete = !errors.length && report.coverage.every((row) => row.lessons.length && row.questions.length);
+    await inTenant(tenant.id, async (tx) => {
+      const level = await tx.level.findUniqueOrThrow({ where: { tenantId_kind: { tenantId: tenant.id, kind: "CURSO" } } });
+      const segment = await tx.segment.upsert({
+        where: { tenantId_slug: { tenantId: tenant.id, slug: CPA_MODULE.segment.slug } },
+        create: { tenantId: tenant.id, ...CPA_MODULE.segment },
+        update: {},
+      });
+      const data = { title: CPA_MODULE.title, summary: CPA_MODULE.summary, workloadMinutes: CPA_MODULE.workloadMinutes, status: complete ? ("PUBLICADO" as const) : ("RASCUNHO" as const) };
+      const existing = await tx.module.findUnique({ where: { levelId_segmentId_slug: { levelId: level.id, segmentId: segment.id, slug: CPA_MODULE.slug } } });
+      const mod = existing
+        ? await tx.module.update({ where: { id: existing.id }, data })
+        : await tx.module.create({ data: { tenantId: tenant.id, levelId: level.id, segmentId: segment.id, slug: CPA_MODULE.slug, certificateType: "LIVRE", ...data } });
+      const student = demoUsers.find((d) => d.roles.includes("ALUNO"));
+      if (student) await tx.enrollment.upsert({ where: { userId_moduleId: { userId: student.user.id, moduleId: mod.id } }, create: { tenantId: tenant.id, userId: student.user.id, moduleId: mod.id, origin: "CORTESIA" }, update: {} });
+    });
+    const covered = report.coverage.filter((row) => row.lessons.length && row.questions.length).length;
+    console.log(`CPA: ${r.lessons} aula(s), ${r.questions} questão(ões), ${r.cards} cartão(ões), ${r.trees} árvore(s), ${r.exams} simulado(s) importados · cobertura ${covered}/${report.coverage.length} · módulo ${complete ? "publicado" : "em rascunho"}`);
   }
 
   // Catálogo oficial de cursos (content/cursos/*.md), na ordem numérica dos arquivos.

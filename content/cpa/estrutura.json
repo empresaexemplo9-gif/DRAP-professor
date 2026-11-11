@@ -1,0 +1,22 @@
+{
+  "chapters": [
+    { "number": 1, "macro": 1, "officialRef": "1.1", "title": "Sistema financeiro nacional", "summary": "Órgãos normativos e supervisores, operadores, autorreguladores e o Sistema Brasileiro de Pagamentos." },
+    { "number": 2, "macro": 1, "officialRef": "1.2", "title": "Política econômica e indicadores", "summary": "Fluxo circular da renda, mercados, políticas fiscal, monetária e cambial, indicadores e riscos." },
+    { "number": 3, "macro": 1, "officialRef": "1.3", "title": "Operações do mercado financeiro (matemática financeira)", "summary": "Juros, capitalização, desconto, fluxos de caixa, VPL, TIR, duration, amortização e retorno." },
+    { "number": 4, "macro": 1, "officialRef": "1.4", "title": "Regulação e infraestrutura de mercado", "summary": "IMFs, estabilidade financeira, Basileia, clearings, classificação de investidores e autorregulação ANBIMA." },
+    { "number": 5, "macro": 2, "officialRef": "2.1.1", "title": "Renda fixa, renda variável e COE", "summary": "Títulos públicos e bancários, crédito privado, poupança, ações, governança, tributação e COE." },
+    { "number": 6, "macro": 2, "officialRef": "2.1.2", "title": "Fundos de investimento (Resolução CVM 175)", "summary": "Parte geral, classes e subclasses, prestadores de serviço, remuneração e FIF (Anexo I)." },
+    { "number": 7, "macro": 2, "officialRef": "2.1.3–2.1.4", "title": "Tributação de fundos e fundos imobiliários", "summary": "IR e IOF em fundos; FIIs: negociação, riscos, rendimentos, tipos e tributação." },
+    { "number": 8, "macro": 2, "officialRef": "2.2", "title": "Previdência complementar (PGBL e VGBL)", "summary": "Modalidades, regimes de tributação, fases, taxas, portabilidade e rendas." },
+    { "number": 9, "macro": 2, "officialRef": "2.3", "title": "Produtos de financiamento", "summary": "Princípios de crédito, cartão, cheque especial, consignado, CDC, imobiliário, capital de giro e consórcio." },
+    { "number": 10, "macro": 2, "officialRef": "2.4", "title": "Serviços bancários", "summary": "Conta corrente, Pix, tarifas, atendimento, conta internacional e câmbio." },
+    { "number": 11, "macro": 2, "officialRef": "2.5", "title": "Seguros de vida e patrimoniais", "summary": "Vida inteira, temporário, tradicional, automóvel, residencial e prestamista." },
+    { "number": 12, "macro": 3, "officialRef": "3.1", "title": "Finanças pessoais", "summary": "Ciclo de vida, orçamento, dívidas e crédito, reserva de emergência, balanço, planejamento e IRPF básico." },
+    { "number": 13, "macro": 3, "officialRef": "3.2–3.3", "title": "Orientação financeira e perfil do investidor", "summary": "Tolerância a risco e horizonte, gestão financeira e de riscos, perfis, adequação e diversificação." },
+    { "number": 14, "macro": 3, "officialRef": "3.4.1–3.4.4", "title": "Ética, suitability e conduta profissional", "summary": "Código de conduta ANBIMA, suitability, técnicas de atendimento, conflitos de interesse e riscos da atividade." },
+    { "number": 15, "macro": 3, "officialRef": "3.4.5–3.4.7", "title": "PLDFT, LGPD e ilícitos de mercado", "summary": "Prevenção à lavagem de dinheiro, KYC, LGPD e sigilo, crimes contra o mercado e ilícitos da Res. CVM 62." },
+    { "number": 16, "macro": 4, "officialRef": "4.1–4.3", "title": "ESG e investimentos sustentáveis", "summary": "Conceitos ESG, investimentos ESG, regulação e autorregulação, fundos IS." },
+    { "number": 17, "macro": 4, "officialRef": "4.4", "title": "Finanças descentralizadas e tokenização", "summary": "DeFi, blockchain, smart contracts, tokenização, NFT, stablecoins, ETFs de criptoativos e Drex." },
+    { "number": 18, "macro": 4, "officialRef": "4.5–4.7", "title": "Open finance, inteligência artificial e fintechs", "summary": "Open finance, investment e insurance; IA generativa e atendimento; fintechs, sandbox e meios de pagamento." }
+  ]
+}
