@@ -4,6 +4,9 @@ import {
   addManagerAction,
   createOrganizationAction,
   createPoolAction,
+  resendProposalAction,
+  setPoolPaymentAction,
+  updateEnterprisePriceAction,
   updateOrganizationAction,
   updatePoolAction,
   type EnterpriseState,
@@ -101,6 +104,46 @@ export function CreatePoolForm({ organizationId, modules }: { organizationId: st
 }
 
 const small = "min-h-9 rounded-md border border-border-strong bg-bg px-2 text-xs text-text";
+
+/** Pagamento do contrato: enquanto pendente, as matrículas das vagas não fazem prova nem recebem certificado. */
+export function PoolPayment({ poolId, paidAt }: { poolId: string; paidAt: string | null }) {
+  return (
+    <form action={setPoolPaymentAction} className="flex flex-wrap items-center gap-3 rounded-md border border-border p-3 text-sm">
+      <input type="hidden" name="poolId" value={poolId} />
+      <input type="hidden" name="paid" value={paidAt ? "0" : "1"} />
+      {paidAt ? (
+        <span className="text-text">Pagamento confirmado em {paidAt} — provas e certificado liberados.</span>
+      ) : (
+        <span className="text-text"><strong>Pagamento pendente.</strong> A equipe lê o conteúdo e as apostilas; provas e certificado estão bloqueados.</span>
+      )}
+      <Button size="sm" variant={paidAt ? "ghost" : "gold"} type="submit">{paidAt ? "Desfazer confirmação" : "Confirmar pagamento"}</Button>
+    </form>
+  );
+}
+
+export function EnterprisePriceEditor({ moduleId, priceCents }: { moduleId: string; priceCents: number | null }) {
+  const [state, action, pending] = useActionState<EnterpriseState, FormData>(updateEnterprisePriceAction, {});
+  return (
+    <form action={action} className="flex flex-wrap items-center gap-2">
+      <input type="hidden" name="moduleId" value={moduleId} />
+      <span className="text-xs text-text-muted">R$</span>
+      <input name="price" aria-label="Preço por pessoa para empresas, em reais" inputMode="decimal" defaultValue={priceCents == null ? "" : (priceCents / 100).toFixed(2).replace(".", ",")} placeholder="sob consulta" className={`${small} w-28`} />
+      <Button size="sm" variant="ghost" type="submit" loading={pending}>Salvar</Button>
+      <Feedback state={state} />
+    </form>
+  );
+}
+
+export function ResendProposal({ leadId }: { leadId: string }) {
+  const [state, action, pending] = useActionState<EnterpriseState, FormData>(resendProposalAction, {});
+  return (
+    <form action={action} className="mt-1">
+      <input type="hidden" name="leadId" value={leadId} />
+      <Button size="sm" variant="ghost" type="submit" loading={pending}>Atualizar e reenviar</Button>
+      <Feedback state={state} />
+    </form>
+  );
+}
 
 export function PoolEditor({
   pool,

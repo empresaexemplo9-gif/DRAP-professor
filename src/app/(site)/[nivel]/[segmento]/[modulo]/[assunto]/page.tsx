@@ -19,7 +19,8 @@ import { mentorshipQuestions, mentorshipTeacherGuide } from "@/lib/courses/mento
 import { formatWorkload } from "@/lib/levels";
 import { parseDocument } from "@/content-blocks/schema";
 import { DocumentView, SlotPlaceholder, tableOfContents } from "@/content-blocks/BlockRenderer";
-import { Breadcrumb, ProgressBar } from "@/components/ui/misc";
+import { Alert, Breadcrumb, ProgressBar } from "@/components/ui/misc";
+import { PAYMENT_PENDING_MESSAGE } from "@/lib/enrollments";
 import { Button, ButtonLink, buttonClass } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { readSheet } from "@/lib/course-progress";
@@ -80,7 +81,9 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
   const canRead = Boolean(viewer && !viewer.disabled && !viewer.needsConsent && (enrolled || isStaff || isManager));
   const isBusiness = isBusinessCourse(mod);
   const isFinancial = isFinancialCourse(mod);
-  const questions = !canRead ? [] : isBusiness ? businessQuestions(topic.slug) : mentorship ? mentorshipQuestions(mentorship, topic.slug) : [];
+  // Vaga de contrato ainda não pago: conteúdo e apostilas sim; exercícios de avaliação não.
+  const paymentPending = Boolean(enrolled && enrollment?.paymentPending && !isStaff);
+  const questions = !canRead || paymentPending ? [] : isBusiness ? businessQuestions(topic.slug) : mentorship ? mentorshipQuestions(mentorship, topic.slug) : [];
   const teacherGuide = canRead && mentorship ? mentorshipTeacherGuide(mentorship, topic.slug, isStaff) : null;
   const downloads = mentorship ? mentorshipDownloads(mentorship, isStaff) : [];
   const completed = new Set(enrollment?.progress.filter((x) => x.status === "CONCLUIDO").map((x) => x.topicId) ?? []);
@@ -131,6 +134,7 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
 
           {canRead ? (
             <>
+              {paymentPending && <Alert tone="warning">{PAYMENT_PENDING_MESSAGE}</Alert>}
               {isFinancial ? (
                 <FinancialLesson
                   doc={doc}

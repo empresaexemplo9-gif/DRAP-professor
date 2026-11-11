@@ -33,6 +33,7 @@ model Tenant {
   pixCheckouts    PixCheckout[]
   organizations   Organization[]
   enterpriseLeads EnterpriseLead[]
+  proposals       Proposal[]
 
   @@map("tenants")
 }
@@ -289,6 +290,8 @@ model Module {
   coverUrl        String?
   workloadMinutes Int             @default(0)
   priceCents      Int?
+  // Preço por pessoa para empresas: base das propostas geradas a partir dos pedidos em /empresas.
+  enterprisePriceCents Int?
   // INDIVIDUAL: capacitação vendida por pessoa (Pix). EMPRESA: treinamento vendido por contrato (Enterprise).
   audience        ModuleAudience  @default(INDIVIDUAL)
   status          ContentStatus   @default(RASCUNHO)
@@ -423,6 +426,8 @@ model Enrollment {
   status    EnrollmentStatus @default(ATIVA)
   startsAt  DateTime         @default(now())
   endsAt    DateTime?
+  // Matrícula por vaga de contrato ainda não pago: conteúdo liberado, provas e certificado não.
+  paymentPending Boolean     @default(false)
   // Observação interna registrada pela equipe (painel Matrículas)
   note      String?
   createdAt DateTime         @default(now())
@@ -675,8 +680,9 @@ model Organization {
   updatedAt    DateTime           @updatedAt
 
   tenant  Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  members OrganizationMember[]
-  pools   LicensePool[]
+  members   OrganizationMember[]
+  pools     LicensePool[]
+  proposals Proposal[]
 
   @@unique([tenantId, cnpj])
   @@map("organizations")
@@ -713,6 +719,9 @@ model LicensePool {
   dueAt          DateTime?
   goalPercent    Int               @default(90)
   contractCents  Int?
+  // Pagamento do contrato confirmado. Sem ele, as matrículas das vagas leem o conteúdo e as
+  // apostilas, mas provas e certificado ficam bloqueados.
+  paidAt         DateTime?
   status         LicensePoolStatus @default(ACTIVE)
   note           String?
   createdAt      DateTime          @default(now())
@@ -761,10 +770,46 @@ model EnterpriseLead {
   status      EnterpriseLeadStatus @default(NOVO)
   createdAt   DateTime             @default(now())
 
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  proposal Proposal?
 
   @@index([tenantId, createdAt])
   @@map("enterprise_leads")
+}
+
+/// Proposta comercial gerada a partir de um pedido (/empresas). Os itens são uma fotografia do
+/// catálogo e dos preços no momento da geração; o link público usa `token`.
+model Proposal {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  tenantId    String    @db.Uuid
+  leadId      String    @unique @db.Uuid
+  number      Int
+  token       String    @unique
+  company     String
+  contactName String
+  email       String
+  teamSize    Int?
+  items       Json
+  totalCents  Int?
+  message     String?
+  validUntil  DateTime
+  sentAt      DateTime?
+  viewedAt    DateTime?
+  // Aceite pelo cliente no link público: cria a empresa, os contratos de vagas e o gestor.
+  acceptedAt     DateTime?
+  acceptedByName String?
+  acceptedIp     String?
+  acceptedSeats  Int?
+  organizationId String?   @db.Uuid
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  tenant       Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lead         EnterpriseLead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  organization Organization?  @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@unique([tenantId, number])
+  @@map("proposals")
 }
 
 // ───────────────────────────── Preparatório CPA (docs/cpa/PLANO.md) ─────────────────────────────

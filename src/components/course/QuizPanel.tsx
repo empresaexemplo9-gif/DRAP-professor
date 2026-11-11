@@ -1,3 +1,4 @@
+import { PAYMENT_PENDING_MESSAGE } from "@/lib/enrollments";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -21,6 +22,7 @@ export function QuizPanel({
   attempts,
   error,
   enrolled,
+  paymentPending = false,
 }: {
   topicId: string;
   path: string;
@@ -34,6 +36,7 @@ export function QuizPanel({
   attempts: Attempt[];
   error?: string;
   enrolled: boolean;
+  paymentPending?: boolean;
 }) {
   const now = new Date();
   const cycleAttempts = attempts.filter((a) => a.cycle === cycle);
@@ -74,7 +77,9 @@ export function QuizPanel({
         <div className="mt-5 space-y-4">
           <ProgressBar value={presence} label={`Aulas concluídas: ${lessonsDone} de ${lessonsTotal}`} />
           {errorText && <Alert tone="warning">{errorText}</Alert>}
-          {open ? (
+          {paymentPending ? (
+            <Alert tone="warning">{PAYMENT_PENDING_MESSAGE}</Alert>
+          ) : open ? (
             <Link href={`${path}/prova`} className="inline-flex min-h-11 items-center rounded-md bg-primary-strong px-4 font-medium text-text-on-primary no-underline hover:bg-primary">
               Continuar prova em andamento
             </Link>

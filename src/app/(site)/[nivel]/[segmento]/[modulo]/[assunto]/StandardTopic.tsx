@@ -154,6 +154,7 @@ export async function StandardTopic({
                   attempts={extra.attempts}
                   error={quizError}
                   enrolled={enrolled}
+                  paymentPending={Boolean(enrollment?.paymentPending)}
                 />
               ) : (
                 <SlotPlaceholder title="Questões do assunto" text="Este assunto não tem prova." />

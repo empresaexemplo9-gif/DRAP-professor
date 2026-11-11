@@ -281,11 +281,440 @@
   }
 }
 
+.print-only {
+  display: none;
+}
 @media print {
+  .print-only {
+    display: block;
+  }
   .no-print {
     display: none !important;
   }
   body {
     background: var(--drap-surface);
   }
+}
+
+/* ───────────── Proposta comercial: carta com brasão, filetes e marca d'água ───────────── */
+.proposal-stage {
+  --paper: var(--drap-campus-cream);
+  --ink: var(--drap-campus-navy);
+  --ink-soft: var(--drap-campus-line);
+  --gilt: var(--drap-campus-gold);
+  --gilt-ink: color-mix(in srgb, var(--drap-campus-gold) 45%, var(--drap-campus-navy));
+  min-height: 100dvh;
+  /* A marca d'água girada não pode criar rolagem lateral no celular. */
+  overflow-x: clip;
+  padding: 1.25rem 0.75rem 4rem;
+  background:
+    radial-gradient(120% 60% at 50% 0%, var(--drap-campus-navy-raised), transparent 70%),
+    var(--drap-campus-navy);
+  color: var(--drap-campus-on-navy);
+}
+.proposal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto 4.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.proposal-topbar a {
+  color: var(--drap-campus-on-navy);
+  text-decoration: none;
+}
+.proposal-sheet {
+  position: relative;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem 2.5rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--gilt);
+  outline: 1px solid var(--gilt);
+  outline-offset: -0.6rem;
+  box-shadow: 0 30px 80px color-mix(in srgb, var(--drap-campus-navy) 60%, transparent);
+}
+.proposal-sheet > * {
+  position: relative;
+}
+.proposal-sheet a {
+  color: var(--ink);
+}
+.proposal-sheet :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+@media (min-width: 640px) {
+  .proposal-sheet {
+    padding: 6rem 4rem 3.5rem;
+  }
+}
+/* Marca d'água: a marca ampliada, quase invisível, atrás de todo o texto. */
+.proposal-sheet > .proposal-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("/brand/logo-mark.png") center 22rem / min(34rem, 82%) no-repeat;
+  opacity: 0.05;
+  transform: rotate(-8deg);
+}
+.proposal-sheet > .proposal-corner {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 2px solid var(--gilt);
+}
+.proposal-corner.tl { top: 1.1rem; left: 1.1rem; border-right: 0; border-bottom: 0; }
+.proposal-corner.tr { top: 1.1rem; right: 1.1rem; border-left: 0; border-bottom: 0; }
+.proposal-corner.bl { bottom: 1.1rem; left: 1.1rem; border-right: 0; border-top: 0; }
+.proposal-corner.br { bottom: 1.1rem; right: 1.1rem; border-left: 0; border-top: 0; }
+
+.proposal-crest {
+  position: absolute;
+  top: -9.6rem;
+  left: 50%;
+  width: 7rem;
+  transform: translateX(-50%);
+}
+@media (min-width: 640px) {
+  .proposal-crest { top: -10.1rem; }
+}
+.proposal-crest-shield {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--drap-campus-navy) 55%, transparent));
+}
+.proposal-crest-shield .outer { fill: var(--drap-campus-navy); stroke: var(--drap-campus-gold); stroke-width: 3; }
+.proposal-crest-shield .inner { fill: none; stroke: var(--drap-campus-gold); stroke-width: 1; }
+.proposal-crest-shield .gem { fill: var(--drap-campus-gold); }
+.proposal-crest-mark {
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  width: 44%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background-color: var(--drap-campus-gold);
+  -webkit-mask: url("/brand/logo-mark.png") center / contain no-repeat;
+  mask: url("/brand/logo-mark.png") center / contain no-repeat;
+}
+.proposal-crest-ribbon {
+  position: absolute;
+  bottom: -0.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 1.4rem;
+  white-space: nowrap;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--drap-campus-navy);
+  background: var(--drap-campus-gold);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 0.6rem) 50%, 100% 100%, 0 100%, 0.6rem 50%);
+}
+
+.proposal-head {
+  text-align: center;
+}
+.proposal-kicker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gilt-ink);
+}
+.proposal-title {
+  margin-top: 0.75rem;
+  font-family: var(--drap-font-display);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+.proposal-title em {
+  color: var(--gilt-ink);
+}
+.proposal-meta {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.proposal-seal {
+  display: inline-block;
+  margin-top: 1.4rem;
+  padding: 0.45rem 1.1rem;
+  border: 2px solid var(--gilt-ink);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gilt-ink);
+  transform: rotate(-2deg);
+}
+.proposal-seal.accepted {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.proposal-seal.expired {
+  border-style: dashed;
+  color: var(--ink-soft);
+  border-color: var(--ink-soft);
+}
+.proposal-h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 1.25rem;
+  font-family: var(--drap-font-display);
+  font-size: 1.5rem;
+}
+.proposal-h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gilt), transparent);
+}
+.proposal-quote {
+  margin-top: 2.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--gilt);
+}
+.proposal-quote h2 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gilt-ink);
+}
+.proposal-quote blockquote {
+  margin-top: 0.4rem;
+  font-family: var(--drap-font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.proposal-items li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.25rem 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--gilt) 55%, transparent);
+  break-inside: avoid;
+}
+.proposal-items .numeral {
+  font-family: var(--drap-font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--gilt-ink);
+}
+.proposal-items h3 {
+  font-family: var(--drap-font-display);
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+.proposal-items .tags {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.proposal-items .summary {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.proposal-items .price {
+  grid-column: 2;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.proposal-items .price strong {
+  margin-right: 0.35rem;
+  font-family: var(--drap-font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+@media (min-width: 640px) {
+  .proposal-items li { grid-template-columns: 3rem 1fr auto; }
+  .proposal-items .price { grid-column: 3; grid-row: 1; text-align: right; }
+  .proposal-items .price strong { display: block; margin: 0; }
+}
+.proposal-plaque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--drap-campus-navy);
+  color: var(--drap-campus-on-navy);
+  border-left: 4px solid var(--gilt);
+  break-inside: avoid;
+}
+.proposal-plaque h2 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--drap-campus-gold);
+}
+.proposal-plaque p {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--drap-campus-muted);
+}
+.proposal-plaque .amount {
+  margin: 0;
+  text-align: right;
+}
+.proposal-plaque .amount strong {
+  display: block;
+  font-family: var(--drap-font-display);
+  font-size: clamp(1.7rem, 5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--drap-campus-gold);
+}
+.proposal-journey {
+  display: grid;
+  gap: 1.25rem;
+  counter-reset: step;
+}
+@media (min-width: 768px) {
+  .proposal-journey { grid-template-columns: repeat(5, 1fr); gap: 0.75rem; }
+}
+.proposal-journey li {
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--gilt);
+  break-inside: avoid;
+}
+.proposal-journey .step {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: -1.85rem;
+  border-radius: 999px;
+  background: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--paper);
+}
+.proposal-journey h3 {
+  margin-top: 0.5rem;
+  font-family: var(--drap-font-display);
+  font-size: 1.05rem;
+}
+.proposal-journey p {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.proposal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.proposal-field input,
+.proposal-field textarea {
+  min-height: 2.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--ink-soft);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--paper) 60%, var(--drap-campus-on-navy));
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--ink);
+}
+.proposal-field textarea::placeholder {
+  color: var(--ink-soft);
+}
+.proposal-notice {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.proposal-cta,
+.proposal-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.4rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.proposal-sheet .proposal-cta {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
+.proposal-cta:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+.proposal-sheet .proposal-ghost {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.proposal-topbar .proposal-ghost {
+  border: 1px solid var(--drap-campus-gold);
+  background: transparent;
+  color: var(--drap-campus-gold);
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+.proposal-foot {
+  margin-top: 3.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+.proposal-foot .rule {
+  display: block;
+  width: 5rem;
+  height: 1px;
+  margin: 0 auto 1rem;
+  background: var(--gilt);
+}
+.proposal-foot p:first-of-type {
+  font-family: var(--drap-font-display);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+@media print {
+  .proposal-stage {
+    padding: 0;
+    background: var(--drap-campus-cream);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .proposal-sheet {
+    max-width: none;
+    padding-top: 11rem;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+  }
+  .proposal-sheet > .proposal-corner { display: none; }
+  /* Fixa: a marca d'água se repete em todas as páginas impressas. */
+  .proposal-sheet > .proposal-watermark {
+    position: fixed;
+    background-position: center;
+  }
+  .proposal-accept form { display: none; }
 }

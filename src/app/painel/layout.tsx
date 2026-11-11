@@ -6,12 +6,15 @@ import { FINANCIAL_COURSE } from "@/lib/courses/financial-consulting";
 import { BUSINESS_COURSE } from "@/lib/courses/business-management";
 import { AppShell } from "@/components/shell/AppShell";
 import { claimLicenseInvites, managedOrganizations } from "@/lib/enterprise-server";
+import { claimProposalManagement } from "@/lib/proposals-server";
 
 export default async function PainelLayout({ children }: { children: React.ReactNode }) {
   const viewer = await requireViewer();
   if (viewer.needsConsent) redirect("/aceite");
   // Vagas reservadas por empresas para este e-mail viram matrícula no primeiro acesso.
   await claimLicenseInvites(viewer.tenant.id, viewer.user);
+  // Quem aceitou uma proposta antes de criar a conta passa a gerir a empresa.
+  await claimProposalManagement(viewer.tenant.id, viewer.user);
   const isCompanyManager = (await managedOrganizations(viewer)).length > 0;
   const { logoUrl } = await getTenantTheme();
   const hasBusinessCourse = await withTenant(viewer.tenant.id, async (tx) =>

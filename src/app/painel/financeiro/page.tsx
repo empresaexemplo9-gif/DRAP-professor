@@ -1,3 +1,4 @@
+import { EnterprisePriceEditor } from "../empresas/forms";
 import type { Metadata } from "next";
 import type { PixCheckoutStatus } from "@prisma/client";
 import { requirePermission } from "@/lib/session";
@@ -50,7 +51,7 @@ export default async function FinancePage({ searchParams }: { searchParams: Prom
     all: await tx.pixCheckout.findMany({ where: { tenantId: t }, select: { status: true, amountCents: true, paidAt: true } }),
     modules: await tx.module.findMany({
       where: { tenantId: t, status: { not: "ARQUIVADO" } },
-      select: { id: true, title: true, status: true, priceCents: true, audience: true, level: { select: { label: true } }, _count: { select: { enrollments: { where: { status: "ATIVA" } } } } },
+      select: { id: true, title: true, status: true, priceCents: true, enterprisePriceCents: true, audience: true, level: { select: { label: true } }, _count: { select: { enrollments: { where: { status: "ATIVA" } } } } },
       orderBy: [{ audience: "asc" }, { level: { order: "asc" } }, { title: "asc" }],
     }),
   }));
@@ -139,9 +140,9 @@ export default async function FinancePage({ searchParams }: { searchParams: Prom
       <section aria-labelledby="precos" className="space-y-4">
         <div>
           <h2 id="precos" className="font-display text-2xl text-text">Preços dos cursos</h2>
-          <p className="mt-1 text-sm text-text-muted">O valor vale para novas cobranças de capacitações individuais. Deixe vazio para retirar o curso do checkout Pix. Treinamentos para empresas são vendidos por contrato em Empresas.</p>
+          <p className="mt-1 text-sm text-text-muted">O preço individual vale para novas cobranças Pix; vazio retira o curso do checkout. O preço por pessoa para empresas alimenta as propostas geradas a partir dos pedidos em Para empresas; vazio aparece como &ldquo;sob consulta&rdquo;.</p>
         </div>
-        <DataTable head={["Curso", "Público", "Publicação", "Matrículas ativas", "Preço"]} caption="Preços dos cursos">
+        <DataTable head={["Curso", "Público", "Publicação", "Matrículas ativas", "Preço individual (Pix)", "Empresas (por pessoa)"]} caption="Preços dos cursos">
           {modules.map((m) => (
             <tr key={m.id}>
               <td className="min-w-56">
@@ -153,6 +154,9 @@ export default async function FinancePage({ searchParams }: { searchParams: Prom
               <td className="text-text-muted">{m._count.enrollments}</td>
               <td className="min-w-64">
                 {m.audience === "EMPRESA" ? <span className="text-xs text-text-muted">Por contrato (Empresas)</span> : canManage ? <PriceEditor moduleId={m.id} priceCents={m.priceCents} /> : <span className="text-text">{m.priceCents == null ? "—" : formatBRL(m.priceCents)}</span>}
+              </td>
+              <td className="min-w-64">
+                {canManage ? <EnterprisePriceEditor moduleId={m.id} priceCents={m.enterprisePriceCents} /> : <span className="text-text">{m.enterprisePriceCents == null ? "sob consulta" : formatBRL(m.enterprisePriceCents)}</span>}
               </td>
             </tr>
           ))}

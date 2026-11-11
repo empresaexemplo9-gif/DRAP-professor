@@ -109,7 +109,7 @@ export async function syncPixCheckout(tenantId: string, checkoutId: string, expe
       await tx.enrollment.upsert({
         where: { userId_moduleId: { userId: checkout.userId, moduleId: checkout.moduleId } },
         create: { tenantId, userId: checkout.userId, moduleId: checkout.moduleId, origin: "COMPRA", status: "ATIVA" },
-        update: { tenantId, origin: "COMPRA", status: "ATIVA", endsAt: null },
+        update: { tenantId, origin: "COMPRA", status: "ATIVA", endsAt: null, paymentPending: false },
       });
     });
     return "PAID";

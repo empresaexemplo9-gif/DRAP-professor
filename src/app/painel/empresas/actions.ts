@@ -9,6 +9,8 @@ import { isValidCnpj, onlyDigits } from "@/lib/cpf";
 import { parseEndDate } from "@/lib/enrollments";
 import { parsePriceToCents } from "@/lib/payments/pix-state";
 import { syncOrganizationEnrollments, syncPoolEnrollments } from "@/lib/enterprise-server";
+import { proposalCatalog, requestBaseUrl, sendProposal, upsertProposal } from "@/lib/proposals-server";
+import { readProposalItems } from "@/lib/proposals";
 
 export type EnterpriseState = { error?: string; ok?: boolean; message?: string; fieldErrors?: Record<string, string> };
 
@@ -159,7 +161,7 @@ export async function createPoolAction(_: EnterpriseState, fd: FormData): Promis
     const org = await tx.organization.findFirst({ where: { id: orgId.data, tenantId }, select: { id: true } });
     const mod = await tx.module.findFirst({ where: { id: moduleId.data, tenantId, status: { not: "ARQUIVADO" } }, select: { id: true, title: true } });
     if (!org || !mod) return { error: "Empresa ou curso não encontrado." };
-    const pool = await tx.licensePool.create({ data: { tenantId, organizationId: org.id, moduleId: mod.id, ...parsed.data } });
+    const pool = await tx.licensePool.create({ data: { tenantId, organizationId: org.id, moduleId: mod.id, paidAt: new Date(), ...parsed.data } });
     await audit(tx, { tenantId, actorId: viewer.user.id, action: "licenca.contrato_criado", entity: "LicensePool", entityId: pool.id, data: { moduleId: mod.id, seats: pool.seats }, ip });
     return { ok: true, message: `${pool.seats} vaga(s) de ${mod.title} adicionadas.` };
   });
@@ -198,6 +200,65 @@ export async function updatePoolAction(_: EnterpriseState, fd: FormData): Promis
   });
   if (result.ok) refresh(orgId);
   return result;
+}
+
+/** Confirma (ou desfaz) o pagamento do contrato: libera provas e certificado das matrículas das vagas. */
+export async function setPoolPaymentAction(fd: FormData) {
+  const viewer = await assertPermission("enterprise:manage");
+  const poolId = z.string().uuid().parse(fd.get("poolId"));
+  const paid = fd.get("paid") === "1";
+  const tenantId = viewer.tenant.id;
+  const ip = await clientIp();
+  const orgId = await withTenant(tenantId, async (tx) => {
+    const pool = await tx.licensePool.findFirst({ where: { id: poolId, tenantId }, select: { id: true, organizationId: true, paidAt: true } });
+    if (!pool || Boolean(pool.paidAt) === paid) return pool?.organizationId ?? null;
+    await tx.licensePool.update({ where: { id: pool.id }, data: { paidAt: paid ? new Date() : null } });
+    await syncPoolEnrollments(tx, pool.id);
+    await audit(tx, { tenantId, actorId: viewer.user.id, action: paid ? "licenca.pagamento_confirmado" : "licenca.pagamento_desfeito", entity: "LicensePool", entityId: pool.id, ip });
+    return pool.organizationId;
+  });
+  if (orgId) refresh(orgId);
+}
+
+/** Preço por pessoa para empresas: base das propostas geradas a partir dos pedidos. */
+export async function updateEnterprisePriceAction(_: EnterpriseState, fd: FormData): Promise<EnterpriseState> {
+  const viewer = await assertPermission("finance:manage");
+  const id = z.string().uuid().safeParse(fd.get("moduleId"));
+  if (!id.success) return { error: "Curso inválido." };
+  const price = z.number({ invalid_type_error: "Valor inválido." }).int().min(100, "O valor mínimo é R$ 1,00").max(10_000_000, "O valor máximo é R$ 100.000,00").nullable().safeParse(parsePriceToCents(fd.get("price")));
+  if (!price.success) return { error: price.error.issues[0]?.message ?? "Valor inválido." };
+  const tenantId = viewer.tenant.id;
+  const ip = await clientIp();
+  const result = await withTenant(tenantId, async (tx): Promise<EnterpriseState> => {
+    const mod = await tx.module.findFirst({ where: { id: id.data, tenantId }, select: { id: true, enterprisePriceCents: true } });
+    if (!mod) return { error: "Curso não encontrado." };
+    if (mod.enterprisePriceCents === price.data) return { ok: true, message: "Nenhuma alteração." };
+    await tx.module.update({ where: { id: mod.id }, data: { enterprisePriceCents: price.data } });
+    await audit(tx, { tenantId, actorId: viewer.user.id, action: "curso.preco_empresa_alterado", entity: "Module", entityId: mod.id, data: { before: mod.enterprisePriceCents, after: price.data }, ip });
+    return { ok: true, message: price.data == null ? "Sem preço: nas propostas aparece como sob consulta." : "Preço por pessoa atualizado." };
+  });
+  if (result.ok) revalidatePath("/painel/financeiro");
+  return result;
+}
+
+/** Regenera a proposta do pedido com os preços atuais e reenvia ao cliente. */
+export async function resendProposalAction(_: EnterpriseState, fd: FormData): Promise<EnterpriseState> {
+  const viewer = await assertPermission("enterprise:manage");
+  const leadId = z.string().uuid().safeParse(fd.get("leadId"));
+  if (!leadId.success) return { error: "Pedido inválido." };
+  const tenantId = viewer.tenant.id;
+  const proposal = await withTenant(tenantId, async (tx) => {
+    const lead = await tx.enterpriseLead.findFirst({ where: { id: leadId.data, tenantId }, include: { proposal: true } });
+    if (!lead?.proposal) return null;
+    if (lead.proposal.acceptedAt) return lead.proposal;
+    const catalog = await proposalCatalog(tx, tenantId);
+    return upsertProposal(tx, tenantId, lead, readProposalItems(lead.proposal.items).map((i) => i.moduleId), catalog);
+  });
+  if (!proposal) return { error: "Este pedido não tem proposta." };
+  if (proposal.acceptedAt) return { error: "A proposta já foi aceita e não pode mais ser alterada." };
+  await sendProposal(viewer.tenant, proposal, await requestBaseUrl());
+  revalidatePath("/painel/empresas");
+  return { ok: true, message: "Proposta atualizada com os preços atuais e reenviada." };
 }
 
 export async function updateLeadStatusAction(fd: FormData) {

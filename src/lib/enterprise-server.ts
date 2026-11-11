@@ -49,8 +49,8 @@ async function enrollFromSeat(tx: Tx, tenantId: string, pool: LicensePool, userI
   if (existing?.status === "CONCLUIDA") return;
   await tx.enrollment.upsert({
     where: { userId_moduleId: { userId, moduleId: pool.moduleId } },
-    create: { tenantId, userId, moduleId: pool.moduleId, origin: "LICENCA", status: "ATIVA", endsAt: pool.endsAt },
-    update: { origin: "LICENCA", status: "ATIVA", endsAt: pool.endsAt, startsAt: existing?.status === "ATIVA" ? undefined : new Date() },
+    create: { tenantId, userId, moduleId: pool.moduleId, origin: "LICENCA", status: "ATIVA", endsAt: pool.endsAt, paymentPending: !pool.paidAt },
+    update: { origin: "LICENCA", status: "ATIVA", endsAt: pool.endsAt, paymentPending: !pool.paidAt, startsAt: existing?.status === "ATIVA" ? undefined : new Date() },
   });
 }
 
@@ -62,7 +62,7 @@ async function activate(tx: Tx, tenantId: string, pool: LicensePool, assignment:
 
 export type AssignResult = { activated: string[]; invited: string[]; skipped: { email: string; reason: string }[] };
 
-export async function assignSeats(input: { tenantId: string; poolId: string; emails: string[]; team: string | null; actorId: string; ip: string | null }) {
+export async function assignSeats(input: { tenantId: string; poolId: string; emails: string[]; team: string | null; actorId: string | null; ip: string | null }) {
   const { tenantId, poolId, emails, team, actorId, ip } = input;
   return withTenant(tenantId, async (tx): Promise<AssignResult | { error: string }> => {
     // Serializa atribuições do mesmo contrato para nunca passar do número de vagas.
@@ -149,7 +149,7 @@ export async function syncPoolEnrollments(tx: Tx, poolId: string) {
   if (!userIds.length) return;
   await tx.enrollment.updateMany({
     where: { moduleId: pool.moduleId, userId: { in: userIds }, origin: "LICENCA", status: { in: ["ATIVA", "CANCELADA", "EXPIRADA"] } },
-    data: live ? { status: "ATIVA", endsAt: pool.endsAt } : { status: "CANCELADA" },
+    data: live ? { status: "ATIVA", endsAt: pool.endsAt, paymentPending: !pool.paidAt } : { status: "CANCELADA" },
   });
 }
 

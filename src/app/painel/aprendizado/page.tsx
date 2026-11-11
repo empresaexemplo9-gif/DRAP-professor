@@ -60,6 +60,7 @@ export default async function LearningPage() {
                 <td className="whitespace-nowrap text-text-muted">{e.module.level.label}</td>
                 <td className="whitespace-nowrap text-text-muted">
                   {ENROLLMENT_STATUS_LABEL[isPastEnd(e) ? "EXPIRADA" : e.status].label}
+                  {e.paymentPending && e.status === "ATIVA" && <span className="block text-xs text-warning">Provas e certificado aguardam o pagamento do contrato</span>}
                   {e.endsAt && !isPastEnd(e) && e.status === "ATIVA" && <span className="block text-xs">até {e.endsAt.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })}</span>}
                 </td>
                 <td className="min-w-48"><ProgressBar value={total ? (e.progress.length / total) * 100 : 0} label={`${e.progress.length}/${total}`} /></td>

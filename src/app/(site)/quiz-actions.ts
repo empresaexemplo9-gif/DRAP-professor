@@ -7,7 +7,7 @@ import type { EnrollmentStatus, Prisma, Role } from "@prisma/client";
 import { withTenant } from "@/lib/db";
 import { clientIp, getViewer } from "@/lib/session";
 import { can } from "@/lib/rbac";
-import { isPastEnd } from "@/lib/enrollments";
+import { isPastEnd, PAYMENT_PENDING_MESSAGE } from "@/lib/enrollments";
 import { audit } from "@/lib/audit";
 import { buildAttempt, grade, quizGate, type AttemptItem, type QuestionForQuiz } from "@/lib/quiz";
 import { ensureProgress, lessonIds, quizConfig, readSheet, refreshEnrollment } from "@/lib/course-progress";
@@ -91,6 +91,7 @@ export async function startQuizAction(fd: FormData) {
     if (!topic?.publishedVersion) return { error: "Módulo não encontrado." };
     const enrollment = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: viewer.user.id, moduleId: topic.moduleId } } });
     if (!enrollment || inactive(enrollment)) return { error: "Matrícula inativa." };
+    if (enrollment.paymentPending) return { error: PAYMENT_PENDING_MESSAGE };
     if (await lockedByPrevious(tx, topic, enrollment.id, topic.module.levelConfig, viewer.roles)) return { error: "Seja aprovado no módulo anterior para liberar esta prova." };
     const cfg = quizConfig(readSheet(topic.module.courseSheet));
     const progress = await ensureProgress(tx, tenantId, enrollment.id, topicId);

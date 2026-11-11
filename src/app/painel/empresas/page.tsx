@@ -8,7 +8,10 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { DataTable, EmptyState, LinkTabs, PageHeader } from "@/components/ui/misc";
-import { OrganizationForm } from "./forms";
+import { OrganizationForm, ResendProposal } from "./forms";
+import { formatBRL } from "@/lib/payments/pix-state";
+import { PROPOSAL_STAGE_LABEL, proposalCode, proposalStage } from "@/lib/proposals";
+import { proposalPath } from "@/lib/proposals-server";
 import { updateLeadStatusAction } from "./actions";
 
 export const metadata: Metadata = { title: "Empresas" };
@@ -30,7 +33,7 @@ export default async function EnterprisesPage({ searchParams }: { searchParams: 
       },
       orderBy: { name: "asc" },
     }),
-    leads: tab === "propostas" ? await tx.enterpriseLead.findMany({ where: { tenantId: t }, orderBy: { createdAt: "desc" }, take: 200 }) : [],
+    leads: tab === "propostas" ? await tx.enterpriseLead.findMany({ where: { tenantId: t }, orderBy: { createdAt: "desc" }, take: 200, include: { proposal: true } }) : [],
     newLeads: await tx.enterpriseLead.count({ where: { tenantId: t, status: "NOVO" } }),
   }));
 
@@ -84,7 +87,7 @@ export default async function EnterprisesPage({ searchParams }: { searchParams: 
       ) : leads.length === 0 ? (
         <EmptyState title="Nenhum pedido de proposta" text="Os pedidos enviados pela página pública Para empresas (/empresas) aparecem aqui." />
       ) : (
-        <DataTable head={["Data", "Empresa", "Contato", "Equipe", "Interesse", "Situação"]} caption="Pedidos de proposta">
+        <DataTable head={["Data", "Empresa", "Contato", "Equipe", "Interesse", "Proposta", "Situação"]} caption="Pedidos de proposta">
           {leads.map((l) => (
             <tr key={l.id} className="align-top">
               <td className="whitespace-nowrap text-text-muted">{date(l.createdAt)}</td>
@@ -98,6 +101,19 @@ export default async function EnterprisesPage({ searchParams }: { searchParams: 
               <td className="min-w-56 text-xs text-text-muted">
                 {l.interests.length > 0 && <span className="block text-text">{l.interests.join(", ")}</span>}
                 {l.message}
+              </td>
+              <td className="min-w-48 text-xs">
+                {l.proposal ? (
+                  <>
+                    <Link href={proposalPath(l.proposal.token)} className="block font-medium">{proposalCode(l.proposal.number, l.proposal.createdAt)}</Link>
+                    <span className="my-1 block"><Badge tone={PROPOSAL_STAGE_LABEL[proposalStage(l.proposal)].tone}>{PROPOSAL_STAGE_LABEL[proposalStage(l.proposal)].label}</Badge></span>
+                    <span className="block text-text-muted">{l.proposal.totalCents != null ? formatBRL(l.proposal.totalCents) : "sem total"}</span>
+                    {l.proposal.organizationId && <Link href={`/painel/empresas/${l.proposal.organizationId}`} className="block">Ver empresa e contratos</Link>}
+                    {!l.proposal.acceptedAt && <ResendProposal leadId={l.id} />}
+                  </>
+                ) : (
+                  <span className="text-text-muted">—</span>
+                )}
               </td>
               <td>
                 <form action={updateLeadStatusAction} className="flex items-center gap-2">

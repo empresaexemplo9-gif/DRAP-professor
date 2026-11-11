@@ -39,3 +39,6 @@ export function activeEnrollmentWhere(now = new Date()) {
 export function isPastEnd(enrollment: { status: EnrollmentStatus; endsAt: Date | null }, now = new Date()) {
   return enrollment.status === "ATIVA" && enrollment.endsAt != null && enrollment.endsAt <= now;
 }
+
+/** Vaga de contrato ainda não pago: o aluno lê o conteúdo e baixa as apostilas, mas não faz prova nem recebe certificado. */
+export const PAYMENT_PENDING_MESSAGE = "As provas e o certificado são liberados quando o pagamento do contrato da sua empresa for confirmado. O conteúdo e as apostilas já estão disponíveis.";

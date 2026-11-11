@@ -3,8 +3,10 @@ import { z } from "zod";
 import { withTenant } from "@/lib/db";
 import { getTenant } from "@/lib/tenant";
 import { sendEmail } from "@/lib/email";
+import { proposalCode, readProposalItems } from "@/lib/proposals";
+import { proposalCatalog, proposalPath, requestBaseUrl, sendProposal, upsertProposal } from "@/lib/proposals-server";
 
-export type LeadState = { error?: string; ok?: boolean; fieldErrors?: Record<string, string> };
+export type LeadState = { error?: string; ok?: boolean; fieldErrors?: Record<string, string>; proposalUrl?: string; proposalCode?: string };
 
 const leadSchema = z.object({
   company: z.string().trim().min(2, "Informe a empresa").max(120),
@@ -12,7 +14,7 @@ const leadSchema = z.object({
   email: z.string().trim().toLowerCase().email("E-mail inválido"),
   phone: z.string().trim().max(30).optional().transform((v) => v || null),
   teamSize: z.preprocess((v) => (v === "" || v == null ? null : v), z.coerce.number().int().min(1, "Mínimo 1").max(1_000_000).nullable()),
-  interests: z.array(z.string().trim().max(200)).max(50),
+  modules: z.array(z.string().uuid()).max(60),
   message: z.string().trim().max(2000).optional().transform((v) => v || null),
 });
 
@@ -25,7 +27,7 @@ export async function requestProposalAction(_: LeadState, fd: FormData): Promise
     email: fd.get("email"),
     phone: fd.get("phone") ?? undefined,
     teamSize: fd.get("teamSize"),
-    interests: fd.getAll("interests").map(String),
+    modules: fd.getAll("modules").map(String),
     message: fd.get("message") ?? undefined,
   });
   if (!parsed.success) {
@@ -38,14 +40,23 @@ export async function requestProposalAction(_: LeadState, fd: FormData): Promise
     tx.enterpriseLead.count({ where: { tenantId: tenant.id, email: parsed.data.email, createdAt: { gt: new Date(Date.now() - 10 * 60 * 1000) } } }),
   );
   if (recent >= 3) return { ok: true };
-  await withTenant(tenant.id, (tx) => tx.enterpriseLead.create({ data: { tenantId: tenant.id, ...parsed.data } }));
+  const { modules: moduleIds, ...lead } = parsed.data;
+  // O pedido vira proposta na hora: os cursos marcados, com os preços por pessoa vigentes.
+  const proposal = await withTenant(tenant.id, async (tx) => {
+    const catalog = await proposalCatalog(tx, tenant.id);
+    const chosen = catalog.filter((m) => moduleIds.includes(m.id));
+    const created = await tx.enterpriseLead.create({ data: { tenantId: tenant.id, ...lead, interests: chosen.map((m) => m.title) } });
+    return chosen.length ? upsertProposal(tx, tenant.id, created, chosen.map((m) => m.id), catalog) : null;
+  });
+  const interests = proposal ? readProposalItems(proposal.items).map((i) => i.title) : [];
+  if (proposal) await sendProposal(tenant, proposal, await requestBaseUrl());
   const notify = process.env.ENTERPRISE_LEADS_EMAIL || process.env.SEED_ADMIN_EMAIL;
   if (notify) {
     await sendEmail(
       notify,
       `Novo pedido de proposta Enterprise: ${parsed.data.company}`,
-      `${parsed.data.contactName} <${parsed.data.email}>${parsed.data.phone ? ` · ${parsed.data.phone}` : ""}\nEquipe: ${parsed.data.teamSize ?? "não informado"}\nInteresses: ${parsed.data.interests.join(", ") || "—"}\n\n${parsed.data.message ?? ""}\n\nVeja em Painel › Empresas › Pedidos de proposta.`,
+      `${parsed.data.contactName} <${parsed.data.email}>${parsed.data.phone ? ` · ${parsed.data.phone}` : ""}\nEquipe: ${parsed.data.teamSize ?? "não informado"}\nInteresses: ${interests.join(", ") || "—"}\n${proposal ? `Proposta ${proposalCode(proposal.number, proposal.createdAt)} enviada automaticamente ao cliente.` : "Nenhum curso marcado: sem proposta automática."}\n\n${parsed.data.message ?? ""}\n\nVeja em Painel › Empresas › Pedidos de proposta.`,
     );
   }
-  return { ok: true };
+  return proposal ? { ok: true, proposalUrl: proposalPath(proposal.token), proposalCode: proposalCode(proposal.number, proposal.createdAt) } : { ok: true };
 }

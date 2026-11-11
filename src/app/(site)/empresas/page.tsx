@@ -46,11 +46,12 @@ export default async function EnterpriseLandingPage({ searchParams }: { searchPa
     ...level,
     modules: individual.filter((m) => m.level.id === level.id),
   }));
-  const themes = [
-    ...exclusive.map((m) => m.title),
-    ...[...new Set(individual.map((m) => m.segment.name))].sort((a, b) => a.localeCompare(b, "pt-BR")),
+  const option = (m: (typeof modules)[number]) => ({ id: m.id, title: m.title, hint: `${m.segment.name} · ${formatWorkload(m.workloadMinutes)}` });
+  const groups = [
+    ...(exclusive.length ? [{ label: "Treinamentos exclusivos para empresas", options: exclusive.map(option) }] : []),
+    ...levels.map((l) => ({ label: l.label, options: l.modules.map(option) })),
   ];
-  const preselected = exclusive.find((m) => m.slug === curso)?.title;
+  const preselected = modules.find((m) => m.slug === curso)?.id;
 
   return (
     <div className="space-y-12">
@@ -153,8 +154,8 @@ export default async function EnterpriseLandingPage({ searchParams }: { searchPa
       <section id="proposta" aria-labelledby="proposta-title" className="scroll-mt-24">
         <Card>
           <h2 id="proposta-title" className="font-display text-3xl text-text">Solicite uma proposta</h2>
-          <p className="mb-6 mt-2 text-text-muted">Conte quantas pessoas e quais temas; respondemos com valores por vaga e condições para a sua empresa.</p>
-          <LeadForm key={preselected ?? "todos"} themes={themes} preselected={preselected} />
+          <p className="mb-6 mt-2 text-text-muted">Conte quantas pessoas e quais temas; a proposta é gerada na hora com o que você marcar e enviada para o seu e-mail.</p>
+          <LeadForm key={preselected ?? "todos"} groups={groups} preselected={preselected} />
         </Card>
       </section>
     </div>

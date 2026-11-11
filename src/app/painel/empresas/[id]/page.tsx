@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Breadcrumb, PageHeader } from "@/components/ui/misc";
-import { AddManagerForm, CreatePoolForm, OrganizationForm, PoolEditor } from "../forms";
+import { AddManagerForm, CreatePoolForm, OrganizationForm, PoolEditor, PoolPayment } from "../forms";
 import { removeManagerAction } from "../actions";
 
 export const metadata: Metadata = { title: "Empresa" };
@@ -48,6 +48,8 @@ export default async function EnterpriseDetailPage({ params }: { params: Promise
         <TeamPanel
           org={org}
           footer={(pool) => (
+            <>
+            <PoolPayment poolId={pool.id} paidAt={pool.paidAt ? pool.paidAt.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" }) : null} />
             <PoolEditor
               pool={{
                 id: pool.id,
@@ -60,6 +62,7 @@ export default async function EnterpriseDetailPage({ params }: { params: Promise
                 status: pool.status,
               }}
             />
+            </>
           )}
         />
         <Card>

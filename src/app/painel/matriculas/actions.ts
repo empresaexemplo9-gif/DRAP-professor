@@ -43,7 +43,7 @@ export async function createEnrollmentAction(_: EnrollmentState, fd: FormData): 
 
     const existing = await tx.enrollment.findUnique({ where: { userId_moduleId: { userId: user.id, moduleId: mod.id } } });
     if (existing?.status === "ATIVA") return { error: `${user.name} já tem matrícula ativa em ${mod.title}.` };
-    const data = { origin: origin.data, status: "ATIVA" as const, endsAt, note: note.data };
+    const data = { origin: origin.data, status: "ATIVA" as const, endsAt, note: note.data, paymentPending: false };
     const enrollment = existing
       ? await tx.enrollment.update({ where: { id: existing.id }, data: { ...data, startsAt: new Date() } })
       : await tx.enrollment.create({ data: { tenantId, userId: user.id, moduleId: mod.id, ...data } });

@@ -65,7 +65,7 @@ export async function confirmCheckoutAction(_: FinanceState, fd: FormData): Prom
     await tx.enrollment.upsert({
       where: { userId_moduleId: { userId: checkout.userId, moduleId: checkout.moduleId } },
       create: { tenantId, userId: checkout.userId, moduleId: checkout.moduleId, origin: "COMPRA", status: "ATIVA" },
-      update: { origin: "COMPRA", status: "ATIVA", endsAt: null },
+      update: { origin: "COMPRA", status: "ATIVA", endsAt: null, paymentPending: false },
     });
     await audit(tx, {
       tenantId,
