@@ -1,0 +1,118 @@
+{
+  "code": "CPA-T-03",
+  "title": "Resgate antes do vencimento em cenário adverso",
+  "scenario": "Leandro, 41 anos, perfil moderado, aplicou R$ 200 mil em título IPCA+ com vencimento em 2040 para a aposentadoria. Após forte alta dos juros, o título mostra perda de 9% e ele liga querendo resgatar tudo e ir para a poupança (cenário autoral, sem dados reais).",
+  "items": [
+    "3.2.1",
+    "3.2.3",
+    "3.3.3",
+    "3.4.2.5",
+    "3.4.2.6",
+    "3.4.2.7"
+  ],
+  "start": "n1",
+  "nodes": {
+    "n1": {
+      "text": "Leandro está nervoso e pede o resgate imediato. O que fazer primeiro?",
+      "choices": [
+        {
+          "label": "Ouvir e perguntar se o objetivo ou o prazo mudaram",
+          "next": "n2",
+          "score": 2,
+          "feedback": "Antes de agir, verifique se houve mudança real de necessidade.",
+          "competence": "Escuta e diagnóstico"
+        },
+        {
+          "label": "Executar o resgate sem conversar",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Respeita o pedido, mas omite informação relevante sobre a perda."
+        },
+        {
+          "label": "Dizer que ele está errado e recusar o resgate",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "O cliente tem direito de resgatar; recusar e confrontar é inadequado."
+        }
+      ]
+    },
+    "n2": {
+      "text": "Ele diz que nada mudou: continua mirando a aposentadoria em 2040. Como explicar a perda?",
+      "choices": [
+        {
+          "label": "Explicar a marcação a mercado e que a taxa contratada vale até o vencimento",
+          "next": "n3",
+          "score": 2,
+          "feedback": "Explica o mecanismo com fatos, sem promessas.",
+          "competence": "Comunicação de riscos"
+        },
+        {
+          "label": "Garantir que os juros vão cair e o preço vai voltar",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "Prometer comportamento de mercado induz a decisão e é indevido."
+        },
+        {
+          "label": "Dizer que perdas de papel não existem",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Minimiza o risco real de quem precisar vender antes."
+        }
+      ]
+    },
+    "n3": {
+      "text": "Ele entende, mas pergunta se deve mudar algo. Qual sua orientação?",
+      "choices": [
+        {
+          "label": "Revisar a carteira: reserva intacta, alocação-alvo e eventual rebalanceamento",
+          "next": "n4",
+          "score": 2,
+          "feedback": "Retoma a política de investimento em vez de reagir ao cenário.",
+          "competence": "Gestão de investimentos"
+        },
+        {
+          "label": "Sugerir trocar tudo por ações para recuperar a perda",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "Aumenta o risco por impulso, sem base no perfil."
+        },
+        {
+          "label": "Sugerir resgatar metade para 'reduzir o prejuízo'",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Realiza perda sem mudança de objetivo."
+        }
+      ]
+    },
+    "n4": {
+      "text": "Leandro decide manter o título. Como fechar o atendimento?",
+      "choices": [
+        {
+          "label": "Registrar a conversa, a decisão e agendar revisão do perfil e da carteira",
+          "next": "f-bom",
+          "score": 2,
+          "feedback": "Registro e monitoramento contínuo do suitability.",
+          "competence": "Monitoramento"
+        },
+        {
+          "label": "Encerrar sem registro",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "A decisão do cliente e a orientação dada deveriam ser documentadas."
+        }
+      ]
+    },
+    "f-bom": {
+      "text": "O cliente decidiu informado, sem pressão, com a estratégia de longo prazo preservada e documentada.",
+      "outcome": "ADEQUADO"
+    },
+    "f-parcial": {
+      "text": "Faltou informação, registro ou houve realização de perda sem necessidade.",
+      "outcome": "PARCIAL"
+    },
+    "f-ruim": {
+      "text": "Houve promessa, confronto ou recomendação por impulso incompatível com o perfil.",
+      "outcome": "INADEQUADO"
+    }
+  }
+}
