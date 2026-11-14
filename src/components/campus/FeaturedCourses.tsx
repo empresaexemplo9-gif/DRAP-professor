@@ -3,7 +3,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import { academicImage, courseBanner } from "./academic-media";
+import { courseBanner } from "./academic-media";
+import { CourseCover } from "@/components/campus/CourseCover";
 
 export type FeaturedCourse = {
   id: string;
@@ -16,6 +17,7 @@ export type FeaturedCourse = {
   levelSlug: string;
   workload: string;
   topics: number;
+  coverIndex?: number;
 };
 
 export function FeaturedCourses({
@@ -61,13 +63,7 @@ export function FeaturedCourses({
                   <Image src={banner.src} alt="" width={banner.width} height={banner.height} unoptimized className="h-auto w-full" />
                 ) : (
                   <div className="relative aspect-[8/3] overflow-hidden">
-                    <Image
-                      src={academicImage(course.segmentSlug)}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                    <CourseCover slug={course.slug} title={course.title} index={course.coverIndex} className="absolute inset-0 h-full w-full transition-transform duration-300 group-hover:scale-105" />
                     <span className="absolute bottom-3 left-3 rounded-sm bg-campus/90 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-campus-on-dark">
                       {course.level}
                     </span>

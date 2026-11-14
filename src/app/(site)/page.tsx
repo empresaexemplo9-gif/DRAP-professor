@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTenant } from "@/lib/tenant";
+import { getCoverIndex } from "@/lib/course-covers";
 import { withTenant } from "@/lib/db";
 import { formatWorkload, LEVELS } from "@/lib/levels";
 import { levelPath } from "@/lib/catalog-paths";
@@ -18,6 +19,7 @@ const BENEFITS = [
 
 export default async function HomePage() {
   const tenant = await getTenant();
+  const covers = await getCoverIndex(tenant.id);
   const data = await withTenant(tenant.id, async (tx) => {
     const published = { tenantId: tenant.id, status: "PUBLICADO" as const, level: { active: true } };
     const levels = await tx.level.findMany({ where: { tenantId: tenant.id, active: true }, orderBy: { order: "asc" } });
@@ -87,6 +89,7 @@ export default async function HomePage() {
             id: module.id,
             title: module.title,
             slug: module.slug,
+            coverIndex: covers[module.slug],
             href: levelPath(module.level.slug, module.segment.slug, module.slug),
             segment: module.segment.name,
             segmentSlug: module.segment.slug,

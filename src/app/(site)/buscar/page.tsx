@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getTenant } from "@/lib/tenant";
+import { getCoverIndex } from "@/lib/course-covers";
 import { withTenant } from "@/lib/db";
 import { PageHeader, EmptyState } from "@/components/ui/misc";
 import { FeaturedCourses } from "@/components/campus/FeaturedCourses";
@@ -13,6 +14,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const params = await searchParams;
   const query = (typeof params.q === "string" ? params.q : "").trim().slice(0, 120);
   const tenant = await getTenant();
+  const covers = await getCoverIndex(tenant.id);
   const modules = await withTenant(tenant.id, (tx) =>
     tx.module.findMany({
       where: {
@@ -81,6 +83,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
             id: module.id,
             title: module.title,
             slug: module.slug,
+            coverIndex: covers[module.slug],
             href: levelPath(module.level.slug, module.segment.slug, module.slug),
             segment: module.segment.name,
             segmentSlug: module.segment.slug,

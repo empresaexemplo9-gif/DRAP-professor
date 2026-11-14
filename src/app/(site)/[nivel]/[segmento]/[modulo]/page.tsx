@@ -26,6 +26,8 @@ import { markdownToBlocks } from "@/content-import/markdown";
 import { finalGrade } from "@/lib/quiz";
 import { quizConfig, readSheet } from "@/lib/course-progress";
 import { ModuleSideNav } from "./ModuleSideNav";
+import { CPA_MODULE } from "@/lib/cpa/module";
+import { CpaCourseCard } from "@/components/cpa/CpaCourseCard";
 import { PixEnrollmentCta } from "@/components/payments/PixEnrollmentCta";
 
 type Params = { nivel: string; segmento: string; modulo: string };
@@ -200,6 +202,7 @@ export default async function ModulePage({ params }: { params: Promise<Params> }
             <Badge tone="primary">{CERT_LABEL[mod.certificateType]}</Badge>
           </div>
           <LevelFacts kind={mod.level.kind} config={mod.levelConfig} />
+          {mod.slug === CPA_MODULE.slug && <CpaCourseCard tenantId={tenant.id} enrolled={Boolean(enrollment)} />}
           {sheet.objetivo_geral && (
             <Card>
               <h2 className="font-display text-xl text-text">Ficha do curso</h2>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getCoverIndex } from "@/lib/course-covers";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { requireViewer } from "@/lib/session";
@@ -11,7 +12,8 @@ import { Alert, EmptyState, ProgressBar } from "@/components/ui/misc";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { AcademicHero } from "@/components/campus/AcademicHero";
-import { academicImage, courseBanner } from "@/components/campus/academic-media";
+import { courseBanner } from "@/components/campus/academic-media";
+import { CourseCover } from "@/components/campus/CourseCover";
 
 export const metadata: Metadata = { title: "Meu campus" };
 
@@ -19,6 +21,7 @@ export default async function PainelHome({ searchParams }: { searchParams: Promi
   const { erro } = await searchParams;
   const viewer = await requireViewer();
   const t = viewer.tenant.id;
+  const covers = await getCoverIndex(t);
   const data = await withTenant(t, async (tx) => {
     const enrollments = await tx.enrollment.findMany({
       where: {
@@ -139,13 +142,7 @@ export default async function PainelHome({ searchParams }: { searchParams: Promi
                       />
                     ) : (
                       <div className="relative aspect-[8/3]">
-                        <Image
-                          src={academicImage(program.segment.slug)}
-                          alt=""
-                          fill
-                          sizes="(min-width: 1280px) 30vw, (min-width: 640px) 50vw, 100vw"
-                          className="object-cover"
-                        />
+                        <CourseCover slug={program.slug} title={program.title} index={covers[program.slug]} className="absolute inset-0 h-full w-full" />
                         <span className="absolute bottom-3 left-4 rounded-sm bg-campus/90 px-2 py-1 text-[9px] uppercase tracking-widest text-campus-on-dark">
                           {program.level.label}
                         </span>
