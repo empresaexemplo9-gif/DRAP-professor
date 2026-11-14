@@ -1,12 +1,14 @@
+import { courseCoverColors } from "@/theme/tokens";
 import { coverSpec } from "./course-cover";
 
 /** Capa ilustrada e exclusiva do curso (SVG gerado do slug), em proporção 8:3. */
 export function CourseCover({ slug, title, index, className }: { slug: string; title: string; index?: number; className?: string }) {
   const c = coverSpec(slug, title, index);
   const id = `cv-${slug.replace(/[^a-z0-9]/gi, "")}`;
-  const a = `hsl(${c.hue} 55% 28%)`;
-  const b = `hsl(${c.hue2} 60% 42%)`;
-  const ink = `hsl(${c.hue2} 70% 82% / 0.35)`;
+  const colors = courseCoverColors(c.hue, c.hue2);
+  const a = colors.from;
+  const b = colors.to;
+  const ink = colors.ink;
   const s = c.scale;
   const shapes = [
     <circle key="p" cx={s / 2} cy={s / 2} r={s / 5} fill={ink} />,
@@ -31,8 +33,8 @@ export function CourseCover({ slug, title, index, className }: { slug: string; t
       </defs>
       <rect width="400" height="150" fill={`url(#${id}-g)`} />
       <rect width="400" height="150" fill={`url(#${id}-p)`} />
-      <circle cx="330" cy="75" r="52" fill={`hsl(${c.hue} 40% 15% / 0.35)`} />
-      <text x="330" y="75" textAnchor="middle" dominantBaseline="central" fontSize="44" fontWeight="700" fill="white" fontFamily="Georgia, serif">
+      <circle cx="330" cy="75" r="52" fill={colors.badge} />
+      <text x="330" y="75" textAnchor="middle" dominantBaseline="central" fontSize="44" fontWeight="700" fill={colors.monogram} fontFamily="Georgia, serif">
         {c.monogram}
       </text>
     </svg>

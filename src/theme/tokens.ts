@@ -239,3 +239,17 @@ export function buildThemeCss(overrides: ThemeOverrides): string {
     `@media (prefers-reduced-motion: reduce){:root{--drap-duration-fast:0ms;--drap-duration-base:0ms;--drap-duration-slow:0ms;}}`,
   ].join("\n");
 }
+
+/**
+ * Cores das capas ilustradas dos cursos (components/campus/CourseCover): derivadas do matiz que cada
+ * curso recebe pela posição no catálogo, para que nenhum card repita a mesma combinação.
+ */
+export function courseCoverColors(hue: number, hue2: number) {
+  return {
+    from: `hsl(${hue} 55% 28%)`,
+    to: `hsl(${hue2} 60% 42%)`,
+    ink: `hsl(${hue2} 70% 82% / 0.35)`,
+    badge: `hsl(${hue} 40% 15% / 0.35)`,
+    monogram: "white",
+  };
+}

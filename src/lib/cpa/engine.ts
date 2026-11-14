@@ -85,7 +85,12 @@ export function buildExam(opts: {
     // Rodízio por microtema principal: evita concentrar o simulado num mesmo assunto.
     const used = new Set<string>();
     const take: BankQuestion[] = [];
-    for (const q of candidates) if (take.length < n && !used.has(q.items[0]!)) (take.push(q), used.add(q.items[0]!));
+    for (const q of candidates) {
+      if (take.length < n && !used.has(q.items[0]!)) {
+        take.push(q);
+        used.add(q.items[0]!);
+      }
+    }
     for (const q of candidates) if (take.length < n && !take.includes(q)) take.push(q);
     picked.push(...take);
   }
