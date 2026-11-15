@@ -25,7 +25,7 @@ export async function saveThemeAction(_: ThemeState, fd: FormData): Promise<Them
   const current = sanitizeOverrides(
     (await withTenant(viewer.tenant.id, (tx) => tx.themeSettings.findUnique({ where: { tenantId: viewer.tenant.id }, select: { overrides: true } })))?.overrides,
   );
-  const overrides = sanitizeOverrides({ ...raw, campus: current.campus, preset: current.preset });
+  const overrides = sanitizeOverrides({ ...raw, campus: current.campus, style: current.style, preset: current.preset });
   const issues = checkContrast(overrides);
   if (issues.length) return { error: "Algumas combinações não atingem o contraste mínimo (WCAG AA). Ajuste as cores destacadas.", issues };
   const defaultMode = z.enum(["DARK", "LIGHT", "SYSTEM"]).parse(fd.get("defaultMode"));
@@ -57,7 +57,7 @@ export async function applyPresetAction(fd: FormData) {
   const viewer = await assertPermission("theme:manage");
   const preset = THEME_PRESETS.find((p) => p.id === fd.get("preset"));
   if (!preset) return;
-  const overrides = sanitizeOverrides({ dark: preset.dark, light: preset.light, fonts: preset.fonts, campus: preset.campus, preset: preset.id });
+  const overrides = sanitizeOverrides({ dark: preset.dark, light: preset.light, fonts: preset.fonts, campus: preset.campus, style: preset.style, preset: preset.id });
   if (checkContrast(overrides).length) return;
   const tenantId = viewer.tenant.id;
   await withTenant(tenantId, async (tx) => {
