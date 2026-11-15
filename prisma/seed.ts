@@ -333,7 +333,20 @@ async function main() {
     const errors = [...parseErrors, ...report.errors];
     const content = errors.length ? { ...catalog, lessons: [], questions: [], cards: [], trees: [], exams: [] } : catalog;
     if (errors.length) console.log(`CPA: conteúdo não importado (${errors.length} erro(s) de validação; rode npm run cpa:validar).`);
-    const r = await inTenant(tenant.id, (tx) => syncCpaCatalog(tx, { tenantId: tenant.id, authorId: admin.user.id, catalog: content }));
+    // Em lotes, cada um na sua transação: o banco de produção fica longe do servidor de build e uma
+    // transação única com todo o conteúdo estoura o limite de tempo.
+    const slices: (typeof content)[] = [{ ...content, lessons: [], questions: [], cards: [], trees: [], exams: [], references: [] }];
+    const chunk = <T,>(xs: T[], n: number) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, i * n + n));
+    for (const lessons of chunk(content.lessons, 15)) slices.push({ ...slices[0]!, lessons });
+    for (const questions of chunk(content.questions, 60)) slices.push({ ...slices[0]!, questions });
+    for (const cards of chunk(content.cards, 150)) slices.push({ ...slices[0]!, cards });
+    slices.push({ ...slices[0]!, trees: content.trees, exams: content.exams, references: content.references });
+    const r = { items: 0, chapters: 0, lessons: 0, versions: 0, questions: 0, cards: 0, trees: 0, exams: 0, skippedEdited: 0 };
+    for (const part of slices) {
+      const pr = await inTenant(tenant.id, (tx) => syncCpaCatalog(tx, { tenantId: tenant.id, authorId: admin.user.id, catalog: part, retire: false }));
+      for (const k of Object.keys(r) as (keyof typeof r)[]) r[k] += pr[k];
+    }
+    await inTenant(tenant.id, (tx) => syncCpaCatalog(tx, { tenantId: tenant.id, authorId: admin.user.id, catalog: { ...slices[0]!, questions: content.questions }, retire: true }).then(() => undefined));
     const complete = !errors.length && report.coverage.every((row) => row.lessons.length && row.questions.length);
     await inTenant(tenant.id, async (tx) => {
       const level = await tx.level.findUniqueOrThrow({ where: { tenantId_kind: { tenantId: tenant.id, kind: "CURSO" } } });

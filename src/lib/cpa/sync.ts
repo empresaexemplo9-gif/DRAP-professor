@@ -25,7 +25,7 @@ const USE = { fixacao: "FIXACAO", simulado: "SIMULADO", diagnostico: "DIAGNOSTIC
  * Registros alterados pelo painel (origin = EDITADO) não são sobrescritos: o painel passa a ser a fonte.
  * Cada aula publicada com conteúdo novo ganha uma versão (histórico com autor e data).
  */
-export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId: string; catalog: CpaCatalog }): Promise<CpaSyncReport> {
+export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId: string; catalog: CpaCatalog; retire?: boolean }): Promise<CpaSyncReport> {
   const { tenantId, authorId, catalog: c } = opts;
   const r: CpaSyncReport = { items: 0, chapters: 0, lessons: 0, versions: 0, questions: 0, cards: 0, trees: 0, exams: 0, skippedEdited: 0 };
   const programVersion = c.program.versao;
@@ -171,7 +171,7 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
   // Questões removidas do repositório (e não editadas no painel) são arquivadas, nunca apagadas.
   const codes = new Set(c.questions.map((q) => q.code));
   const retired = [...existingQ.values()].filter((q) => !codes.has(q.code) && q.origin === "IMPORTADO").map((q) => q.id);
-  if (retired.length) await tx.cpaQuestion.updateMany({ where: { id: { in: retired } }, data: { status: "ARQUIVADO" } });
+  if (opts.retire !== false && retired.length) await tx.cpaQuestion.updateMany({ where: { id: { in: retired } }, data: { status: "ARQUIVADO" } });
 
   const existingK = new Map((await tx.cpaCard.findMany({ where: { tenantId }, select: { id: true, code: true, origin: true, sourceHash: true } })).map((x) => [x.code, x]));
   const newK: Prisma.CpaCardCreateManyInput[] = [];
