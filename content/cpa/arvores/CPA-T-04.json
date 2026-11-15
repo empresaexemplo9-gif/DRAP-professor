@@ -1,0 +1,118 @@
+{
+  "code": "CPA-T-04",
+  "title": "Cliente concentrado com perfil incompleto que se diz qualificado",
+  "scenario": "Valéria, 52 anos, tem R$ 950 mil em CDBs de um único banco médio e um imóvel de R$ 1,8 milhão. Seu questionário de perfil tem 3 anos e está incompleto. Ela quer aplicar em um fundo restrito a investidores qualificados (cenário autoral, sem dados reais).",
+  "items": [
+    "3.3.1",
+    "3.3.4",
+    "3.3.5",
+    "3.4.2.2",
+    "3.4.2.3",
+    "3.4.2.6"
+  ],
+  "start": "n1",
+  "nodes": {
+    "n1": {
+      "text": "Valéria afirma ser qualificada por ter 'quase R$ 3 milhões'. Como você analisa?",
+      "choices": [
+        {
+          "label": "Verificar só os investimentos financeiros: R$ 950 mil, abaixo de R$ 1 milhão",
+          "next": "n2",
+          "score": 2,
+          "feedback": "Imóveis não contam; ela não é qualificada pelo critério de valor.",
+          "competence": "Classificação do investidor"
+        },
+        {
+          "label": "Aceitar a declaração dela e liberar o fundo",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "A declaração não supre o requisito de investimentos financeiros."
+        },
+        {
+          "label": "Somar o imóvel e considerá-la profissional",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "Erro duplo: imóvel não conta e profissional exige mais de R$ 10 milhões."
+        }
+      ]
+    },
+    "n2": {
+      "text": "E o perfil de três anos atrás, incompleto?",
+      "choices": [
+        {
+          "label": "Atualizar o questionário com ela antes de qualquer recomendação",
+          "next": "n3",
+          "score": 2,
+          "feedback": "Perfil desatualizado ou incompleto impede recomendar.",
+          "competence": "Registro de informações"
+        },
+        {
+          "label": "Usar o perfil antigo, já que ela é cliente antiga",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "O perfil está fora do prazo de atualização."
+        },
+        {
+          "label": "Preencher você mesmo com o que sabe dela",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "Preencher pelo cliente compromete a avaliação."
+        }
+      ]
+    },
+    "n3": {
+      "text": "Perfil atualizado: moderado. O que destacar sobre a carteira atual?",
+      "choices": [
+        {
+          "label": "Mostrar a concentração em um emissor e o excedente sem FGC, com alternativas",
+          "next": "n4",
+          "score": 2,
+          "feedback": "Aponta risco específico e o limite da garantia, sem decidir por ela.",
+          "competence": "Diversificação"
+        },
+        {
+          "label": "Não comentar, pois os CDBs são de baixo risco",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Ignora a concentração muito acima da cobertura do FGC."
+        },
+        {
+          "label": "Mandar resgatar tudo do banco hoje",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Pressiona a decisão e pode ter custo de liquidez."
+        }
+      ]
+    },
+    "n4": {
+      "text": "Ela aceita diversificar entre emissores e classes compatíveis com o perfil. Próximo passo?",
+      "choices": [
+        {
+          "label": "Registrar a recomendação e agendar monitoramento periódico",
+          "next": "f-bom",
+          "score": 2,
+          "feedback": "Fecha com documentação e acompanhamento contínuo.",
+          "competence": "Monitoramento"
+        },
+        {
+          "label": "Concluir sem registrar a nova alocação",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Falta documentar a orientação."
+        }
+      ]
+    },
+    "f-bom": {
+      "text": "Classificação correta, perfil atualizado, concentração tratada e recomendação documentada.",
+      "outcome": "ADEQUADO"
+    },
+    "f-parcial": {
+      "text": "Parte dos riscos foi tratada, mas houve falha de perfil, comunicação ou registro.",
+      "outcome": "PARCIAL"
+    },
+    "f-ruim": {
+      "text": "Enquadramento indevido ou perfil manipulado: atendimento inadequado.",
+      "outcome": "INADEQUADO"
+    }
+  }
+}

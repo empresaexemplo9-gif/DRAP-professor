@@ -1,0 +1,21 @@
+{
+  "code": "CPA-T-06",
+  "title": "Cliente pede produto incompatível com o perfil",
+  "scenario": "Cenário autoral: a cliente fictícia Neusa, conservadora, viu um vídeo sobre ganhos com ações e pede ao assessor que aplique R$ 80 mil, metade do seu patrimônio, em um fundo de ações. Ela vai trocar de carro em um ano.",
+  "items": ["3.4.2.2", "3.4.2.4", "3.4.2.5", "3.4.2.7"],
+  "start": "n1",
+  "nodes": {
+    "n1": { "text": "Neusa pede a aplicação imediata. O que o assessor faz primeiro?", "choices": [
+      { "label": "Ouvir a motivação e retomar objetivo, prazo e perfil", "next": "n2", "score": 2, "feedback": "Escuta ativa revela o objetivo de curto prazo e a incompatibilidade.", "competence": "Escuta ativa" },
+      { "label": "Executar a ordem, pois a iniciativa é da cliente", "next": "f-ruim", "score": -2, "feedback": "Faltaram alerta, explicação e declaração expressa exigidos pela regra." } ] },
+    "n2": { "text": "O fundo é inadequado ao perfil e ao objetivo de um ano. Como comunicar?", "choices": [
+      { "label": "Explicar riscos, oscilações e o prazo do carro, e apresentar alternativas adequadas", "next": "n3", "score": 2, "feedback": "Comunicação clara e transparente, com riscos antes de retornos.", "competence": "Comunicação" },
+      { "label": "Mudar o perfil dela para arrojado para liberar a operação", "next": "f-ruim", "score": -2, "feedback": "Alterar perfil sem avaliação real frauda o suitability." } ] },
+    "n3": { "text": "Neusa entende, mas ainda quer aplicar R$ 10 mil no fundo de ações. O que fazer?", "choices": [
+      { "label": "Alertar por escrito sobre a inadequação, obter declaração expressa e registrar a iniciativa dela", "next": "f-ok", "score": 2, "feedback": "Procedimento correto para operação de iniciativa do cliente.", "competence": "Documentação" },
+      { "label": "Executar sem registro, porque o valor é pequeno", "next": "f-parcial", "score": -1, "feedback": "O valor menor não dispensa alerta e declaração expressa." } ] },
+    "f-ok": { "text": "Conduta adequada: escuta, comunicação clara, alternativas adequadas e documentação.", "outcome": "ADEQUADO" },
+    "f-parcial": { "text": "Resultado parcial: a orientação foi boa, mas faltou a documentação exigida.", "outcome": "PARCIAL" },
+    "f-ruim": { "text": "Conduta inadequada: a regra de suitability foi descumprida.", "outcome": "INADEQUADO" }
+  }
+}

@@ -25,7 +25,7 @@ const USE = { fixacao: "FIXACAO", simulado: "SIMULADO", diagnostico: "DIAGNOSTIC
  * Registros alterados pelo painel (origin = EDITADO) não são sobrescritos: o painel passa a ser a fonte.
  * Cada aula publicada com conteúdo novo ganha uma versão (histórico com autor e data).
  */
-export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId: string; catalog: CpaCatalog }): Promise<CpaSyncReport> {
+export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId: string; catalog: CpaCatalog; retire?: boolean }): Promise<CpaSyncReport> {
   const { tenantId, authorId, catalog: c } = opts;
   const r: CpaSyncReport = { items: 0, chapters: 0, lessons: 0, versions: 0, questions: 0, cards: 0, trees: 0, exams: 0, skippedEdited: 0 };
   const programVersion = c.program.versao;
@@ -35,6 +35,7 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
   const existingItems = new Map(
     (await tx.cpaSyllabusItem.findMany({ where: { tenantId, programVersion }, select: { id: true, code: true, text: true } })).map((i) => [i.code, i]),
   );
+  const newItems: Prisma.CpaSyllabusItemCreateManyInput[] = [];
   for (const it of c.program.itens) {
     const data = {
       text: it.texto,
@@ -46,21 +47,23 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
     };
     const prev = existingItems.get(it.codigo);
     if (!prev) {
-      await tx.cpaSyllabusItem.create({ data: { tenantId, programVersion, code: it.codigo, ...data, checkedAt: new Date(c.program.conferido_em) } });
+      newItems.push({ tenantId, programVersion, code: it.codigo, ...data, checkedAt: new Date(c.program.conferido_em) });
       r.items++;
     } else if (prev.text !== it.texto) {
       await tx.cpaSyllabusItem.update({ where: { id: prev.id }, data });
       r.items++;
     }
   }
+  if (newItems.length) await tx.cpaSyllabusItem.createMany({ data: newItems, skipDuplicates: true });
   const itemIds = new Map((await tx.cpaSyllabusItem.findMany({ where: { tenantId, programVersion }, select: { id: true, code: true } })).map((i) => [i.code, i.id]));
   void weights;
 
   // Capítulos
   const chapterIds = new Map<number, string>();
+  const existingCh = new Map((await tx.cpaChapter.findMany({ where: { tenantId } })).map((x) => [x.number, x]));
   for (const [i, ch] of c.chapters.entries()) {
     const sourceHash = hash(ch);
-    const prev = await tx.cpaChapter.findUnique({ where: { tenantId_number: { tenantId, number: ch.number } } });
+    const prev = existingCh.get(ch.number);
     if (prev?.origin === "EDITADO") {
       chapterIds.set(ch.number, prev.id);
       r.skippedEdited++;
@@ -77,10 +80,11 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
   }
 
   // Aulas
+  const existingL = new Map((await tx.cpaLesson.findMany({ where: { tenantId }, select: { id: true, code: true, origin: true, sourceHash: true, version: true } })).map((x) => [x.code, x]));
   for (const l of c.lessons) {
     const chapterId = chapterIds.get(l.chapter);
     if (!chapterId) continue;
-    const prev = await tx.cpaLesson.findUnique({ where: { tenantId_code: { tenantId, code: l.code } } });
+    const prev = existingL.get(l.code);
     if (prev?.origin === "EDITADO") {
       r.skippedEdited++;
       continue;
@@ -118,6 +122,8 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
 
   // Questões (aulas + banco)
   const existingQ = new Map((await tx.cpaQuestion.findMany({ where: { tenantId }, select: { id: true, code: true, sourceHash: true, origin: true, version: true } })).map((q) => [q.code, q]));
+  const newQ: Prisma.CpaQuestionCreateManyInput[] = [];
+  const newQLinks = new Map<string, string[]>();
   for (const q of c.questions) {
     const h = questionHash(q);
     const prev = existingQ.get(q.code);
@@ -143,28 +149,42 @@ export async function syncCpaCatalog(tx: Tx, opts: { tenantId: string; authorId:
       status: "PUBLICADO" as const,
       sourceHash: h,
     };
-    const row = prev
-      ? await tx.cpaQuestion.update({ where: { id: prev.id }, data: { ...data, version: prev.version + 1 } })
-      : await tx.cpaQuestion.create({ data: { tenantId, code: q.code, ...data } });
-    await tx.cpaQuestionItem.deleteMany({ where: { questionId: row.id } });
-    const links = q.items.map((code) => itemIds.get(code)).filter((x): x is string => Boolean(x));
-    if (links.length) await tx.cpaQuestionItem.createMany({ data: links.map((itemId) => ({ tenantId, questionId: row.id, itemId })), skipDuplicates: true });
     r.questions++;
+    if (!prev) {
+      newQ.push({ tenantId, code: q.code, ...data });
+      newQLinks.set(q.code, q.items);
+      continue;
+    }
+    await tx.cpaQuestion.update({ where: { id: prev.id }, data: { ...data, version: prev.version + 1 } });
+    await tx.cpaQuestionItem.deleteMany({ where: { questionId: prev.id } });
+    const links = q.items.map((code) => itemIds.get(code)).filter((x): x is string => Boolean(x));
+    if (links.length) await tx.cpaQuestionItem.createMany({ data: links.map((itemId) => ({ tenantId, questionId: prev.id, itemId })), skipDuplicates: true });
+  }
+  if (newQ.length) {
+    await tx.cpaQuestion.createMany({ data: newQ, skipDuplicates: true });
+    const ids = await tx.cpaQuestion.findMany({ where: { tenantId, code: { in: [...newQLinks.keys()] } }, select: { id: true, code: true } });
+    const linkRows = ids.flatMap((row) =>
+      (newQLinks.get(row.code) ?? []).map((code) => itemIds.get(code)).filter((x): x is string => Boolean(x)).map((itemId) => ({ tenantId, questionId: row.id, itemId })),
+    );
+    if (linkRows.length) await tx.cpaQuestionItem.createMany({ data: linkRows, skipDuplicates: true });
   }
   // Questões removidas do repositório (e não editadas no painel) são arquivadas, nunca apagadas.
   const codes = new Set(c.questions.map((q) => q.code));
   const retired = [...existingQ.values()].filter((q) => !codes.has(q.code) && q.origin === "IMPORTADO").map((q) => q.id);
-  if (retired.length) await tx.cpaQuestion.updateMany({ where: { id: { in: retired } }, data: { status: "ARQUIVADO" } });
+  if (opts.retire !== false && retired.length) await tx.cpaQuestion.updateMany({ where: { id: { in: retired } }, data: { status: "ARQUIVADO" } });
 
+  const existingK = new Map((await tx.cpaCard.findMany({ where: { tenantId }, select: { id: true, code: true, origin: true, sourceHash: true } })).map((x) => [x.code, x]));
+  const newK: Prisma.CpaCardCreateManyInput[] = [];
   for (const k of c.cards) {
     const sourceHash = hash(k);
-    const prev = await tx.cpaCard.findUnique({ where: { tenantId_code: { tenantId, code: k.code } } });
+    const prev = existingK.get(k.code);
     if (prev?.origin === "EDITADO" || prev?.sourceHash === sourceHash) continue;
     const data = { front: k.front, back: k.back, explanation: k.explanation, itemCode: k.item, lessonCode: k.lesson ?? null, sourceHash };
     if (prev) await tx.cpaCard.update({ where: { id: prev.id }, data });
-    else await tx.cpaCard.create({ data: { tenantId, code: k.code, ...data } });
+    else newK.push({ tenantId, code: k.code, ...data });
     r.cards++;
   }
+  if (newK.length) await tx.cpaCard.createMany({ data: newK, skipDuplicates: true });
 
   for (const t of c.trees) {
     const sourceHash = hash(t);

@@ -1,0 +1,55 @@
+{
+  "code": "CPA-T-01",
+  "title": "Recurso de curto prazo sem diagnóstico de liquidez",
+  "scenario": "Thiago, 34 anos, chega à agência com R$ 40 mil e pede 'a aplicação que mais rende'. Ele menciona de passagem que talvez use o dinheiro para dar entrada em um apartamento no próximo ano, mas não explicou se tem reserva de emergência, quando exatamente precisará dos recursos nem como reagiria a perdas (cenário autoral, sem dados reais).",
+  "items": ["3.1.3.4.1", "3.1.3.4.2", "3.1.5.1", "3.1.5.3", "3.1.1", "3.2.1", "3.3.2"],
+  "start": "n1",
+  "nodes": {
+    "n1": {
+      "text": "Thiago quer uma recomendação rápida. O gerente ao lado sugere oferecer o fundo de ações em destaque no mês. O que você faz primeiro?",
+      "choices": [
+        { "label": "Investigar objetivos e prazo de uso do dinheiro", "next": "n2", "score": 2, "feedback": "Correto: o planejamento começa pelos objetivos e pela situação atual do cliente.", "competence": "Diagnóstico" },
+        { "label": "Apresentar o fundo de ações imediatamente", "next": "f-ruim", "score": -2, "feedback": "Inadequado: recomendar produto volátil sem conhecer prazo, reserva e tolerância a perdas viola a adequação." },
+        { "label": "Oferecer um CDB de 3 anos sem liquidez por pagar taxa maior", "next": "n2b", "score": -1, "feedback": "Arriscado: a taxa maior não compensa a falta de liquidez se o dinheiro for necessário em menos tempo." }
+      ]
+    },
+    "n2b": {
+      "text": "Thiago se interessa pelo CDB de 3 anos, mas pergunta se poderia resgatar antes caso a entrada do apartamento saia em 10 meses. Como você conduz?",
+      "choices": [
+        { "label": "Recuar e investigar o prazo e a reserva antes de seguir", "next": "n2", "score": 1, "feedback": "Boa correção de rota: o prazo do objetivo deve orientar a escolha do produto.", "competence": "Diagnóstico" },
+        { "label": "Dizer que sempre é possível dar um jeito no resgate", "next": "f-ruim", "score": -2, "feedback": "Inadequado: induz o cliente a erro sobre a liquidez do produto." }
+      ]
+    },
+    "n2": {
+      "text": "Você descobre que a entrada será paga em cerca de 12 meses e que Thiago não tem outra reserva: esses R$ 40 mil são todo o seu dinheiro disponível. Suas despesas essenciais são de R$ 4.000 por mês. Qual o próximo passo?",
+      "choices": [
+        { "label": "Verificar a necessidade de liquidez e separar a reserva de emergência", "next": "n3", "score": 2, "feedback": "Correto: com 6 meses de despesas (R$ 24 mil) como reserva em liquidez diária, o restante pode ir para a meta da entrada.", "competence": "Reserva de emergência" },
+        { "label": "Aplicar tudo em um único produto atrelado à meta do apartamento", "next": "n3p", "score": 0, "feedback": "Parcial: casa o prazo com a meta, mas deixa o cliente sem reserva para imprevistos." }
+      ]
+    },
+    "n3p": {
+      "text": "Thiago pergunta o que acontece se perder o emprego antes da compra. Como você responde?",
+      "choices": [
+        { "label": "Explicar o risco e propor separar uma reserva de liquidez diária", "next": "n3", "score": 1, "feedback": "Correto: revisar a proposta incluindo a reserva corrige a lacuna.", "competence": "Reserva de emergência" },
+        { "label": "Dizer que é improvável e manter a proposta", "next": "f-parcial", "score": -1, "feedback": "Insuficiente: ignora um risco relevante e previsível." }
+      ]
+    },
+    "n3": {
+      "text": "Antes de recomendar os produtos para a reserva e para a entrada do imóvel, o que ainda falta?",
+      "choices": [
+        { "label": "Explicar os riscos e confirmar o perfil e a tolerância a perdas", "next": "n4", "score": 2, "feedback": "Correto: com horizonte de 12 meses e meta definida, perdas seriam difíceis de recuperar; o cliente precisa entender e o perfil precisa ser confirmado.", "competence": "Adequação" },
+        { "label": "Recomendar renda variável para a parte da entrada, buscando mais retorno", "next": "f-ruim", "score": -2, "feedback": "Inadequado: horizonte curto e meta definida são incompatíveis com ativos de alta volatilidade." }
+      ]
+    },
+    "n4": {
+      "text": "Thiago confirma perfil conservador e baixa tolerância a perdas. Qual proposta você apresenta?",
+      "choices": [
+        { "label": "Reserva em Tesouro Selic ou CDB de liquidez diária; entrada em renda fixa de baixo risco com vencimento até a data da compra", "next": "f-bom", "score": 2, "feedback": "Adequado: liquidez para imprevistos e prazo casado com a meta, com baixo risco.", "competence": "Recomendação" },
+        { "label": "Tudo em poupança, sem discutir alternativas", "next": "f-parcial", "score": 0, "feedback": "Parcial: preserva liquidez e baixo risco, mas sem comparar custos e rendimentos de alternativas compatíveis." }
+      ]
+    },
+    "f-bom": { "text": "Thiago entende a separação entre reserva e meta, conhece os riscos e recebe uma proposta coerente com prazo, liquidez e perfil.", "outcome": "ADEQUADO" },
+    "f-parcial": { "text": "A proposta evita grandes perdas, mas deixa lacunas de diagnóstico ou de comparação de alternativas.", "outcome": "PARCIAL" },
+    "f-ruim": { "text": "O cliente fica exposto a perdas ou à falta de liquidez justamente quando precisar do dinheiro. A recomendação é inadequada.", "outcome": "INADEQUADO" }
+  }
+}

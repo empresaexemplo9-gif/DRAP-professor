@@ -5,6 +5,7 @@ import { resolveColors, DEFAULT_FONTS } from "@/theme/tokens";
 import { PageHeader } from "@/components/ui/misc";
 import { ButtonLink } from "@/components/ui/Button";
 import { ThemeForm } from "./ThemeForm";
+import { PresetPicker } from "./PresetPicker";
 
 export const metadata: Metadata = { title: "Configurações e Tema" };
 
@@ -23,6 +24,8 @@ export default async function SettingsPage() {
           </>
         }
       />
+      <PresetPicker active={theme.overrides.preset} />
+      <h2 className="mt-10 mb-4 font-display text-2xl text-text">Ajuste fino</h2>
       <ThemeForm
         dark={resolveColors("dark", theme.overrides)}
         light={resolveColors("light", theme.overrides)}

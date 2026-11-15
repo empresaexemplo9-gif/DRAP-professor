@@ -1,0 +1,118 @@
+{
+  "code": "CPA-T-02",
+  "title": "Conservador com necessidade de liquidez atraído por taxa alta",
+  "scenario": "Dona Celina, 64 anos, perfil conservador atualizado, quer aplicar R$ 120 mil. Avisa que pode precisar de parte do dinheiro nos próximos meses para uma cirurgia do marido e pergunta por um CDB de banco pequeno que paga 130% do CDI com vencimento em 4 anos (cenário autoral, sem dados reais).",
+  "items": [
+    "3.2.1",
+    "3.2.2.1",
+    "3.3.2",
+    "3.3.4",
+    "3.4.2.4",
+    "3.4.2.7"
+  ],
+  "start": "n1",
+  "nodes": {
+    "n1": {
+      "text": "A cliente chega animada com a taxa do CDB de 4 anos. Qual é seu primeiro passo?",
+      "choices": [
+        {
+          "label": "Investigar quando e quanto ela pode precisar resgatar",
+          "next": "n2",
+          "score": 2,
+          "feedback": "Correto: o horizonte e a necessidade de liquidez definem o que é adequado.",
+          "competence": "Diagnóstico"
+        },
+        {
+          "label": "Aplicar os R$ 120 mil no CDB indicado",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "A taxa não justifica ignorar a necessidade de liquidez declarada."
+        },
+        {
+          "label": "Sugerir um fundo de ações que rendeu mais no ano",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "Incompatível com o perfil conservador e com o prazo curto."
+        }
+      ]
+    },
+    "n2": {
+      "text": "Ela estima precisar de até R$ 40 mil em 3 a 6 meses. Como estruturar a orientação?",
+      "choices": [
+        {
+          "label": "Separar R$ 40 mil em produto líquido e de baixo risco e discutir o restante",
+          "next": "n3",
+          "score": 2,
+          "feedback": "Casa prazos: a parte de curto prazo fica em liquidez diária.",
+          "competence": "Adequação ao objetivo"
+        },
+        {
+          "label": "Colocar tudo no CDB e, se precisar, vender no secundário",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "A venda antecipada pode ter deságio ou nem ser possível."
+        },
+        {
+          "label": "Deixar tudo na conta corrente sem rendimento",
+          "next": "f-parcial",
+          "score": 0,
+          "feedback": "Preserva liquidez, mas desperdiça rendimento sem necessidade."
+        }
+      ]
+    },
+    "n3": {
+      "text": "Para os R$ 80 mil restantes, ela insiste no CDB de 130% do CDI. O que você comunica?",
+      "choices": [
+        {
+          "label": "Explicar que taxa maior remunera risco de crédito e o limite do FGC, e mostrar alternativas",
+          "next": "n4",
+          "score": 2,
+          "feedback": "Comunicação clara do risco, sem induzir a decisão.",
+          "competence": "Comunicação transparente"
+        },
+        {
+          "label": "Dizer que o FGC garante qualquer valor",
+          "next": "f-ruim",
+          "score": -2,
+          "feedback": "Informação falsa: a cobertura é limitada por CPF e conglomerado."
+        },
+        {
+          "label": "Afirmar que o banco pequeno vai quebrar",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Alarmismo sem base também induz a decisão."
+        }
+      ]
+    },
+    "n4": {
+      "text": "Ela decide aplicar R$ 80 mil, dentro do limite do FGC, parte no CDB e parte em título público. Como encerrar?",
+      "choices": [
+        {
+          "label": "Registrar a orientação, conferir o enquadramento e combinar acompanhamento",
+          "next": "f-bom",
+          "score": 2,
+          "feedback": "Documentação e monitoramento fecham um atendimento adequado.",
+          "competence": "Registro e monitoramento"
+        },
+        {
+          "label": "Encerrar sem registro, já que a cliente decidiu",
+          "next": "f-parcial",
+          "score": -1,
+          "feedback": "Falta documentar a orientação e a adequação."
+        }
+      ]
+    },
+    "f-bom": {
+      "text": "Liquidez preservada para a cirurgia, risco de crédito explicado e dentro do FGC, decisão informada e registrada.",
+      "outcome": "ADEQUADO"
+    },
+    "f-parcial": {
+      "text": "O atendimento evitou o pior, mas deixou falhas de adequação, comunicação ou registro.",
+      "outcome": "PARCIAL"
+    },
+    "f-ruim": {
+      "text": "A recomendação ignorou horizonte, liquidez ou risco, ou usou informação falsa.",
+      "outcome": "INADEQUADO"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "code": "CPA-T-05",
+  "title": "Meta de campanha e conflito de interesses",
+  "scenario": "Cenário autoral: a gerente fictícia Lívia recebe meta de captação para um fundo da gestora do mesmo grupo, com bônus extra. O cliente Jorge, moderado, quer aplicar R$ 100 mil para a aposentadoria. Existe um fundo de terceiros equivalente e mais barato.",
+  "items": ["3.4.2.8", "3.4.3.3.2", "3.4.3.3.3.1.2"],
+  "start": "n1",
+  "nodes": {
+    "n1": { "text": "Jorge pede uma sugestão para os R$ 100 mil. Qual o primeiro passo de Lívia?", "choices": [
+      { "label": "Confirmar perfil, objetivo e prazo de Jorge", "next": "n2", "score": 2, "feedback": "Correto: a recomendação começa pela adequação, não pela meta.", "competence": "Diagnóstico" },
+      { "label": "Apresentar logo o fundo da campanha", "next": "n3", "score": -1, "feedback": "A meta passou à frente do interesse do cliente; o risco de conflito aumenta.", "competence": "Diagnóstico" } ] },
+    "n2": { "text": "Perfil atualizado e compatível com os dois fundos. O da casa cobra 1,2 ponto percentual a mais ao ano. O que Lívia faz?", "choices": [
+      { "label": "Comparar os dois fundos com honestidade e informar o vínculo com a gestora e a remuneração", "next": "f-ok", "score": 2, "feedback": "Adequação preservada e conflito divulgado de forma clara.", "competence": "Gestão de conflitos" },
+      { "label": "Recomendar o fundo da casa omitindo o vínculo e a diferença de taxa", "next": "f-ruim", "score": -2, "feedback": "Omitir o conflito e o custo maior fere transparência e lealdade.", "competence": "Gestão de conflitos" },
+      { "label": "Recomendar o fundo da casa citando o vínculo, mas sem comparar custos", "next": "f-parcial", "score": 0, "feedback": "Houve divulgação, mas faltou mostrar o custo e a alternativa equivalente." } ] },
+    "n3": { "text": "Jorge pergunta se há opções mais baratas. Como Lívia responde?", "choices": [
+      { "label": "Reconhecer a alternativa de terceiros, comparar custos e divulgar o vínculo", "next": "f-parcial", "score": 1, "feedback": "Corrigiu o rumo, mas começou pela meta em vez do diagnóstico." },
+      { "label": "Dizer que o fundo da casa é o único adequado", "next": "f-ruim", "score": -2, "feedback": "Informação falsa para cumprir meta: conduta inadequada." } ] },
+    "f-ok": { "text": "Jorge decide informado. Conduta adequada: adequação, transparência e divulgação do conflito.", "outcome": "ADEQUADO" },
+    "f-parcial": { "text": "Resultado parcial: a recomendação ficou incompleta quanto a custos ou começou pela meta.", "outcome": "PARCIAL" },
+    "f-ruim": { "text": "Conduta inadequada: o incentivo prevaleceu sobre o interesse do cliente.", "outcome": "INADEQUADO" }
+  }
+}

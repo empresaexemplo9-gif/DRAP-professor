@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { academicImage, courseBanner } from "@/components/campus/academic-media";
+import { courseBanner } from "@/components/campus/academic-media";
+import { CourseCover } from "@/components/campus/CourseCover";
+import { getTenant } from "@/lib/tenant";
+import { getCoverIndex } from "@/lib/course-covers";
 import { levelPath } from "@/lib/catalog-paths";
 import { formatWorkload } from "@/lib/levels";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 
-export function ModuleGrid({
+export async function ModuleGrid({
   levelSlug,
   segmentSlug,
   modules,
@@ -23,6 +26,8 @@ export function ModuleGrid({
     _count: { topics: number };
   }[];
 }) {
+  const tenant = await getTenant();
+  const covers = await getCoverIndex(tenant.id);
   return (
     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {modules.map((m) => (
@@ -33,13 +38,7 @@ export function ModuleGrid({
                 <Image src={courseBanner(m.slug)!.src} alt="" width={courseBanner(m.slug)!.width} height={courseBanner(m.slug)!.height} unoptimized className="-mx-5 -mt-5 mb-5 h-auto w-[calc(100%+2.5rem)] max-w-none" />
               ) : (
                 <div className="relative -mx-5 -mt-5 mb-5 aspect-[8/3]">
-                  <Image
-                    src={academicImage(segmentSlug)}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
-                  />
+                  <CourseCover slug={m.slug} title={m.title} index={covers[m.slug]} className="absolute inset-0 h-full w-full" />
                 </div>
               )}
               <h3 className="font-display text-xl text-text">{m.title}</h3>
