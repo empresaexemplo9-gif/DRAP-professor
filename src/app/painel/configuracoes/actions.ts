@@ -6,7 +6,7 @@ import { withTenant } from "@/lib/db";
 import { assertPermission, clientIp } from "@/lib/session";
 import { audit } from "@/lib/audit";
 import { checkContrast, type ContrastIssue } from "@/theme/contrast";
-import { OVERRIDABLE_COLORS, darkColors, lightColors, sanitizeOverrides, type ThemeOverrides } from "@/theme/tokens";
+import { OVERRIDABLE_COLORS, THEME_PRESETS, darkColors, lightColors, sanitizeOverrides, type ThemeOverrides } from "@/theme/tokens";
 
 export type ThemeState = { ok?: boolean; message?: string; error?: string; issues?: ContrastIssue[] };
 
@@ -21,7 +21,11 @@ export async function saveThemeAction(_: ThemeState, fd: FormData): Promise<Them
     }
   }
   raw.fonts = { display: String(fd.get("fonts.display")) as never, body: String(fd.get("fonts.body")) as never };
-  const overrides = sanitizeOverrides(raw);
+  // O ajuste fino preserva as cores de navegação do tema pronto aplicado antes.
+  const current = sanitizeOverrides(
+    (await withTenant(viewer.tenant.id, (tx) => tx.themeSettings.findUnique({ where: { tenantId: viewer.tenant.id }, select: { overrides: true } })))?.overrides,
+  );
+  const overrides = sanitizeOverrides({ ...raw, campus: current.campus, preset: current.preset });
   const issues = checkContrast(overrides);
   if (issues.length) return { error: "Algumas combinações não atingem o contraste mínimo (WCAG AA). Ajuste as cores destacadas.", issues };
   const defaultMode = z.enum(["DARK", "LIGHT", "SYSTEM"]).parse(fd.get("defaultMode"));
@@ -44,6 +48,22 @@ export async function resetThemeAction() {
   await withTenant(tenantId, async (tx) => {
     await tx.themeSettings.upsert({ where: { tenantId }, create: { tenantId }, update: { overrides: {}, updatedById: viewer.user.id } });
     await audit(tx, { tenantId, actorId: viewer.user.id, action: "tema.restaurado_padrao", entity: "ThemeSettings" });
+  });
+  revalidatePath("/", "layout");
+}
+
+/** Aplica um dos temas prontos: paletas clara e escura, fontes e modo padrão. */
+export async function applyPresetAction(fd: FormData) {
+  const viewer = await assertPermission("theme:manage");
+  const preset = THEME_PRESETS.find((p) => p.id === fd.get("preset"));
+  if (!preset) return;
+  const overrides = sanitizeOverrides({ dark: preset.dark, light: preset.light, fonts: preset.fonts, campus: preset.campus, preset: preset.id });
+  if (checkContrast(overrides).length) return;
+  const tenantId = viewer.tenant.id;
+  await withTenant(tenantId, async (tx) => {
+    const data = { overrides: overrides as Prisma.InputJsonValue, defaultMode: preset.defaultMode, updatedById: viewer.user.id };
+    await tx.themeSettings.upsert({ where: { tenantId }, create: { tenantId, ...data }, update: data });
+    await audit(tx, { tenantId, actorId: viewer.user.id, action: "tema.preset_aplicado", entity: "ThemeSettings", data: { preset: preset.id } as Prisma.InputJsonValue, ip: await clientIp() });
   });
   revalidatePath("/", "layout");
 }
