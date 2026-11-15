@@ -181,6 +181,60 @@ export const shadows = {
   glow: "0 0 0 1px color-mix(in srgb, var(--drap-accent) 30%, transparent), 0 8px 24px color-mix(in srgb, black 8%, transparent)",
 } as const;
 
+/**
+ * Estilos visuais dos temas: só mudam as variáveis de raio e sombra já usadas pelos componentes.
+ * O tema guarda apenas o nome do estilo (nunca CSS livre).
+ */
+const ink = (pct: number, color = "black") => `color-mix(in srgb, ${color} ${pct}%, transparent)`;
+export const STYLE_KITS = {
+  padrao: { label: "Padrão", radii, shadows },
+  reto: {
+    label: "Reto (grid rigoroso)",
+    radii: { sm: "0px", md: "2px", lg: "2px", xl: "4px", full: "9999px" },
+    shadows: { sm: `0 1px 0 ${ink(8)}`, md: `0 2px 0 ${ink(10)}, 0 6px 16px ${ink(6)}`, glow: `0 0 0 1px var(--drap-text), 0 6px 16px ${ink(6)}` },
+  },
+  brutal: {
+    label: "Brutalista (contorno e sombra sólida)",
+    radii: { sm: "0px", md: "0px", lg: "0px", xl: "0px", full: "9999px" },
+    shadows: { sm: "3px 3px 0 var(--drap-text)", md: "6px 6px 0 var(--drap-text)", glow: "0 0 0 2px var(--drap-text), 6px 6px 0 var(--drap-text)" },
+  },
+  arredondado: {
+    label: "Arredondado e macio",
+    radii: { sm: "8px", md: "12px", lg: "18px", xl: "28px", full: "9999px" },
+    shadows: { sm: `0 2px 8px ${ink(5)}`, md: `0 12px 32px ${ink(8)}`, glow: `0 0 0 1px ${ink(25, "var(--drap-primary)")}, 0 12px 32px ${ink(10)}` },
+  },
+  brilho: {
+    label: "Vidro e brilho",
+    radii: { sm: "6px", md: "10px", lg: "14px", xl: "20px", full: "9999px" },
+    shadows: {
+      sm: `0 0 0 1px ${ink(18, "var(--drap-primary)")}, 0 2px 10px ${ink(12, "var(--drap-primary)")}`,
+      md: `0 0 0 1px ${ink(22, "var(--drap-primary)")}, 0 10px 32px ${ink(20, "var(--drap-primary)")}`,
+      glow: `0 0 0 1px ${ink(45, "var(--drap-primary)")}, 0 0 28px ${ink(30, "var(--drap-primary)")}`,
+    },
+  },
+  papel: {
+    label: "Papel (camadas)",
+    radii: { sm: "3px", md: "5px", lg: "8px", xl: "12px", full: "9999px" },
+    shadows: { sm: `0 1px 0 ${ink(7)}, 0 2px 4px ${ink(7)}`, md: `0 2px 0 ${ink(6)}, 0 8px 18px ${ink(10)}`, glow: `0 0 0 1px ${ink(12)}, 0 10px 22px ${ink(12)}` },
+  },
+  metal: {
+    label: "Luxo (profundidade discreta)",
+    radii: { sm: "2px", md: "4px", lg: "6px", xl: "10px", full: "9999px" },
+    shadows: { sm: `0 2px 6px ${ink(25)}`, md: `0 14px 36px ${ink(35)}`, glow: `0 0 0 1px ${ink(45, "var(--drap-accent)")}, 0 14px 36px ${ink(35)}` },
+  },
+  deslocado: {
+    label: "Lúdico (sombra deslocada)",
+    radii: { sm: "10px", md: "14px", lg: "18px", xl: "24px", full: "9999px" },
+    shadows: { sm: `3px 3px 0 ${ink(85, "var(--drap-text)")}`, md: `5px 5px 0 ${ink(85, "var(--drap-text)")}`, glow: `0 0 0 2px var(--drap-text), 5px 5px 0 var(--drap-accent)` },
+  },
+  extrudado: {
+    label: "Arquitetônico (extrudado)",
+    radii: { sm: "2px", md: "3px", lg: "4px", xl: "6px", full: "9999px" },
+    shadows: { sm: `3px 3px 0 ${ink(30, "var(--drap-primary)")}`, md: `6px 6px 0 ${ink(30, "var(--drap-primary)")}`, glow: `0 0 0 1px var(--drap-primary), 6px 6px 0 ${ink(40, "var(--drap-primary)")}` },
+  },
+} as const;
+export type StyleKit = keyof typeof STYLE_KITS;
+
 export const motion = {
   "ease-out": "cubic-bezier(0.22, 1, 0.36, 1)",
   "duration-fast": "120ms",
@@ -194,6 +248,8 @@ export type ThemeOverrides = {
   fonts?: { display?: DisplayFont; body?: BodyFont };
   /** Tema pronto aplicado por último (só informativo: as cores efetivas estão em dark/light). */
   preset?: string;
+  /** Estilo visual (raios e sombras). */
+  style?: StyleKit;
   /** Cores da navegação (barra lateral e topo). */
   campus?: Partial<Record<CampusColor, string>>;
 };
@@ -229,6 +285,7 @@ export function sanitizeOverrides(input: unknown): ThemeOverrides {
     out.campus = {};
     for (const key of CAMPUS_OVERRIDABLE) if (typeof c[key] === "string" && HEX.test(c[key] as string)) out.campus[key] = (c[key] as string).toUpperCase();
   }
+  if (typeof src.style === "string" && src.style in STYLE_KITS) out.style = src.style as StyleKit;
   if (typeof src.preset === "string" && THEME_PRESETS.some((p) => p.id === src.preset)) out.preset = src.preset;
   return out;
 }
@@ -271,8 +328,8 @@ export function buildThemeCss(overrides: ThemeOverrides): string {
     `--drap-font-body:${BODY_FONTS[fonts.body].stack};`,
     `--drap-font-mono:${MONO_FONT};`,
     ...Object.entries(typeScale).map(([k, v]) => `--drap-text-${k}:${v};`),
-    ...Object.entries(radii).map(([k, v]) => `--drap-radius-${k}:${v};`),
-    ...Object.entries(shadows).map(([k, v]) => `--drap-shadow-${k}:${v};`),
+    ...Object.entries(STYLE_KITS[overrides.style ?? "padrao"].radii).map(([k, v]) => `--drap-radius-${k}:${v};`),
+    ...Object.entries(STYLE_KITS[overrides.style ?? "padrao"].shadows).map(([k, v]) => `--drap-shadow-${k}:${v};`),
     ...Object.entries(motion).map(([k, v]) => `--drap-${k}:${v};`),
   ].join("");
   const dark = colorBlock(resolveColors("dark", overrides));
@@ -311,6 +368,7 @@ export type ThemePreset = {
   light: Record<OverridableColor, string>;
   dark: Record<OverridableColor, string>;
   campus: Record<CampusColor, string>;
+  style: StyleKit;
 };
 
 export const THEME_PRESETS: ThemePreset[] = [
@@ -324,6 +382,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F4EEFB", "surface": "#FFFFFF", "surface-raised": "#EADCFD", "border": "#DDD0EC", "text": "#2A0C29", "text-muted": "#5E4A60", "primary": "#421240", "primary-strong": "#421240", "primary-text": "#5B1A58", "accent": "#D9F03A", "accent-text": "#5A6400", "brand-mark": "#421240" },
     dark: { "bg": "#1A0D1C", "surface": "#241326", "surface-raised": "#321B35", "border": "#46304A", "text": "#F4EEFB", "text-muted": "#C9B8CC", "primary": "#E2C6F0", "primary-strong": "#D9F03A", "primary-text": "#E2C6F0", "accent": "#D9F03A", "accent-text": "#D9F03A", "brand-mark": "#D9F03A" },
     campus: { "navy": "#421240", "navy-raised": "#5A2357", "gold": "#D9F03A", "on-navy": "#F7EEF6", "muted": "#D6BFD4", "line": "#5E2F5B" },
+    style: "padrao",
   },
   {
     id: "terracota-organico",
@@ -335,6 +394,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F8EEE2", "surface": "#FFFBF5", "surface-raised": "#F2E4D3", "border": "#E3D3BF", "text": "#3B2418", "text-muted": "#6B5240", "primary": "#973E25", "primary-strong": "#8A3820", "primary-text": "#8A3820", "accent": "#6B7038", "accent-text": "#5C6130", "brand-mark": "#973E25" },
     dark: { "bg": "#221812", "surface": "#2D2019", "surface-raised": "#3A2A20", "border": "#4D3A2D", "text": "#F8EEE2", "text-muted": "#CDBBA8", "primary": "#E39A7A", "primary-strong": "#E39A7A", "primary-text": "#EAA98B", "accent": "#B9BE7C", "accent-text": "#C3C88A", "brand-mark": "#E39A7A" },
     campus: { "navy": "#973E25", "navy-raised": "#AD5236", "gold": "#F3D9A6", "on-navy": "#FFF6EC", "muted": "#F2CDBD", "line": "#A9573E" },
+    style: "arredondado",
   },
   {
     id: "grafite-neon",
@@ -346,6 +406,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F3F5F2", "surface": "#FFFFFF", "surface-raised": "#E6EAE4", "border": "#D3D9D1", "text": "#15191C", "text-muted": "#4E5752", "primary": "#3F6212", "primary-strong": "#3F6212", "primary-text": "#3F6212", "accent": "#84CC16", "accent-text": "#3F6212", "brand-mark": "#3F6212" },
     dark: { "bg": "#121619", "surface": "#1A1F22", "surface-raised": "#23292D", "border": "#333936", "text": "#F2F4F0", "text-muted": "#A9B1AA", "primary": "#B8F04A", "primary-strong": "#B8F04A", "primary-text": "#C4F562", "accent": "#B8F04A", "accent-text": "#B8F04A", "brand-mark": "#B8F04A" },
     campus: { "navy": "#0D1013", "navy-raised": "#1A1F22", "gold": "#B8F04A", "on-navy": "#F2F4F0", "muted": "#A9B1AA", "line": "#2A3033" },
+    style: "brilho",
   },
   {
     id: "oceano",
@@ -357,6 +418,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F2FAFA", "surface": "#FFFFFF", "surface-raised": "#E0F2F1", "border": "#CFE5E4", "text": "#0B2F3A", "text-muted": "#4A6870", "primary": "#013C4E", "primary-strong": "#013C4E", "primary-text": "#02566B", "accent": "#F2785C", "accent-text": "#B4432A", "brand-mark": "#0E7A76" },
     dark: { "bg": "#04222C", "surface": "#0A2F3B", "surface-raised": "#12404D", "border": "#1F5260", "text": "#EAF7F7", "text-muted": "#A6C6CA", "primary": "#5ED0C8", "primary-strong": "#5ED0C8", "primary-text": "#7FDCD5", "accent": "#FF9A80", "accent-text": "#FF9A80", "brand-mark": "#5ED0C8" },
     campus: { "navy": "#013C4E", "navy-raised": "#0B5166", "gold": "#5ED0C8", "on-navy": "#EAF7F7", "muted": "#A6C6CA", "line": "#1D5A6B" },
+    style: "arredondado",
   },
   {
     id: "cereja",
@@ -368,6 +430,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FDF7F7", "surface": "#FFFFFF", "surface-raised": "#F8E9EB", "border": "#EBD5D8", "text": "#4A1020", "text-muted": "#6E4A52", "primary": "#B3122E", "primary-strong": "#A3102A", "primary-text": "#A3102A", "accent": "#C93A52", "accent-text": "#A3102A", "brand-mark": "#B3122E" },
     dark: { "bg": "#1E0C11", "surface": "#2A1218", "surface-raised": "#381A21", "border": "#4E2A32", "text": "#FBEFF1", "text-muted": "#D3B4BA", "primary": "#FF8A9B", "primary-strong": "#FF8A9B", "primary-text": "#FF9EAC", "accent": "#FF8A9B", "accent-text": "#FF9EAC", "brand-mark": "#FF8A9B" },
     campus: { "navy": "#4A1020", "navy-raised": "#651A2E", "gold": "#FF8A9B", "on-navy": "#FBEFF1", "muted": "#E3BCC4", "line": "#6B2738" },
+    style: "padrao",
   },
   {
     id: "swiss-laranja",
@@ -379,6 +442,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F5F4F2", "surface": "#FFFFFF", "surface-raised": "#EAE8E5", "border": "#D9D6D2", "text": "#111111", "text-muted": "#55524E", "primary": "#C2410C", "primary-strong": "#C2410C", "primary-text": "#B23A0A", "accent": "#F97316", "accent-text": "#B23A0A", "brand-mark": "#D9500B" },
     dark: { "bg": "#141414", "surface": "#1E1E1E", "surface-raised": "#2A2A2A", "border": "#3A3A3A", "text": "#F5F4F2", "text-muted": "#B5B1AC", "primary": "#FF8A3D", "primary-strong": "#FF8A3D", "primary-text": "#FF9A55", "accent": "#FF8A3D", "accent-text": "#FF9A55", "brand-mark": "#FF8A3D" },
     campus: { "navy": "#111111", "navy-raised": "#222222", "gold": "#FF8A3D", "on-navy": "#F5F4F2", "muted": "#BDBAB6", "line": "#333333" },
+    style: "reto",
   },
   {
     id: "azul-noturno",
@@ -390,6 +454,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F2F5FB", "surface": "#FFFFFF", "surface-raised": "#E4EAF6", "border": "#D0D9EB", "text": "#0B1431", "text-muted": "#4A5578", "primary": "#1E3A8A", "primary-strong": "#1E3A8A", "primary-text": "#1E40AF", "accent": "#F5B544", "accent-text": "#8A5A00", "brand-mark": "#1E3A8A" },
     dark: { "bg": "#0B1431", "surface": "#111C3E", "surface-raised": "#1A274E", "border": "#2A3A66", "text": "#EEF2FA", "text-muted": "#A8B4CF", "primary": "#8CC8FF", "primary-strong": "#8CC8FF", "primary-text": "#9DD1FF", "accent": "#F5B544", "accent-text": "#F5B544", "brand-mark": "#8CC8FF" },
     campus: { "navy": "#07102C", "navy-raised": "#111C3E", "gold": "#8CC8FF", "on-navy": "#EEF2FA", "muted": "#A8B4CF", "line": "#22305A" },
+    style: "brilho",
   },
   {
     id: "pistache",
@@ -401,6 +466,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#E6F2D9", "surface": "#FFFFFF", "surface-raised": "#EEF6E5", "border": "#D3E3C2", "text": "#2C3A16", "text-muted": "#4F5C39", "primary": "#4B5E1F", "primary-strong": "#4B5E1F", "primary-text": "#45571C", "accent": "#E59AAE", "accent-text": "#8F3550", "brand-mark": "#4B5E1F" },
     dark: { "bg": "#151C10", "surface": "#1E2717", "surface-raised": "#29341F", "border": "#3A4730", "text": "#EEF6E5", "text-muted": "#BCC9AE", "primary": "#B9D98A", "primary-strong": "#B9D98A", "primary-text": "#C6E39C", "accent": "#F2A7BB", "accent-text": "#F2A7BB", "brand-mark": "#B9D98A" },
     campus: { "navy": "#2C3A16", "navy-raised": "#3D4E22", "gold": "#B9D98A", "on-navy": "#EEF6E5", "muted": "#C5D1B5", "line": "#46582A" },
+    style: "arredondado",
   },
   {
     id: "monocromatico",
@@ -412,6 +478,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FAF9F7", "surface": "#FFFFFF", "surface-raised": "#EFEFEF", "border": "#DCDCDC", "text": "#111111", "text-muted": "#555555", "primary": "#111111", "primary-strong": "#111111", "primary-text": "#111111", "accent": "#444444", "accent-text": "#444444", "brand-mark": "#111111" },
     dark: { "bg": "#0E0E0E", "surface": "#171717", "surface-raised": "#222222", "border": "#333333", "text": "#F5F4F1", "text-muted": "#B0B0B0", "primary": "#F5F4F1", "primary-strong": "#F5F4F1", "primary-text": "#F5F4F1", "accent": "#C8C8C8", "accent-text": "#C8C8C8", "brand-mark": "#F5F4F1" },
     campus: { "navy": "#0E0E0E", "navy-raised": "#1E1E1E", "gold": "#F5F4F1", "on-navy": "#F5F4F1", "muted": "#B0B0B0", "line": "#333333" },
+    style: "reto",
   },
   {
     id: "ameixa-damasco",
@@ -423,6 +490,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FDF1EC", "surface": "#FFFFFF", "surface-raised": "#FBE3D9", "border": "#EED6CC", "text": "#3D1530", "text-muted": "#6C4A5E", "primary": "#6E2A55", "primary-strong": "#6E2A55", "primary-text": "#6E2A55", "accent": "#F4A06B", "accent-text": "#94440F", "brand-mark": "#6E2A55" },
     dark: { "bg": "#1F1019", "surface": "#2A1622", "surface-raised": "#381F2E", "border": "#4E3043", "text": "#FDF1EC", "text-muted": "#D2B7C5", "primary": "#F4A06B", "primary-strong": "#F4A06B", "primary-text": "#F7B48A", "accent": "#C9A3D9", "accent-text": "#D3B3E0", "brand-mark": "#F4A06B" },
     campus: { "navy": "#4A1A3B", "navy-raised": "#622650", "gold": "#F4A06B", "on-navy": "#FDF1EC", "muted": "#DEC0D2", "line": "#6C3459" },
+    style: "arredondado",
   },
   {
     id: "ultravioleta-holografico",
@@ -434,6 +502,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F6F3FF", "surface": "#FFFFFF", "surface-raised": "#ECE6FF", "border": "#DAD1F5", "text": "#1A1033", "text-muted": "#554A75", "primary": "#6B21A8", "primary-strong": "#6B21A8", "primary-text": "#6B21A8", "accent": "#0E7490", "accent-text": "#0E7490", "brand-mark": "#6B21A8" },
     dark: { "bg": "#0E0A1A", "surface": "#171129", "surface-raised": "#22193A", "border": "#3A2C5C", "text": "#F2EEFF", "text-muted": "#B7AEDA", "primary": "#D58BFF", "primary-strong": "#D58BFF", "primary-text": "#E0A6FF", "accent": "#3EE6F0", "accent-text": "#3EE6F0", "brand-mark": "#D58BFF" },
     campus: { "navy": "#0B0816", "navy-raised": "#1C1430", "gold": "#3EE6F0", "on-navy": "#F2EEFF", "muted": "#B7AEDA", "line": "#2E2450" },
+    style: "brilho",
   },
   {
     id: "cobalto-brutalista",
@@ -445,6 +514,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FFF8DC", "surface": "#FFFFFF", "surface-raised": "#FFEFB0", "border": "#8A7A3A", "text": "#111111", "text-muted": "#3F3F3F", "primary": "#1D3BD1", "primary-strong": "#1D3BD1", "primary-text": "#1D3BD1", "accent": "#E8431A", "accent-text": "#B3300D", "brand-mark": "#1D3BD1" },
     dark: { "bg": "#0A1240", "surface": "#111B57", "surface-raised": "#1A266E", "border": "#34449A", "text": "#FFF8DC", "text-muted": "#C9D0F2", "primary": "#FFE27A", "primary-strong": "#FFE27A", "primary-text": "#FFE27A", "accent": "#FF7A50", "accent-text": "#FF8A64", "brand-mark": "#FFE27A" },
     campus: { "navy": "#1D3BD1", "navy-raised": "#2E4FE6", "gold": "#FFE27A", "on-navy": "#FFFFFF", "muted": "#E3E8FF", "line": "#4A64E8" },
+    style: "brutal",
   },
   {
     id: "rubi-cromado",
@@ -456,6 +526,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FAF6F5", "surface": "#FFFFFF", "surface-raised": "#EFE7E6", "border": "#DCCFCD", "text": "#3A0A12", "text-muted": "#6B4A4F", "primary": "#A0102A", "primary-strong": "#A0102A", "primary-text": "#A0102A", "accent": "#6E6866", "accent-text": "#5C5654", "brand-mark": "#A0102A" },
     dark: { "bg": "#1E070C", "surface": "#2A0D13", "surface-raised": "#3A141C", "border": "#5A2630", "text": "#FBF1F1", "text-muted": "#D9B9BD", "primary": "#FF5A6E", "primary-strong": "#FF5A6E", "primary-text": "#FF7A8A", "accent": "#C9C3C1", "accent-text": "#D8D2D0", "brand-mark": "#FF5A6E" },
     campus: { "navy": "#16050A", "navy-raised": "#2A0D13", "gold": "#FF5A6E", "on-navy": "#FBF1F1", "muted": "#D9B9BD", "line": "#4A1C24" },
+    style: "metal",
   },
   {
     id: "tropical-pop",
@@ -467,6 +538,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FFF9F0", "surface": "#FFFFFF", "surface-raised": "#FFEFD9", "border": "#F0DDC4", "text": "#13261C", "text-muted": "#4C5A50", "primary": "#047857", "primary-strong": "#047857", "primary-text": "#047857", "accent": "#D61F6E", "accent-text": "#C2185B", "brand-mark": "#047857" },
     dark: { "bg": "#0B1F17", "surface": "#12291F", "surface-raised": "#1B3629", "border": "#2C4A3B", "text": "#FFF9F0", "text-muted": "#BFD1C6", "primary": "#34D399", "primary-strong": "#34D399", "primary-text": "#5EE0AE", "accent": "#FF77AE", "accent-text": "#FF8FBC", "brand-mark": "#FFD43B" },
     campus: { "navy": "#066B4E", "navy-raised": "#0A7D5C", "gold": "#FFD43B", "on-navy": "#FFFFFF", "muted": "#CFEFE2", "line": "#1B8A68" },
+    style: "arredondado",
   },
   {
     id: "obsidiana-ouro",
@@ -478,6 +550,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FBF8F1", "surface": "#FFFFFF", "surface-raised": "#F2ECDF", "border": "#E2D8C3", "text": "#1A1712", "text-muted": "#5C5446", "primary": "#7A5A1C", "primary-strong": "#7A5A1C", "primary-text": "#7A5A1C", "accent": "#B8924A", "accent-text": "#7A5A1C", "brand-mark": "#7A5A1C" },
     dark: { "bg": "#0C0B09", "surface": "#161411", "surface-raised": "#211E19", "border": "#3A3428", "text": "#F6F0E2", "text-muted": "#BDB4A0", "primary": "#D9B66E", "primary-strong": "#D9B66E", "primary-text": "#E4C68A", "accent": "#D9B66E", "accent-text": "#E4C68A", "brand-mark": "#D9B66E" },
     campus: { "navy": "#080706", "navy-raised": "#1A1713", "gold": "#D9B66E", "on-navy": "#F6F0E2", "muted": "#BDB4A0", "line": "#3A3428" },
+    style: "metal",
   },
   {
     id: "coral-aquatico",
@@ -489,6 +562,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#EEF8F5", "surface": "#FFFFFF", "surface-raised": "#DDF1EC", "border": "#C8E5DE", "text": "#0A3442", "text-muted": "#456770", "primary": "#0B5566", "primary-strong": "#0B5566", "primary-text": "#0B5566", "accent": "#C8352E", "accent-text": "#B8302A", "brand-mark": "#E0463F" },
     dark: { "bg": "#06222B", "surface": "#0C2F3A", "surface-raised": "#134050", "border": "#215566", "text": "#EEF8F5", "text-muted": "#A8C9CC", "primary": "#4FE3D6", "primary-strong": "#4FE3D6", "primary-text": "#6FEADF", "accent": "#FF8B85", "accent-text": "#FF9C97", "brand-mark": "#FF8B85" },
     campus: { "navy": "#0A3442", "navy-raised": "#10485A", "gold": "#4FE3D6", "on-navy": "#EEF8F5", "muted": "#A8C9CC", "line": "#1D5A6B" },
+    style: "arredondado",
   },
   {
     id: "magenta-editorial",
@@ -500,6 +574,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FFFBF7", "surface": "#FFFFFF", "surface-raised": "#FFE6EF", "border": "#EBD9DE", "text": "#0A0A0A", "text-muted": "#4F4648", "primary": "#C2006F", "primary-strong": "#C2006F", "primary-text": "#B0005F", "accent": "#D9530F", "accent-text": "#B3420B", "brand-mark": "#C2006F" },
     dark: { "bg": "#0A0A0A", "surface": "#161214", "surface-raised": "#22191D", "border": "#3A2C31", "text": "#FFFBF7", "text-muted": "#C9B9BE", "primary": "#FF5CB0", "primary-strong": "#FF5CB0", "primary-text": "#FF7DC0", "accent": "#FF8A4A", "accent-text": "#FF9A60", "brand-mark": "#FF5CB0" },
     campus: { "navy": "#0A0A0A", "navy-raised": "#1C1C1C", "gold": "#FF5CB0", "on-navy": "#FFFBF7", "muted": "#C2B8BB", "line": "#333333" },
+    style: "reto",
   },
   {
     id: "solar-retrofuturo",
@@ -511,6 +586,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FFF4EA", "surface": "#FFFFFF", "surface-raised": "#F3E8F7", "border": "#E8D6D0", "text": "#2A1232", "text-muted": "#634A68", "primary": "#B8430C", "primary-strong": "#B8430C", "primary-text": "#A83C0A", "accent": "#7C5BC7", "accent-text": "#6A47B8", "brand-mark": "#B8430C" },
     dark: { "bg": "#1E0F24", "surface": "#2A1632", "surface-raised": "#381F42", "border": "#4F3059", "text": "#FFF1E6", "text-muted": "#D3BFD6", "primary": "#FF8A3D", "primary-strong": "#FF8A3D", "primary-text": "#FFA060", "accent": "#C9B6F2", "accent-text": "#D2C2F5", "brand-mark": "#FF8A3D" },
     campus: { "navy": "#170A1C", "navy-raised": "#2A1632", "gold": "#FF8A3D", "on-navy": "#FFF1E6", "muted": "#D3BFD6", "line": "#43284C" },
+    style: "brilho",
   },
   {
     id: "esmeralda-artdeco",
@@ -522,6 +598,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FAF5EA", "surface": "#FFFFFF", "surface-raised": "#F0E8D6", "border": "#DDD0B4", "text": "#0B2E25", "text-muted": "#4A5E56", "primary": "#0B5E49", "primary-strong": "#0B5E49", "primary-text": "#0B5E49", "accent": "#C24A33", "accent-text": "#A63A25", "brand-mark": "#8A6A2A" },
     dark: { "bg": "#062A22", "surface": "#0B3A2F", "surface-raised": "#124A3D", "border": "#2A5A4D", "text": "#F8F1E3", "text-muted": "#C2D3C8", "primary": "#E0B870", "primary-strong": "#E0B870", "primary-text": "#E8C788", "accent": "#FF8A70", "accent-text": "#FF9E88", "brand-mark": "#E0B870" },
     campus: { "navy": "#04221B", "navy-raised": "#0B3A2F", "gold": "#E0B870", "on-navy": "#F8F1E3", "muted": "#C2D3C8", "line": "#1E4B3F" },
+    style: "metal",
   },
   {
     id: "gelo-prisma",
@@ -533,6 +610,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F7F9FD", "surface": "#FFFFFF", "surface-raised": "#EDF1FA", "border": "#DCE2F0", "text": "#0A0A14", "text-muted": "#4C5266", "primary": "#2335E0", "primary-strong": "#2335E0", "primary-text": "#2335E0", "accent": "#9A35C9", "accent-text": "#8A2DB8", "brand-mark": "#2335E0" },
     dark: { "bg": "#0A0C1A", "surface": "#121528", "surface-raised": "#1B1F38", "border": "#2E3354", "text": "#F2F4FF", "text-muted": "#B3B8D6", "primary": "#8C9BFF", "primary-strong": "#8C9BFF", "primary-text": "#A3AFFF", "accent": "#FF7AD9", "accent-text": "#FF8FE0", "brand-mark": "#8C9BFF" },
     campus: { "navy": "#0A0A14", "navy-raised": "#1A1C2C", "gold": "#6FE3F5", "on-navy": "#F2F4FF", "muted": "#B3B8D6", "line": "#2C2F45" },
+    style: "brilho",
   },
   {
     id: "risografia",
@@ -544,6 +622,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F6F0E1", "surface": "#FFFBF2", "surface-raised": "#EFE5CF", "border": "#DCCFB2", "text": "#1A2350", "text-muted": "#4E5470", "primary": "#1F3A93", "primary-strong": "#1F3A93", "primary-text": "#1F3A93", "accent": "#C83A26", "accent-text": "#B3321F", "brand-mark": "#D2442B" },
     dark: { "bg": "#121731", "surface": "#1A2142", "surface-raised": "#232B54", "border": "#36406E", "text": "#F6F0E1", "text-muted": "#C2C3D6", "primary": "#FFB27A", "primary-strong": "#FFB27A", "primary-text": "#FFC08F", "accent": "#F2C14E", "accent-text": "#F2C14E", "brand-mark": "#FF7A5C" },
     campus: { "navy": "#1F3A93", "navy-raised": "#2B4BAA", "gold": "#F2C14E", "on-navy": "#FFFBF2", "muted": "#D3DBF2", "line": "#3D5BB8" },
+    style: "papel",
   },
   {
     id: "papel-recortado",
@@ -555,6 +634,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FBF5EC", "surface": "#FFFFFF", "surface-raised": "#EFE7F7", "border": "#E3D8E8", "text": "#3A1638", "text-muted": "#6A4E66", "primary": "#5B1F57", "primary-strong": "#5B1F57", "primary-text": "#5B1F57", "accent": "#B4562F", "accent-text": "#A24A26", "brand-mark": "#5B1F57" },
     dark: { "bg": "#1E1220", "surface": "#2A1A2D", "surface-raised": "#36223A", "border": "#4E3552", "text": "#FBF5EC", "text-muted": "#D4C0D2", "primary": "#D9B8F0", "primary-strong": "#D9B8F0", "primary-text": "#E2C8F4", "accent": "#9FE0C4", "accent-text": "#9FE0C4", "brand-mark": "#FFB899" },
     campus: { "navy": "#5B1F57", "navy-raised": "#6E2C69", "gold": "#FFC6A8", "on-navy": "#FFF6F0", "muted": "#E5C9E1", "line": "#7A3A74" },
+    style: "papel",
   },
   {
     id: "ceramica-azul",
@@ -566,6 +646,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F8F9FB", "surface": "#FFFFFF", "surface-raised": "#EAF0FA", "border": "#D6DFEE", "text": "#0D1F4A", "text-muted": "#4A5675", "primary": "#1740B0", "primary-strong": "#1740B0", "primary-text": "#1740B0", "accent": "#2A62CC", "accent-text": "#1E4FB8", "brand-mark": "#1740B0" },
     dark: { "bg": "#0A1430", "surface": "#101C40", "surface-raised": "#18264F", "border": "#2A3A6A", "text": "#F3F6FC", "text-muted": "#B6C2DD", "primary": "#8DB2FF", "primary-strong": "#8DB2FF", "primary-text": "#A3C1FF", "accent": "#8DB2FF", "accent-text": "#A3C1FF", "brand-mark": "#8DB2FF" },
     campus: { "navy": "#0D1F4A", "navy-raised": "#16306A", "gold": "#8DB2FF", "on-navy": "#F3F6FC", "muted": "#B6C2DD", "line": "#253F7A" },
+    style: "arredondado",
   },
   {
     id: "cartografia",
@@ -577,6 +658,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#EEF2EE", "surface": "#FFFFFF", "surface-raised": "#E2E9E3", "border": "#CAD5CC", "text": "#12301F", "text-muted": "#4A5E51", "primary": "#C2410C", "primary-strong": "#C2410C", "primary-text": "#B23A0A", "accent": "#1D6596", "accent-text": "#1D6596", "brand-mark": "#12301F" },
     dark: { "bg": "#0E1A14", "surface": "#15241C", "surface-raised": "#1E3026", "border": "#2E4436", "text": "#EEF2EE", "text-muted": "#B4C2B8", "primary": "#FF8A3D", "primary-strong": "#FF8A3D", "primary-text": "#FF9A55", "accent": "#7CC4F2", "accent-text": "#8ECDF5", "brand-mark": "#FF8A3D" },
     campus: { "navy": "#12301F", "navy-raised": "#1C4029", "gold": "#FF8A3D", "on-navy": "#EEF2EE", "muted": "#B4C8BA", "line": "#2A4D36" },
+    style: "reto",
   },
   {
     id: "bauhaus",
@@ -588,6 +670,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F7F1E3", "surface": "#FFFDF7", "surface-raised": "#EFE6D0", "border": "#D9CDB0", "text": "#141414", "text-muted": "#4A463F", "primary": "#1F4FB8", "primary-strong": "#1F4FB8", "primary-text": "#1F4FB8", "accent": "#C42424", "accent-text": "#B01E1E", "brand-mark": "#C42424" },
     dark: { "bg": "#141414", "surface": "#1E1E1E", "surface-raised": "#2A2A2A", "border": "#3D3D3D", "text": "#F7F1E3", "text-muted": "#C2BBA8", "primary": "#F2B632", "primary-strong": "#F2B632", "primary-text": "#F2B632", "accent": "#FF6B5A", "accent-text": "#FF7F70", "brand-mark": "#F2B632" },
     campus: { "navy": "#1A44A0", "navy-raised": "#2654B8", "gold": "#F2B632", "on-navy": "#FFFDF7", "muted": "#DDE4F5", "line": "#3E6BCF" },
+    style: "reto",
   },
   {
     id: "aero-perola",
@@ -599,6 +682,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#EEF5FC", "surface": "#FFFFFF", "surface-raised": "#E2EEF9", "border": "#C9DBEE", "text": "#0E2A47", "text-muted": "#4A6078", "primary": "#0B5FB8", "primary-strong": "#0B5FB8", "primary-text": "#0B5FB8", "accent": "#3A841C", "accent-text": "#2F7016", "brand-mark": "#0B5FB8" },
     dark: { "bg": "#0A1A2C", "surface": "#10243A", "surface-raised": "#18304A", "border": "#284660", "text": "#EEF5FC", "text-muted": "#B2C6DA", "primary": "#6CB8FF", "primary-strong": "#6CB8FF", "primary-text": "#86C5FF", "accent": "#9BE36A", "accent-text": "#A8E87C", "brand-mark": "#6CB8FF" },
     campus: { "navy": "#0B4F9C", "navy-raised": "#1260B3", "gold": "#B8F08A", "on-navy": "#F4F9FF", "muted": "#C9DDF2", "line": "#2B6DB8" },
+    style: "arredondado",
   },
   {
     id: "terminal-ambar",
@@ -610,6 +694,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FBF6EC", "surface": "#FFFFFF", "surface-raised": "#F2E8D4", "border": "#E0D0B0", "text": "#1F150A", "text-muted": "#5E4E36", "primary": "#8A5300", "primary-strong": "#8A5300", "primary-text": "#8A5300", "accent": "#9C6210", "accent-text": "#8A5300", "brand-mark": "#8A5300" },
     dark: { "bg": "#120D08", "surface": "#1B140D", "surface-raised": "#261C12", "border": "#4A3826", "text": "#F5ECD8", "text-muted": "#C7B595", "primary": "#FFB547", "primary-strong": "#FFB547", "primary-text": "#FFC266", "accent": "#FFB547", "accent-text": "#FFC266", "brand-mark": "#FFB547" },
     campus: { "navy": "#0D0905", "navy-raised": "#1B140D", "gold": "#FFB547", "on-navy": "#F5ECD8", "muted": "#C7B595", "line": "#3A2C1C" },
+    style: "reto",
   },
   {
     id: "memphis",
@@ -621,6 +706,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#FFF1E8", "surface": "#FFFFFF", "surface-raised": "#F3E6FA", "border": "#EBD6D0", "text": "#221A4A", "text-muted": "#574E78", "primary": "#2E2370", "primary-strong": "#2E2370", "primary-text": "#2E2370", "accent": "#C8402E", "accent-text": "#B83A28", "brand-mark": "#2E2370" },
     dark: { "bg": "#17122E", "surface": "#20193E", "surface-raised": "#2B2350", "border": "#3F3670", "text": "#FFF1E8", "text-muted": "#C9C1E2", "primary": "#C9B2FF", "primary-strong": "#C9B2FF", "primary-text": "#D4C2FF", "accent": "#7FE3C0", "accent-text": "#7FE3C0", "brand-mark": "#FF8A78" },
     campus: { "navy": "#2E2370", "navy-raised": "#3B2F88", "gold": "#7FE3C0", "on-navy": "#FFF1E8", "muted": "#CEC6EE", "line": "#4A3E96" },
+    style: "deslocado",
   },
   {
     id: "botanico-editorial",
@@ -632,6 +718,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#F5F1EA", "surface": "#FFFDF8", "surface-raised": "#ECE5D8", "border": "#DAD0BE", "text": "#23331F", "text-muted": "#56604E", "primary": "#2F4A2A", "primary-strong": "#2F4A2A", "primary-text": "#2F4A2A", "accent": "#9A4C36", "accent-text": "#8E4430", "brand-mark": "#2F4A2A" },
     dark: { "bg": "#141A12", "surface": "#1C241A", "surface-raised": "#263023", "border": "#384634", "text": "#F5F1EA", "text-muted": "#C2C6B6", "primary": "#B5CFA0", "primary-strong": "#B5CFA0", "primary-text": "#C2D8AF", "accent": "#E3A6A0", "accent-text": "#E8B3AE", "brand-mark": "#B5CFA0" },
     campus: { "navy": "#2F4A2A", "navy-raised": "#3C5A36", "gold": "#E3B9A8", "on-navy": "#F5F1EA", "muted": "#C9D4C0", "line": "#4A6A44" },
+    style: "papel",
   },
   {
     id: "arquitetura-ameixa",
@@ -643,5 +730,6 @@ export const THEME_PRESETS: ThemePreset[] = [
     light: { "bg": "#EEECF3", "surface": "#FFFFFF", "surface-raised": "#E3E0EC", "border": "#CFCBDC", "text": "#14111F", "text-muted": "#4C4860", "primary": "#4E1B56", "primary-strong": "#4E1B56", "primary-text": "#4E1B56", "accent": "#C5E43A", "accent-text": "#5A6B00", "brand-mark": "#4E1B56" },
     dark: { "bg": "#150F1A", "surface": "#1F1726", "surface-raised": "#2A2033", "border": "#40324B", "text": "#F3F0F8", "text-muted": "#C3B9CE", "primary": "#D4F04A", "primary-strong": "#D4F04A", "primary-text": "#D4F04A", "accent": "#D4F04A", "accent-text": "#D4F04A", "brand-mark": "#D4F04A" },
     campus: { "navy": "#4E1B56", "navy-raised": "#63276C", "gold": "#D4F04A", "on-navy": "#F7F0F8", "muted": "#DCC5DF", "line": "#6D3576" },
+    style: "extrudado",
   },
 ];
