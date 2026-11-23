@@ -26,6 +26,7 @@ import "@fontsource/poiret-one/400.css";
 import "katex/dist/katex.min.css";
 import "./globals.css";
 import { getTenantTheme, resolveThemeChoice } from "@/theme/server";
+import { AvisoLegal } from "@/components/aviso-legal";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +53,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           Pular para o conteúdo
         </a>
         {children}
+        <AvisoLegal />
       </body>
     </html>
   );
