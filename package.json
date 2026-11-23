@@ -72,5 +72,7 @@
     "tsx": "4.23.15",
     "typescript": "5.9.3",
     "vitest": "3.2.7"
-  }
+  },
+  "license": "UNLICENSED",
+  "author": "DRAP INTELIGENCIA DE MERCADO LTDA (CNPJ 64.759.314/0001-55)"
 }
